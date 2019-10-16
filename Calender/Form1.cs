@@ -12,7 +12,6 @@ namespace Calender
 {
     public partial class Form1 : Form
     {
-        
         public Form1()
         {
             InitializeComponent();
@@ -51,7 +50,7 @@ namespace Calender
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-
+            NewEvent.ShowDialog();
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -94,6 +93,16 @@ namespace Calender
         {
             Months.ToNextMonth();
             PresentMonth.Text = Months.GetMonth();
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
         }
     }
 }

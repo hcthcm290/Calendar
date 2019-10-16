@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            NewEvent = new New_Event();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -129,6 +130,7 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(566, 137);
             this.panel8.TabIndex = 2;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // addbutton
             // 
@@ -551,6 +553,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label8
             // 
@@ -672,8 +675,7 @@
             this.PresentMonth.Name = "PresentMonth";
             this.PresentMonth.Size = new System.Drawing.Size(290, 59);
             this.PresentMonth.TabIndex = 4;
-            Months.SyncMonth();
-            this.PresentMonth.Text = Months.GetMonth();
+            this.PresentMonth.Text = "January";
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -806,6 +808,7 @@
         private System.Windows.Forms.Label PresentMonth;
         private System.Windows.Forms.Button PrevMonth;
         private System.Windows.Forms.Button NextMonth;
+        New_Event NewEvent;
     }
 }
 
