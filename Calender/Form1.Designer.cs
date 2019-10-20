@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            NewEvent = new New_Event();
+            this.new_Event = new New_Event();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -750,6 +750,7 @@
 
         #endregion
 
+        New_Event new_Event;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -808,7 +809,6 @@
         private System.Windows.Forms.Label PresentMonth;
         private System.Windows.Forms.Button PrevMonth;
         private System.Windows.Forms.Button NextMonth;
-        New_Event NewEvent;
     }
 }
 

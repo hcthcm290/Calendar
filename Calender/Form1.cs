@@ -50,7 +50,7 @@ namespace Calender
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            NewEvent.ShowDialog();
+            new_Event.ShowDialog();
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
