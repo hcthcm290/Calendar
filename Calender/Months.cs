@@ -58,6 +58,6 @@ namespace Calender
             iCurrent = DateTime.Now.Month;
         }
 
-        static int iCurrent = 1;
+        static public int iCurrent = 1;
     }
 }
