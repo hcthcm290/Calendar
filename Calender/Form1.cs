@@ -183,11 +183,6 @@ namespace Calender
 
         }
 
-        private void nextMonth_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PrevMonth_Click(object sender, EventArgs e)
         {
             Months.ToPrevMonth();

@@ -17,5 +17,13 @@ namespace Calender
         {
             return yCurrent;
         }
+        public static void ToNextYear()
+        {
+            yCurrent++;
+        }
+        public static void ToPrevYear()
+        {
+            yCurrent--;
+        }
     }
 }

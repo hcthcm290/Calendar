@@ -41,6 +41,7 @@ namespace Calender
             if(iCurrent == 0)
             {
                 iCurrent = 1;
+                Year.ToNextYear();
             }
         }
 
@@ -50,6 +51,7 @@ namespace Calender
             if (iCurrent == 0)
             {
                 iCurrent = 12;
+                Year.ToPrevYear();
             }
         }
 
