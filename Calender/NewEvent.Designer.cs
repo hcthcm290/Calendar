@@ -368,7 +368,7 @@
             this.Year_End.Name = "Year_End";
             this.Year_End.Size = new System.Drawing.Size(61, 37);
             this.Year_End.TabIndex = 3;
-            this.Year_End.Text = "19";
+            this.Year_End.Text = "yy";
             // 
             // Month_End
             // 
@@ -485,7 +485,7 @@
             this.Year_Start.Name = "Year_Start";
             this.Year_Start.Size = new System.Drawing.Size(61, 37);
             this.Year_Start.TabIndex = 3;
-            this.Year_Start.Text = "19";
+            this.Year_Start.Text = "yy";
             // 
             // Month_Start
             // 
