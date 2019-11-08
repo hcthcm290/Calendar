@@ -39,10 +39,10 @@
             this.comboBox13 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.Priority = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.RepeatPanel = new System.Windows.Forms.Panel();
+            this.Repeat = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,12 +66,13 @@
             this.Location = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.TextBox();
+            this.RepeatDayLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.RepeatPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,7 +87,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(653, 44);
             this.panel1.TabIndex = 0;
@@ -99,7 +100,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(534, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 37);
             this.button2.TabIndex = 2;
@@ -115,7 +116,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(-15, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 37);
             this.button1.TabIndex = 1;
@@ -143,13 +144,13 @@
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.RepeatPanel);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Location = new System.Drawing.Point(0, 48);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(662, 364);
             this.panel2.TabIndex = 1;
@@ -159,7 +160,7 @@
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.Controls.Add(this.Notes);
             this.panel10.Location = new System.Drawing.Point(328, 108);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(315, 49);
             this.panel10.TabIndex = 3;
@@ -183,7 +184,7 @@
             this.panel8.Controls.Add(this.comboBox13);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(328, 55);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(315, 49);
             this.panel8.TabIndex = 11;
@@ -213,25 +214,25 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.comboBox12);
+            this.panel7.Controls.Add(this.Priority);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Location = new System.Drawing.Point(328, 2);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(315, 49);
             this.panel7.TabIndex = 10;
             // 
-            // comboBox12
+            // Priority
             // 
-            this.comboBox12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox12.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(83, 11);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(214, 32);
-            this.comboBox12.TabIndex = 9;
-            this.comboBox12.Text = "urgent";
+            this.Priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Priority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Priority.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Priority.ForeColor = System.Drawing.Color.Gray;
+            this.Priority.FormattingEnabled = true;
+            this.Priority.Location = new System.Drawing.Point(83, 11);
+            this.Priority.Name = "Priority";
+            this.Priority.Size = new System.Drawing.Size(214, 32);
+            this.Priority.TabIndex = 9;
             // 
             // label9
             // 
@@ -243,28 +244,30 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "Priority";
             // 
-            // panel9
+            // RepeatPanel
             // 
-            this.panel9.BackColor = System.Drawing.Color.White;
-            this.panel9.Controls.Add(this.comboBox11);
-            this.panel9.Controls.Add(this.label8);
-            this.panel9.Location = new System.Drawing.Point(9, 108);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(315, 49);
-            this.panel9.TabIndex = 3;
+            this.RepeatPanel.BackColor = System.Drawing.Color.White;
+            this.RepeatPanel.Controls.Add(this.RepeatDayLabel);
+            this.RepeatPanel.Controls.Add(this.Repeat);
+            this.RepeatPanel.Controls.Add(this.label8);
+            this.RepeatPanel.Location = new System.Drawing.Point(9, 108);
+            this.RepeatPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.RepeatPanel.Name = "RepeatPanel";
+            this.RepeatPanel.Size = new System.Drawing.Size(315, 49);
+            this.RepeatPanel.TabIndex = 3;
             // 
-            // comboBox11
+            // Repeat
             // 
-            this.comboBox11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox11.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(85, 11);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(212, 32);
-            this.comboBox11.TabIndex = 9;
-            this.comboBox11.Text = "daily";
+            this.Repeat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Repeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Repeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Repeat.ForeColor = System.Drawing.Color.Gray;
+            this.Repeat.FormattingEnabled = true;
+            this.Repeat.Location = new System.Drawing.Point(96, 11);
+            this.Repeat.Name = "Repeat";
+            this.Repeat.Size = new System.Drawing.Size(201, 32);
+            this.Repeat.TabIndex = 9;
+            this.Repeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -288,7 +291,7 @@
             this.panel5.Controls.Add(this.Month_End);
             this.panel5.Controls.Add(this.Day_End);
             this.panel5.Location = new System.Drawing.Point(9, 214);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(634, 49);
             this.panel5.TabIndex = 9;
@@ -399,7 +402,7 @@
             this.panel6.Controls.Add(this.Month_Start);
             this.panel6.Controls.Add(this.Day_Start);
             this.panel6.Location = new System.Drawing.Point(9, 161);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(634, 49);
             this.panel6.TabIndex = 5;
@@ -507,7 +510,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.Location);
             this.panel3.Location = new System.Drawing.Point(9, 55);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(315, 49);
             this.panel3.TabIndex = 2;
@@ -530,7 +533,7 @@
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.Title);
             this.panel4.Location = new System.Drawing.Point(9, 2);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(315, 49);
             this.panel4.TabIndex = 1;
@@ -548,6 +551,16 @@
             this.Title.Enter += new System.EventHandler(this.TB_Enter);
             this.Title.Leave += new System.EventHandler(this.TB_Leave);
             // 
+            // RepeatDayLabel
+            // 
+            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
+            this.RepeatDayLabel.Name = "RepeatDayLabel";
+            this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
+            this.RepeatDayLabel.TabIndex = 10;
+            this.RepeatDayLabel.Text = "Days";
+            this.RepeatDayLabel.Visible = false;
+            // 
             // New_Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,7 +569,7 @@
             this.ClientSize = new System.Drawing.Size(653, 322);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "New_Event";
@@ -572,8 +585,8 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.RepeatPanel.ResumeLayout(false);
+            this.RepeatPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -605,7 +618,7 @@
         private System.Windows.Forms.ComboBox Day_Start;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel RepeatPanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
@@ -616,9 +629,9 @@
         private System.Windows.Forms.ComboBox Year_End;
         private System.Windows.Forms.ComboBox Month_End;
         private System.Windows.Forms.ComboBox Day_End;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox Repeat;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox comboBox12;
+        private System.Windows.Forms.ComboBox Priority;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox Notes;
@@ -626,5 +639,6 @@
         private System.Windows.Forms.ComboBox comboBox13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label RepeatDayLabel;
     }
 }
