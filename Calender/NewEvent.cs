@@ -24,7 +24,7 @@ namespace Calender
                 this.Month_End.Items.Add(i.ToString());
             }
             DateTime datetime = DateTime.Now;
-            for(int i = datetime.Year%2000; i <= 99; i++)
+            for(int i = datetime.Year; i < datetime.Year + 10; i++)
             {
                 this.Year_Start.Items.Add(i.ToString());
                 this.Year_End.Items.Add(i.ToString());
@@ -107,5 +107,52 @@ namespace Calender
             }
         }
 
+        private void Day_Leave(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)(sender);
+            int day;
+            Int32.TryParse(cb.Text, out day);
+            if (day < 1)
+            {
+                cb.Text = "1";
+            }
+            if (day > 31)
+            {
+                cb.Text = "31";
+            }
+        }
+
+        private void Month_Leave(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)(sender);
+            int month;
+            Int32.TryParse(cb.Text, out month);
+            if (month < 1)
+            {
+                cb.Text = "1";
+            }
+            if (month > 12)
+            {
+                cb.Text = "12";
+            }
+        }
+
+        private void TB_Enter(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == tb.Name)
+            {
+                tb.Text = "";
+            }
+        }
+
+        private void TB_Leave(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "")
+            {
+                tb.Text = tb.Name;
+            }
+        }
     }
 }
