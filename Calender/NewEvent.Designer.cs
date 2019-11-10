@@ -42,6 +42,7 @@
             this.Priority = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RepeatPanel = new System.Windows.Forms.Panel();
+            this.RepeatDayLabel = new System.Windows.Forms.Label();
             this.Repeat = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -66,7 +67,6 @@
             this.Location = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.TextBox();
-            this.RepeatDayLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -99,7 +99,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(499, 2);
+            this.button2.Location = new System.Drawing.Point(500, 4);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 37);
@@ -115,12 +115,13 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-15, 5);
+            this.button1.ForeColor = System.Drawing.Color.Gray;
+            this.button1.Location = new System.Drawing.Point(9, 4);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 37);
             this.button1.TabIndex = 1;
+            this.button1.Text = "Cancel";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -256,6 +257,16 @@
             this.RepeatPanel.Name = "RepeatPanel";
             this.RepeatPanel.Size = new System.Drawing.Size(315, 49);
             this.RepeatPanel.TabIndex = 3;
+            // 
+            // RepeatDayLabel
+            // 
+            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
+            this.RepeatDayLabel.Name = "RepeatDayLabel";
+            this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
+            this.RepeatDayLabel.TabIndex = 10;
+            this.RepeatDayLabel.Text = "Days";
+            this.RepeatDayLabel.Visible = false;
             // 
             // Repeat
             // 
@@ -553,16 +564,6 @@
             this.Title.Text = "Title";
             this.Title.Enter += new System.EventHandler(this.TB_Enter);
             this.Title.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // RepeatDayLabel
-            // 
-            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
-            this.RepeatDayLabel.Name = "RepeatDayLabel";
-            this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
-            this.RepeatDayLabel.TabIndex = 10;
-            this.RepeatDayLabel.Text = "Days";
-            this.RepeatDayLabel.Visible = false;
             // 
             // New_Event
             // 

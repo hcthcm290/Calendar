@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace Calender
 {
-    class PlanData
+    [Serializable]
+    public class PlanData
     {
-        public List<PlanItem> data = new List<PlanItem>();
+        public List<PlanItem> data { get; set; } = new List<PlanItem>();
+
+        public PlanData()
+        {
+
+        }
+
+        public PlanData(PlanItem item)
+        {
+            data.Add(item);
+        }
 
         public void Insert(PlanItem item)
         {

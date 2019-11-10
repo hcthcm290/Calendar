@@ -3,28 +3,40 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Calender
 {
     public partial class Form1 : Form
     {
-        PlanData allPlan;
-        PlanData todayPlan;
+        private string filePath = "data.xml";
+        bool canSave = true;
+
+        public PlanData allPlan;
+        private PlanData todayPlan;
 
         public Form1()
         {
             InitializeComponent();
             Year.SyncYear();
-            InitDateMatrix();
             allPlan = new PlanData();
-            allPlan.Insert(new PlanItem(11, "plan A", "Go A Long"));
-            allPlan.Insert(new PlanItem(11, "plan B", "Rush B"));
-            allPlan.Insert(new PlanItem(12, "plan a", "Go A long"));
+            InitDateMatrix();
             todayPlan = new PlanData();
+            try
+            {
+                allPlan = (PlanData)DeserializeFromXML(filePath);
+            }
+            catch
+            {
+                allPlan.Insert(new PlanItem(11, "Plan A", "Go Mid"));
+                allPlan.Insert(new PlanItem(11, "Plan B", "Rush B"));
+                allPlan.Insert(new PlanItem(12, "Plan A", "Go A Long"));
+            }
             this.CenterToScreen();
         }
 
@@ -135,7 +147,7 @@ namespace Calender
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -220,6 +232,45 @@ namespace Calender
                 TodayPlanPanel.Controls.Add(new AJob(todayPlan.data[i]));
                 TodayPlanPanel.Refresh();
             }
+        }
+
+        private void SerializeToXML(object data, string filepath)
+        {
+            if (canSave)
+            {
+                File.Delete(filePath);
+                FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+                //FileStream fs2 = new FileStream("data2.xml", FileMode.OpenOrCreate, FileAccess.Write);
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+                sr.Serialize(fs, allPlan);
+                //sr.Serialize(fs2, allPlan);
+
+                fs.Close();
+            }
+        }
+
+        private object DeserializeFromXML(string filepath)
+        {
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            try
+            {
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+                object result = new object();
+                result = sr.Deserialize(fs);
+                fs.Close();
+                return result;
+            }
+            catch (Exception e)
+            {
+                canSave = false;
+                fs.Close();
+                throw new NotImplementedException();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SerializeToXML(allPlan, filePath);
         }
     }
 }

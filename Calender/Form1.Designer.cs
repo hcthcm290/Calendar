@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.TodayPlanPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.addbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.new_Event = new Calender.New_Event();
-            this.TodayPlanPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -84,6 +84,13 @@
             this.panel3.Size = new System.Drawing.Size(562, 676);
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
+            // 
+            // TodayPlanPanel
+            // 
+            this.TodayPlanPanel.Location = new System.Drawing.Point(3, 149);
+            this.TodayPlanPanel.Name = "TodayPlanPanel";
+            this.TodayPlanPanel.Size = new System.Drawing.Size(559, 527);
+            this.TodayPlanPanel.TabIndex = 3;
             // 
             // panel8
             // 
@@ -336,13 +343,6 @@
             this.new_Event.Text = "New Event";
             this.new_Event.Visible = false;
             // 
-            // TodayPlanPanel
-            // 
-            this.TodayPlanPanel.Location = new System.Drawing.Point(3, 149);
-            this.TodayPlanPanel.Name = "TodayPlanPanel";
-            this.TodayPlanPanel.Size = new System.Drawing.Size(559, 527);
-            this.TodayPlanPanel.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +358,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ourCalendar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
