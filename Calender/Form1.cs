@@ -12,10 +12,19 @@ namespace Calender
 {
     public partial class Form1 : Form
     {
+        PlanData allPlan;
+        PlanData todayPlan;
+
         public Form1()
         {
             InitializeComponent();
+            Year.SyncYear();
             InitDateMatrix();
+            allPlan = new PlanData();
+            allPlan.Insert(new PlanItem(11, "plan A", "Go A Long"));
+            allPlan.Insert(new PlanItem(11, "plan B", "Rush B"));
+            allPlan.Insert(new PlanItem(12, "plan a", "Go A long"));
+            todayPlan = new PlanData();
             this.CenterToScreen();
         }
 
@@ -82,6 +91,7 @@ namespace Calender
                     if(started && count <= maxDay)
                     {
                         DateButton[i, j].Text = count.ToString();
+                        DateButton[i, j].Click += DateButton_Click;
                         count++;
                     }
                 }
@@ -168,11 +178,6 @@ namespace Calender
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -200,6 +205,21 @@ namespace Calender
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void DateButton_Click(object sender, EventArgs e)
+        {
+            Button bt = (Button)sender;
+            if (bt.Text != "")
+            {
+                todayPlan.data = allPlan.GetItem(Convert.ToInt32(bt.Text));
+            }
+            TodayPlanPanel.Controls.Clear();
+            for(int i=0; i<todayPlan.data.Count(); i++)
+            {
+                TodayPlanPanel.Controls.Add(new AJob(todayPlan.data[i]));
+                TodayPlanPanel.Refresh();
+            }
         }
     }
 }

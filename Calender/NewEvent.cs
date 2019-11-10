@@ -187,6 +187,31 @@ namespace Calender
                 Repeat.SelectedIndex = 0;
                 RepeatDayLabel.Visible = false;
                 RepeatDayLabel.BringToFront();
+                Repeat.Text = "";
+            }
+        }
+
+        private void Repeat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && Repeat.DropDownStyle == ComboBoxStyle.DropDown)
+            {
+                int result;
+                Int32.TryParse(Repeat.Text, out result);
+                Repeat.Text = result.ToString();
+            }
+        }
+
+        private void Repeat_Leave(object sender, EventArgs e)
+        {
+            if(Repeat.DropDownStyle == ComboBoxStyle.DropDown)
+            {
+                int result;
+                Int32.TryParse(Repeat.Text, out result);
+                if(result <= 0)
+                {
+                    result = 1;
+                }
+                Repeat.Text = result.ToString();
             }
         }
     }

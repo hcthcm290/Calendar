@@ -33,7 +33,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.addbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.new_Event = new Calender.New_Event();
+            this.TodayPlanPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -76,12 +76,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Coral;
+            this.panel3.Controls.Add(this.TodayPlanPanel);
             this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.panel9);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(566, 676);
+            this.panel3.Size = new System.Drawing.Size(562, 676);
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
             // 
@@ -93,7 +93,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(566, 137);
+            this.panel8.Size = new System.Drawing.Size(562, 142);
             this.panel8.TabIndex = 2;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
@@ -128,15 +128,6 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Coral;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 143);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(566, 533);
-            this.panel9.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -147,9 +138,9 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.Coral;
-            this.panel2.Location = new System.Drawing.Point(563, 3);
+            this.panel2.Location = new System.Drawing.Point(565, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(702, 673);
+            this.panel2.Size = new System.Drawing.Size(700, 673);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
@@ -164,7 +155,7 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(107, 218);
+            this.panel6.Location = new System.Drawing.Point(106, 218);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(502, 324);
             this.panel6.TabIndex = 2;
@@ -246,7 +237,7 @@
             this.panel4.Controls.Add(this.NextMonth);
             this.panel4.Controls.Add(this.PrevMonth);
             this.panel4.Controls.Add(this.PresentMonth);
-            this.panel4.Location = new System.Drawing.Point(107, 118);
+            this.panel4.Location = new System.Drawing.Point(106, 118);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(502, 94);
             this.panel4.TabIndex = 0;
@@ -289,8 +280,7 @@
             this.PresentMonth.Name = "PresentMonth";
             this.PresentMonth.Size = new System.Drawing.Size(290, 59);
             this.PresentMonth.TabIndex = 4;
-            Months.SyncMonth();
-            this.PresentMonth.Text = Months.GetMonth();
+            this.PresentMonth.Text = "January";
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -304,7 +294,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(702, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(700, 39);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
@@ -346,6 +336,13 @@
             this.new_Event.Text = "New Event";
             this.new_Event.Visible = false;
             // 
+            // TodayPlanPanel
+            // 
+            this.TodayPlanPanel.Location = new System.Drawing.Point(3, 149);
+            this.TodayPlanPanel.Name = "TodayPlanPanel";
+            this.TodayPlanPanel.Size = new System.Drawing.Size(559, 527);
+            this.TodayPlanPanel.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,7 +370,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            Year.SyncYear();
+
         }
 
         #endregion
@@ -383,7 +380,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button addbutton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
@@ -402,6 +398,7 @@
         private System.Windows.Forms.Button NextMonth;
         private New_Event new_Event;
         private System.Windows.Forms.Button[,] DateButton;
+        private System.Windows.Forms.FlowLayoutPanel TodayPlanPanel;
     }
 }
 

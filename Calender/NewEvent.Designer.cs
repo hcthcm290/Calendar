@@ -98,12 +98,13 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(534, 5);
+            this.button2.ForeColor = System.Drawing.Color.Gray;
+            this.button2.Location = new System.Drawing.Point(499, 2);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 37);
             this.button2.TabIndex = 2;
+            this.button2.Text = "Save";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -268,6 +269,8 @@
             this.Repeat.Size = new System.Drawing.Size(201, 32);
             this.Repeat.TabIndex = 9;
             this.Repeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
+            this.Repeat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Repeat_KeyDown);
+            this.Repeat.Leave += new System.EventHandler(this.Repeat_Leave);
             // 
             // label8
             // 
