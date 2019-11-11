@@ -69,9 +69,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-4, -2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1687, 832);
+            this.panel1.Size = new System.Drawing.Size(1566, 720);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -81,9 +81,9 @@
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(755, 832);
+            this.panel3.Size = new System.Drawing.Size(755, 720);
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
             // 
@@ -94,7 +94,7 @@
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(755, 169);
             this.panel8.TabIndex = 2;
@@ -111,7 +111,7 @@
             this.addbutton.Image = global::Calender.Properties.Resources.AddButton;
             this.addbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.addbutton.Location = new System.Drawing.Point(567, 47);
-            this.addbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addbutton.Margin = new System.Windows.Forms.Padding(4);
             this.addbutton.Name = "addbutton";
             this.addbutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addbutton.Size = new System.Drawing.Size(117, 108);
@@ -127,7 +127,7 @@
             this.label1.Location = new System.Drawing.Point(37, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 91);
+            this.label1.Size = new System.Drawing.Size(216, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Today";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,8 +137,8 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Coral;
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 176);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Location = new System.Drawing.Point(0, 64);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(755, 656);
             this.panel9.TabIndex = 1;
@@ -153,10 +153,10 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.Coral;
-            this.panel2.Location = new System.Drawing.Point(751, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(708, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(936, 828);
+            this.panel2.Size = new System.Drawing.Size(858, 716);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
@@ -171,8 +171,8 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(143, 268);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Location = new System.Drawing.Point(104, 212);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(669, 399);
             this.panel6.TabIndex = 2;
@@ -261,8 +261,8 @@
             this.panel4.Controls.Add(this.NextMonth);
             this.panel4.Controls.Add(this.PrevMonth);
             this.panel4.Controls.Add(this.PresentMonth);
-            this.panel4.Location = new System.Drawing.Point(143, 145);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Location = new System.Drawing.Point(104, 89);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(669, 116);
             this.panel4.TabIndex = 0;
@@ -276,7 +276,7 @@
             this.NextMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.NextMonth.Image = global::Calender.Properties.Resources.new_right;
             this.NextMonth.Location = new System.Drawing.Point(536, 26);
-            this.NextMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NextMonth.Margin = new System.Windows.Forms.Padding(4);
             this.NextMonth.Name = "NextMonth";
             this.NextMonth.Size = new System.Drawing.Size(80, 74);
             this.NextMonth.TabIndex = 6;
@@ -291,7 +291,7 @@
             this.PrevMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PrevMonth.Image = global::Calender.Properties.Resources.new_left;
             this.PrevMonth.Location = new System.Drawing.Point(53, 26);
-            this.PrevMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrevMonth.Margin = new System.Windows.Forms.Padding(4);
             this.PrevMonth.Name = "PrevMonth";
             this.PrevMonth.Size = new System.Drawing.Size(80, 74);
             this.PrevMonth.TabIndex = 5;
@@ -323,7 +323,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(936, 46);
+            this.menuStrip1.Size = new System.Drawing.Size(858, 39);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
@@ -333,7 +333,7 @@
             this.statisticsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statisticsToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(161, 42);
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(137, 35);
             this.statisticsToolStripMenuItem.Text = "Statistics";
             // 
             // timetableToolStripMenuItem
@@ -341,7 +341,7 @@
             this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timetableToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
-            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(171, 42);
+            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(145, 35);
             this.timetableToolStripMenuItem.Text = "Timetable";
             // 
             // settingsToolStripMenuItem
@@ -349,7 +349,7 @@
             this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 42);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 35);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // new_Event
@@ -367,17 +367,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.ClientSize = new System.Drawing.Size(1249, 637);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(1701, 875);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1265, 676);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ourCalendar";
