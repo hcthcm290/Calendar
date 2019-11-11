@@ -3,19 +3,38 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Calender
 {
     public partial class Form1 : Form
     {
+        string filepath = "data.xml";
+        PlanData allPlan;
+
         public Form1()
         {
             InitializeComponent();
             InitDateMatrix();
+
+            try
+            {
+                allPlan = (PlanData)DeserializeFromXML(filepath);
+            }
+            catch
+            {
+                allPlan.Insert(new PlanItem("Title1", "Note1", DateTime.Now, DateTime.Now, PriorityEnum.normal, DateTime.Now));
+            }
+            if(allPlan == null)
+            {
+                allPlan = new PlanData();
+                allPlan.Insert(new PlanItem("Title1", "Note1", DateTime.Now, DateTime.Now, PriorityEnum.normal, DateTime.Now));
+            }
             this.CenterToScreen();
         }
 
@@ -41,6 +60,7 @@ namespace Calender
 
         void GenerateDaysForDateButtons(int month)
         {
+            Year.SyncYear();
             int maxDay = GetMaxDaysOfMonth(month, Year.GetCurrentYear());
             DateTime d = new DateTime(Year.GetCurrentYear(), month, 1);
             int dayOfWeek = -1;
@@ -200,6 +220,37 @@ namespace Calender
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public object DeserializeFromXML(string filepath)
+        {
+            FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate, FileAccess.Read);
+            try
+            {
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+                object result = sr.Deserialize(fs);
+                fs.Close();
+                return result;
+            }
+            catch
+            {
+                fs.Close();
+                return null;
+            }
+        }
+
+        private void SerializeToXML(object data, string filepath)
+        {
+            File.Delete(filepath);
+            FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate, FileAccess.Write);
+            XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+            sr.Serialize(fs, allPlan);
+            fs.Close();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SerializeToXML(allPlan, filepath);
         }
     }
 }
