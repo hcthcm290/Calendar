@@ -68,10 +68,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-4, -2);
+            this.panel1.Location = new System.Drawing.Point(-3, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1566, 720);
+            this.panel1.Size = new System.Drawing.Size(1265, 676);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -83,7 +83,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(755, 720);
+            this.panel3.Size = new System.Drawing.Size(566, 676);
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
             // 
@@ -94,9 +94,9 @@
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(755, 169);
+            this.panel8.Size = new System.Drawing.Size(566, 137);
             this.panel8.TabIndex = 2;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
@@ -110,11 +110,10 @@
             this.addbutton.ForeColor = System.Drawing.Color.Coral;
             this.addbutton.Image = global::Calender.Properties.Resources.AddButton;
             this.addbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.addbutton.Location = new System.Drawing.Point(567, 47);
-            this.addbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.addbutton.Location = new System.Drawing.Point(425, 38);
             this.addbutton.Name = "addbutton";
             this.addbutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addbutton.Size = new System.Drawing.Size(117, 108);
+            this.addbutton.Size = new System.Drawing.Size(88, 88);
             this.addbutton.TabIndex = 1;
             this.addbutton.UseVisualStyleBackColor = false;
             this.addbutton.Click += new System.EventHandler(this.Addbutton_Click);
@@ -124,8 +123,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(37, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(28, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 73);
             this.label1.TabIndex = 0;
@@ -137,10 +135,9 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Coral;
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 64);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Location = new System.Drawing.Point(0, 143);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(755, 656);
+            this.panel9.Size = new System.Drawing.Size(566, 533);
             this.panel9.TabIndex = 1;
             // 
             // panel2
@@ -153,10 +150,9 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.Coral;
-            this.panel2.Location = new System.Drawing.Point(708, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(563, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(858, 716);
+            this.panel2.Size = new System.Drawing.Size(702, 673);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
@@ -171,19 +167,17 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(104, 212);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(107, 218);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(669, 399);
+            this.panel6.Size = new System.Drawing.Size(502, 324);
             this.panel6.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(560, 21);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(420, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 49);
+            this.label8.Size = new System.Drawing.Size(60, 40);
             this.label8.TabIndex = 6;
             this.label8.Text = "Sa";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -191,10 +185,9 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(472, 21);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(354, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 49);
+            this.label7.Size = new System.Drawing.Size(60, 40);
             this.label7.TabIndex = 5;
             this.label7.Text = "Fr";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,10 +195,9 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(384, 21);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(288, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 49);
+            this.label6.Size = new System.Drawing.Size(60, 40);
             this.label6.TabIndex = 4;
             this.label6.Text = "Th";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,10 +205,9 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(296, 21);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(222, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 49);
+            this.label5.Size = new System.Drawing.Size(60, 40);
             this.label5.TabIndex = 3;
             this.label5.Text = "We";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,10 +215,9 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(208, 21);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(156, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 49);
+            this.label4.Size = new System.Drawing.Size(60, 40);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tu";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -235,10 +225,9 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(120, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(90, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 49);
+            this.label3.Size = new System.Drawing.Size(60, 40);
             this.label3.TabIndex = 1;
             this.label3.Text = "Mo";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,10 +235,9 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 21);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(24, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 49);
+            this.label2.Size = new System.Drawing.Size(60, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "Su";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -261,10 +249,9 @@
             this.panel4.Controls.Add(this.NextMonth);
             this.panel4.Controls.Add(this.PrevMonth);
             this.panel4.Controls.Add(this.PresentMonth);
-            this.panel4.Location = new System.Drawing.Point(104, 89);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(107, 118);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(669, 116);
+            this.panel4.Size = new System.Drawing.Size(502, 94);
             this.panel4.TabIndex = 0;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel4_Paint);
             // 
@@ -275,10 +262,9 @@
             this.NextMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.NextMonth.Image = global::Calender.Properties.Resources.new_right;
-            this.NextMonth.Location = new System.Drawing.Point(536, 26);
-            this.NextMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.NextMonth.Location = new System.Drawing.Point(402, 21);
             this.NextMonth.Name = "NextMonth";
-            this.NextMonth.Size = new System.Drawing.Size(80, 74);
+            this.NextMonth.Size = new System.Drawing.Size(60, 60);
             this.NextMonth.TabIndex = 6;
             this.NextMonth.UseVisualStyleBackColor = false;
             this.NextMonth.Click += new System.EventHandler(this.NextMonth_Click);
@@ -290,10 +276,9 @@
             this.PrevMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PrevMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PrevMonth.Image = global::Calender.Properties.Resources.new_left;
-            this.PrevMonth.Location = new System.Drawing.Point(53, 26);
-            this.PrevMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.PrevMonth.Location = new System.Drawing.Point(40, 21);
             this.PrevMonth.Name = "PrevMonth";
-            this.PrevMonth.Size = new System.Drawing.Size(80, 74);
+            this.PrevMonth.Size = new System.Drawing.Size(60, 60);
             this.PrevMonth.TabIndex = 5;
             this.PrevMonth.UseVisualStyleBackColor = false;
             this.PrevMonth.Click += new System.EventHandler(this.PrevMonth_Click);
@@ -303,12 +288,12 @@
             this.PresentMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PresentMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PresentMonth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PresentMonth.Location = new System.Drawing.Point(149, 28);
-            this.PresentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PresentMonth.Location = new System.Drawing.Point(112, 23);
             this.PresentMonth.Name = "PresentMonth";
-            this.PresentMonth.Size = new System.Drawing.Size(387, 73);
+            this.PresentMonth.Size = new System.Drawing.Size(290, 59);
             this.PresentMonth.TabIndex = 4;
-            this.PresentMonth.Text = "January";
+            Months.SyncMonth();
+            this.PresentMonth.Text = Months.GetMonth();
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -322,8 +307,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(858, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(702, 39);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
@@ -371,13 +355,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1249, 637);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1265, 676);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ourCalendar";
@@ -394,7 +378,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-
+            Year.SyncYear();
         }
 
         #endregion
