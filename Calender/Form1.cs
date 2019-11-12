@@ -28,12 +28,9 @@ namespace Calender
             }
             catch
             {
-                allPlan.Insert(new PlanItem("Title1", "Note1", DateTime.Now, DateTime.Now, PriorityEnum.normal, DateTime.Now));
             }
             if(allPlan == null)
             {
-                allPlan = new PlanData();
-                allPlan.Insert(new PlanItem("Title1", "Note1", DateTime.Now, DateTime.Now, PriorityEnum.normal, DateTime.Now));
             }
             this.CenterToScreen();
         }

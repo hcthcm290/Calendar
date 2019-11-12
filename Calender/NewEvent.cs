@@ -17,12 +17,14 @@ namespace Calender
             {
                 this.Day_End.Items.Add(i.ToString());
                 this.Day_Start.Items.Add(i.ToString());
+                this.Day_RepeatEnd.Items.Add(i.ToString());
             }
 
             for(int i = 1; i<=12; i++)
             {
                 this.Month_Start.Items.Add(i.ToString());
                 this.Month_End.Items.Add(i.ToString());
+                this.Month_RepeatEnd.Items.Add(i.ToString());
             }
 
             DateTime datetime = DateTime.Now;
@@ -30,6 +32,7 @@ namespace Calender
             {
                 this.Year_Start.Items.Add(i.ToString());
                 this.Year_End.Items.Add(i.ToString());
+                this.Year_RepeatEnd.Items.Add(i.ToString());
             }
 
             this.Priority.Items.Add("Normal");
@@ -38,6 +41,7 @@ namespace Calender
             this.Priority.Items.Add("Urgent");
             this.Priority.SelectedIndex = 0;
 
+            this.Repeat.Items.Add("None");
             this.Repeat.Items.Add("Daily");
             this.Repeat.Items.Add("A Week");
             this.Repeat.Items.Add("A Month");

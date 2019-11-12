@@ -11,38 +11,26 @@ namespace Calender
     [Serializable]
     public class PlanData
     {
-        public List<PlanItem> data = new List<PlanItem>();
+        public List<GroupPlanItem> group = new List<GroupPlanItem>();
 
-        public void Insert(PlanItem item)
+        public void Insert(GroupPlanItem item)
         {
-            data.Add(item);
+            group.Add(item);
         }
 
-        public void Delete(PlanItem item)
+        public void Delete(GroupPlanItem item)
         {
-            data.Remove(item);
+            group.Remove(item);
         }
 
-        public void Change(PlanItem oldItem, PlanItem newItem)
+        public List<GroupPlanItem> ListAlertForToday(DateTime today)
         {
-            data.Remove(oldItem);
-            data.Add(newItem);
+            return group.FindAll(element => element.ExistsAlertForToday(today));
         }
 
-        public List<PlanItem> ListAlertForToday(DateTime today)
+        public List<GroupPlanItem> ListItemsForToday(DateTime today)
         {
-            return data.FindAll(element => (element.alert.Day == today.Day && 
-                                            element.alert.Month == today.Month &&
-                                            element.alert.Year == today.Year));
+            return group.FindAll(element => element.ExistsItemForToday(today));
         }
-
-        public List<PlanItem> ListItemsForToday(DateTime today)
-        {
-            return data.FindAll(element => (element.alert.Day == today.Day &&
-                                            element.alert.Month == today.Month &&
-                                            element.alert.Year == today.Year));
-        }
-
-        
     }
 }

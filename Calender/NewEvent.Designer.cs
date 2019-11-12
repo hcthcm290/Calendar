@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RepeatEndPanel = new System.Windows.Forms.Panel();
+            this.RepeatEndLabel = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.Notes = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -42,6 +44,7 @@
             this.Priority = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RepeatPanel = new System.Windows.Forms.Panel();
+            this.RepeatDayLabel = new System.Windows.Forms.Label();
             this.Repeat = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -66,9 +69,13 @@
             this.Location = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.TextBox();
-            this.RepeatDayLabel = new System.Windows.Forms.Label();
+            this.Day_RepeatEnd = new System.Windows.Forms.ComboBox();
+            this.Month_RepeatEnd = new System.Windows.Forms.ComboBox();
+            this.Year_RepeatEnd = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.RepeatEndPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -89,7 +96,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(653, 44);
+            this.panel1.Size = new System.Drawing.Size(669, 44);
             this.panel1.TabIndex = 0;
             // 
             // button2
@@ -141,6 +148,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.RepeatEndPanel);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.panel7);
@@ -152,8 +160,32 @@
             this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 364);
+            this.panel2.Size = new System.Drawing.Size(662, 332);
             this.panel2.TabIndex = 1;
+            // 
+            // RepeatEndPanel
+            // 
+            this.RepeatEndPanel.BackColor = System.Drawing.Color.White;
+            this.RepeatEndPanel.Controls.Add(this.label11);
+            this.RepeatEndPanel.Controls.Add(this.Year_RepeatEnd);
+            this.RepeatEndPanel.Controls.Add(this.Month_RepeatEnd);
+            this.RepeatEndPanel.Controls.Add(this.Day_RepeatEnd);
+            this.RepeatEndPanel.Controls.Add(this.RepeatEndLabel);
+            this.RepeatEndPanel.Location = new System.Drawing.Point(9, 163);
+            this.RepeatEndPanel.Name = "RepeatEndPanel";
+            this.RepeatEndPanel.Size = new System.Drawing.Size(634, 48);
+            this.RepeatEndPanel.TabIndex = 12;
+            // 
+            // RepeatEndLabel
+            // 
+            this.RepeatEndLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RepeatEndLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatEndLabel.Location = new System.Drawing.Point(16, 7);
+            this.RepeatEndLabel.Name = "RepeatEndLabel";
+            this.RepeatEndLabel.Size = new System.Drawing.Size(131, 35);
+            this.RepeatEndLabel.TabIndex = 0;
+            this.RepeatEndLabel.Text = "Repeat End";
+            this.RepeatEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
@@ -256,6 +288,16 @@
             this.RepeatPanel.Size = new System.Drawing.Size(315, 49);
             this.RepeatPanel.TabIndex = 3;
             // 
+            // RepeatDayLabel
+            // 
+            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
+            this.RepeatDayLabel.Name = "RepeatDayLabel";
+            this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
+            this.RepeatDayLabel.TabIndex = 10;
+            this.RepeatDayLabel.Text = "Days";
+            this.RepeatDayLabel.Visible = false;
+            // 
             // Repeat
             // 
             this.Repeat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -290,7 +332,7 @@
             this.panel5.Controls.Add(this.Year_End);
             this.panel5.Controls.Add(this.Month_End);
             this.panel5.Controls.Add(this.Day_End);
-            this.panel5.Location = new System.Drawing.Point(9, 214);
+            this.panel5.Location = new System.Drawing.Point(11, 269);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(634, 49);
@@ -401,7 +443,7 @@
             this.panel6.Controls.Add(this.Year_Start);
             this.panel6.Controls.Add(this.Month_Start);
             this.panel6.Controls.Add(this.Day_Start);
-            this.panel6.Location = new System.Drawing.Point(9, 161);
+            this.panel6.Location = new System.Drawing.Point(11, 216);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(634, 49);
@@ -551,22 +593,60 @@
             this.Title.Enter += new System.EventHandler(this.TB_Enter);
             this.Title.Leave += new System.EventHandler(this.TB_Leave);
             // 
-            // RepeatDayLabel
+            // Day_RepeatEnd
             // 
-            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
-            this.RepeatDayLabel.Name = "RepeatDayLabel";
-            this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
-            this.RepeatDayLabel.TabIndex = 10;
-            this.RepeatDayLabel.Text = "Days";
-            this.RepeatDayLabel.Visible = false;
+            this.Day_RepeatEnd.DisplayMember = "1";
+            this.Day_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Day_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
+            this.Day_RepeatEnd.FormattingEnabled = true;
+            this.Day_RepeatEnd.Location = new System.Drawing.Point(301, 10);
+            this.Day_RepeatEnd.Name = "Day_RepeatEnd";
+            this.Day_RepeatEnd.Size = new System.Drawing.Size(47, 32);
+            this.Day_RepeatEnd.TabIndex = 9;
+            this.Day_RepeatEnd.Text = "dd";
+            // 
+            // Month_RepeatEnd
+            // 
+            this.Month_RepeatEnd.DisplayMember = "1";
+            this.Month_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Month_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
+            this.Month_RepeatEnd.FormattingEnabled = true;
+            this.Month_RepeatEnd.Location = new System.Drawing.Point(356, 10);
+            this.Month_RepeatEnd.Name = "Month_RepeatEnd";
+            this.Month_RepeatEnd.Size = new System.Drawing.Size(53, 32);
+            this.Month_RepeatEnd.TabIndex = 9;
+            this.Month_RepeatEnd.Text = "mm";
+            this.Month_RepeatEnd.ValueMember = "1";
+            // 
+            // Year_RepeatEnd
+            // 
+            this.Year_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Year_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Year_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
+            this.Year_RepeatEnd.FormattingEnabled = true;
+            this.Year_RepeatEnd.Location = new System.Drawing.Point(415, 10);
+            this.Year_RepeatEnd.Name = "Year_RepeatEnd";
+            this.Year_RepeatEnd.Size = new System.Drawing.Size(69, 32);
+            this.Year_RepeatEnd.TabIndex = 9;
+            this.Year_RepeatEnd.Text = "yyyy";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(248, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 24);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "on";
             // 
             // New_Event
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(653, 322);
+            this.ClientSize = new System.Drawing.Size(669, 383);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -579,6 +659,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.RepeatEndPanel.ResumeLayout(false);
+            this.RepeatEndPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -640,5 +722,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label RepeatDayLabel;
+        private System.Windows.Forms.Panel RepeatEndPanel;
+        private System.Windows.Forms.Label RepeatEndLabel;
+        private System.Windows.Forms.ComboBox Year_RepeatEnd;
+        private System.Windows.Forms.ComboBox Month_RepeatEnd;
+        private System.Windows.Forms.ComboBox Day_RepeatEnd;
+        private System.Windows.Forms.Label label11;
     }
 }

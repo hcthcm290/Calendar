@@ -339,7 +339,7 @@
             // new_Event
             // 
             this.new_Event.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.new_Event.ClientSize = new System.Drawing.Size(653, 322);
+            this.new_Event.ClientSize = new System.Drawing.Size(653, 383);
             this.new_Event.Location = new System.Drawing.Point(26, 26);
             this.new_Event.Margin = new System.Windows.Forms.Padding(2);
             this.new_Event.MaximizeBox = false;
