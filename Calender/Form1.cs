@@ -15,13 +15,12 @@ namespace Calender
     public partial class Form1 : Form
     {
         string filepath = "data.xml";
-        PlanData allPlan;
+        PlanData allPlan = new PlanData();
 
         public Form1()
         {
             InitializeComponent();
             InitDateMatrix();
-
             try
             {
                 allPlan = (PlanData)DeserializeFromXML(filepath);
@@ -31,8 +30,10 @@ namespace Calender
             }
             if(allPlan == null)
             {
+                allPlan = new PlanData();
             }
             this.CenterToScreen();
+            new_Event = new New_Event(allPlan);
         }
 
         void InitDateMatrix()
@@ -58,7 +59,7 @@ namespace Calender
         void GenerateDaysForDateButtons(int month)
         {
             Year.SyncYear();
-            int maxDay = GetMaxDaysOfMonth(month, Year.GetCurrentYear());
+            int maxDay = Year.GetMaxDaysOfMonth(Year.GetCurrentYear(), month);
             DateTime d = new DateTime(Year.GetCurrentYear(), month, 1);
             int dayOfWeek = -1;
             switch(d.DayOfWeek)
@@ -103,41 +104,6 @@ namespace Calender
                     }
                 }
             }
-        }
-
-        int GetMaxDaysOfMonth(int month, int year)
-        {
-            switch(month)
-            {
-                case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
-                    {
-                        return 31;
-                    }
-                case 4:
-                case 6:
-                case 9:
-                case 11:
-                    return 30;
-                case 2:
-                    {
-                        if (year % 4 == 0)
-                        {
-                            if (year % 100 == 0 && year % 400 != 0)
-                            {
-                                return 28;
-                            }
-                            return 29;
-                        }
-                        return 28;
-                    }
-            }
-            return -1;
         }
 
         private void Form1_Load(object sender, EventArgs e)

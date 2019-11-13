@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Calender
 {
     public partial class New_Event : Form
     {
-        public New_Event()
+        PlanData thisPlan;
+
+        public New_Event(PlanData plandata)
         {
             InitializeComponent();
             Init();
+            thisPlan = plandata;
         }
 
         void Init()
@@ -78,11 +82,6 @@ namespace Calender
         }
 
         private void ComboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -191,6 +190,196 @@ namespace Calender
                 Repeat.SelectedIndex = 0;
                 RepeatDayLabel.Visible = false;
                 RepeatDayLabel.BringToFront();
+            }
+            if(Repeat.SelectedItem.ToString() == "None")
+            {
+                Day_RepeatEnd.Enabled = false;
+                Month_RepeatEnd.Enabled = false;
+                Year_RepeatEnd.Enabled = false;
+
+                Day_RepeatEnd.Text = "dd";
+                Month_RepeatEnd.Text = "mm";
+                Year_RepeatEnd.Text = "yyyy";
+                RepeatEndPanel.BackColor = Color.Gray;
+            }
+            else
+            {
+                Day_RepeatEnd.Enabled = true;
+                Month_RepeatEnd.Enabled = true;
+                Year_RepeatEnd.Enabled = true;
+                RepeatEndPanel.BackColor = Color.White;
+            }
+        }
+        
+        bool CheckLegitDate(int year, int month, int day)
+        {
+            if(day > Year.GetMaxDaysOfMonth(year, month))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            GroupPlanItem newGroup = new GroupPlanItem();
+
+            int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
+            Int32.TryParse(Day_Start.Text, out tDay_Start);
+            Int32.TryParse(Month_Start.Text, out tMonth_Start);
+            Int32.TryParse(Year_Start.Text, out tYear_Start);
+            Int32.TryParse(Hour_Start.Text, out tHour_Start);
+            Int32.TryParse(Minute_Start.Text, out tMinute_Start);
+            if (CheckLegitDate(tYear_Start, tMonth_Start, tDay_Start) == false)
+            {
+                MessageBox.Show("Invalid Start Date");
+                return;
+            }
+            DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start,0);
+
+
+            int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
+            Int32.TryParse(Day_End.Text, out tDay_End);
+            Int32.TryParse(Month_End.Text, out tMonth_End);
+            Int32.TryParse(Year_End.Text, out tYear_End);
+            Int32.TryParse(Hour_End.Text, out tHour_End);
+            Int32.TryParse(Minute_End.Text, out tMinute_End);
+            if (CheckLegitDate(tYear_End, tMonth_End, tDay_End) == false)
+            {
+                MessageBox.Show("Invalid End Date");
+                return;
+            }
+            DateTime end = new DateTime(tYear_End, tMonth_End, tDay_End, tHour_End, tMinute_End, 0);
+
+            if(end <= start)
+            {
+                MessageBox.Show("End Day must after Start Day");
+                return;
+            }
+
+            ////////////////////////////////////////////////////////////////
+            ///
+            // FOR NONE //
+            if(Repeat.Text.ToString() == "None")
+            {
+                newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                thisPlan.Insert(newGroup);
+                this.Close();
+                return;
+            }
+
+            int tDay_RepeatEnd, tMonth_RepeatEnd, tYear_RepeatEnd;
+            Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
+            Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
+            Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
+            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false)
+            {
+                MessageBox.Show("Invalid RepeatEnd Date");
+                return;
+            }
+            DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd);
+
+            if(repeatEnd < end)
+            {
+                MessageBox.Show("The end for Repeat end must after the end of event");
+                return;
+            }
+
+            if (Repeat.Text.ToString() == "Daily")
+            {
+                while(true)
+                {
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                    
+
+                    start = start.AddDays(1);
+                    end = end.AddDays(1);
+
+                    if(start > repeatEnd)
+                    {
+                        thisPlan.Insert(newGroup);
+                        this.Close();
+                        return;
+                    }
+                }
+            }
+            else if (Repeat.Text.ToString() == "A Week")
+            {
+                while (true)
+                {
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+
+                    start = start.AddDays(7);
+                    end = end.AddDays(7);
+
+                    if (start > repeatEnd)
+                    {
+                        thisPlan.Insert(newGroup);
+                        this.Close();
+                        return;
+                    }
+                }
+            }
+            else if(Repeat.Text.ToString() == "A Month")
+            {
+                TimeSpan timeSpan = end - start;
+                while (true)
+                {
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now));
+
+                    do
+                    {
+                        Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
+                    }
+                    while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
+
+                    start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
+                    if(start > repeatEnd)
+                    {
+                        thisPlan.Insert(newGroup);
+                        this.Close();
+                        return;
+                    }
+                }
+            }
+            else if(Repeat.Text.ToString() == "A Year")
+            {
+                TimeSpan timeSpan = end - start;
+                while (true)
+                {
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now));
+
+                    do
+                    {
+                        Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
+                    }
+                    while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
+
+                    start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
+                    if (start > repeatEnd)
+                    {
+                        thisPlan.Insert(newGroup);
+                        this.Close();
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                while (true)
+                {
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+
+                    start = start.AddDays(Convert.ToInt32(Repeat.Text));
+                    end = end.AddDays(Convert.ToInt32(Repeat.Text));
+
+                    if (start > repeatEnd)
+                    {
+                        thisPlan.Insert(newGroup);
+                        this.Close();
+                        return;
+                    }
+                }
             }
         }
     }
