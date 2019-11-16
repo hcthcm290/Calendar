@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RepeatEndPanel = new System.Windows.Forms.Panel();
@@ -70,7 +70,7 @@
             this.Month_Start = new System.Windows.Forms.ComboBox();
             this.Day_Start = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Location = new System.Windows.Forms.TextBox();
+            this.location = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -90,7 +90,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.SaveButton);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.CancelButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -116,20 +116,22 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // button1
+            // CancelButton
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-15, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 37);
-            this.button1.TabIndex = 1;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.CancelButton.AutoSize = true;
+            this.CancelButton.BackColor = System.Drawing.Color.White;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.ForeColor = System.Drawing.Color.Black;
+            this.CancelButton.Location = new System.Drawing.Point(9, 4);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(143, 37);
+            this.CancelButton.TabIndex = 1;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // label1
             // 
@@ -602,25 +604,25 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.Location);
+            this.panel3.Controls.Add(this.location);
             this.panel3.Location = new System.Drawing.Point(9, 55);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(315, 49);
             this.panel3.TabIndex = 2;
             // 
-            // Location
+            // location
             // 
-            this.Location.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Location.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Location.ForeColor = System.Drawing.Color.Gray;
-            this.Location.Location = new System.Drawing.Point(24, 14);
-            this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(271, 22);
-            this.Location.TabIndex = 0;
-            this.Location.Text = "Location";
-            this.Location.Enter += new System.EventHandler(this.TB_Enter);
-            this.Location.Leave += new System.EventHandler(this.TB_Leave);
+            this.location.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.location.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.location.ForeColor = System.Drawing.Color.Gray;
+            this.location.Location = new System.Drawing.Point(24, 14);
+            this.location.Name = "location";
+            this.location.Size = new System.Drawing.Size(271, 22);
+            this.location.TabIndex = 0;
+            this.location.Text = "Location";
+            this.location.Enter += new System.EventHandler(this.TB_Enter);
+            this.location.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // panel4
             // 
@@ -686,50 +688,50 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox Title;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox Location;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox Minute_Start;
-        private System.Windows.Forms.ComboBox Hour_Start;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox Year_Start;
-        private System.Windows.Forms.ComboBox Month_Start;
-        private System.Windows.Forms.ComboBox Day_Start;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel RepeatPanel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox Minute_End;
-        private System.Windows.Forms.ComboBox Hour_End;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox Year_End;
-        private System.Windows.Forms.ComboBox Month_End;
-        private System.Windows.Forms.ComboBox Day_End;
-        private System.Windows.Forms.ComboBox Repeat;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox Priority;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox Notes;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Label RepeatDayLabel;
-        private System.Windows.Forms.Panel RepeatEndPanel;
-        private System.Windows.Forms.Label RepeatEndLabel;
-        private System.Windows.Forms.ComboBox Year_RepeatEnd;
-        private System.Windows.Forms.ComboBox Month_RepeatEnd;
-        private System.Windows.Forms.ComboBox Day_RepeatEnd;
-        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Panel panel4;
+        public System.Windows.Forms.Button CancelButton;
+        public System.Windows.Forms.TextBox Title;
+        public System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.TextBox location;
+        public System.Windows.Forms.Panel panel6;
+        public System.Windows.Forms.ComboBox Minute_Start;
+        public System.Windows.Forms.ComboBox Hour_Start;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ComboBox Year_Start;
+        public System.Windows.Forms.ComboBox Month_Start;
+        public System.Windows.Forms.ComboBox Day_Start;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Panel RepeatPanel;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Panel panel5;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox Minute_End;
+        public System.Windows.Forms.ComboBox Hour_End;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox Year_End;
+        public System.Windows.Forms.ComboBox Month_End;
+        public System.Windows.Forms.ComboBox Day_End;
+        public System.Windows.Forms.ComboBox Repeat;
+        public System.Windows.Forms.Panel panel7;
+        public System.Windows.Forms.ComboBox Priority;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Panel panel10;
+        public System.Windows.Forms.TextBox Notes;
+        public System.Windows.Forms.Panel panel8;
+        public System.Windows.Forms.ComboBox comboBox13;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Button SaveButton;
+        public System.Windows.Forms.Label RepeatDayLabel;
+        public System.Windows.Forms.Panel RepeatEndPanel;
+        public System.Windows.Forms.Label RepeatEndLabel;
+        public System.Windows.Forms.ComboBox Year_RepeatEnd;
+        public System.Windows.Forms.ComboBox Month_RepeatEnd;
+        public System.Windows.Forms.ComboBox Day_RepeatEnd;
+        public System.Windows.Forms.Label label11;
     }
 }

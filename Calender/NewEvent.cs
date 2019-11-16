@@ -262,6 +262,7 @@ namespace Calender
             // FOR NONE //
             if(Repeat.Text.ToString() == "None")
             {
+                newGroup.repeatKind = 0;
                 newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
                 thisPlan.Insert(newGroup);
                 this.Close();
@@ -287,10 +288,10 @@ namespace Calender
 
             if (Repeat.Text.ToString() == "Daily")
             {
-                while(true)
+                newGroup.repeatKind = 1;
+                while (true)
                 {
                     newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
-                    
 
                     start = start.AddDays(1);
                     end = end.AddDays(1);
@@ -305,6 +306,7 @@ namespace Calender
             }
             else if (Repeat.Text.ToString() == "A Week")
             {
+                newGroup.repeatKind = 2;
                 while (true)
                 {
                     newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
@@ -322,6 +324,8 @@ namespace Calender
             }
             else if(Repeat.Text.ToString() == "A Month")
             {
+                newGroup.repeatKind = 3;
+
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
@@ -344,6 +348,8 @@ namespace Calender
             }
             else if(Repeat.Text.ToString() == "A Year")
             {
+                newGroup.repeatKind = 4;
+
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
@@ -366,6 +372,9 @@ namespace Calender
             }
             else
             {
+                newGroup.repeatKind = 5;
+                newGroup.repeatValue = Convert.ToInt32(Repeat.Text);
+
                 while (true)
                 {
                     newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
@@ -381,6 +390,11 @@ namespace Calender
                     }
                 }
             }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

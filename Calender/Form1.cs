@@ -138,6 +138,7 @@ namespace Calender
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
+            new_Event = new New_Event(allPlan);
             new_Event.ShowDialog();
         }        
 

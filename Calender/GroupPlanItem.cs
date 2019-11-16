@@ -9,6 +9,8 @@ namespace Calender
     public class GroupPlanItem
     {
         public List<PlanItem> data = new List<PlanItem>();
+        public int repeatKind = 0; // 0 = None, 1 = Daily, 2 = A Week, 3 = A Month, 4 = A year, 5 = Custom
+        public int repeatValue = 0;
 
         public void Insert(PlanItem item)
         {
