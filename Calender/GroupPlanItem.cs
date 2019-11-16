@@ -29,16 +29,16 @@ namespace Calender
             data.Add(newItem);
         }
 
-        public List<PlanItem> ListAlertForToday(DateTime today)
+        public PlanItem AlertForToday(DateTime today)
         {
-            return data.FindAll(element => (element.alert.Day == today.Day &&
+            return data.Find(element => (element.alert.Day == today.Day &&
                                             element.alert.Month == today.Month &&
                                             element.alert.Year == today.Year));
         }
 
-        public List<PlanItem> ListItemsForToday(DateTime today)
+        public PlanItem ItemsForToday(DateTime today)
         {
-            return data.FindAll(element => (element.startTime.Day == today.Day &&
+            return data.Find(element => (element.startTime.Day == today.Day &&
                                             element.startTime.Month == today.Month &&
                                             element.startTime.Year == today.Year));
         }

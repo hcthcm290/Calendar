@@ -263,7 +263,7 @@ namespace Calender
             if(Repeat.Text.ToString() == "None")
             {
                 newGroup.repeatKind = 0;
-                newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
                 thisPlan.Insert(newGroup);
                 this.Close();
                 return;
@@ -291,7 +291,7 @@ namespace Calender
                 newGroup.repeatKind = 1;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     start = start.AddDays(1);
                     end = end.AddDays(1);
@@ -309,7 +309,7 @@ namespace Calender
                 newGroup.repeatKind = 2;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     start = start.AddDays(7);
                     end = end.AddDays(7);
@@ -329,7 +329,7 @@ namespace Calender
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now));
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     do
                     {
@@ -353,7 +353,7 @@ namespace Calender
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now));
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     do
                     {
@@ -377,7 +377,7 @@ namespace Calender
 
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now));
+                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     start = start.AddDays(Convert.ToInt32(Repeat.Text));
                     end = end.AddDays(Convert.ToInt32(Repeat.Text));

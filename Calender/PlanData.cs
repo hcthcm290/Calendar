@@ -23,12 +23,12 @@ namespace Calender
             group.Remove(item);
         }
 
-        public List<GroupPlanItem> ListAlertForToday(DateTime today)
+        public List<GroupPlanItem> ListGroupAlertForToday(DateTime today)
         {
             return group.FindAll(element => element.ExistsAlertForToday(today));
         }
 
-        public List<GroupPlanItem> ListItemsForToday(DateTime today)
+        public List<GroupPlanItem> ListGroupItemsForToday(DateTime today)
         {
             return group.FindAll(element => element.ExistsItemForToday(today));
         }

@@ -16,9 +16,12 @@ namespace Calender
     {
         string filepath = "data.xml";
         PlanData allPlan = new PlanData();
+        New_Event new_Event;
 
         public Form1()
         {
+            Year.SyncYear();
+            Months.SyncMonth();
             InitializeComponent();
             InitDateMatrix();
             try
@@ -28,7 +31,7 @@ namespace Calender
             catch
             {
             }
-            if(allPlan == null)
+            if (allPlan == null)
             {
                 allPlan = new PlanData();
             }
@@ -39,17 +42,18 @@ namespace Calender
         void InitDateMatrix()
         {
             DateButton = new Button[5, 7];
-            for(int i=0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for(int j=0; j<7; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     DateButton[i, j] = new Button();
                     DateButton[i, j].Width = Const.DateButtonWidth;
                     DateButton[i, j].Height = Const.DateButtonHeight;
-                    DateButton[i, j].Location = new Point(Const.DateButtonStartX + (Const.DateButtonWidth  + Const.DateButtonOffSet) * j,
+                    DateButton[i, j].Location = new Point(Const.DateButtonStartX + (Const.DateButtonWidth + Const.DateButtonOffSet) * j,
                                                           Const.DateButtonStartY + (Const.DateButtonHeight + Const.DateButtonOffSet) * i);
                     DateButton[i, j].UseVisualStyleBackColor = true;
                     DateButton[i, j].Text = "";
+                    DateButton[i, j].Click += DayButton_Click;
                     panel6.Controls.Add(DateButton[i, j]);
                 }
             }
@@ -62,7 +66,7 @@ namespace Calender
             int maxDay = Year.GetMaxDaysOfMonth(Year.GetCurrentYear(), month);
             DateTime d = new DateTime(Year.GetCurrentYear(), month, 1);
             int dayOfWeek = -1;
-            switch(d.DayOfWeek)
+            switch (d.DayOfWeek)
             {
                 case DayOfWeek.Sunday:
                     dayOfWeek = 0;
@@ -88,16 +92,16 @@ namespace Calender
             }
             bool started = false;
             int count = 1;
-            for(int i=0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for(int j=0; j<7; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     DateButton[i, j].Text = "";
-                    if(j == dayOfWeek)
+                    if (j == dayOfWeek)
                     {
                         started = true;
                     }
-                    if(started && count <= maxDay)
+                    if (started && count <= maxDay)
                     {
                         DateButton[i, j].Text = count.ToString();
                         count++;
@@ -116,74 +120,24 @@ namespace Calender
 
         }
 
-        private void Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Addbutton_Click(object sender, EventArgs e)
         {
             new_Event = new New_Event(allPlan);
             new_Event.ShowDialog();
-        }        
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void PrevMonth_Click(object sender, EventArgs e)
         {
             Months.ToPrevMonth();
-            PresentMonth.Text = Months.GetMonth();
+            PresentMonth.Text = Months.ToString();
             GenerateDaysForDateButtons(Months.iCurrent);
         }
 
         private void NextMonth_Click(object sender, EventArgs e)
         {
             Months.ToNextMonth();
-            PresentMonth.Text = Months.GetMonth();
+            PresentMonth.Text = Months.ToString();
             GenerateDaysForDateButtons(Months.iCurrent);
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public object DeserializeFromXML(string filepath)
@@ -216,5 +170,41 @@ namespace Calender
         {
             SerializeToXML(allPlan, filepath);
         }
-    }
+
+        private void LoadItemToDayView(int year, int month, int day)
+        {
+            dayView.Controls.Clear();
+
+            DateTime today = new DateTime(year, month, day);
+            List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(today);
+            for (int i = 0; i < groups.Count; i++)
+            {
+                dayView.Controls.Add(new Item(groups[i], groups[i].ItemsForToday(today)));
+            }
+        }
+
+        private void DayButton_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Text == "")
+                return;
+            LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                Hide();
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+        }
+    } 
 }

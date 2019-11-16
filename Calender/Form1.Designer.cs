@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dayView = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.addbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,8 +53,7 @@
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.new_Event = new Calender.New_Event(allPlan);
-            allPlan = new PlanData();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -78,15 +79,22 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Coral;
+            this.panel3.Controls.Add(this.dayView);
             this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.panel9);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(566, 676);
+            this.panel3.Size = new System.Drawing.Size(559, 676);
             this.panel3.TabIndex = 1;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
+            // 
+            // dayView
+            // 
+            this.dayView.AutoScroll = true;
+            this.dayView.Location = new System.Drawing.Point(15, 163);
+            this.dayView.Name = "dayView";
+            this.dayView.Size = new System.Drawing.Size(526, 508);
+            this.dayView.TabIndex = 3;
             // 
             // panel8
             // 
@@ -95,11 +103,9 @@
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
-            
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(566, 137);
+            this.panel8.Size = new System.Drawing.Size(559, 156);
             this.panel8.TabIndex = 2;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // addbutton
             // 
@@ -130,16 +136,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Today";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Coral;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 143);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(566, 533);
-            this.panel9.TabIndex = 1;
             // 
             // panel2
             // 
@@ -155,7 +151,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(702, 673);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // panel6
             // 
@@ -242,7 +237,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Su";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // panel4
             // 
@@ -254,7 +248,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(502, 94);
             this.panel4.TabIndex = 0;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel4_Paint);
             // 
             // NextMonth
             // 
@@ -293,8 +286,7 @@
             this.PresentMonth.Name = "PresentMonth";
             this.PresentMonth.Size = new System.Drawing.Size(290, 59);
             this.PresentMonth.TabIndex = 4;
-            Months.SyncMonth();
-            this.PresentMonth.Text = Months.GetMonth();
+            this.PresentMonth.Text = "January";
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -311,7 +303,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(702, 39);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
             // 
             // statisticsToolStripMenuItem
             // 
@@ -337,18 +328,11 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 35);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
-            // new_Event
+            // notifyIcon1
             // 
-            this.new_Event.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.new_Event.ClientSize = new System.Drawing.Size(653, 383);
-            this.new_Event.Location = new System.Drawing.Point(26, 26);
-            this.new_Event.Margin = new System.Windows.Forms.Padding(2);
-            this.new_Event.MaximizeBox = false;
-            this.new_Event.MinimizeBox = false;
-            this.new_Event.Name = "new_Event";
-            this.new_Event.ShowIcon = false;
-            this.new_Event.Text = "New Event";
-            this.new_Event.Visible = false;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Calendar";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // Form1
             // 
@@ -368,6 +352,7 @@
             this.Text = "ourCalendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -379,7 +364,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            Year.SyncYear();
+
         }
 
         #endregion
@@ -389,7 +374,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button addbutton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
@@ -406,8 +390,9 @@
         private System.Windows.Forms.Label PresentMonth;
         private System.Windows.Forms.Button PrevMonth;
         private System.Windows.Forms.Button NextMonth;
-        private New_Event new_Event;
         private System.Windows.Forms.Button[,] DateButton;
+        private System.Windows.Forms.FlowLayoutPanel dayView;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

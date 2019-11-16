@@ -23,7 +23,7 @@ namespace Calender
             November    = 11,
             December    = 12,
         }
-        public static string GetMonth()
+        public static string ToString()
         {
             foreach(Month m in Enum.GetValues(typeof(Month)))
             {
