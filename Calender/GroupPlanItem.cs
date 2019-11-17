@@ -38,9 +38,11 @@ namespace Calender
 
         public PlanItem ItemsForToday(DateTime today)
         {
-            return data.Find(element => (element.startTime.Day == today.Day &&
-                                            element.startTime.Month == today.Month &&
-                                            element.startTime.Year == today.Year));
+            DateTime endToday = new DateTime(today.Year, today.Month, today.Day);
+            endToday = endToday.AddHours(23);
+            endToday = endToday.AddMinutes(59);
+
+            return data.Find(element => !(today > element.endTime || endToday < element.startTime));
         }
 
         public bool ExistsAlertForToday(DateTime today)
@@ -52,9 +54,11 @@ namespace Calender
 
         public bool ExistsItemForToday(DateTime today)
         {
-            return data.Exists(element => (element.startTime.Day == today.Day &&
-                                           element.startTime.Month == today.Month &&
-                                           element.startTime.Year == today.Year));
+            DateTime endToday = new DateTime(today.Year, today.Month, today.Day);
+            endToday = endToday.AddHours(23);
+            endToday = endToday.AddMinutes(59);
+
+            return data.Exists(element => !(today > element.endTime || endToday < element.startTime));
         }
     }
 }

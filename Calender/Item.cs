@@ -15,15 +15,30 @@ namespace Calender
         GroupPlanItem group;
         PlanItem item;
 
-        public Item(GroupPlanItem group, PlanItem item)
+        public Item(GroupPlanItem group, PlanItem item, DateTime today)
         {
             InitializeComponent();
             this.group = group;
             this.item = item;
             this.title.Text = item.title;
             this.location.Text = item.location;
-            this.startTime.Text = item.startTime.Hour.ToString() + ":" + item.startTime.Minute.ToString();
-            this.endTime.Text = item.endTime.Hour.ToString() + ":" + item.endTime.Minute.ToString();
+            if (today.Day == item.startTime.Day && today.Month == item.startTime.Month && today.Year == item.startTime.Year)
+            {
+                this.startTime.Text = item.startTime.Hour.ToString("00.##") + ":" + item.startTime.Minute.ToString("00.##");
+            }
+            else
+            {
+                this.startTime.Text = "00:00";
+            }
+
+            if (today.Day == item.endTime.Day && today.Month == item.endTime.Month && today.Year == item.endTime.Year)
+            {
+                this.endTime.Text = item.endTime.Hour.ToString("00.##") + ":" + item.endTime.Minute.ToString("00.##");
+            }
+            else
+            {
+                this.endTime.Text = "23:59";
+            }
         }
 
         private void Item_Load(object sender, EventArgs e)

@@ -37,6 +37,7 @@ namespace Calender
             }
             this.CenterToScreen();
             new_Event = new New_Event(allPlan);
+            LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, DateTime.Now.Day);
         }
 
         void InitDateMatrix()
@@ -179,7 +180,7 @@ namespace Calender
             List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(today);
             for (int i = 0; i < groups.Count; i++)
             {
-                dayView.Controls.Add(new Item(groups[i], groups[i].ItemsForToday(today)));
+                dayView.Controls.Add(new Item(groups[i], groups[i].ItemsForToday(today), today));
             }
         }
 

@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FormLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RepeatEndPanel = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -91,7 +91,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.SaveButton);
             this.panel1.Controls.Add(this.CancelButton);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.FormLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -133,19 +133,19 @@
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // label1
+            // FormLabel
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FormLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(253, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "New event";
+            this.FormLabel.AutoSize = true;
+            this.FormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormLabel.Location = new System.Drawing.Point(253, 4);
+            this.FormLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FormLabel.Name = "FormLabel";
+            this.FormLabel.Size = new System.Drawing.Size(152, 33);
+            this.FormLabel.TabIndex = 0;
+            this.FormLabel.Text = "New event";
             // 
             // panel2
             // 
@@ -690,7 +690,7 @@
 
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label FormLabel;
         public System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.Button CancelButton;
         public System.Windows.Forms.TextBox Title;
