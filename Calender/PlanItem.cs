@@ -39,6 +39,6 @@ namespace Calender
         public String location;
         public string note;
         public PriorityEnum priority;
-        public DateTime alert;        
+        public DateTime alert;
     }
 }

@@ -45,5 +45,11 @@ namespace Calender
         {
 
         }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            EditEvent edit = new EditEvent(Form1.allPlan, group, item);
+            edit.ShowDialog();
+        }
     }
 }

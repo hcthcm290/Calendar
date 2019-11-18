@@ -15,7 +15,7 @@ namespace Calender
     public partial class Form1 : Form
     {
         string filepath = "data.xml";
-        PlanData allPlan = new PlanData();
+        static public PlanData allPlan = new PlanData();
         New_Event new_Event;
 
         public Form1()
@@ -23,6 +23,7 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            this.PresentMonth.Text = Months.ToString();
             InitDateMatrix();
             try
             {
@@ -180,7 +181,11 @@ namespace Calender
             List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(today);
             for (int i = 0; i < groups.Count; i++)
             {
-                dayView.Controls.Add(new Item(groups[i], groups[i].ItemsForToday(today), today));
+                List<PlanItem> items = groups[i].ListItemsForToday(today);
+                for (int j = 0; j < items.Count; j++)
+                {
+                    dayView.Controls.Add(new Item(groups[i], items[j], today));
+                }
             }
         }
 

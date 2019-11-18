@@ -6,13 +6,19 @@ namespace Calender
 {
     public partial class New_Event : Form
     {
-        PlanData thisPlan;
-
+        public PlanData thisPlan;
+        
+        public New_Event()
+        {
+            InitializeComponent();
+            Init();
+        }
         public New_Event(PlanData plandata)
         {
             InitializeComponent();
             Init();
             thisPlan = plandata;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         void Init()
@@ -56,37 +62,7 @@ namespace Calender
             this.RepeatDayLabel.Parent = this.RepeatPanel;
         }
 
-        private void Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void New_Event_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -160,7 +136,7 @@ namespace Calender
         private void TB_Enter(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            if (tb.Text == tb.Name)
+            if (tb.Text.ToLower() == tb.Name)
             {
                 tb.Text = "";
             }
@@ -171,7 +147,7 @@ namespace Calender
             TextBox tb = (TextBox)sender;
             if (tb.Text == "")
             {
-                tb.Text = tb.Name;
+                tb.Text = tb.Name.Substring(0,1).ToUpper() + tb.Name.Substring(1);
             }
         }
 
@@ -179,17 +155,15 @@ namespace Calender
         {
             if(Repeat.SelectedItem.ToString() == "Custom")
             {
-                Repeat.DropDownStyle = ComboBoxStyle.DropDown;
-                Repeat.Text = "1";
+                repeatValue.Visible = true;
+                repeatValue.BringToFront();
                 RepeatDayLabel.Visible = true;
                 RepeatDayLabel.BringToFront();
             }
-            else if(Repeat.DropDownStyle == ComboBoxStyle.DropDown && Repeat.SelectedItem.ToString() != "Custom")
+            else 
             {
-                Repeat.DropDownStyle = ComboBoxStyle.DropDownList;
-                Repeat.SelectedIndex = 0;
+                repeatValue.Visible = false;
                 RepeatDayLabel.Visible = false;
-                RepeatDayLabel.BringToFront();
             }
             if(Repeat.SelectedItem.ToString() == "None")
             {
@@ -211,7 +185,7 @@ namespace Calender
             }
         }
         
-        bool CheckLegitDate(int year, int month, int day)
+        public bool CheckLegitDate(int year, int month, int day)
         {
             if(day > Year.GetMaxDaysOfMonth(year, month))
             {
@@ -220,7 +194,7 @@ namespace Calender
             return true;
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        public virtual void SaveButton_Click(object sender, EventArgs e)
         {
             GroupPlanItem newGroup = new GroupPlanItem();
 
@@ -263,7 +237,7 @@ namespace Calender
             if(Repeat.Text.ToString() == "None")
             {
                 newGroup.repeatKind = 0;
-                newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
                 thisPlan.Insert(newGroup);
                 this.Close();
                 return;
@@ -278,7 +252,7 @@ namespace Calender
                 MessageBox.Show("Invalid RepeatEnd Date");
                 return;
             }
-            DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd);
+            DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
             if(repeatEnd < end)
             {
@@ -286,12 +260,14 @@ namespace Calender
                 return;
             }
 
+            newGroup.repeatEnd = repeatEnd;
+
             if (Repeat.Text.ToString() == "Daily")
             {
                 newGroup.repeatKind = 1;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     start = start.AddDays(1);
                     end = end.AddDays(1);
@@ -309,7 +285,7 @@ namespace Calender
                 newGroup.repeatKind = 2;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     start = start.AddDays(7);
                     end = end.AddDays(7);
@@ -329,7 +305,7 @@ namespace Calender
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     do
                     {
@@ -353,11 +329,11 @@ namespace Calender
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
 
                     do
                     {
-                        Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
+                        Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 12);
                     }
                     while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
 
@@ -373,14 +349,14 @@ namespace Calender
             else
             {
                 newGroup.repeatKind = 5;
-                newGroup.repeatValue = Convert.ToInt32(Repeat.Text);
+                newGroup.repeatValue = Convert.ToInt32(repeatValue.Text);
 
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(Title.Text, Notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
 
-                    start = start.AddDays(Convert.ToInt32(Repeat.Text));
-                    end = end.AddDays(Convert.ToInt32(Repeat.Text));
+                    start = start.AddDays(Convert.ToInt32(repeatValue.Text));
+                    end = end.AddDays(Convert.ToInt32(repeatValue.Text));
 
                     if (start > repeatEnd)
                     {

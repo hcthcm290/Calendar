@@ -40,7 +40,7 @@
             this.Day_RepeatEnd = new System.Windows.Forms.ComboBox();
             this.RepeatEndLabel = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.Notes = new System.Windows.Forms.TextBox();
+            this.notes = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.Priority = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RepeatPanel = new System.Windows.Forms.Panel();
+            this.repeatValue = new System.Windows.Forms.TextBox();
             this.RepeatDayLabel = new System.Windows.Forms.Label();
             this.Repeat = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,7 +73,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.location = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Title = new System.Windows.Forms.TextBox();
+            this.title = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.RepeatEndPanel.SuspendLayout();
@@ -244,25 +245,25 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.Notes);
+            this.panel10.Controls.Add(this.notes);
             this.panel10.Location = new System.Drawing.Point(328, 108);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(315, 49);
             this.panel10.TabIndex = 3;
             // 
-            // Notes
+            // notes
             // 
-            this.Notes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Notes.ForeColor = System.Drawing.Color.Gray;
-            this.Notes.Location = new System.Drawing.Point(24, 14);
-            this.Notes.Name = "Notes";
-            this.Notes.Size = new System.Drawing.Size(271, 22);
-            this.Notes.TabIndex = 0;
-            this.Notes.Text = "Notes";
-            this.Notes.Enter += new System.EventHandler(this.TB_Enter);
-            this.Notes.Leave += new System.EventHandler(this.TB_Leave);
+            this.notes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notes.ForeColor = System.Drawing.Color.Gray;
+            this.notes.Location = new System.Drawing.Point(24, 14);
+            this.notes.Name = "notes";
+            this.notes.Size = new System.Drawing.Size(271, 22);
+            this.notes.TabIndex = 0;
+            this.notes.Text = "Notes";
+            this.notes.Enter += new System.EventHandler(this.TB_Enter);
+            this.notes.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // panel8
             // 
@@ -333,6 +334,7 @@
             // RepeatPanel
             // 
             this.RepeatPanel.BackColor = System.Drawing.Color.White;
+            this.RepeatPanel.Controls.Add(this.repeatValue);
             this.RepeatPanel.Controls.Add(this.RepeatDayLabel);
             this.RepeatPanel.Controls.Add(this.Repeat);
             this.RepeatPanel.Controls.Add(this.label8);
@@ -341,6 +343,17 @@
             this.RepeatPanel.Name = "RepeatPanel";
             this.RepeatPanel.Size = new System.Drawing.Size(315, 49);
             this.RepeatPanel.TabIndex = 3;
+            // 
+            // repeatValue
+            // 
+            this.repeatValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatValue.Location = new System.Drawing.Point(96, 11);
+            this.repeatValue.Multiline = true;
+            this.repeatValue.Name = "repeatValue";
+            this.repeatValue.Size = new System.Drawing.Size(103, 31);
+            this.repeatValue.TabIndex = 11;
+            this.repeatValue.Text = "1";
+            this.repeatValue.Visible = false;
             // 
             // RepeatDayLabel
             // 
@@ -435,7 +448,6 @@
             this.Hour_End.Size = new System.Drawing.Size(47, 32);
             this.Hour_End.TabIndex = 5;
             this.Hour_End.Text = "0";
-            this.Hour_End.SelectedIndexChanged += new System.EventHandler(this.ComboBox7_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -597,7 +609,6 @@
             this.Day_Start.Size = new System.Drawing.Size(47, 32);
             this.Day_Start.TabIndex = 1;
             this.Day_Start.Text = "dd";
-            this.Day_Start.SelectedIndexChanged += new System.EventHandler(this.ComboBox6_SelectedIndexChanged);
             this.Day_Start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Day_KeyDown);
             this.Day_Start.Leave += new System.EventHandler(this.Day_Leave);
             // 
@@ -627,25 +638,25 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.Title);
+            this.panel4.Controls.Add(this.title);
             this.panel4.Location = new System.Drawing.Point(9, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(315, 49);
             this.panel4.TabIndex = 1;
             // 
-            // Title
+            // title
             // 
-            this.Title.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.Gray;
-            this.Title.Location = new System.Drawing.Point(24, 14);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(271, 22);
-            this.Title.TabIndex = 0;
-            this.Title.Text = "Title";
-            this.Title.Enter += new System.EventHandler(this.TB_Enter);
-            this.Title.Leave += new System.EventHandler(this.TB_Leave);
+            this.title.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.Gray;
+            this.title.Location = new System.Drawing.Point(24, 14);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(271, 22);
+            this.title.TabIndex = 0;
+            this.title.Text = "Title";
+            this.title.Enter += new System.EventHandler(this.TB_Enter);
+            this.title.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // New_Event
             // 
@@ -693,7 +704,7 @@
         public System.Windows.Forms.Label FormLabel;
         public System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.Button CancelButton;
-        public System.Windows.Forms.TextBox Title;
+        public System.Windows.Forms.TextBox title;
         public System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.TextBox location;
         public System.Windows.Forms.Panel panel6;
@@ -721,7 +732,7 @@
         public System.Windows.Forms.ComboBox Priority;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Panel panel10;
-        public System.Windows.Forms.TextBox Notes;
+        public System.Windows.Forms.TextBox notes;
         public System.Windows.Forms.Panel panel8;
         public System.Windows.Forms.ComboBox comboBox13;
         public System.Windows.Forms.Label label10;
@@ -733,5 +744,6 @@
         public System.Windows.Forms.ComboBox Month_RepeatEnd;
         public System.Windows.Forms.ComboBox Day_RepeatEnd;
         public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox repeatValue;
     }
 }

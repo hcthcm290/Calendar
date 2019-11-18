@@ -83,6 +83,7 @@
             this.edit.TabIndex = 4;
             this.edit.Text = "Edit";
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // Item
             // 
