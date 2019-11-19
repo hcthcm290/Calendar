@@ -33,6 +33,17 @@ namespace Calender
             this.alert = alert;
         }
 
+        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "")
+        {
+            this.title = title;
+            this.note = note;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.location = location;
+            this.priority = (PriorityEnum)priority;
+            this.alert = alert;
+        }
+
         public string title;
         public DateTime startTime;
         public DateTime endTime;

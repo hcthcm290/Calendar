@@ -42,10 +42,10 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.notes = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.alert = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.Priority = new System.Windows.Forms.ComboBox();
+            this.priority = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RepeatPanel = new System.Windows.Forms.Panel();
             this.repeatValue = new System.Windows.Forms.TextBox();
@@ -268,7 +268,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Controls.Add(this.comboBox13);
+            this.panel8.Controls.Add(this.alert);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(328, 55);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
@@ -276,17 +276,17 @@
             this.panel8.Size = new System.Drawing.Size(315, 49);
             this.panel8.TabIndex = 11;
             // 
-            // comboBox13
+            // alert
             // 
-            this.comboBox13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox13.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(65, 11);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(232, 32);
-            this.comboBox13.TabIndex = 9;
-            this.comboBox13.Text = "1 hour before";
+            this.alert.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.alert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.alert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alert.ForeColor = System.Drawing.Color.Gray;
+            this.alert.FormattingEnabled = true;
+            this.alert.Location = new System.Drawing.Point(65, 11);
+            this.alert.Name = "alert";
+            this.alert.Size = new System.Drawing.Size(232, 32);
+            this.alert.TabIndex = 9;
             // 
             // label10
             // 
@@ -301,7 +301,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.Priority);
+            this.panel7.Controls.Add(this.priority);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Location = new System.Drawing.Point(328, 2);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
@@ -309,17 +309,17 @@
             this.panel7.Size = new System.Drawing.Size(315, 49);
             this.panel7.TabIndex = 10;
             // 
-            // Priority
+            // priority
             // 
-            this.Priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Priority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Priority.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Priority.ForeColor = System.Drawing.Color.Gray;
-            this.Priority.FormattingEnabled = true;
-            this.Priority.Location = new System.Drawing.Point(83, 11);
-            this.Priority.Name = "Priority";
-            this.Priority.Size = new System.Drawing.Size(214, 32);
-            this.Priority.TabIndex = 9;
+            this.priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.priority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.priority.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priority.ForeColor = System.Drawing.Color.Gray;
+            this.priority.FormattingEnabled = true;
+            this.priority.Location = new System.Drawing.Point(83, 11);
+            this.priority.Name = "priority";
+            this.priority.Size = new System.Drawing.Size(214, 32);
+            this.priority.TabIndex = 9;
             // 
             // label9
             // 
@@ -435,7 +435,7 @@
             this.Minute_End.Name = "Minute_End";
             this.Minute_End.Size = new System.Drawing.Size(47, 32);
             this.Minute_End.TabIndex = 6;
-            this.Minute_End.Text = "0";
+            this.Minute_End.Text = "mm";
             // 
             // Hour_End
             // 
@@ -447,7 +447,7 @@
             this.Hour_End.Name = "Hour_End";
             this.Hour_End.Size = new System.Drawing.Size(47, 32);
             this.Hour_End.TabIndex = 5;
-            this.Hour_End.Text = "0";
+            this.Hour_End.Text = "hh";
             // 
             // label7
             // 
@@ -545,7 +545,7 @@
             this.Minute_Start.Name = "Minute_Start";
             this.Minute_Start.Size = new System.Drawing.Size(47, 32);
             this.Minute_Start.TabIndex = 6;
-            this.Minute_Start.Text = "0";
+            this.Minute_Start.Text = "mm";
             // 
             // Hour_Start
             // 
@@ -557,7 +557,7 @@
             this.Hour_Start.Name = "Hour_Start";
             this.Hour_Start.Size = new System.Drawing.Size(47, 32);
             this.Hour_Start.TabIndex = 5;
-            this.Hour_Start.Text = "0";
+            this.Hour_Start.Text = "hh";
             // 
             // label3
             // 
@@ -729,12 +729,12 @@
         public System.Windows.Forms.ComboBox Day_End;
         public System.Windows.Forms.ComboBox Repeat;
         public System.Windows.Forms.Panel panel7;
-        public System.Windows.Forms.ComboBox Priority;
+        public System.Windows.Forms.ComboBox priority;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Panel panel10;
         public System.Windows.Forms.TextBox notes;
         public System.Windows.Forms.Panel panel8;
-        public System.Windows.Forms.ComboBox comboBox13;
+        public System.Windows.Forms.ComboBox alert;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.Button SaveButton;
         public System.Windows.Forms.Label RepeatDayLabel;

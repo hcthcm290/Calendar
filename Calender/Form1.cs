@@ -17,6 +17,8 @@ namespace Calender
         string filepath = "data.xml";
         static public PlanData allPlan = new PlanData();
         New_Event new_Event;
+        static public List<PlanItem> alertForToday = new List<PlanItem>();
+        Timer timer;
 
         public Form1()
         {
@@ -39,6 +41,17 @@ namespace Calender
             this.CenterToScreen();
             new_Event = new New_Event(allPlan);
             LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, DateTime.Now.Day);
+
+            List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
+            for(int i=0; i<groupsAlert.Count; i++)
+            {
+                alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
+            }
+
+            timer = new Timer();
+            timer.Tick += Notify;
+            timer.Interval = (60 - DateTime.Now.Second)*1000;
+            timer.Start();
         }
 
         void InitDateMatrix()
@@ -49,10 +62,10 @@ namespace Calender
                 for (int j = 0; j < 7; j++)
                 {
                     DateButton[i, j] = new Button();
-                    DateButton[i, j].Width = Const.DateButtonWidth;
-                    DateButton[i, j].Height = Const.DateButtonHeight;
-                    DateButton[i, j].Location = new Point(Const.DateButtonStartX + (Const.DateButtonWidth + Const.DateButtonOffSet) * j,
-                                                          Const.DateButtonStartY + (Const.DateButtonHeight + Const.DateButtonOffSet) * i);
+                    DateButton[i, j].Width = label2.Width;
+                    DateButton[i, j].Height = label2.Height;
+                    DateButton[i, j].Location = new Point(label2.Location.X + (label2.Width + Const.DateButtonOffSet) * j,
+                                                          label2.Location.Y + (label2.Height + Const.DateButtonOffSet) * (i + 1));
                     DateButton[i, j].UseVisualStyleBackColor = true;
                     DateButton[i, j].Text = "";
                     DateButton[i, j].Click += DayButton_Click;
@@ -211,6 +224,32 @@ namespace Calender
             Show();
             this.WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;
+        }
+
+        private void Notify(object sender, EventArgs e)
+        {
+            List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
+            alertForToday.RemoveRange(0, alertForToday.Count);
+            for (int i = 0; i < groupsAlert.Count; i++)
+            {
+                alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
+            }
+
+            DateTime dt = DateTime.Now;
+            for(int i=0; i<alertForToday.Count; i++)
+            {
+                if(
+                    alertForToday[i].alert.Hour == dt.Hour &&
+                    alertForToday[i].alert.Minute == dt.Minute
+                   )
+                {
+                    notifyIcon1.Visible = true;
+                    notifyIcon1.BalloonTipTitle = alertForToday[i].title;
+                    notifyIcon1.BalloonTipText = alertForToday[i].note;
+                    notifyIcon1.ShowBalloonTip(3000);
+                }
+            }
+            timer.Interval = 60000;
         }
     } 
 }

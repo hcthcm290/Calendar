@@ -51,6 +51,8 @@ namespace Calender
             this.Day_RepeatEnd.Text = group.repeatEnd.Day.ToString();
             this.Month_RepeatEnd.Text = group.repeatEnd.Month.ToString();
             this.Year_RepeatEnd.Text = group.repeatEnd.Year.ToString();
+
+            this.priority.SelectedIndex = (int)item.priority;
         }
 
         private bool NeedNewGroup()

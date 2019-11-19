@@ -49,9 +49,9 @@ namespace Calender
             data.Add(newItem);
         }
 
-        public PlanItem AlertForToday(DateTime today)
+        public List<PlanItem> ListAlertForToday(DateTime today)
         {
-            return data.Find(element => (element.alert.Day == today.Day &&
+            return data.FindAll(element => (element.alert.Day == today.Day &&
                                             element.alert.Month == today.Month &&
                                             element.alert.Year == today.Year));
         }

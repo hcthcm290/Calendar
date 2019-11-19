@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Calender
 {
     public partial class New_Event : Form
     {
         public PlanData thisPlan;
-        
+
         public New_Event()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace Calender
                 this.Day_RepeatEnd.Items.Add(i.ToString());
             }
 
-            for(int i = 1; i<=12; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 this.Month_Start.Items.Add(i.ToString());
                 this.Month_End.Items.Add(i.ToString());
@@ -38,18 +38,30 @@ namespace Calender
             }
 
             DateTime datetime = DateTime.Now;
-            for(int i = datetime.Year; i < datetime.Year + 10; i++)
+            for (int i = datetime.Year; i < datetime.Year + 10; i++)
             {
                 this.Year_Start.Items.Add(i.ToString());
                 this.Year_End.Items.Add(i.ToString());
                 this.Year_RepeatEnd.Items.Add(i.ToString());
             }
 
-            this.Priority.Items.Add("Normal");
-            this.Priority.Items.Add("Medium");
-            this.Priority.Items.Add("High");
-            this.Priority.Items.Add("Urgent");
-            this.Priority.SelectedIndex = 0;
+            for (int i = 0; i <= 11; i++)
+            {
+                this.Hour_Start.Items.Add(i.ToString());
+                this.Hour_End.Items.Add(i.ToString());
+            }
+
+            for (int i = 0; i <= 59; i++)
+            {
+                this.Minute_Start.Items.Add(i.ToString());
+                this.Minute_End.Items.Add(i.ToString());
+            }
+
+            this.priority.Items.Add("Normal");
+            this.priority.Items.Add("Medium");
+            this.priority.Items.Add("High");
+            this.priority.Items.Add("Urgent");
+            this.priority.SelectedIndex = 0;
 
             this.Repeat.Items.Add("None");
             this.Repeat.Items.Add("Daily");
@@ -58,6 +70,12 @@ namespace Calender
             this.Repeat.Items.Add("A Year");
             this.Repeat.Items.Add("Custom");
             this.Repeat.SelectedIndex = 0;
+
+            this.alert.Items.Add("1 hour before");
+            this.alert.Items.Add("30 minutes before");
+            this.alert.Items.Add("15 minutes before");
+            this.alert.Items.Add("At the time event happen");
+            this.alert.SelectedIndex = 3;
 
             this.RepeatDayLabel.Parent = this.RepeatPanel;
         }
@@ -70,7 +88,7 @@ namespace Calender
         private void Day_KeyDown(object sender, KeyEventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 int day;
                 Int32.TryParse(cb.Text, out day);
@@ -147,25 +165,25 @@ namespace Calender
             TextBox tb = (TextBox)sender;
             if (tb.Text == "")
             {
-                tb.Text = tb.Name.Substring(0,1).ToUpper() + tb.Name.Substring(1);
+                tb.Text = tb.Name.Substring(0, 1).ToUpper() + tb.Name.Substring(1);
             }
         }
 
         private void Repeat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Repeat.SelectedItem.ToString() == "Custom")
+            if (Repeat.SelectedItem.ToString() == "Custom")
             {
                 repeatValue.Visible = true;
                 repeatValue.BringToFront();
                 RepeatDayLabel.Visible = true;
                 RepeatDayLabel.BringToFront();
             }
-            else 
+            else
             {
                 repeatValue.Visible = false;
                 RepeatDayLabel.Visible = false;
             }
-            if(Repeat.SelectedItem.ToString() == "None")
+            if (Repeat.SelectedItem.ToString() == "None")
             {
                 Day_RepeatEnd.Enabled = false;
                 Month_RepeatEnd.Enabled = false;
@@ -184,10 +202,10 @@ namespace Calender
                 RepeatEndPanel.BackColor = Color.White;
             }
         }
-        
+
         public bool CheckLegitDate(int year, int month, int day)
         {
-            if(day > Year.GetMaxDaysOfMonth(year, month))
+            if (day > Year.GetMaxDaysOfMonth(year, month))
             {
                 return false;
             }
@@ -196,6 +214,24 @@ namespace Calender
 
         public virtual void SaveButton_Click(object sender, EventArgs e)
         {
+            TimeSpan alertTimeSpane = new TimeSpan();
+            if(alert.SelectedIndex == 0)
+            {
+                alertTimeSpane = new TimeSpan(1, 0, 0);
+            }
+            else if (alert.SelectedIndex == 0)
+            {
+                alertTimeSpane = new TimeSpan(0, 30, 0);
+            }
+            else if (alert.SelectedIndex == 0)
+            {
+                alertTimeSpane = new TimeSpan(0, 15, 0);
+            }
+            else if (alert.SelectedIndex == 0)
+            {
+                alertTimeSpane = new TimeSpan(0, 0, 0);
+            }
+
             GroupPlanItem newGroup = new GroupPlanItem();
 
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
@@ -209,8 +245,7 @@ namespace Calender
                 MessageBox.Show("Invalid Start Date");
                 return;
             }
-            DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start,0);
-
+            DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
 
             int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
             Int32.TryParse(Day_End.Text, out tDay_End);
@@ -225,7 +260,7 @@ namespace Calender
             }
             DateTime end = new DateTime(tYear_End, tMonth_End, tDay_End, tHour_End, tMinute_End, 0);
 
-            if(end <= start)
+            if (end <= start)
             {
                 MessageBox.Show("End Day must after Start Day");
                 return;
@@ -234,10 +269,10 @@ namespace Calender
             ////////////////////////////////////////////////////////////////
             ///
             // FOR NONE //
-            if(Repeat.Text.ToString() == "None")
+            if (Repeat.Text.ToString() == "None")
             {
                 newGroup.repeatKind = 0;
-                newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
                 thisPlan.Insert(newGroup);
                 this.Close();
                 return;
@@ -254,7 +289,7 @@ namespace Calender
             }
             DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
-            if(repeatEnd < end)
+            if (repeatEnd < end)
             {
                 MessageBox.Show("The end for Repeat end must after the end of event");
                 return;
@@ -267,12 +302,12 @@ namespace Calender
                 newGroup.repeatKind = 1;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     start = start.AddDays(1);
                     end = end.AddDays(1);
 
-                    if(start > repeatEnd)
+                    if (start > repeatEnd)
                     {
                         thisPlan.Insert(newGroup);
                         this.Close();
@@ -285,7 +320,7 @@ namespace Calender
                 newGroup.repeatKind = 2;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     start = start.AddDays(7);
                     end = end.AddDays(7);
@@ -298,14 +333,14 @@ namespace Calender
                     }
                 }
             }
-            else if(Repeat.Text.ToString() == "A Month")
+            else if (Repeat.Text.ToString() == "A Month")
             {
                 newGroup.repeatKind = 3;
 
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start+timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     do
                     {
@@ -314,7 +349,7 @@ namespace Calender
                     while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
 
                     start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
-                    if(start > repeatEnd)
+                    if (start > repeatEnd)
                     {
                         thisPlan.Insert(newGroup);
                         this.Close();
@@ -322,14 +357,14 @@ namespace Calender
                     }
                 }
             }
-            else if(Repeat.Text.ToString() == "A Year")
+            else if (Repeat.Text.ToString() == "A Year")
             {
                 newGroup.repeatKind = 4;
 
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     do
                     {
@@ -353,7 +388,7 @@ namespace Calender
 
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
+                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     start = start.AddDays(Convert.ToInt32(repeatValue.Text));
                     end = end.AddDays(Convert.ToInt32(repeatValue.Text));
