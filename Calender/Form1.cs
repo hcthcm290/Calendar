@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using System.Media;
 
 namespace Calender
 {
@@ -19,6 +20,7 @@ namespace Calender
         New_Event new_Event;
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
+
 
         public Form1()
         {
@@ -69,6 +71,7 @@ namespace Calender
                     DateButton[i, j].UseVisualStyleBackColor = true;
                     DateButton[i, j].Text = "";
                     DateButton[i, j].Click += DayButton_Click;
+
                     panel6.Controls.Add(DateButton[i, j]);
                 }
             }
@@ -112,6 +115,7 @@ namespace Calender
                 for (int j = 0; j < 7; j++)
                 {
                     DateButton[i, j].Text = "";
+                    DateButton[i, j].BackColor = Color.Transparent;
                     if (j == dayOfWeek)
                     {
                         started = true;
@@ -119,6 +123,10 @@ namespace Calender
                     if (started && count <= maxDay)
                     {
                         DateButton[i, j].Text = count.ToString();
+                        if(count == DateTime.Now.Day && month == DateTime.Now.Month)
+                        {
+                            DateButton[i, j].BackColor = Color.OrangeRed;
+                        }
                         count++;
                     }
                 }

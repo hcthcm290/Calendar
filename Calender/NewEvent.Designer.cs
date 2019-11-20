@@ -263,6 +263,7 @@
             this.notes.TabIndex = 0;
             this.notes.Text = "Notes";
             this.notes.Enter += new System.EventHandler(this.TB_Enter);
+            this.notes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Silent_KeyDown);
             this.notes.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // panel8
@@ -354,6 +355,7 @@
             this.repeatValue.TabIndex = 11;
             this.repeatValue.Text = "1";
             this.repeatValue.Visible = false;
+            this.repeatValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Silent_KeyDown);
             // 
             // RepeatDayLabel
             // 
@@ -633,6 +635,7 @@
             this.location.TabIndex = 0;
             this.location.Text = "Location";
             this.location.Enter += new System.EventHandler(this.TB_Enter);
+            this.location.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Silent_KeyDown);
             this.location.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // panel4
@@ -656,6 +659,7 @@
             this.title.TabIndex = 0;
             this.title.Text = "Title";
             this.title.Enter += new System.EventHandler(this.TB_Enter);
+            this.title.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Silent_KeyDown);
             this.title.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // New_Event

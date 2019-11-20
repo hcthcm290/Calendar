@@ -38,7 +38,7 @@
             // startTime
             // 
             this.startTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startTime.Location = new System.Drawing.Point(13, 8);
+            this.startTime.Location = new System.Drawing.Point(65, 8);
             this.startTime.Name = "startTime";
             this.startTime.Size = new System.Drawing.Size(100, 23);
             this.startTime.TabIndex = 0;
@@ -48,9 +48,9 @@
             // title
             // 
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(119, 8);
+            this.title.Location = new System.Drawing.Point(171, 7);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(243, 23);
+            this.title.Size = new System.Drawing.Size(205, 23);
             this.title.TabIndex = 1;
             this.title.Text = "Title";
             // 
@@ -58,7 +58,7 @@
             // 
             this.endTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endTime.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.endTime.Location = new System.Drawing.Point(14, 29);
+            this.endTime.Location = new System.Drawing.Point(66, 29);
             this.endTime.Name = "endTime";
             this.endTime.Size = new System.Drawing.Size(96, 23);
             this.endTime.TabIndex = 2;
@@ -69,9 +69,9 @@
             // 
             this.location.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.location.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.location.Location = new System.Drawing.Point(121, 31);
+            this.location.Location = new System.Drawing.Point(172, 31);
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(242, 23);
+            this.location.Size = new System.Drawing.Size(204, 23);
             this.location.TabIndex = 3;
             this.location.Text = "Location";
             // 
@@ -98,6 +98,7 @@
             this.Name = "Item";
             this.Size = new System.Drawing.Size(448, 65);
             this.Load += new System.EventHandler(this.Item_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Item_Paint);
             this.ResumeLayout(false);
 
         }

@@ -51,5 +51,11 @@ namespace Calender
             EditEvent edit = new EditEvent(Form1.allPlan, group, item);
             edit.ShowDialog();
         }
+
+        private void Item_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.FillEllipse(new SolidBrush(Color.Red), new RectangleF(20, 20, 20, 20));
+        }
     }
 }

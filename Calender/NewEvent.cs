@@ -85,6 +85,15 @@ namespace Calender
 
         }
 
+        private void Silent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void Day_KeyDown(object sender, KeyEventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
@@ -100,7 +109,10 @@ namespace Calender
                 {
                     cb.Text = "31";
                 }
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
+            
         }
 
         private void Month_KeyDown(object sender, KeyEventArgs e)
@@ -118,6 +130,9 @@ namespace Calender
                 {
                     cb.Text = "12";
                 }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -219,15 +234,15 @@ namespace Calender
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
-            else if (alert.SelectedIndex == 0)
+            else if (alert.SelectedIndex == 1)
             {
                 alertTimeSpane = new TimeSpan(0, 30, 0);
             }
-            else if (alert.SelectedIndex == 0)
+            else if (alert.SelectedIndex == 2)
             {
                 alertTimeSpane = new TimeSpan(0, 15, 0);
             }
-            else if (alert.SelectedIndex == 0)
+            else if (alert.SelectedIndex == 3)
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }

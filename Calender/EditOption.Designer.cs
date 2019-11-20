@@ -74,6 +74,7 @@
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.btnThisAndFollowing);
             this.Controls.Add(this.btnOnlyThisItem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditOption";
             this.Text = "EditOption";
             this.ResumeLayout(false);

@@ -82,6 +82,12 @@
     <Compile Include="EditOption.Designer.cs">
       <DependentUpon>EditOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditOptionS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditOptionS.Designer.cs">
+      <DependentUpon>EditOptionS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditOption.resx">
       <DependentUpon>EditOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditOptionS.resx">
+      <DependentUpon>EditOptionS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

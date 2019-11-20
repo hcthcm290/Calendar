@@ -53,9 +53,27 @@ namespace Calender
             this.Year_RepeatEnd.Text = group.repeatEnd.Year.ToString();
 
             this.priority.SelectedIndex = (int)item.priority;
+
+            TimeSpan ts = item.startTime - item.alert;
+            if(ts.Hours == 1)
+            {
+                this.alert.SelectedIndex = 0;
+            } 
+            else if(ts.Minutes == 30)
+            {
+                this.alert.SelectedIndex = 1;
+            }
+            else if (ts.Minutes == 15)
+            {
+                this.alert.SelectedIndex = 2;
+            }
+            else
+            {
+                this.alert.SelectedIndex = 3;
+            }
         }
 
-        private bool NeedNewGroup()
+        private bool DontChangeRepeat()
         {
             if(this.Repeat.SelectedIndex == 0 && group.repeatKind == 0)
             {
@@ -80,6 +98,25 @@ namespace Calender
 
         public override void SaveButton_Click(object sender, EventArgs e)
         {
+            TimeSpan alertTimeSpane = new TimeSpan();
+            if (alert.SelectedIndex == 0)
+            {
+                alertTimeSpane = new TimeSpan(1, 0, 0);
+            }
+            else if (alert.SelectedIndex == 1)
+            {
+                alertTimeSpane = new TimeSpan(0, 30, 0);
+            }
+            else if (alert.SelectedIndex == 2)
+            {
+                alertTimeSpane = new TimeSpan(0, 15, 0);
+            }
+            else if (alert.SelectedIndex == 3)
+            {
+                alertTimeSpane = new TimeSpan(0, 0, 0);
+            }
+
+            // start time
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
             Int32.TryParse(Day_Start.Text, out tDay_Start);
             Int32.TryParse(Month_Start.Text, out tMonth_Start);
@@ -93,7 +130,7 @@ namespace Calender
             }
             DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
 
-
+            // end time
             int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
             Int32.TryParse(Day_End.Text, out tDay_End);
             Int32.TryParse(Month_End.Text, out tMonth_End);
@@ -107,127 +144,133 @@ namespace Calender
             }
             DateTime end = new DateTime(tYear_End, tMonth_End, tDay_End, tHour_End, tMinute_End, 0);
 
-            if (!NeedNewGroup())
+            // check end and start
+            if (end <= start)
             {
-                DialogResult dr = new DialogResult();
-                EditOption editOption = new EditOption();
-                dr = editOption.ShowDialog();
+                MessageBox.Show("End Day must after Start Day");
+                return;
+            }
 
-                // Only this item
-                if(dr == DialogResult.Yes)
+            // end of repeat
+            int tDay_RepeatEnd, tMonth_RepeatEnd, tYear_RepeatEnd;
+            Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
+            Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
+            Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
+            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false)
+            {
+                MessageBox.Show("Invalid RepeatEnd Date");
+                return;
+            }
+            DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
+
+            // check repeat end
+            if (repeatEnd < end)
+            {
+                MessageBox.Show("The end for Repeat end must after the end of event");
+                return;
+            }
+
+            // if repeat and repeat end don't change
+            if (!DontChangeRepeat())
+            {
+                // if dont change the start or the end of event
+                if(start == item.startTime && end == item.endTime)
                 {
-                    group.Delete(item);
-                    group.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
-                    group.Sort();
-                    this.Close();
-                    return;
+                    EditOption opt = new EditOption();
+                    DialogResult result = new DialogResult();
+                    result = opt.ShowDialog();
+                    // only this item
+                    if (result == DialogResult.Yes)
+                    {
+                        item.title = this.title.Text;
+                        item.location = this.location.Text;
+                        item.note = this.notes.Text;
+                        item.priority = (PriorityEnum)this.priority.SelectedIndex;
+                        item.alert = start - alertTimeSpane;
+                    }
+                    // this and following items
+                    else if (result == DialogResult.No)
+                    {
+                        int i = group.data.IndexOf(item);
+                        for (; i < group.data.Count; i++)
+                        {
+                            group.data[i].title = this.title.Text;
+                            group.data[i].location = this.location.Text;
+                            group.data[i].note = this.notes.Text;
+                            group.data[i].priority = (PriorityEnum)this.priority.SelectedIndex;
+                            group.data[i].alert = start - alertTimeSpane;
+                        }
+                    }
+                    // all items
+                    else
+                    {
+                        int i = 0;
+                        for (; i < group.data.Count; i++)
+                        {
+                            group.data[i].title = this.title.Text;
+                            group.data[i].location = this.location.Text;
+                            group.data[i].note = this.notes.Text;
+                            group.data[i].priority = (PriorityEnum)this.priority.SelectedIndex;
+                            group.data[i].alert = start - alertTimeSpane;
+                        }
+                    }
                 }
-                // This and following item
-                if (dr == DialogResult.No)
-                {
-                    group.DeleteItemAndFollowing(item);
-                }
-                // All Event
-                else if(dr == DialogResult.Ignore)
-                {
-                    group.DeleteAll();
-                }
-                DateTime repeatEnd = group.repeatEnd;
-
-                if (Repeat.Text.ToString() == "Daily")
-                    {
-                        while (true)
-                        {
-                            group.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
-
-                            start = start.AddDays(1);
-                            end = end.AddDays(1);
-
-                            if (start > repeatEnd)
-                            {
-                                this.Close();
-                                break;
-                            }
-                        }
-                    }
-                else if (Repeat.Text.ToString() == "A Week")
-                    {
-                        while (true)
-                        {
-                            group.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
-
-                            start = start.AddDays(7);
-                            end = end.AddDays(7);
-
-                            if (start > repeatEnd)
-                            {
-                                this.Close();
-                                break;
-                            }
-                        }
-                    }
-                else if (Repeat.Text.ToString() == "A Month")
-                    {
-                        TimeSpan timeSpan = end - start;
-                        while (true)
-                        {
-                            group.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
-
-                            do
-                            {
-                                Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
-                            }
-                            while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
-
-                            start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
-                            if (start > repeatEnd)
-                            {
-                                this.Close();
-                                break;
-                            }
-                        }
-                    }
-                else if (Repeat.Text.ToString() == "A Year")
-                    {
-                        TimeSpan timeSpan = end - start;
-                        while (true)
-                        {
-                            group.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, PriorityEnum.normal, DateTime.Now, location.Text));
-
-                            do
-                            {
-                                Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 12);
-                            }
-                            while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
-
-                            start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
-                            if (start > repeatEnd)
-                            {
-                                this.Close();
-                                break;
-                            }
-                        }
-                    }
                 else
                 {
-                    while (true)
+                    EditOption opt = new EditOption();
+                    DialogResult result = new DialogResult();
+                    result = opt.ShowDialog();
+                    // only this item
+                    if (result == DialogResult.Yes)
                     {
-                        group.Insert(new PlanItem(title.Text, notes.Text, start, end, PriorityEnum.normal, DateTime.Now, location.Text));
-
-                        start = start.AddDays(Convert.ToInt32(repeatValue.Text));
-                        end = end.AddDays(Convert.ToInt32(repeatValue.Text));
-
-                        if (start > repeatEnd)
-                        {
-                            this.Close();
-                            break;
-                        }
+                        item.title = this.title.Text;
+                        item.location = this.location.Text;
+                        item.note = this.notes.Text;
+                        item.priority = (PriorityEnum)this.priority.SelectedIndex;
+                        item.alert = start - alertTimeSpane;
+                        item.startTime = start;
+                        item.endTime = end;
+                    }
+                    // this and following items
+                    else if (result == DialogResult.No)
+                    {
+                        int i = group.data.IndexOf(item);
+                        group.data.RemoveRange(i, group.data.Count - i);
+                        base.SaveButton_Click(sender, e);
+                    }
+                    // all items
+                    else
+                    {
+                        int i = 0;
+                        group.data.RemoveRange(i, group.data.Count - i);
+                        base.SaveButton_Click(sender, e);
                     }
                 }
-                group.Sort();
-                
-                this.Close();
             }
+            else
+            {
+                EditOptionS opt = new EditOptionS();
+                DialogResult result = new DialogResult();
+                result = opt.ShowDialog();
+                // this and following items
+                if(result == DialogResult.No)
+                {
+                    int i = group.data.IndexOf(item);
+                    group.data.RemoveRange(i, group.data.Count - i);
+                    base.SaveButton_Click(sender, e);
+                }
+                // all items
+                else
+                {
+                    int i = 0;
+                    group.data.RemoveRange(i, group.data.Count - i);
+                    base.SaveButton_Click(sender, e);
+                }
+            }
+            
+            group.Sort();
+            
+            this.Close();
         }
     }
 }
