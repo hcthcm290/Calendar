@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Media;
+using DevExpress.XtraScheduler;
 
 namespace Calender
 {
@@ -50,10 +51,34 @@ namespace Calender
                 alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
             }
 
+            LoadDataToTimeTable();
+
             timer = new Timer();
             timer.Tick += Notify;
             timer.Interval = (60 - DateTime.Now.Second)*1000;
             timer.Start();
+        }
+
+        void LoadDataToTimeTable()
+        {
+            this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+
+            for (int g = 0; g < allPlan.group.Count; g++)
+            {
+                for (int i = 0; i < allPlan.group[g].data.Count; i++)
+                {
+                    Appointment apt = schedulerControl1.DataStorage.CreateAppointment(AppointmentType.Normal);
+                    apt.Start = allPlan.group[g].data[i].startTime;
+                    apt.End = allPlan.group[g].data[i].endTime;
+                    apt.Subject = allPlan.group[g].data[i].title;
+                    apt.Description = allPlan.group[g].data[i].note;
+                    apt.Location = allPlan.group[g].data[i].location;
+                    apt.LabelKey = 4 - (int)allPlan.group[g].data[i].priority;
+                    schedulerControl1.DataStorage.Appointments.Add(apt);
+                }
+            }
         }
 
         void InitDateMatrix()
@@ -147,6 +172,7 @@ namespace Calender
         {
             new_Event = new New_Event(allPlan);
             new_Event.ShowDialog();
+            LoadDataToTimeTable();
         }
 
         private void PrevMonth_Click(object sender, EventArgs e)
@@ -258,6 +284,30 @@ namespace Calender
                 }
             }
             timer.Interval = 60000;
+        }
+
+        private void timetableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = true;
+            this.Refresh();
+        }
+
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            this.Refresh();
+        }
+
+        private void schedulerControl1_EditAppointmentDependencyFormShowing(object sender, AppointmentDependencyFormEventArgs e)
+        {
+            new_Event = new New_Event(allPlan);
+            new_Event.ShowDialog();
+            e.Handled = true;
+        }
+
+        private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
+        {
+            e.Handled = true;
         }
     } 
 }
