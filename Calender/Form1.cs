@@ -12,6 +12,8 @@ using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
 
+
+// sua duoc roi //
 namespace Calender
 {
     public partial class Form1 : Form
