@@ -13,7 +13,6 @@ using System.Media;
 using DevExpress.XtraScheduler;
 
 
-// sua duoc roi //
 namespace Calender
 {
     public partial class Form1 : Form
@@ -66,6 +65,10 @@ namespace Calender
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.DataStorage.Appointments.CustomFieldMappings.Add(new
+                AppointmentCustomFieldMapping("group", "member", FieldValueType.Object));
+            this.schedulerControl1.DataStorage.Appointments.CustomFieldMappings.Add(new
+                AppointmentCustomFieldMapping("item", "member2", FieldValueType.Object));
 
             for (int g = 0; g < allPlan.group.Count; g++)
             {
@@ -78,6 +81,8 @@ namespace Calender
                     apt.Description = allPlan.group[g].data[i].note;
                     apt.Location = allPlan.group[g].data[i].location;
                     apt.LabelKey = 4 - (int)allPlan.group[g].data[i].priority;
+                    apt.CustomFields["group"] = allPlan.group[g];
+                    apt.CustomFields["item"] = allPlan.group[g].data[i];
                     schedulerControl1.DataStorage.Appointments.Add(apt);
                 }
             }
@@ -309,6 +314,17 @@ namespace Calender
 
         private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
+            if(e.Appointment.CustomFields.Count == 0)
+            {
+                New_Event new_Event = new New_Event(allPlan);
+                new_Event.ShowDialog();
+                LoadDataToTimeTable();
+                e.Handled = true;
+                return;
+            }
+            EditEvent edit = new EditEvent(allPlan, (GroupPlanItem)e.Appointment.CustomFields["group"], (PlanItem)e.Appointment.CustomFields["item"]);
+            edit.ShowDialog();
+            LoadDataToTimeTable();
             e.Handled = true;
         }
     } 
