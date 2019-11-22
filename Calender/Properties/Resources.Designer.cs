@@ -83,6 +83,16 @@ namespace Calender.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap choosecolor {
+            get {
+                object obj = ResourceManager.GetObject("choosecolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fuck_cancel {
             get {
                 object obj = ResourceManager.GetObject("fuck cancel", resourceCulture);
@@ -136,6 +146,16 @@ namespace Calender.Properties {
         internal static System.Drawing.Bitmap new_right {
             get {
                 object obj = ResourceManager.GetObject("new right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noti {
+            get {
+                object obj = ResourceManager.GetObject("noti", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

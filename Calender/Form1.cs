@@ -350,7 +350,8 @@ namespace Calender
             this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
             this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
             this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            this.panel2.ForeColor = Settings1.Default.Color; 
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
             Settings1.Default.Save();
         }
 
@@ -362,6 +363,16 @@ namespace Calender
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             Settings1.Default.Notification = false;
+        }
+
+        private void labelNotify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }
