@@ -30,6 +30,10 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            if (Settings1.Default.Notification == true)
+                this.radioButton1.Checked = true;
+            else
+                this.radioButton2.Checked = true;
             this.PresentMonth.Text = Months.ToString();
             InitDateMatrix();
             try
@@ -264,39 +268,48 @@ namespace Calender
 
         private void Notify(object sender, EventArgs e)
         {
-            List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
-            alertForToday.RemoveRange(0, alertForToday.Count);
-            for (int i = 0; i < groupsAlert.Count; i++)
+            if( Settings1.Default.Notification == true)
             {
-                alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
-            }
-
-            DateTime dt = DateTime.Now;
-            for(int i=0; i<alertForToday.Count; i++)
-            {
-                if(
-                    alertForToday[i].alert.Hour == dt.Hour &&
-                    alertForToday[i].alert.Minute == dt.Minute
-                   )
+                List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
+                alertForToday.RemoveRange(0, alertForToday.Count);
+                for (int i = 0; i < groupsAlert.Count; i++)
                 {
-                    notifyIcon1.Visible = true;
-                    notifyIcon1.BalloonTipTitle = alertForToday[i].title;
-                    notifyIcon1.BalloonTipText = alertForToday[i].note;
-                    notifyIcon1.ShowBalloonTip(3000);
+                    alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
                 }
+
+                DateTime dt = DateTime.Now;
+                for (int i = 0; i < alertForToday.Count; i++)
+                {
+                    if (
+                        alertForToday[i].alert.Hour == dt.Hour &&
+                        alertForToday[i].alert.Minute == dt.Minute
+                       )
+                    {
+                        notifyIcon1.Visible = true;
+                        notifyIcon1.BalloonTipTitle = alertForToday[i].title;
+                        notifyIcon1.BalloonTipText = alertForToday[i].note;
+                        notifyIcon1.ShowBalloonTip(3000);
+                    }
+                }
+                timer.Interval = 60000;
             }
-            timer.Interval = 60000;
         }
 
         private void timetableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeTablePanel.Visible = true;
+            panel4.Visible = false;
+            panel6.Visible = false;
+            SettingPanel.Visible = false;
             this.Refresh();
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeTablePanel.Visible = false;
+            SettingPanel.Visible = false;
+            panel4.Visible = true;
+            panel6.Visible = true;
             this.Refresh();
         }
 
@@ -310,6 +323,45 @@ namespace Calender
         private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            panel4.Visible = false;
+            panel6.Visible = false;
+            SettingPanel.Visible = true;
+            this.Refresh();
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            if( colorDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                Settings1.Default.Color = colorDialog1.Color;
+            }
+        }
+
+        private void buttonSaveSetting_Click(object sender, EventArgs e)
+        {
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color; 
+            Settings1.Default.Save();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = false;
         }
     } 
 }
