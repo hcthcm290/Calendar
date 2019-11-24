@@ -22,7 +22,7 @@ namespace Calender
         New_Event new_Event;
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
-
+        DateTime focusedDate;
 
         public Form1()
         {
@@ -58,6 +58,7 @@ namespace Calender
             timer.Tick += Notify;
             timer.Interval = (60 - DateTime.Now.Second)*1000;
             timer.Start();
+            focusedDate = DateTime.Now;
         }
 
         void LoadDataToTimeTable()
@@ -177,7 +178,7 @@ namespace Calender
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            new_Event = new New_Event(allPlan);
+            new_Event = new New_Event(allPlan, focusedDate);
             new_Event.ShowDialog();
             LoadDataToTimeTable();
         }
@@ -248,6 +249,17 @@ namespace Calender
             Button b = (Button)sender;
             if (b.Text == "")
                 return;
+            focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
+            if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
+            {
+                label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                label1.Text = "Today";
+            }
+            else
+            {
+                label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 46F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                label1.Text = focusedDate.Day.ToString() + "/" + focusedDate.Month.ToString() + "/" + focusedDate.Year.ToString();
+            }
             LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
         }
 
