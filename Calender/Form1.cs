@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
+using System.Drawing.Imaging;
 
 
 // sua duoc roi //
@@ -373,6 +374,25 @@ namespace Calender
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void NextMonth_Paint(object sender, PaintEventArgs e)
+        {
+            Button btn = (Button)sender;
+            Graphics gfx = e.Graphics;
+            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            using (Bitmap bmp = new Bitmap(global::Calender.Properties.Resources.new_right))
+            {
+                ColorMap[] colorMap = new ColorMap[1];
+                colorMap[0] = new ColorMap();
+                colorMap[0].OldColor = Color.Coral;
+                colorMap[0].NewColor = Settings1.Default.Color;
+                ImageAttributes attr = new ImageAttributes();
+                attr.SetRemapTable(colorMap);
+                Rectangle rect = new Rectangle((btn.Width - bmp.Width) / 2, (btn.Height - bmp.Height) / 2, bmp.Width, bmp.Height);
+                gfx.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
+            }
+            
         }
     } 
 }
