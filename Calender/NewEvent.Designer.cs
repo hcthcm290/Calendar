@@ -582,6 +582,8 @@
             this.Year_Start.Size = new System.Drawing.Size(69, 32);
             this.Year_Start.TabIndex = 3;
             this.Year_Start.Text = "yyyy";
+            this.Year_Start.SelectedIndexChanged += new System.EventHandler(this.Year_Start_SelectedIndexChanged);
+            this.Year_Start.TextChanged += new System.EventHandler(this.Year_Start_TextChanged);
             // 
             // Month_Start
             // 
@@ -596,6 +598,8 @@
             this.Month_Start.TabIndex = 2;
             this.Month_Start.Text = "mm";
             this.Month_Start.ValueMember = "1";
+            this.Month_Start.SelectedIndexChanged += new System.EventHandler(this.Month_Start_SelectedIndexChanged);
+            this.Month_Start.TextChanged += new System.EventHandler(this.Month_Start_TextChanged);
             this.Month_Start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Month_KeyDown);
             this.Month_Start.Leave += new System.EventHandler(this.Month_Leave);
             // 
@@ -611,6 +615,8 @@
             this.Day_Start.Size = new System.Drawing.Size(47, 32);
             this.Day_Start.TabIndex = 1;
             this.Day_Start.Text = "dd";
+            this.Day_Start.SelectedIndexChanged += new System.EventHandler(this.Day_Start_SelectedIndexChanged);
+            this.Day_Start.TextChanged += new System.EventHandler(this.Day_Start_TextChanged);
             this.Day_Start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Day_KeyDown);
             this.Day_Start.Leave += new System.EventHandler(this.Day_Leave);
             // 

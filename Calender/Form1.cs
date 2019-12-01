@@ -11,7 +11,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
-using System.Drawing.Text;
+using System.Drawing.Imaging;
+
 
 namespace Calender
 {
@@ -22,14 +23,17 @@ namespace Calender
         New_Event new_Event;
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
-
-       
+        DateTime focusedDate;
 
         public Form1()
         {
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            if (Settings1.Default.Notification == true)
+                this.radioButton1.Checked = true;
+            else
+                this.radioButton2.Checked = true;
             this.PresentMonth.Text = Months.ToString();
             InitDateMatrix();
             try
@@ -59,6 +63,7 @@ namespace Calender
             timer.Tick += Notify;
             timer.Interval = (60 - DateTime.Now.Second)*1000;
             timer.Start();
+            focusedDate = DateTime.Now;
         }
 
         void LoadDataToTimeTable()
@@ -66,6 +71,10 @@ namespace Calender
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.DataStorage.Appointments.CustomFieldMappings.Add(new
+                AppointmentCustomFieldMapping("group", "member", FieldValueType.Object));
+            this.schedulerControl1.DataStorage.Appointments.CustomFieldMappings.Add(new
+                AppointmentCustomFieldMapping("item", "member2", FieldValueType.Object));
 
             for (int g = 0; g < allPlan.group.Count; g++)
             {
@@ -78,6 +87,8 @@ namespace Calender
                     apt.Description = allPlan.group[g].data[i].note;
                     apt.Location = allPlan.group[g].data[i].location;
                     apt.LabelKey = 4 - (int)allPlan.group[g].data[i].priority;
+                    apt.CustomFields["group"] = allPlan.group[g];
+                    apt.CustomFields["item"] = allPlan.group[g].data[i];
                     schedulerControl1.DataStorage.Appointments.Add(apt);
                 }
             }
@@ -172,7 +183,7 @@ namespace Calender
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            new_Event = new New_Event(allPlan);
+            new_Event = new New_Event(allPlan, focusedDate);
             new_Event.ShowDialog();
             LoadDataToTimeTable();
         }
@@ -243,6 +254,17 @@ namespace Calender
             Button b = (Button)sender;
             if (b.Text == "")
                 return;
+            focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
+            if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
+            {
+                label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                label1.Text = "Today";
+            }
+            else
+            {
+                label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 46F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                label1.Text = focusedDate.Day.ToString() + "/" + focusedDate.Month.ToString() + "/" + focusedDate.Year.ToString();
+            }
             LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
         }
 
@@ -264,39 +286,48 @@ namespace Calender
 
         private void Notify(object sender, EventArgs e)
         {
-            List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
-            alertForToday.RemoveRange(0, alertForToday.Count);
-            for (int i = 0; i < groupsAlert.Count; i++)
+            if( Settings1.Default.Notification == true)
             {
-                alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
-            }
-
-            DateTime dt = DateTime.Now;
-            for(int i=0; i<alertForToday.Count; i++)
-            {
-                if(
-                    alertForToday[i].alert.Hour == dt.Hour &&
-                    alertForToday[i].alert.Minute == dt.Minute
-                   )
+                List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
+                alertForToday.RemoveRange(0, alertForToday.Count);
+                for (int i = 0; i < groupsAlert.Count; i++)
                 {
-                    notifyIcon1.Visible = true;
-                    notifyIcon1.BalloonTipTitle = alertForToday[i].title;
-                    notifyIcon1.BalloonTipText = alertForToday[i].note;
-                    notifyIcon1.ShowBalloonTip(3000);
+                    alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
                 }
+
+                DateTime dt = DateTime.Now;
+                for (int i = 0; i < alertForToday.Count; i++)
+                {
+                    if (
+                        alertForToday[i].alert.Hour == dt.Hour &&
+                        alertForToday[i].alert.Minute == dt.Minute
+                       )
+                    {
+                        notifyIcon1.Visible = true;
+                        notifyIcon1.BalloonTipTitle = alertForToday[i].title;
+                        notifyIcon1.BalloonTipText = alertForToday[i].note;
+                        notifyIcon1.ShowBalloonTip(3000);
+                    }
+                }
+                timer.Interval = 60000;
             }
-            timer.Interval = 60000;
         }
 
         private void timetableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeTablePanel.Visible = true;
+            panel4.Visible = false;
+            panel6.Visible = false;
+            SettingPanel.Visible = false;
             this.Refresh();
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeTablePanel.Visible = false;
+            SettingPanel.Visible = false;
+            panel4.Visible = true;
+            panel6.Visible = true;
             this.Refresh();
         }
 
@@ -309,7 +340,87 @@ namespace Calender
 
         private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
+            if(e.Appointment.CustomFields.Count == 0)
+            {
+                New_Event new_Event = new New_Event(allPlan);
+                new_Event.ShowDialog();
+                LoadDataToTimeTable();
+                e.Handled = true;
+                return;
+            }
+            EditEvent edit = new EditEvent(allPlan, (GroupPlanItem)e.Appointment.CustomFields["group"], (PlanItem)e.Appointment.CustomFields["item"]);
+            edit.ShowDialog();
+            LoadDataToTimeTable();
             e.Handled = true;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            panel4.Visible = false;
+            panel6.Visible = false;
+            SettingPanel.Visible = true;
+            this.Refresh();
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            if( colorDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                Settings1.Default.Color = colorDialog1.Color;
+            }
+        }
+
+        private void buttonSaveSetting_Click(object sender, EventArgs e)
+        {
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
+            Settings1.Default.Save();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = false;
+        }
+
+        private void labelNotify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextMonth_Paint(object sender, PaintEventArgs e)
+        {
+            Button btn = (Button)sender;
+            Graphics gfx = e.Graphics;
+            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            using (Bitmap bmp = new Bitmap(global::Calender.Properties.Resources.new_right))
+            {
+                ColorMap[] colorMap = new ColorMap[1];
+                colorMap[0] = new ColorMap();
+                colorMap[0].OldColor = Color.Coral;
+                colorMap[0].NewColor = Settings1.Default.Color;
+                ImageAttributes attr = new ImageAttributes();
+                attr.SetRemapTable(colorMap);
+                Rectangle rect = new Rectangle((btn.Width - bmp.Width) / 2, (btn.Height - bmp.Height) / 2, bmp.Width, bmp.Height);
+                gfx.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
+            }
+            
         }
     } 
 }

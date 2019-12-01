@@ -164,7 +164,7 @@ namespace Calender
             Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
             Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
             Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
-            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false)
+            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false && Repeat.SelectedIndex != 0)
             {
                 MessageBox.Show("Invalid RepeatEnd Date");
                 return;
@@ -172,7 +172,7 @@ namespace Calender
             DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
             // check repeat end
-            if (repeatEnd < end)
+            if (repeatEnd < end && Repeat.SelectedIndex != 0)
             {
                 MessageBox.Show("The end for Repeat end must after the end of event");
                 return;

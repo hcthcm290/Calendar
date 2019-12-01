@@ -14,12 +14,22 @@ namespace Calender
             Init();
 
         }
-        public New_Event(PlanData plandata)
+        public New_Event(PlanData planData)
         {
             InitializeComponent();
             Init();
-            thisPlan = plandata;
+            thisPlan = planData;
             this.StartPosition = FormStartPosition.CenterParent;
+        }
+        public New_Event(PlanData planData, DateTime focusedDate)
+        {
+            InitializeComponent();
+            Init();
+            thisPlan = planData;
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Day_Start.Text = this.Day_End.Text = focusedDate.Day.ToString();
+            this.Month_Start.Text = this.Month_End.Text = focusedDate.Month.ToString();
+            this.Year_Start.Text = this.Year_End.Text = focusedDate.Year.ToString();
         }
 
         void Init()
@@ -87,12 +97,10 @@ namespace Calender
 
             this.RepeatDayLabel.Parent = this.RepeatPanel;
         }
-
         private void New_Event_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Silent_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -101,7 +109,6 @@ namespace Calender
                 e.SuppressKeyPress = true;
             }
         }
-
         private void Day_KeyDown(object sender, KeyEventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
@@ -122,7 +129,6 @@ namespace Calender
             }
             
         }
-
         private void Month_KeyDown(object sender, KeyEventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
@@ -143,7 +149,6 @@ namespace Calender
                 e.SuppressKeyPress = true;
             }
         }
-
         private void Day_Leave(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
@@ -158,7 +163,6 @@ namespace Calender
                 cb.Text = "31";
             }
         }
-
         private void Month_Leave(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)(sender);
@@ -173,7 +177,6 @@ namespace Calender
                 cb.Text = "12";
             }
         }
-
         private void TB_Enter(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -182,7 +185,6 @@ namespace Calender
                 tb.Text = "";
             }
         }
-
         private void TB_Leave(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -191,7 +193,6 @@ namespace Calender
                 tb.Text = tb.Name.Substring(0, 1).ToUpper() + tb.Name.Substring(1);
             }
         }
-
         private void Repeat_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Repeat.SelectedItem.ToString() == "Custom")
@@ -225,7 +226,6 @@ namespace Calender
                 RepeatEndPanel.BackColor = Color.White;
             }
         }
-
         public bool CheckLegitDate(int year, int month, int day)
         {
             if (day > Year.GetMaxDaysOfMonth(year, month))
@@ -234,7 +234,6 @@ namespace Calender
             }
             return true;
         }
-
         public virtual void SaveButton_Click(object sender, EventArgs e)
         {
             TimeSpan alertTimeSpane = new TimeSpan();
@@ -425,10 +424,45 @@ namespace Calender
                 }
             }
         }
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Day_Start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Day_End.SelectedIndex = cb.SelectedIndex;
+        }
+
+        private void Month_Start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Month_End.SelectedIndex = cb.SelectedIndex;
+        }
+
+        private void Year_Start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Year_End.SelectedIndex = cb.SelectedIndex;
+        }
+
+        private void Day_Start_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Day_End.Text = cb.Text;
+        }
+
+        private void Month_Start_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Month_End.Text = cb.Text;
+        }
+
+        private void Year_Start_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Year_End.Text = cb.Text;
         }
     }
 }
