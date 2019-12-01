@@ -31,6 +31,7 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            addbutton.FlatAppearance.BorderSize = 0;
             if (Settings1.Default.Notification == true)
                 this.radioButton1.Checked = true;
             else

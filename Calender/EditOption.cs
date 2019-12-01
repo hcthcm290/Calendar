@@ -16,11 +16,20 @@ namespace Calender
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
+            btnOnlyThisItem.FlatAppearance.BorderSize = 0;
+            btnThisAndFollowing.FlatAppearance.BorderSize = 0;
+            btnAll.FlatAppearance.BorderSize = 0;
+
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditOption_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
