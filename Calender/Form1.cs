@@ -229,6 +229,7 @@ namespace Calender
         {
             new_Event = new New_Event(allPlan, focusedDate);
             new_Event.ShowDialog();
+            LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
             LoadDataToTimeTable();
             GeneratePriorityColorArray();
         }
