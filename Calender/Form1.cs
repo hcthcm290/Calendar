@@ -24,6 +24,7 @@ namespace Calender
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
         DateTime focusedDate;
+        static public Color[] PriorityColorForDay = new Color[32];
 
         public Form1()
         {
@@ -35,7 +36,6 @@ namespace Calender
             else
                 this.radioButton2.Checked = true;
             this.PresentMonth.Text = Months.ToString();
-            InitDateMatrix();
             try
             {
                 allPlan = (PlanData)DeserializeFromXML(filepath);
@@ -58,7 +58,7 @@ namespace Calender
             }
 
             LoadDataToTimeTable();
-
+            InitDateMatrix();
             timer = new Timer();
             timer.Tick += Notify;
             timer.Interval = (60 - DateTime.Now.Second)*1000;
@@ -113,12 +113,15 @@ namespace Calender
                     panel6.Controls.Add(DateButton[i, j]);
                 }
             }
+            for(int i=1; i<32; i++)
+            {
+                PriorityColorForDay[i] = new Color();
+            }
             GenerateDaysForDateButtons(Months.iCurrent);
         }
 
         void GenerateDaysForDateButtons(int month)
         {
-            Year.SyncYear();
             int maxDay = Year.GetMaxDaysOfMonth(Year.GetCurrentYear(), month);
             DateTime d = new DateTime(Year.GetCurrentYear(), month, 1);
             int dayOfWeek = -1;
@@ -160,6 +163,23 @@ namespace Calender
                     }
                     if (started && count <= maxDay)
                     {
+                        int countEventForToday = allPlan.ListGroupItemsForToday(new DateTime(Year.GetCurrentYear(), month, count)).Count;
+                        if(countEventForToday < 3)
+                        {
+                            PriorityColorForDay[count] = Color.Black;
+                        } 
+                        else if(countEventForToday < 7)
+                        {
+                            PriorityColorForDay[count] = Color.FromArgb(255,195,0);
+                        }
+                        else if(countEventForToday < 10)
+                        {
+                            PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
+                        }
+                        else
+                        {
+                            PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
+                        }
                         DateButton[i, j].Text = count.ToString();
                         if(count == DateTime.Now.Day && month == DateTime.Now.Month)
                         {
@@ -167,6 +187,30 @@ namespace Calender
                         }
                         count++;
                     }
+                }
+            }
+        }
+        static public void GeneratePriorityColorArray()
+        {
+            int maxDay = Year.GetMaxDaysOfMonth(Year.GetCurrentYear(), Months.iCurrent);
+            for (int count = 1; count <= maxDay; count++)
+            {
+                int countEventForToday = allPlan.ListGroupItemsForToday(new DateTime(Year.GetCurrentYear(), Months.iCurrent, count)).Count;
+                if (countEventForToday < 3)
+                {
+                    PriorityColorForDay[count] = Color.Black;
+                }
+                else if (countEventForToday < 7)
+                {
+                    PriorityColorForDay[count] = Color.FromArgb(255, 195, 0);
+                }
+                else if (countEventForToday < 10)
+                {
+                    PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
+                }
+                else
+                {
+                    PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                 }
             }
         }
@@ -186,6 +230,7 @@ namespace Calender
             new_Event = new New_Event(allPlan, focusedDate);
             new_Event.ShowDialog();
             LoadDataToTimeTable();
+            GeneratePriorityColorArray();
         }
 
         private void PrevMonth_Click(object sender, EventArgs e)

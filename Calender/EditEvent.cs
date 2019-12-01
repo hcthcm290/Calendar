@@ -269,7 +269,7 @@ namespace Calender
             }
             
             group.Sort();
-            
+            Form1.GeneratePriorityColorArray();
             this.Close();
         }
     }
