@@ -55,7 +55,22 @@ namespace Calender
         private void Item_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            e.Graphics.FillEllipse(new SolidBrush(Color.Red), new RectangleF(20, 20, 20, 20));
+            if (item.priority == PriorityEnum.normal)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(20, 20, 20, 20));
+            }
+            else if (item.priority == PriorityEnum.medium)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(20, 20, 20, 20));
+            }
+            else if (item.priority == PriorityEnum.high)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(20, 20, 20, 20));
+            }
+            else if (item.priority == PriorityEnum.urgent)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(20, 20, 20, 20));
+            }
         }
     }
 }
