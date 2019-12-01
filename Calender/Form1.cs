@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
+using System.Drawing.Text;
 
 namespace Calender
 {
@@ -22,6 +23,7 @@ namespace Calender
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
 
+       
 
         public Form1()
         {

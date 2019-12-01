@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -70,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,10 +79,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-3, -2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(-4, -2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1265, 676);
+            this.panel1.Size = new System.Drawing.Size(1687, 832);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -93,17 +92,18 @@
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(559, 676);
+            this.panel3.Size = new System.Drawing.Size(745, 832);
             this.panel3.TabIndex = 1;
             // 
             // dayView
             // 
             this.dayView.AutoScroll = true;
-            this.dayView.Location = new System.Drawing.Point(15, 163);
+            this.dayView.Location = new System.Drawing.Point(20, 201);
+            this.dayView.Margin = new System.Windows.Forms.Padding(4);
             this.dayView.Name = "dayView";
-            this.dayView.Size = new System.Drawing.Size(526, 508);
+            this.dayView.Size = new System.Drawing.Size(701, 625);
             this.dayView.TabIndex = 3;
             // 
             // panel8
@@ -112,9 +112,11 @@
             this.panel8.Controls.Add(this.addbutton);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Font = new System.Drawing.Font("Arial Black", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(559, 156);
+            this.panel8.Size = new System.Drawing.Size(745, 192);
             this.panel8.TabIndex = 2;
             // 
             // addbutton
@@ -127,10 +129,11 @@
             this.addbutton.ForeColor = System.Drawing.Color.Coral;
             this.addbutton.Image = global::Calender.Properties.Resources.AddButton;
             this.addbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.addbutton.Location = new System.Drawing.Point(425, 38);
+            this.addbutton.Location = new System.Drawing.Point(567, 47);
+            this.addbutton.Margin = new System.Windows.Forms.Padding(4);
             this.addbutton.Name = "addbutton";
             this.addbutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addbutton.Size = new System.Drawing.Size(88, 88);
+            this.addbutton.Size = new System.Drawing.Size(117, 108);
             this.addbutton.TabIndex = 1;
             this.addbutton.UseVisualStyleBackColor = false;
             this.addbutton.Click += new System.EventHandler(this.Addbutton_Click);
@@ -138,11 +141,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Black", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(28, 38);
+            this.label1.Location = new System.Drawing.Point(37, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 73);
+            this.label1.Size = new System.Drawing.Size(309, 113);
             this.label1.TabIndex = 0;
             this.label1.Text = "Today";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,17 +162,19 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.Coral;
-            this.panel2.Location = new System.Drawing.Point(563, 3);
+            this.panel2.Location = new System.Drawing.Point(751, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(702, 673);
+            this.panel2.Size = new System.Drawing.Size(936, 828);
             this.panel2.TabIndex = 0;
             // 
             // TimeTablePanel
             // 
             this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(0, 43);
+            this.TimeTablePanel.Location = new System.Drawing.Point(0, 53);
+            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
             this.TimeTablePanel.Name = "TimeTablePanel";
-            this.TimeTablePanel.Size = new System.Drawing.Size(702, 627);
+            this.TimeTablePanel.Size = new System.Drawing.Size(936, 772);
             this.TimeTablePanel.TabIndex = 4;
             this.TimeTablePanel.Visible = false;
             // 
@@ -178,15 +184,16 @@
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(702, 627);
-            this.schedulerControl1.Start = new System.DateTime(2019, 11, 18, 0, 0, 0, 0);
+            this.schedulerControl1.Size = new System.Drawing.Size(936, 772);
+            this.schedulerControl1.Start = new System.DateTime(2019, 11, 17, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
             this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
             // 
@@ -208,17 +215,19 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(107, 218);
+            this.panel6.Location = new System.Drawing.Point(143, 268);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(502, 324);
+            this.panel6.Size = new System.Drawing.Size(669, 399);
             this.panel6.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(420, 17);
+            this.label8.Location = new System.Drawing.Point(560, 21);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 40);
+            this.label8.Size = new System.Drawing.Size(80, 49);
             this.label8.TabIndex = 6;
             this.label8.Text = "Sa";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -226,9 +235,10 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(354, 17);
+            this.label7.Location = new System.Drawing.Point(472, 21);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 40);
+            this.label7.Size = new System.Drawing.Size(80, 49);
             this.label7.TabIndex = 5;
             this.label7.Text = "Fr";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,9 +246,10 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(288, 17);
+            this.label6.Location = new System.Drawing.Point(384, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 40);
+            this.label6.Size = new System.Drawing.Size(80, 49);
             this.label6.TabIndex = 4;
             this.label6.Text = "Th";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,9 +257,10 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(222, 17);
+            this.label5.Location = new System.Drawing.Point(296, 21);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 40);
+            this.label5.Size = new System.Drawing.Size(80, 49);
             this.label5.TabIndex = 3;
             this.label5.Text = "We";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -256,9 +268,10 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(156, 17);
+            this.label4.Location = new System.Drawing.Point(208, 21);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 40);
+            this.label4.Size = new System.Drawing.Size(80, 49);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tu";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,9 +279,10 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 17);
+            this.label3.Location = new System.Drawing.Point(120, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 40);
+            this.label3.Size = new System.Drawing.Size(80, 49);
             this.label3.TabIndex = 1;
             this.label3.Text = "Mo";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -276,9 +290,10 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 17);
+            this.label2.Location = new System.Drawing.Point(32, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 40);
+            this.label2.Size = new System.Drawing.Size(80, 49);
             this.label2.TabIndex = 0;
             this.label2.Text = "Su";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,9 +304,10 @@
             this.panel4.Controls.Add(this.NextMonth);
             this.panel4.Controls.Add(this.PrevMonth);
             this.panel4.Controls.Add(this.PresentMonth);
-            this.panel4.Location = new System.Drawing.Point(107, 118);
+            this.panel4.Location = new System.Drawing.Point(143, 145);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(502, 94);
+            this.panel4.Size = new System.Drawing.Size(669, 116);
             this.panel4.TabIndex = 0;
             // 
             // NextMonth
@@ -301,9 +317,10 @@
             this.NextMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.NextMonth.Image = global::Calender.Properties.Resources.new_right;
-            this.NextMonth.Location = new System.Drawing.Point(402, 21);
+            this.NextMonth.Location = new System.Drawing.Point(536, 26);
+            this.NextMonth.Margin = new System.Windows.Forms.Padding(4);
             this.NextMonth.Name = "NextMonth";
-            this.NextMonth.Size = new System.Drawing.Size(60, 60);
+            this.NextMonth.Size = new System.Drawing.Size(80, 74);
             this.NextMonth.TabIndex = 6;
             this.NextMonth.UseVisualStyleBackColor = false;
             this.NextMonth.Click += new System.EventHandler(this.NextMonth_Click);
@@ -315,9 +332,10 @@
             this.PrevMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PrevMonth.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PrevMonth.Image = global::Calender.Properties.Resources.new_left;
-            this.PrevMonth.Location = new System.Drawing.Point(40, 21);
+            this.PrevMonth.Location = new System.Drawing.Point(53, 26);
+            this.PrevMonth.Margin = new System.Windows.Forms.Padding(4);
             this.PrevMonth.Name = "PrevMonth";
-            this.PrevMonth.Size = new System.Drawing.Size(60, 60);
+            this.PrevMonth.Size = new System.Drawing.Size(80, 74);
             this.PrevMonth.TabIndex = 5;
             this.PrevMonth.UseVisualStyleBackColor = false;
             this.PrevMonth.Click += new System.EventHandler(this.PrevMonth_Click);
@@ -327,9 +345,10 @@
             this.PresentMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PresentMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PresentMonth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PresentMonth.Location = new System.Drawing.Point(112, 23);
+            this.PresentMonth.Location = new System.Drawing.Point(149, 28);
+            this.PresentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PresentMonth.Name = "PresentMonth";
-            this.PresentMonth.Size = new System.Drawing.Size(290, 59);
+            this.PresentMonth.Size = new System.Drawing.Size(387, 73);
             this.PresentMonth.TabIndex = 4;
             this.PresentMonth.Text = "January";
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -339,13 +358,9 @@
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statisticsToolStripMenuItem,
-            this.timetableToolStripMenuItem,
-            this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(702, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(936, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -354,7 +369,7 @@
             this.statisticsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statisticsToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(137, 35);
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(163, 42);
             this.statisticsToolStripMenuItem.Text = "Statistics";
             this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
@@ -363,7 +378,7 @@
             this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timetableToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
-            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(145, 35);
+            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(173, 42);
             this.timetableToolStripMenuItem.Text = "Timetable";
             this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
             // 
@@ -372,7 +387,7 @@
             this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 35);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(149, 42);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // notifyIcon1
@@ -388,17 +403,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MinimumSize = new System.Drawing.Size(1701, 875);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "ourCalendar";
@@ -416,8 +431,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }

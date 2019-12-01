@@ -42,6 +42,14 @@ namespace Calender
             this.Hour_End.Text = item.endTime.Hour.ToString();
             this.Minute_End.Text = item.endTime.Minute.ToString();
 
+            CancelButton.FlatStyle = FlatStyle.Flat;
+            CancelButton.FlatAppearance.BorderColor = Color.White;
+            CancelButton.FlatAppearance.BorderSize = 0;
+
+            SaveButton.FlatStyle = FlatStyle.Flat;
+            SaveButton.FlatAppearance.BorderColor = Color.White;
+            SaveButton.FlatAppearance.BorderSize = 0;
+
             this.Repeat.SelectedIndex = group.repeatKind;
             if (group.repeatKind == 5)
             {

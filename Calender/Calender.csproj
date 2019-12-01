@@ -162,31 +162,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AddButton.png" />
+    <EmbeddedResource Include="Resources\AddButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fuck cancel.png" />
+    <EmbeddedResource Include="Resources\fuck cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fuck save.png" />
+    <EmbeddedResource Include="Resources\fuck save.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new left.png" />
+    <EmbeddedResource Include="Resources\new left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new right.png" />
+    <EmbeddedResource Include="Resources\new right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AddButton1.png" />
+    <EmbeddedResource Include="Resources\AddButton1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_jt7_icon.ico" />
+    <EmbeddedResource Include="Resources\icon_jt7_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon.png" />
+    <EmbeddedResource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icon1.ico" />
+    <EmbeddedResource Include="Resources\Icon1.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">

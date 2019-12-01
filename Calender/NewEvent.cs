@@ -12,6 +12,7 @@ namespace Calender
         {
             InitializeComponent();
             Init();
+
         }
         public New_Event(PlanData plandata)
         {
@@ -23,6 +24,13 @@ namespace Calender
 
         void Init()
         {
+            CancelButton.FlatStyle = FlatStyle.Flat;
+            CancelButton.FlatAppearance.BorderColor = Color.White;
+            CancelButton.FlatAppearance.BorderSize = 0;
+
+            SaveButton.FlatStyle = FlatStyle.Flat;
+            SaveButton.FlatAppearance.BorderColor = Color.White;
+            SaveButton.FlatAppearance.BorderSize = 0;
             for (int i = 1; i <= 31; i++)
             {
                 this.Day_End.Items.Add(i.ToString());
