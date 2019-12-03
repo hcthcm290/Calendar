@@ -31,6 +31,9 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            dayView.AutoScroll = true;
+            if (dayView.VerticalScroll.Visible == true)
+                dayView.BackColor = Color.Black;
             addbutton.FlatAppearance.BorderSize = 0;
             if (Settings1.Default.Notification == true)
                 this.radioButton1.Checked = true;
