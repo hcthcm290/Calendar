@@ -365,6 +365,7 @@ namespace Calender
 
         private void timetableToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            schedulerControl1.GoToToday();
             TimeTablePanel.Visible = true;
             panel4.Visible = false;
             panel6.Visible = false;
