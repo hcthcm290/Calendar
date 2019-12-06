@@ -98,6 +98,7 @@
             this.Name = "Item";
             this.Size = new System.Drawing.Size(448, 65);
             this.Load += new System.EventHandler(this.Item_Load);
+            this.Click += new System.EventHandler(this.Item_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Item_Paint);
             this.ResumeLayout(false);
 

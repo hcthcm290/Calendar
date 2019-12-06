@@ -63,7 +63,7 @@ namespace Calender
                 this.Year_RepeatEnd.Items.Add(i.ToString());
             }
 
-            for (int i = 0; i <= 11; i++)
+            for (int i = 0; i <= 23; i++)
             {
                 this.Hour_Start.Items.Add(i.ToString());
                 this.Hour_End.Items.Add(i.ToString());

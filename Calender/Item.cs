@@ -57,20 +57,31 @@ namespace Calender
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (item.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(20, 20, 20, 20));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(10, 10, 40, 40));
             }
             else if (item.priority == PriorityEnum.medium)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(20, 20, 20, 20));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(10, 10, 40, 40));
             }
             else if (item.priority == PriorityEnum.high)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(20, 20, 20, 20));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(10, 10, 40, 40));
             }
             else if (item.priority == PriorityEnum.urgent)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(20, 20, 20, 20));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(10, 10, 40, 40));
             }
+            if(item.done == true)
+            {
+                Bitmap bmp = new Bitmap(global::Calender.Properties.Resources.check);
+                e.Graphics.DrawImage(bmp, 10, 10);
+            }
+        }
+
+        private void Item_Click(object sender, EventArgs e)
+        {
+            this.item.done = !this.item.done;
+            this.Refresh();
         }
     }
 }

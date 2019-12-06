@@ -51,5 +51,6 @@ namespace Calender
         public string note;
         public PriorityEnum priority;
         public DateTime alert;
+        public bool done = false;
     }
 }
