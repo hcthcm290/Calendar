@@ -36,47 +36,62 @@
             // btnOnlyThisItem
             // 
             this.btnOnlyThisItem.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnOnlyThisItem.Location = new System.Drawing.Point(12, 23);
+            this.btnOnlyThisItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnlyThisItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnlyThisItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnOnlyThisItem.Location = new System.Drawing.Point(10, 10);
+            this.btnOnlyThisItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnOnlyThisItem.Name = "btnOnlyThisItem";
-            this.btnOnlyThisItem.Size = new System.Drawing.Size(90, 40);
+            this.btnOnlyThisItem.Size = new System.Drawing.Size(250, 50);
             this.btnOnlyThisItem.TabIndex = 0;
-            this.btnOnlyThisItem.Text = "Only This Item";
+            this.btnOnlyThisItem.Text = "For this event";
             this.btnOnlyThisItem.UseVisualStyleBackColor = true;
             this.btnOnlyThisItem.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // btnThisAndFollowing
             // 
             this.btnThisAndFollowing.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnThisAndFollowing.Location = new System.Drawing.Point(118, 23);
+            this.btnThisAndFollowing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThisAndFollowing.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnThisAndFollowing.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnThisAndFollowing.Location = new System.Drawing.Point(10, 70);
+            this.btnThisAndFollowing.Margin = new System.Windows.Forms.Padding(4);
             this.btnThisAndFollowing.Name = "btnThisAndFollowing";
-            this.btnThisAndFollowing.Size = new System.Drawing.Size(152, 40);
+            this.btnThisAndFollowing.Size = new System.Drawing.Size(250, 50);
             this.btnThisAndFollowing.TabIndex = 1;
-            this.btnThisAndFollowing.Text = "This And Following Item";
+            this.btnThisAndFollowing.Text = "For future events";
             this.btnThisAndFollowing.UseVisualStyleBackColor = true;
             this.btnThisAndFollowing.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // btnAll
             // 
             this.btnAll.DialogResult = System.Windows.Forms.DialogResult.Ignore;
-            this.btnAll.Location = new System.Drawing.Point(286, 23);
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAll.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAll.Location = new System.Drawing.Point(10, 130);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(90, 40);
+            this.btnAll.Size = new System.Drawing.Size(250, 50);
             this.btnAll.TabIndex = 2;
-            this.btnAll.Text = "All Item";
+            this.btnAll.Text = "For all events";
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // EditOption
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 76);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.ClientSize = new System.Drawing.Size(270, 190);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.btnThisAndFollowing);
             this.Controls.Add(this.btnOnlyThisItem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditOption";
             this.Text = "EditOption";
+            this.Load += new System.EventHandler(this.EditOption_Load);
             this.ResumeLayout(false);
 
         }
