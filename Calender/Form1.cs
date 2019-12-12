@@ -68,6 +68,9 @@ namespace Calender
             timer.Interval = (60 - DateTime.Now.Second)*1000;
             timer.Start();
             focusedDate = DateTime.Now;
+
+            addbutton.FlatStyle = FlatStyle.Flat;
+            addbutton.FlatAppearance.BorderSize = 0;
         }
 
         void LoadDataToTimeTable()
