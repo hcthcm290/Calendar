@@ -30,9 +30,9 @@ namespace Calender
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraScheduler.TimeRuler timeRuler46 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler47 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler48 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -364,10 +364,10 @@ namespace Calender
             this.schedulerControl1.Start = new System.DateTime(2019, 11, 3, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler46);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler47);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler48);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
             this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
             // 
@@ -561,26 +561,26 @@ namespace Calender
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // prevmonth
             // 
             this.prevmonth.BackColor = System.Drawing.Color.Transparent;
             this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
             this.prevmonth.Location = new System.Drawing.Point(45, 439);
-            this.prevmonth.Name = "button1";
+            this.prevmonth.Name = "prevmonth";
             this.prevmonth.Size = new System.Drawing.Size(24, 64);
             this.prevmonth.TabIndex = 7;
             this.prevmonth.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // nextmonth
             // 
             this.nextmonth.BackColor = System.Drawing.Color.Transparent;
             this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
             this.nextmonth.Location = new System.Drawing.Point(642, 439);
-            this.nextmonth.Name = "button2";
+            this.nextmonth.Name = "nextmonth";
             this.nextmonth.Size = new System.Drawing.Size(24, 64);
             this.nextmonth.TabIndex = 8;
             this.nextmonth.UseVisualStyleBackColor = false;
