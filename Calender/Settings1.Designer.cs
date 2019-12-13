@@ -25,7 +25,7 @@ namespace Calender {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Coral")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
         public global::System.Drawing.Color Color {
             get {
                 return ((global::System.Drawing.Color)(this["Color"]));

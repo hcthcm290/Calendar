@@ -11,7 +11,7 @@ namespace Calender
         static public int DateButtonStartX = 24;    
         static public int DateButtonStartY = 57;
         static public int DateButtonWidth  = 60;
-        static public int DateButtonHeight = 40;
-        static public int DateButtonOffSet = 6;
+        static public int DateButtonHeight = 60;
+        static public int DateButtonOffSet = 5;
     }
 }

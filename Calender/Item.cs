@@ -54,27 +54,36 @@ namespace Calender
 
         private void Item_Paint(object sender, PaintEventArgs e)
         {
+            edit.FlatAppearance.BorderSize = 0;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (item.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(10, 10, 40, 40));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.medium)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(10, 10, 40, 40));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
+
             }
             else if (item.priority == PriorityEnum.high)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(10, 10, 40, 40));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.urgent)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(10, 10, 40, 40));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
-            if(item.done == true)
+            if (item.done == true)
             {
-                Bitmap bmp = new Bitmap(global::Calender.Properties.Resources.check);
-                e.Graphics.DrawImage(bmp, 10, 10);
+                tick.Visible = true;
+            }
+            else
+            {
+                tick.Visible = false;
             }
         }
 
@@ -82,6 +91,16 @@ namespace Calender
         {
             this.item.done = !this.item.done;
             this.Refresh();
+        }
+
+        private void location_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tick_Click(object sender, EventArgs e)
+        {
+            Item_Click(sender, e);
         }
     }
 }

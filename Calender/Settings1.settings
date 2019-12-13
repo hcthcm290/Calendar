@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Color" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Coral</Value>
+      <Value Profile="(Default)">DarkOrange</Value>
     </Setting>
     <Setting Name="Notification" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

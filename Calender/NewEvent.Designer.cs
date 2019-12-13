@@ -97,7 +97,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(669, 44);
+            this.panel1.Size = new System.Drawing.Size(643, 44);
             this.panel1.TabIndex = 0;
             // 
             // SaveButton
@@ -105,12 +105,12 @@
             this.SaveButton.AutoSize = true;
             this.SaveButton.BackColor = System.Drawing.Color.White;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.SaveButton.ForeColor = System.Drawing.Color.Black;
-            this.SaveButton.Location = new System.Drawing.Point(500, 4);
+            this.SaveButton.Location = new System.Drawing.Point(552, -2);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(143, 37);
+            this.SaveButton.Size = new System.Drawing.Size(84, 51);
             this.SaveButton.TabIndex = 2;
             this.SaveButton.Text = "Save";
             this.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -122,12 +122,12 @@
             this.CancelButton.AutoSize = true;
             this.CancelButton.BackColor = System.Drawing.Color.White;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.Location = new System.Drawing.Point(9, 4);
+            this.CancelButton.Location = new System.Drawing.Point(10, 0);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(143, 37);
+            this.CancelButton.Size = new System.Drawing.Size(108, 49);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -140,17 +140,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FormLabel.AutoSize = true;
-            this.FormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormLabel.Location = new System.Drawing.Point(253, 4);
+            this.FormLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.FormLabel.Location = new System.Drawing.Point(265, 6);
             this.FormLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FormLabel.Name = "FormLabel";
-            this.FormLabel.Size = new System.Drawing.Size(152, 33);
+            this.FormLabel.Size = new System.Drawing.Size(143, 37);
             this.FormLabel.TabIndex = 0;
             this.FormLabel.Text = "New event";
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.RepeatEndPanel);
             this.panel2.Controls.Add(this.panel10);
@@ -161,10 +160,10 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(0, 48);
+            this.panel2.Location = new System.Drawing.Point(-5, 46);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 332);
+            this.panel2.Size = new System.Drawing.Size(651, 324);
             this.panel2.TabIndex = 1;
             // 
             // RepeatEndPanel
@@ -175,7 +174,7 @@
             this.RepeatEndPanel.Controls.Add(this.Month_RepeatEnd);
             this.RepeatEndPanel.Controls.Add(this.Day_RepeatEnd);
             this.RepeatEndPanel.Controls.Add(this.RepeatEndLabel);
-            this.RepeatEndPanel.Location = new System.Drawing.Point(9, 163);
+            this.RepeatEndPanel.Location = new System.Drawing.Point(9, 161);
             this.RepeatEndPanel.Name = "RepeatEndPanel";
             this.RepeatEndPanel.Size = new System.Drawing.Size(634, 48);
             this.RepeatEndPanel.TabIndex = 12;
@@ -183,22 +182,22 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label11.Location = new System.Drawing.Point(248, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 24);
+            this.label11.Size = new System.Drawing.Size(38, 30);
             this.label11.TabIndex = 9;
             this.label11.Text = "on";
             // 
             // Year_RepeatEnd
             // 
             this.Year_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Year_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Year_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
             this.Year_RepeatEnd.FormattingEnabled = true;
             this.Year_RepeatEnd.Location = new System.Drawing.Point(415, 10);
             this.Year_RepeatEnd.Name = "Year_RepeatEnd";
-            this.Year_RepeatEnd.Size = new System.Drawing.Size(69, 32);
+            this.Year_RepeatEnd.Size = new System.Drawing.Size(69, 38);
             this.Year_RepeatEnd.TabIndex = 9;
             this.Year_RepeatEnd.Text = "yyyy";
             // 
@@ -206,12 +205,12 @@
             // 
             this.Month_RepeatEnd.DisplayMember = "1";
             this.Month_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Month_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
             this.Month_RepeatEnd.FormattingEnabled = true;
             this.Month_RepeatEnd.Location = new System.Drawing.Point(356, 10);
             this.Month_RepeatEnd.Name = "Month_RepeatEnd";
-            this.Month_RepeatEnd.Size = new System.Drawing.Size(53, 32);
+            this.Month_RepeatEnd.Size = new System.Drawing.Size(53, 38);
             this.Month_RepeatEnd.TabIndex = 9;
             this.Month_RepeatEnd.Text = "mm";
             this.Month_RepeatEnd.ValueMember = "1";
@@ -222,22 +221,23 @@
             this.Day_RepeatEnd.DisplayMember = "1";
             this.Day_RepeatEnd.Enabled = false;
             this.Day_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_RepeatEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Day_RepeatEnd.ForeColor = System.Drawing.Color.Gray;
             this.Day_RepeatEnd.FormattingEnabled = true;
             this.Day_RepeatEnd.Location = new System.Drawing.Point(301, 10);
             this.Day_RepeatEnd.Name = "Day_RepeatEnd";
-            this.Day_RepeatEnd.Size = new System.Drawing.Size(47, 32);
+            this.Day_RepeatEnd.Size = new System.Drawing.Size(47, 38);
             this.Day_RepeatEnd.TabIndex = 9;
             this.Day_RepeatEnd.Text = "dd";
             // 
             // RepeatEndLabel
             // 
             this.RepeatEndLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RepeatEndLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RepeatEndLabel.Location = new System.Drawing.Point(16, 7);
+            this.RepeatEndLabel.AutoSize = true;
+            this.RepeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.RepeatEndLabel.Location = new System.Drawing.Point(22, 13);
             this.RepeatEndLabel.Name = "RepeatEndLabel";
-            this.RepeatEndLabel.Size = new System.Drawing.Size(131, 35);
+            this.RepeatEndLabel.Size = new System.Drawing.Size(122, 30);
             this.RepeatEndLabel.TabIndex = 0;
             this.RepeatEndLabel.Text = "Repeat End";
             this.RepeatEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -255,11 +255,11 @@
             // notes
             // 
             this.notes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notes.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.notes.ForeColor = System.Drawing.Color.Gray;
             this.notes.Location = new System.Drawing.Point(24, 14);
             this.notes.Name = "notes";
-            this.notes.Size = new System.Drawing.Size(271, 22);
+            this.notes.Size = new System.Drawing.Size(271, 29);
             this.notes.TabIndex = 0;
             this.notes.Text = "Notes";
             this.notes.Enter += new System.EventHandler(this.TB_Enter);
@@ -281,21 +281,21 @@
             // 
             this.alert.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.alert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.alert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alert.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.alert.ForeColor = System.Drawing.Color.Gray;
             this.alert.FormattingEnabled = true;
             this.alert.Location = new System.Drawing.Point(65, 11);
             this.alert.Name = "alert";
-            this.alert.Size = new System.Drawing.Size(232, 32);
+            this.alert.Size = new System.Drawing.Size(232, 38);
             this.alert.TabIndex = 9;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label10.Location = new System.Drawing.Point(20, 14);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 24);
+            this.label10.Size = new System.Drawing.Size(59, 30);
             this.label10.TabIndex = 9;
             this.label10.Text = "Alert";
             // 
@@ -314,21 +314,21 @@
             // 
             this.priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.priority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.priority.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priority.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.priority.ForeColor = System.Drawing.Color.Gray;
             this.priority.FormattingEnabled = true;
             this.priority.Location = new System.Drawing.Point(83, 11);
             this.priority.Name = "priority";
-            this.priority.Size = new System.Drawing.Size(214, 32);
+            this.priority.Size = new System.Drawing.Size(214, 38);
             this.priority.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label9.Location = new System.Drawing.Point(20, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 24);
+            this.label9.Size = new System.Drawing.Size(82, 30);
             this.label9.TabIndex = 9;
             this.label9.Text = "Priority";
             // 
@@ -347,7 +347,7 @@
             // 
             // repeatValue
             // 
-            this.repeatValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatValue.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.repeatValue.Location = new System.Drawing.Point(96, 11);
             this.repeatValue.Multiline = true;
             this.repeatValue.Name = "repeatValue";
@@ -359,7 +359,7 @@
             // 
             // RepeatDayLabel
             // 
-            this.RepeatDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatDayLabel.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.RepeatDayLabel.Location = new System.Drawing.Point(205, 14);
             this.RepeatDayLabel.Name = "RepeatDayLabel";
             this.RepeatDayLabel.Size = new System.Drawing.Size(54, 29);
@@ -376,17 +376,17 @@
             this.Repeat.FormattingEnabled = true;
             this.Repeat.Location = new System.Drawing.Point(96, 11);
             this.Repeat.Name = "Repeat";
-            this.Repeat.Size = new System.Drawing.Size(201, 32);
+            this.Repeat.Size = new System.Drawing.Size(201, 37);
             this.Repeat.TabIndex = 9;
             this.Repeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 14);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.label8.Location = new System.Drawing.Point(22, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 24);
+            this.label8.Size = new System.Drawing.Size(80, 30);
             this.label8.TabIndex = 9;
             this.label8.Text = "Repeat";
             // 
@@ -401,7 +401,7 @@
             this.panel5.Controls.Add(this.Year_End);
             this.panel5.Controls.Add(this.Month_End);
             this.panel5.Controls.Add(this.Day_End);
-            this.panel5.Location = new System.Drawing.Point(11, 269);
+            this.panel5.Location = new System.Drawing.Point(11, 267);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(634, 49);
@@ -410,78 +410,78 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label5.Location = new System.Drawing.Point(21, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 24);
+            this.label5.Size = new System.Drawing.Size(58, 30);
             this.label5.TabIndex = 8;
             this.label5.Text = "Ends";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label6.Location = new System.Drawing.Point(496, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 24);
+            this.label6.Size = new System.Drawing.Size(31, 30);
             this.label6.TabIndex = 7;
             this.label6.Text = "at";
             // 
             // Minute_End
             // 
             this.Minute_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minute_End.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minute_End.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Minute_End.ForeColor = System.Drawing.Color.Gray;
             this.Minute_End.FormattingEnabled = true;
             this.Minute_End.Location = new System.Drawing.Point(577, 10);
             this.Minute_End.Name = "Minute_End";
-            this.Minute_End.Size = new System.Drawing.Size(47, 32);
+            this.Minute_End.Size = new System.Drawing.Size(47, 38);
             this.Minute_End.TabIndex = 6;
             this.Minute_End.Text = "mm";
             // 
             // Hour_End
             // 
             this.Hour_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Hour_End.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hour_End.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Hour_End.ForeColor = System.Drawing.Color.Gray;
             this.Hour_End.FormattingEnabled = true;
             this.Hour_End.Location = new System.Drawing.Point(524, 10);
             this.Hour_End.Name = "Hour_End";
-            this.Hour_End.Size = new System.Drawing.Size(47, 32);
+            this.Hour_End.Size = new System.Drawing.Size(47, 38);
             this.Hour_End.TabIndex = 5;
             this.Hour_End.Text = "hh";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label7.Location = new System.Drawing.Point(246, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 24);
+            this.label7.Size = new System.Drawing.Size(38, 30);
             this.label7.TabIndex = 4;
             this.label7.Text = "on";
             // 
             // Year_End
             // 
             this.Year_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_End.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Year_End.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Year_End.ForeColor = System.Drawing.Color.Gray;
             this.Year_End.FormattingEnabled = true;
             this.Year_End.Location = new System.Drawing.Point(413, 10);
             this.Year_End.Name = "Year_End";
-            this.Year_End.Size = new System.Drawing.Size(69, 32);
+            this.Year_End.Size = new System.Drawing.Size(69, 38);
             this.Year_End.TabIndex = 3;
             this.Year_End.Text = "yyyy";
             // 
             // Month_End
             // 
             this.Month_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_End.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month_End.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Month_End.ForeColor = System.Drawing.Color.Gray;
             this.Month_End.FormattingEnabled = true;
             this.Month_End.Location = new System.Drawing.Point(354, 9);
             this.Month_End.Name = "Month_End";
-            this.Month_End.Size = new System.Drawing.Size(53, 32);
+            this.Month_End.Size = new System.Drawing.Size(53, 38);
             this.Month_End.TabIndex = 2;
             this.Month_End.Text = "mm";
             this.Month_End.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Month_KeyDown);
@@ -489,12 +489,12 @@
             // Day_End
             // 
             this.Day_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_End.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day_End.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Day_End.ForeColor = System.Drawing.Color.Gray;
             this.Day_End.FormattingEnabled = true;
             this.Day_End.Location = new System.Drawing.Point(299, 10);
             this.Day_End.Name = "Day_End";
-            this.Day_End.Size = new System.Drawing.Size(47, 32);
+            this.Day_End.Size = new System.Drawing.Size(47, 38);
             this.Day_End.TabIndex = 1;
             this.Day_End.Text = "dd";
             this.Day_End.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Day_KeyDown);
@@ -511,7 +511,7 @@
             this.panel6.Controls.Add(this.Year_Start);
             this.panel6.Controls.Add(this.Month_Start);
             this.panel6.Controls.Add(this.Day_Start);
-            this.panel6.Location = new System.Drawing.Point(11, 216);
+            this.panel6.Location = new System.Drawing.Point(11, 214);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(634, 49);
@@ -520,66 +520,66 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label4.Location = new System.Drawing.Point(21, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 24);
+            this.label4.Size = new System.Drawing.Size(66, 30);
             this.label4.TabIndex = 8;
             this.label4.Text = "Starts";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label2.Location = new System.Drawing.Point(496, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 24);
+            this.label2.Size = new System.Drawing.Size(31, 30);
             this.label2.TabIndex = 7;
             this.label2.Text = "at";
             // 
             // Minute_Start
             // 
             this.Minute_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minute_Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minute_Start.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Minute_Start.ForeColor = System.Drawing.Color.Gray;
             this.Minute_Start.FormattingEnabled = true;
             this.Minute_Start.Location = new System.Drawing.Point(577, 10);
             this.Minute_Start.Name = "Minute_Start";
-            this.Minute_Start.Size = new System.Drawing.Size(47, 32);
+            this.Minute_Start.Size = new System.Drawing.Size(47, 38);
             this.Minute_Start.TabIndex = 6;
             this.Minute_Start.Text = "mm";
             // 
             // Hour_Start
             // 
             this.Hour_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Hour_Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hour_Start.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Hour_Start.ForeColor = System.Drawing.Color.Gray;
             this.Hour_Start.FormattingEnabled = true;
             this.Hour_Start.Location = new System.Drawing.Point(524, 10);
             this.Hour_Start.Name = "Hour_Start";
-            this.Hour_Start.Size = new System.Drawing.Size(47, 32);
+            this.Hour_Start.Size = new System.Drawing.Size(47, 38);
             this.Hour_Start.TabIndex = 5;
             this.Hour_Start.Text = "hh";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label3.Location = new System.Drawing.Point(246, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 24);
+            this.label3.Size = new System.Drawing.Size(38, 30);
             this.label3.TabIndex = 4;
             this.label3.Text = "on";
             // 
             // Year_Start
             // 
             this.Year_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Year_Start.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Year_Start.ForeColor = System.Drawing.Color.Gray;
             this.Year_Start.FormattingEnabled = true;
             this.Year_Start.Location = new System.Drawing.Point(413, 10);
             this.Year_Start.Name = "Year_Start";
-            this.Year_Start.Size = new System.Drawing.Size(69, 32);
+            this.Year_Start.Size = new System.Drawing.Size(69, 38);
             this.Year_Start.TabIndex = 3;
             this.Year_Start.Text = "yyyy";
             this.Year_Start.SelectedIndexChanged += new System.EventHandler(this.Year_Start_SelectedIndexChanged);
@@ -589,12 +589,12 @@
             // 
             this.Month_Start.DisplayMember = "1";
             this.Month_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month_Start.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Month_Start.ForeColor = System.Drawing.Color.Gray;
             this.Month_Start.FormattingEnabled = true;
             this.Month_Start.Location = new System.Drawing.Point(354, 10);
             this.Month_Start.Name = "Month_Start";
-            this.Month_Start.Size = new System.Drawing.Size(53, 32);
+            this.Month_Start.Size = new System.Drawing.Size(53, 38);
             this.Month_Start.TabIndex = 2;
             this.Month_Start.Text = "mm";
             this.Month_Start.ValueMember = "1";
@@ -607,12 +607,12 @@
             // 
             this.Day_Start.DisplayMember = "1";
             this.Day_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day_Start.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Day_Start.ForeColor = System.Drawing.Color.Gray;
             this.Day_Start.FormattingEnabled = true;
             this.Day_Start.Location = new System.Drawing.Point(299, 10);
             this.Day_Start.Name = "Day_Start";
-            this.Day_Start.Size = new System.Drawing.Size(47, 32);
+            this.Day_Start.Size = new System.Drawing.Size(47, 38);
             this.Day_Start.TabIndex = 1;
             this.Day_Start.Text = "dd";
             this.Day_Start.SelectedIndexChanged += new System.EventHandler(this.Day_Start_SelectedIndexChanged);
@@ -633,11 +633,11 @@
             // location
             // 
             this.location.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.location.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.location.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.location.ForeColor = System.Drawing.Color.Gray;
-            this.location.Location = new System.Drawing.Point(24, 14);
+            this.location.Location = new System.Drawing.Point(22, 13);
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(271, 22);
+            this.location.Size = new System.Drawing.Size(271, 29);
             this.location.TabIndex = 0;
             this.location.Text = "Location";
             this.location.Enter += new System.EventHandler(this.TB_Enter);
@@ -657,13 +657,13 @@
             // title
             // 
             this.title.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.title.ForeColor = System.Drawing.Color.Gray;
-            this.title.Location = new System.Drawing.Point(24, 14);
+            this.title.Location = new System.Drawing.Point(22, 13);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(271, 22);
+            this.title.Size = new System.Drawing.Size(275, 29);
             this.title.TabIndex = 0;
-            this.title.Text = "Title";
+            this.title.Text = "This is a fucking text";
             this.title.Enter += new System.EventHandler(this.TB_Enter);
             this.title.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Silent_KeyDown);
             this.title.Leave += new System.EventHandler(this.TB_Leave);
@@ -672,9 +672,10 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(669, 383);
+            this.ClientSize = new System.Drawing.Size(643, 367);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

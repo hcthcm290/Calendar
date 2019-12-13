@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item));
             this.startTime = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
             this.endTime = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.Label();
             this.edit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tick = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // startTime
@@ -48,10 +50,11 @@
             // 
             // title
             // 
+            this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.title.Location = new System.Drawing.Point(131, 10);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(205, 23);
+            this.title.Size = new System.Drawing.Size(50, 25);
             this.title.TabIndex = 1;
             this.title.Text = "Title";
             // 
@@ -59,30 +62,33 @@
             // 
             this.endTime.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.endTime.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.endTime.Location = new System.Drawing.Point(59, 31);
+            this.endTime.Location = new System.Drawing.Point(69, 31);
             this.endTime.Name = "endTime";
             this.endTime.Size = new System.Drawing.Size(96, 23);
             this.endTime.TabIndex = 2;
-            this.endTime.Text = "End";
+            this.endTime.Text = "00:00";
             this.endTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // location
             // 
+            this.location.AutoSize = true;
             this.location.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.location.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.location.Location = new System.Drawing.Point(131, 31);
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(204, 23);
+            this.location.Size = new System.Drawing.Size(69, 21);
             this.location.TabIndex = 3;
             this.location.Text = "Location";
+            this.location.Click += new System.EventHandler(this.location_Click);
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(438, 7);
+            this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.Location = new System.Drawing.Point(458, 14);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(52, 47);
+            this.edit.Size = new System.Drawing.Size(34, 36);
             this.edit.TabIndex = 4;
-            this.edit.Text = "Edit";
             this.edit.UseVisualStyleBackColor = true;
             this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
@@ -98,11 +104,23 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "|";
             // 
+            // tick
+            // 
+            this.tick.BackColor = System.Drawing.Color.Transparent;
+            this.tick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tick.Image = ((System.Drawing.Image)(resources.GetObject("tick.Image")));
+            this.tick.Location = new System.Drawing.Point(17, 20);
+            this.tick.Name = "tick";
+            this.tick.Size = new System.Drawing.Size(31, 23);
+            this.tick.TabIndex = 6;
+            this.tick.Click += new System.EventHandler(this.tick_Click);
+            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tick);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.location);
@@ -115,6 +133,7 @@
             this.Click += new System.EventHandler(this.Item_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Item_Paint);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,5 +145,6 @@
         private System.Windows.Forms.Label location;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tick;
     }
 }

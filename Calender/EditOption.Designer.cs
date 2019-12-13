@@ -31,6 +31,7 @@
             this.btnOnlyThisItem = new System.Windows.Forms.Button();
             this.btnThisAndFollowing = new System.Windows.Forms.Button();
             this.btnAll = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOnlyThisItem
@@ -78,12 +79,27 @@
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnYes_Click);
             // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Ignore;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Location = new System.Drawing.Point(10, 188);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(250, 50);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // EditOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(270, 190);
+            this.ClientSize = new System.Drawing.Size(270, 250);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.btnThisAndFollowing);
             this.Controls.Add(this.btnOnlyThisItem);
@@ -101,5 +117,6 @@
         private System.Windows.Forms.Button btnOnlyThisItem;
         private System.Windows.Forms.Button btnThisAndFollowing;
         private System.Windows.Forms.Button btnAll;
+        private System.Windows.Forms.Button button1;
     }
 }
