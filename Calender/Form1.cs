@@ -72,8 +72,8 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.prevmonth = new System.Windows.Forms.Button();
+            this.nextmonth = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -119,8 +119,8 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.nextmonth);
+            this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
             this.panel2.Controls.Add(this.lbyear);
             this.panel2.Controls.Add(this.panel6);
@@ -563,27 +563,27 @@ namespace Calender
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(45, 439);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 64);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = false;
+            this.prevmonth.BackColor = System.Drawing.Color.Transparent;
+            this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.prevmonth.Location = new System.Drawing.Point(45, 439);
+            this.prevmonth.Name = "button1";
+            this.prevmonth.Size = new System.Drawing.Size(24, 64);
+            this.prevmonth.TabIndex = 7;
+            this.prevmonth.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(642, 439);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 64);
-            this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = false;
+            this.nextmonth.BackColor = System.Drawing.Color.Transparent;
+            this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.nextmonth.Location = new System.Drawing.Point(642, 439);
+            this.nextmonth.Name = "button2";
+            this.nextmonth.Size = new System.Drawing.Size(24, 64);
+            this.nextmonth.TabIndex = 8;
+            this.nextmonth.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
