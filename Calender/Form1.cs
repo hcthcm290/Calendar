@@ -24,6 +24,7 @@ namespace Calender
         static public List<PlanItem> alertForToday = new List<PlanItem>();
         Timer timer;
         DateTime focusedDate;
+        Button focusedButton;
         static public Color[] PriorityColorForDay = new Color[32];
 
         private void InitDesign()
@@ -40,7 +41,7 @@ namespace Calender
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PresentMonth = new System.Windows.Forms.Label();
-            this.lbyear = new System.Windows.Forms.Label();
+            this.YearLabel = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -122,7 +123,7 @@ namespace Calender
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
-            this.panel2.Controls.Add(this.lbyear);
+            this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
@@ -151,16 +152,16 @@ namespace Calender
             // 
             // lbyear
             // 
-            this.lbyear.AutoSize = true;
-            this.lbyear.BackColor = System.Drawing.Color.Transparent;
-            this.lbyear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbyear.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
-            this.lbyear.Location = new System.Drawing.Point(292, 57);
-            this.lbyear.Name = "lbyear";
-            this.lbyear.Size = new System.Drawing.Size(365, 170);
-            this.lbyear.TabIndex = 6;
-            this.lbyear.Text = "2019";
-            this.lbyear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.YearLabel.AutoSize = true;
+            this.YearLabel.BackColor = System.Drawing.Color.Transparent;
+            this.YearLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.YearLabel.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
+            this.YearLabel.Location = new System.Drawing.Point(292, 57);
+            this.YearLabel.Name = "lbyear";
+            this.YearLabel.Size = new System.Drawing.Size(365, 170);
+            this.YearLabel.TabIndex = 6;
+            this.YearLabel.Text = "2019";
+            this.YearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel6
             // 
@@ -697,7 +698,6 @@ namespace Calender
                 }
             }
         }
-
         
         void InitDateMatrix()
         {
@@ -709,6 +709,7 @@ namespace Calender
                     DateButton[i, j] = new Button();
                     DateButton[i, j].FlatStyle = FlatStyle.Flat;
                     DateButton[i, j].FlatAppearance.BorderSize = 0;
+                    DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
                     DateButton[i, j].ForeColor = Color.Black;
                     DateButton[i, j].Width = label2.Width+4;
@@ -767,6 +768,9 @@ namespace Calender
                     DateButton[i, j].Text = "";
                     DateButton[i, j].BackColor = Color.Transparent;
                     DateButton[i, j].ForeColor = Color.DimGray;
+                    DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
+                    DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    DateButton[i, j].Enabled = false;
 
                     if (j == dayOfWeek)
                     {
@@ -792,12 +796,14 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        if(count == DateTime.Now.Day && month == DateTime.Now.Month)
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50,0,0,0);
+                        DateButton[i, j].Enabled = true;
+                        if (count == DateTime.Now.Day && month == DateTime.Now.Month)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
-                            DateButton[i,j].Font= new Font("Segoe UI Black", 19);
+                            DateButton[i, j].Font= new Font("Segoe UI Black", 19);
                             DateButton[i, j].ForeColor = Color.Black;
-
+                            focusedButton = DateButton[i, j];
                         }
                         count++;
                     }
@@ -852,6 +858,7 @@ namespace Calender
         {
             Months.ToPrevMonth();
             PresentMonth.Text = Months.ToString();
+            YearLabel.Text = Year.GetCurrentYear().ToString();
             GenerateDaysForDateButtons(Months.iCurrent);
         }
 
@@ -859,6 +866,7 @@ namespace Calender
         {
             Months.ToNextMonth();
             PresentMonth.Text = Months.ToString();
+            YearLabel.Text = Year.GetCurrentYear().ToString();
             GenerateDaysForDateButtons(Months.iCurrent);
         }
 
@@ -915,6 +923,9 @@ namespace Calender
             if (b.Text == "")
                 return;
             focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
+            focusedButton.BackColor = Color.Transparent;
+            b.BackColor = Color.FromArgb(50, 0, 0, 0);
+            focusedButton = b;
             if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
             {
                 label1.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -978,7 +989,11 @@ namespace Calender
             schedulerControl1.GoToToday();
             TimeTablePanel.Visible = true;
             panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
             SettingPanel.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
             this.Refresh();
         }
 
@@ -987,6 +1002,10 @@ namespace Calender
             TimeTablePanel.Visible = false;
             SettingPanel.Visible = false;
             panel6.Visible = true;
+            YearLabel.Visible = true;
+            PresentMonth.Visible = true;
+            nextmonth.Visible = true;
+            prevmonth.Visible = true;
             this.Refresh();
         }
 

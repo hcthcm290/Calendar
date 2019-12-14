@@ -36,6 +36,7 @@
             this.edit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tick = new System.Windows.Forms.Label();
+            this.checkLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // startTime
@@ -115,12 +116,22 @@
             this.tick.TabIndex = 6;
             this.tick.Click += new System.EventHandler(this.tick_Click);
             // 
+            // checkLabel
+            // 
+            this.checkLabel.BackColor = System.Drawing.Color.Transparent;
+            this.checkLabel.Location = new System.Drawing.Point(17, 20);
+            this.checkLabel.Name = "checkLabel";
+            this.checkLabel.Size = new System.Drawing.Size(31, 27);
+            this.checkLabel.TabIndex = 7;
+            this.checkLabel.Click += new System.EventHandler(this.checkLabel_Click);
+            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tick);
+            this.Controls.Add(this.checkLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.location);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label tick;
+        private System.Windows.Forms.Label checkLabel;
     }
 }

@@ -39,8 +39,10 @@
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nextmonth = new System.Windows.Forms.Button();
+            this.prevmonth = new System.Windows.Forms.Button();
             this.PresentMonth = new System.Windows.Forms.Label();
-            this.lbyear = new System.Windows.Forms.Label();
+            this.YearLabel = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.prevmonth = new System.Windows.Forms.Button();
-            this.nextmonth = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -122,8 +122,9 @@
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
-            this.panel2.Controls.Add(this.lbyear);
+            this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -131,6 +132,32 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(707, 688);
             this.panel2.TabIndex = 0;
+            // 
+            // nextmonth
+            // 
+            this.nextmonth.BackColor = System.Drawing.Color.Transparent;
+            this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
+            this.nextmonth.Location = new System.Drawing.Point(642, 439);
+            this.nextmonth.Name = "nextmonth";
+            this.nextmonth.Size = new System.Drawing.Size(24, 64);
+            this.nextmonth.TabIndex = 8;
+            this.nextmonth.UseVisualStyleBackColor = false;
+            this.nextmonth.Click += new System.EventHandler(this.NextMonth_Click);
+            // 
+            // prevmonth
+            // 
+            this.prevmonth.BackColor = System.Drawing.Color.Transparent;
+            this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
+            this.prevmonth.Location = new System.Drawing.Point(45, 439);
+            this.prevmonth.Name = "prevmonth";
+            this.prevmonth.Size = new System.Drawing.Size(24, 64);
+            this.prevmonth.TabIndex = 7;
+            this.prevmonth.UseVisualStyleBackColor = false;
+            this.prevmonth.Click += new System.EventHandler(this.PrevMonth_Click);
             // 
             // PresentMonth
             // 
@@ -149,18 +176,18 @@
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PresentMonth.Click += new System.EventHandler(this.PresentMonth_Click);
             // 
-            // lbyear
+            // YearLabel
             // 
-            this.lbyear.AutoSize = true;
-            this.lbyear.BackColor = System.Drawing.Color.Transparent;
-            this.lbyear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbyear.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
-            this.lbyear.Location = new System.Drawing.Point(292, 57);
-            this.lbyear.Name = "lbyear";
-            this.lbyear.Size = new System.Drawing.Size(365, 170);
-            this.lbyear.TabIndex = 6;
-            this.lbyear.Text = "2019";
-            this.lbyear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.YearLabel.AutoSize = true;
+            this.YearLabel.BackColor = System.Drawing.Color.Transparent;
+            this.YearLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.YearLabel.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
+            this.YearLabel.Location = new System.Drawing.Point(292, 57);
+            this.YearLabel.Name = "YearLabel";
+            this.YearLabel.Size = new System.Drawing.Size(365, 170);
+            this.YearLabel.TabIndex = 6;
+            this.YearLabel.Text = "2019";
+            this.YearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel6
             // 
@@ -345,7 +372,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(0, 46);
+            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
             this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
             this.TimeTablePanel.Name = "TimeTablePanel";
             this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
@@ -361,7 +388,7 @@
             this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.schedulerControl1.Name = "schedulerControl1";
             this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 11, 3, 0, 0, 0, 0);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 28, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
@@ -561,30 +588,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // prevmonth
-            // 
-            this.prevmonth.BackColor = System.Drawing.Color.Transparent;
-            this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
-            this.prevmonth.Location = new System.Drawing.Point(45, 439);
-            this.prevmonth.Name = "prevmonth";
-            this.prevmonth.Size = new System.Drawing.Size(24, 64);
-            this.prevmonth.TabIndex = 7;
-            this.prevmonth.UseVisualStyleBackColor = false;
-            // 
-            // nextmonth
-            // 
-            this.nextmonth.BackColor = System.Drawing.Color.Transparent;
-            this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
-            this.nextmonth.Location = new System.Drawing.Point(642, 439);
-            this.nextmonth.Name = "nextmonth";
-            this.nextmonth.Size = new System.Drawing.Size(24, 64);
-            this.nextmonth.TabIndex = 8;
-            this.nextmonth.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,7 +658,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem1;
-        private System.Windows.Forms.Label lbyear;
+        private System.Windows.Forms.Label YearLabel;
         private System.Windows.Forms.Label PresentMonth;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

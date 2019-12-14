@@ -89,8 +89,7 @@ namespace Calender
 
         private void Item_Click(object sender, EventArgs e)
         {
-            this.item.done = !this.item.done;
-            this.Refresh();
+            
         }
 
         private void location_Click(object sender, EventArgs e)
@@ -100,7 +99,13 @@ namespace Calender
 
         private void tick_Click(object sender, EventArgs e)
         {
-            Item_Click(sender, e);
+            this.item.done = !this.item.done;
+            this.Refresh();
+        }
+
+        private void checkLabel_Click(object sender, EventArgs e)
+        {
+            tick_Click(sender, e);
         }
     }
 }
