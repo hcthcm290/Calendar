@@ -680,6 +680,8 @@ namespace Calender
             //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
             this.panel2.ForeColor = Settings1.Default.Color;
             this.PresentMonth.ForeColor = Settings1.Default.Color;
+
+            //schedulerControl1.AllowAppointmentDrag = false;
         }
 
         void LoadDataToTimeTable()
@@ -1211,6 +1213,16 @@ namespace Calender
                 e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(199, 0, 57)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             e.Handled = true;
+        }
+
+        private void schedulerControl1_AppointmentDrag(object sender, AppointmentDragEventArgs e)
+        {
+            e.Allow = false;
+        }
+
+        private void schedulerControl1_AllowAppointmentDrag(object sender, AppointmentOperationEventArgs e)
+        {
+            e.Allow = false;
         }
     } 
 }
