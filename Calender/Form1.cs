@@ -51,7 +51,7 @@ namespace Calender
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -287,7 +287,7 @@ namespace Calender
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statisticsToolStripMenuItem,
+            this.calendarToolStripMenuItem,
             this.timetableToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.statisticsToolStripMenuItem1});
@@ -299,14 +299,14 @@ namespace Calender
             // 
             // statisticsToolStripMenuItem
             // 
-            this.statisticsToolStripMenuItem.AutoSize = false;
-            this.statisticsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statisticsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.statisticsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
-            this.statisticsToolStripMenuItem.Text = "Calendar";
-            this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
+            this.calendarToolStripMenuItem.AutoSize = false;
+            this.calendarToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.calendarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.calendarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.calendarToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.calendarToolStripMenuItem.Text = "Calendar";
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
             // timetableToolStripMenuItem
             // 
@@ -669,6 +669,15 @@ namespace Calender
 
             addbutton.FlatStyle = FlatStyle.Flat;
             addbutton.FlatAppearance.BorderSize = 0;
+
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
         }
 
         void LoadDataToTimeTable()
@@ -994,6 +1003,7 @@ namespace Calender
             SettingPanel.Visible = false;
             nextmonth.Visible = false;
             prevmonth.Visible = false;
+            SettingPanel.Visible = false;
             this.Refresh();
         }
 
@@ -1036,6 +1046,11 @@ namespace Calender
         {
             TimeTablePanel.Visible = false;
             panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
+            SettingPanel.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
             SettingPanel.Visible = true;
             this.Refresh();
         }
@@ -1045,6 +1060,14 @@ namespace Calender
             if( colorDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 Settings1.Default.Color = colorDialog1.Color;
+                this.panel3.BackColor = Settings1.Default.Color;
+                this.panel8.BackColor = Settings1.Default.Color;
+                this.addbutton.BackColor = Settings1.Default.Color;
+                //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                this.panel2.ForeColor = Settings1.Default.Color;
+                this.PresentMonth.ForeColor = Settings1.Default.Color;
             }
         }
 
@@ -1108,6 +1131,33 @@ namespace Calender
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void calenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            SettingPanel.Visible = false;
+            panel6.Visible = true;
+            YearLabel.Visible = true;
+            PresentMonth.Visible = true;
+            nextmonth.Visible = true;
+            prevmonth.Visible = true;
+            SettingPanel.Visible = false;
+            this.Refresh();
+        }
+
+        private void buttonDefaultSetting_Click(object sender, EventArgs e)
+        {
+            Settings1.Default.Color = Settings1.Default.DefaultColor;
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
+            Settings1.Default.Save();
         }
     } 
 }
