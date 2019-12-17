@@ -33,15 +33,17 @@ namespace Calender
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nextmonth = new System.Windows.Forms.Button();
+            this.prevmonth = new System.Windows.Forms.Button();
             this.PresentMonth = new System.Windows.Forms.Label();
             this.YearLabel = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -52,13 +54,13 @@ namespace Calender
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TimeTablePanel = new System.Windows.Forms.Panel();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.TimeTablePanel = new System.Windows.Forms.Panel();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.SettingPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,14 +77,12 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.prevmonth = new System.Windows.Forms.Button();
-            this.nextmonth = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.TimeTablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SettingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,6 +127,7 @@ namespace Calender
             this.panel2.Controls.Add(this.PresentMonth);
             this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -135,14 +136,40 @@ namespace Calender
             this.panel2.Size = new System.Drawing.Size(707, 688);
             this.panel2.TabIndex = 0;
             // 
+            // nextmonth
+            // 
+            this.nextmonth.BackColor = System.Drawing.Color.Transparent;
+            this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
+            this.nextmonth.Location = new System.Drawing.Point(642, 433);
+            this.nextmonth.Name = "nextmonth";
+            this.nextmonth.Size = new System.Drawing.Size(24, 64);
+            this.nextmonth.TabIndex = 8;
+            this.nextmonth.UseVisualStyleBackColor = false;
+            this.nextmonth.Click += new System.EventHandler(this.NextMonth_Click);
+            // 
+            // prevmonth
+            // 
+            this.prevmonth.BackColor = System.Drawing.Color.Transparent;
+            this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
+            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
+            this.prevmonth.Location = new System.Drawing.Point(45, 433);
+            this.prevmonth.Name = "prevmonth";
+            this.prevmonth.Size = new System.Drawing.Size(24, 64);
+            this.prevmonth.TabIndex = 7;
+            this.prevmonth.UseVisualStyleBackColor = false;
+            this.prevmonth.Click += new System.EventHandler(this.PrevMonth_Click);
+            // 
             // PresentMonth
             // 
             this.PresentMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PresentMonth.BackColor = System.Drawing.Color.Transparent;
             this.PresentMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PresentMonth.Font = new System.Drawing.Font("Segoe UI Light", 36F);
-            this.PresentMonth.ForeColor = System.Drawing.Color.DarkGray;
-            this.PresentMonth.Location = new System.Drawing.Point(225, 197);
+            this.PresentMonth.ForeColor = System.Drawing.Color.DimGray;
+            this.PresentMonth.Location = new System.Drawing.Point(225, 191);
             this.PresentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PresentMonth.Name = "PresentMonth";
             this.PresentMonth.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -152,14 +179,16 @@ namespace Calender
             this.PresentMonth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PresentMonth.Click += new System.EventHandler(this.PresentMonth_Click);
             // 
-            // lbyear
+            // YearLabel
             // 
             this.YearLabel.AutoSize = true;
             this.YearLabel.BackColor = System.Drawing.Color.Transparent;
             this.YearLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.YearLabel.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
-            this.YearLabel.Location = new System.Drawing.Point(292, 57);
-            this.YearLabel.Name = "lbyear";
+            this.YearLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.YearLabel.Location = new System.Drawing.Point(292, 51);
+            this.YearLabel.Name = "YearLabel";
+            this.YearLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.YearLabel.Size = new System.Drawing.Size(365, 170);
             this.YearLabel.TabIndex = 6;
             this.YearLabel.Text = "2019";
@@ -178,7 +207,7 @@ namespace Calender
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(67, 267);
+            this.panel6.Location = new System.Drawing.Point(67, 261);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(638, 339);
@@ -273,7 +302,7 @@ namespace Calender
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
             this.label2.Location = new System.Drawing.Point(39, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -281,6 +310,39 @@ namespace Calender
             this.label2.TabIndex = 0;
             this.label2.Text = "SUN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TimeTablePanel
+            // 
+            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
+            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
+            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeTablePanel.Name = "TimeTablePanel";
+            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
+            this.TimeTablePanel.TabIndex = 4;
+            this.TimeTablePanel.Visible = false;
+            // 
+            // schedulerControl1
+            // 
+            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 0;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
+            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
             // 
             // menuStrip1
             // 
@@ -340,39 +402,6 @@ namespace Calender
             this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
             this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(101, 29);
             this.statisticsToolStripMenuItem1.Text = "Statistics";
-            // 
-            // TimeTablePanel
-            // 
-            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(0, 46);
-            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.TimeTablePanel.Name = "TimeTablePanel";
-            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
-            this.TimeTablePanel.TabIndex = 4;
-            this.TimeTablePanel.Visible = false;
-            // 
-            // schedulerControl1
-            // 
-            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 11, 3, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 0;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
-            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
-            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
             // 
             // SettingPanel
             // 
@@ -482,7 +511,7 @@ namespace Calender
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
             this.panel3.Controls.Add(this.dayView);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -497,38 +526,38 @@ namespace Calender
             this.dayView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dayView.BackColor = System.Drawing.Color.Transparent;
-            this.dayView.Location = new System.Drawing.Point(29, 116);
+            this.dayView.Location = new System.Drawing.Point(29, 89);
             this.dayView.Margin = new System.Windows.Forms.Padding(4);
             this.dayView.Name = "dayView";
-            this.dayView.Size = new System.Drawing.Size(532, 555);
+            this.dayView.Size = new System.Drawing.Size(532, 582);
             this.dayView.TabIndex = 3;
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
             this.panel8.Controls.Add(this.addbutton);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(567, 110);
+            this.panel8.Size = new System.Drawing.Size(567, 81);
             this.panel8.TabIndex = 2;
             // 
             // addbutton
             // 
             this.addbutton.AutoSize = true;
-            this.addbutton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addbutton.BackColor = System.Drawing.Color.Transparent;
             this.addbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.addbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbutton.ForeColor = System.Drawing.Color.Transparent;
-            this.addbutton.Image = global::Calender.Properties.Resources.AddButton;
-            this.addbutton.Location = new System.Drawing.Point(458, 11);
+            this.addbutton.Image = ((System.Drawing.Image)(resources.GetObject("addbutton.Image")));
+            this.addbutton.Location = new System.Drawing.Point(482, 15);
             this.addbutton.Margin = new System.Windows.Forms.Padding(4);
             this.addbutton.Name = "addbutton";
             this.addbutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addbutton.Size = new System.Drawing.Size(88, 88);
+            this.addbutton.Size = new System.Drawing.Size(58, 58);
             this.addbutton.TabIndex = 1;
             this.addbutton.UseVisualStyleBackColor = false;
             this.addbutton.Click += new System.EventHandler(this.Addbutton_Click);
@@ -536,14 +565,14 @@ namespace Calender
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI, style=Bold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(19, 23);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(19, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 65);
+            this.label1.Size = new System.Drawing.Size(294, 65);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Today";
+            this.label1.Text = "12/16/2019";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -564,45 +593,23 @@ namespace Calender
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // prevmonth
-            // 
-            this.prevmonth.BackColor = System.Drawing.Color.Transparent;
-            this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
-            this.prevmonth.Location = new System.Drawing.Point(45, 439);
-            this.prevmonth.Name = "prevmonth";
-            this.prevmonth.Size = new System.Drawing.Size(24, 64);
-            this.prevmonth.TabIndex = 7;
-            this.prevmonth.UseVisualStyleBackColor = false;
-            // 
-            // nextmonth
-            // 
-            this.nextmonth.BackColor = System.Drawing.Color.Transparent;
-            this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
-            this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
-            this.nextmonth.Location = new System.Drawing.Point(642, 439);
-            this.nextmonth.Name = "nextmonth";
-            this.nextmonth.Size = new System.Drawing.Size(24, 64);
-            this.nextmonth.TabIndex = 8;
-            this.nextmonth.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Coral;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
-            this.ShowIcon = false;
-            this.Text = "CalendEr";
+            this.Text = "Calendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -611,10 +618,10 @@ namespace Calender
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.TimeTablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.SettingPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
