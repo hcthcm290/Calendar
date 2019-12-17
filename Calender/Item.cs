@@ -58,23 +58,23 @@ namespace Calender
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (item.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(99, 110, 114)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.medium)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 195, 0)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
 
             }
             else if (item.priority == PriorityEnum.high)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 87, 51)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.urgent)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(199, 0, 57)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 0, 0)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             if (item.done == true)

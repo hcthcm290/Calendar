@@ -24,10 +24,10 @@ namespace Calender
         {
             InitializeComponent();
 
+            
             this.group = group;
             this.item = item;
             this.title.Text = item.title;
-            this.location.Text = item.location;
             this.notes.Text = item.note;
 
             this.Day_Start.Text = item.startTime.Day.ToString();
@@ -42,15 +42,8 @@ namespace Calender
             this.Hour_End.Text = item.endTime.Hour.ToString();
             this.Minute_End.Text = item.endTime.Minute.ToString();
 
-            CancelButton.FlatStyle = FlatStyle.Flat;
-            CancelButton.FlatAppearance.BorderColor = Color.White;
-            CancelButton.FlatAppearance.BorderSize = 0;
 
-            SaveButton.FlatStyle = FlatStyle.Flat;
-            SaveButton.FlatAppearance.BorderColor = Color.White;
-            SaveButton.FlatAppearance.BorderSize = 0;
-
-            this.Repeat.SelectedIndex = group.repeatKind;
+            this.cbbRepeat.SelectedIndex = group.repeatKind;
             if (group.repeatKind == 5)
             {
                 repeatValue.Text = group.repeatValue.ToString();
@@ -60,35 +53,36 @@ namespace Calender
             this.Month_RepeatEnd.Text = group.repeatEnd.Month.ToString();
             this.Year_RepeatEnd.Text = group.repeatEnd.Year.ToString();
 
-            this.priority.SelectedIndex = (int)item.priority;
 
             TimeSpan ts = item.startTime - item.alert;
+            /*
             if(ts.Hours == 1)
             {
-                this.alert.SelectedIndex = 0;
+                this.cbbalert.SelectedIndex = 0;
             } 
             else if(ts.Minutes == 30)
             {
-                this.alert.SelectedIndex = 1;
+                this.cbbalert.SelectedIndex = 1;
             }
             else if (ts.Minutes == 15)
             {
-                this.alert.SelectedIndex = 2;
+                this.cbbalert.SelectedIndex = 2;
             }
             else
             {
-                this.alert.SelectedIndex = 3;
+                this.cbbalert.SelectedIndex = 3;
             }
+            */
         }
 
         private bool DontChangeRepeat()
         {
-            if(this.Repeat.SelectedIndex == 0 && group.repeatKind == 0)
+            if(this.cbbRepeat.SelectedIndex == 0 && group.repeatKind == 0)
             {
                 return false;
             }
 
-            if(this.Repeat.SelectedIndex != group.repeatKind)
+            if(this.cbbRepeat.SelectedIndex != group.repeatKind)
             {
                 return true;
             }
@@ -96,7 +90,7 @@ namespace Calender
             {
                 return true;
             }
-            else if(this.Repeat.SelectedIndex == 5 && group.repeatValue.ToString() != this.repeatValue.Text)
+            else if(this.cbbRepeat.SelectedIndex == 5 && group.repeatValue.ToString() != this.repeatValue.Text)
             {
                 return true;
             }
@@ -106,24 +100,24 @@ namespace Calender
 
         public override void SaveButton_Click(object sender, EventArgs e)
         {
-            TimeSpan alertTimeSpane = new TimeSpan();
-            if (alert.SelectedIndex == 0)
+            TimeSpan alertTimeSpane = new TimeSpan();/*
+            if (cbbalert.SelectedIndex == 0)
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
-            else if (alert.SelectedIndex == 1)
+            else if (cbbalert.SelectedIndex == 1)
             {
                 alertTimeSpane = new TimeSpan(0, 30, 0);
             }
-            else if (alert.SelectedIndex == 2)
+            else if (cbbalert.SelectedIndex == 2)
             {
                 alertTimeSpane = new TimeSpan(0, 15, 0);
             }
-            else if (alert.SelectedIndex == 3)
+            else if (cbbalert.SelectedIndex == 3)
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }
-
+            */
             // start time
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
             Int32.TryParse(Day_Start.Text, out tDay_Start);
@@ -164,7 +158,7 @@ namespace Calender
             Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
             Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
             Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
-            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false && Repeat.SelectedIndex != 0)
+            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false && cbbRepeat.SelectedIndex != 0)
             {
                 MessageBox.Show("Invalid RepeatEnd Date");
                 return;
@@ -172,7 +166,7 @@ namespace Calender
             DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
             // check repeat end
-            if (repeatEnd < end && Repeat.SelectedIndex != 0)
+            if (repeatEnd < end && cbbRepeat.SelectedIndex != 0)
             {
                 MessageBox.Show("The end for Repeat end must after the end of event");
                 return;
@@ -191,9 +185,7 @@ namespace Calender
                     if (result == DialogResult.Yes)
                     {
                         item.title = this.title.Text;
-                        item.location = this.location.Text;
                         item.note = this.notes.Text;
-                        item.priority = (PriorityEnum)this.priority.SelectedIndex;
                         item.alert = start - alertTimeSpane;
                     }
                     // this and following items
@@ -203,9 +195,7 @@ namespace Calender
                         for (; i < group.data.Count; i++)
                         {
                             group.data[i].title = this.title.Text;
-                            group.data[i].location = this.location.Text;
                             group.data[i].note = this.notes.Text;
-                            group.data[i].priority = (PriorityEnum)this.priority.SelectedIndex;
                             group.data[i].alert = start - alertTimeSpane;
                         }
                     }
@@ -216,9 +206,7 @@ namespace Calender
                         for (; i < group.data.Count; i++)
                         {
                             group.data[i].title = this.title.Text;
-                            group.data[i].location = this.location.Text;
                             group.data[i].note = this.notes.Text;
-                            group.data[i].priority = (PriorityEnum)this.priority.SelectedIndex;
                             group.data[i].alert = start - alertTimeSpane;
                         }
                     }
@@ -232,9 +220,7 @@ namespace Calender
                     if (result == DialogResult.Yes)
                     {
                         item.title = this.title.Text;
-                        item.location = this.location.Text;
                         item.note = this.notes.Text;
-                        item.priority = (PriorityEnum)this.priority.SelectedIndex;
                         item.alert = start - alertTimeSpane;
                         item.startTime = start;
                         item.endTime = end;

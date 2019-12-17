@@ -12,6 +12,7 @@ namespace Calender
         {
             InitializeComponent();
             Init();
+            this.Refresh();
 
         }
         public New_Event(PlanData planData)
@@ -34,13 +35,7 @@ namespace Calender
 
         void Init()
         {
-            CancelButton.FlatStyle = FlatStyle.Flat;
-            CancelButton.FlatAppearance.BorderColor = Color.White;
-            CancelButton.FlatAppearance.BorderSize = 0;
 
-            SaveButton.FlatStyle = FlatStyle.Flat;
-            SaveButton.FlatAppearance.BorderColor = Color.White;
-            SaveButton.FlatAppearance.BorderSize = 0;
             for (int i = 1; i <= 31; i++)
             {
                 this.Day_End.Items.Add(i.ToString());
@@ -75,27 +70,21 @@ namespace Calender
                 this.Minute_End.Items.Add(i.ToString());
             }
 
-            this.priority.Items.Add("Normal");
-            this.priority.Items.Add("Medium");
-            this.priority.Items.Add("High");
-            this.priority.Items.Add("Urgent");
-            this.priority.SelectedIndex = 0;
+            this.cbbRepeat.Items.Add("no repeat");
+            this.cbbRepeat.Items.Add("every day");
+            this.cbbRepeat.Items.Add("every week");
+            this.cbbRepeat.Items.Add("every month");
+            this.cbbRepeat.Items.Add("every year");
+            this.cbbRepeat.Items.Add("custom");
+            this.cbbRepeat.SelectedIndex = 0;
 
-            this.Repeat.Items.Add("None");
-            this.Repeat.Items.Add("Daily");
-            this.Repeat.Items.Add("A Week");
-            this.Repeat.Items.Add("A Month");
-            this.Repeat.Items.Add("A Year");
-            this.Repeat.Items.Add("Custom");
-            this.Repeat.SelectedIndex = 0;
+            this.cbbalert.Items.Add("1 hour before");
+            this.cbbalert.Items.Add("30 mins before");
+            this.cbbalert.Items.Add("15 mins before");
+            this.cbbalert.Items.Add("at time of event");
+            this.cbbalert.SelectedIndex = 3;
 
-            this.alert.Items.Add("1 hour before");
-            this.alert.Items.Add("30 minutes before");
-            this.alert.Items.Add("15 minutes before");
-            this.alert.Items.Add("At the time event happen");
-            this.alert.SelectedIndex = 3;
 
-            this.RepeatDayLabel.Parent = this.RepeatPanel;
         }
         private void New_Event_Load(object sender, EventArgs e)
         {
@@ -195,19 +184,18 @@ namespace Calender
         }
         private void Repeat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Repeat.SelectedItem.ToString() == "Custom")
+            if (cbbRepeat.SelectedItem.ToString() == "Custom")
             {
                 repeatValue.Visible = true;
                 repeatValue.BringToFront();
-                RepeatDayLabel.Visible = true;
-                RepeatDayLabel.BringToFront();
+                //edit this
             }
             else
             {
                 repeatValue.Visible = false;
-                RepeatDayLabel.Visible = false;
+                //edit this
             }
-            if (Repeat.SelectedItem.ToString() == "None")
+            if (cbbRepeat.SelectedItem.ToString() == "None")
             {
                 Day_RepeatEnd.Enabled = false;
                 Month_RepeatEnd.Enabled = false;
@@ -216,14 +204,12 @@ namespace Calender
                 Day_RepeatEnd.Text = "dd";
                 Month_RepeatEnd.Text = "mm";
                 Year_RepeatEnd.Text = "yyyy";
-                RepeatEndPanel.BackColor = Color.Gray;
             }
             else
             {
                 Day_RepeatEnd.Enabled = true;
                 Month_RepeatEnd.Enabled = true;
                 Year_RepeatEnd.Enabled = true;
-                RepeatEndPanel.BackColor = Color.White;
             }
         }
         public bool CheckLegitDate(int year, int month, int day)
@@ -237,19 +223,19 @@ namespace Calender
         public virtual void SaveButton_Click(object sender, EventArgs e)
         {
             TimeSpan alertTimeSpane = new TimeSpan();
-            if(alert.SelectedIndex == 0)
+            if(cbbalert.SelectedIndex == 0)
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
-            else if (alert.SelectedIndex == 1)
+            else if (cbbalert.SelectedIndex == 1)
             {
                 alertTimeSpane = new TimeSpan(0, 30, 0);
             }
-            else if (alert.SelectedIndex == 2)
+            else if (cbbalert.SelectedIndex == 2)
             {
                 alertTimeSpane = new TimeSpan(0, 15, 0);
             }
-            else if (alert.SelectedIndex == 3)
+            else if (cbbalert.SelectedIndex == 3)
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }
@@ -291,11 +277,9 @@ namespace Calender
             ////////////////////////////////////////////////////////////////
             ///
             // FOR NONE //
-            if (Repeat.Text.ToString() == "None")
+            if (cbbRepeat.Text.ToString() == "None")
             {
-                newGroup.repeatKind = 0;
-                newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
-                thisPlan.Insert(newGroup);
+                newGroup.repeatKind = 0;                thisPlan.Insert(newGroup);
                 this.Close();
                 return;
             }
@@ -319,12 +303,11 @@ namespace Calender
 
             newGroup.repeatEnd = repeatEnd;
 
-            if (Repeat.Text.ToString() == "Daily")
+            if (cbbRepeat.Text.ToString() == "Daily")
             {
                 newGroup.repeatKind = 1;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     start = start.AddDays(1);
                     end = end.AddDays(1);
@@ -337,12 +320,11 @@ namespace Calender
                     }
                 }
             }
-            else if (Repeat.Text.ToString() == "A Week")
+            else if (cbbRepeat.Text.ToString() == "A Week")
             {
                 newGroup.repeatKind = 2;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
 
                     start = start.AddDays(7);
                     end = end.AddDays(7);
@@ -355,15 +337,13 @@ namespace Calender
                     }
                 }
             }
-            else if (Repeat.Text.ToString() == "A Month")
+            else if (cbbRepeat.Text.ToString() == "A Month")
             {
                 newGroup.repeatKind = 3;
 
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, priority.SelectedIndex, start - alertTimeSpane, location.Text));
-
                     do
                     {
                         Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
@@ -379,15 +359,13 @@ namespace Calender
                     }
                 }
             }
-            else if (Repeat.Text.ToString() == "A Year")
+            else if (cbbRepeat.Text.ToString() == "A Year")
             {
                 newGroup.repeatKind = 4;
 
                 TimeSpan timeSpan = end - start;
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, start + timeSpan, priority.SelectedIndex, start - alertTimeSpane, location.Text));
-
                     do
                     {
                         Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 12);
@@ -410,8 +388,6 @@ namespace Calender
 
                 while (true)
                 {
-                    newGroup.Insert(new PlanItem(title.Text, notes.Text, start, end, priority.SelectedIndex, start - alertTimeSpane, location.Text));
-
                     start = start.AddDays(Convert.ToInt32(repeatValue.Text));
                     end = end.AddDays(Convert.ToInt32(repeatValue.Text));
 
@@ -424,10 +400,7 @@ namespace Calender
                 }
             }
         }
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void Day_Start_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -463,6 +436,49 @@ namespace Calender
         {
             ComboBox cb = (ComboBox)sender;
             Year_End.Text = cb.Text;
+        }
+
+        private void RepeatEndLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Minute_Start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Minute_End_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hour_Start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void New_Event_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
+            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
+            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
+        }
+
+        private void Day_End_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
