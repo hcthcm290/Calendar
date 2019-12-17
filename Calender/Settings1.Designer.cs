@@ -46,5 +46,17 @@ namespace Calender {
                 this["Notification"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 0")]
+        public global::System.Drawing.Color DefaultColor {
+            get {
+                return ((global::System.Drawing.Color)(this["DefaultColor"]));
+            }
+            set {
+                this["DefaultColor"] = value;
+            }
+        }
     }
 }

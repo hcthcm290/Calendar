@@ -8,5 +8,8 @@
     <Setting Name="Notification" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="DefaultColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 128, 0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

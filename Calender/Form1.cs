@@ -12,7 +12,9 @@ using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
 using System.Drawing.Imaging;
-
+using System.Net.Mail;
+using System.Net;
+using DevExpress.XtraScheduler.Drawing;
 
 namespace Calender
 {
@@ -55,7 +57,7 @@ namespace Calender
             this.TimeTablePanel = new System.Windows.Forms.Panel();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -349,7 +351,7 @@ namespace Calender
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statisticsToolStripMenuItem,
+            this.calendarToolStripMenuItem,
             this.timetableToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.statisticsToolStripMenuItem1});
@@ -361,14 +363,14 @@ namespace Calender
             // 
             // statisticsToolStripMenuItem
             // 
-            this.statisticsToolStripMenuItem.AutoSize = false;
-            this.statisticsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statisticsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.statisticsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
-            this.statisticsToolStripMenuItem.Text = "Calendar";
-            this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
+            this.calendarToolStripMenuItem.AutoSize = false;
+            this.calendarToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.calendarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.calendarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.calendarToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.calendarToolStripMenuItem.Text = "Calendar";
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
             // timetableToolStripMenuItem
             // 
@@ -676,6 +678,17 @@ namespace Calender
 
             addbutton.FlatStyle = FlatStyle.Flat;
             addbutton.FlatAppearance.BorderSize = 0;
+
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
+
+            //schedulerControl1.AllowAppointmentDrag = false;
         }
 
         void LoadDataToTimeTable()
@@ -1001,6 +1014,7 @@ namespace Calender
             SettingPanel.Visible = false;
             nextmonth.Visible = false;
             prevmonth.Visible = false;
+            SettingPanel.Visible = false;
             this.Refresh();
         }
 
@@ -1043,6 +1057,11 @@ namespace Calender
         {
             TimeTablePanel.Visible = false;
             panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
+            SettingPanel.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
             SettingPanel.Visible = true;
             this.Refresh();
         }
@@ -1052,6 +1071,14 @@ namespace Calender
             if( colorDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 Settings1.Default.Color = colorDialog1.Color;
+                this.panel3.BackColor = Settings1.Default.Color;
+                this.panel8.BackColor = Settings1.Default.Color;
+                this.addbutton.BackColor = Settings1.Default.Color;
+                //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+                this.panel2.ForeColor = Settings1.Default.Color;
+                this.PresentMonth.ForeColor = Settings1.Default.Color;
             }
         }
 
@@ -1115,6 +1142,94 @@ namespace Calender
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void calenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            SettingPanel.Visible = false;
+            panel6.Visible = true;
+            YearLabel.Visible = true;
+            PresentMonth.Visible = true;
+            nextmonth.Visible = true;
+            prevmonth.Visible = true;
+            SettingPanel.Visible = false;
+            this.Refresh();
+        }
+
+        private void buttonDefaultSetting_Click(object sender, EventArgs e)
+        {
+            Settings1.Default.Color = Settings1.Default.DefaultColor;
+            this.panel3.BackColor = Settings1.Default.Color;
+            this.panel8.BackColor = Settings1.Default.Color;
+            this.addbutton.BackColor = Settings1.Default.Color;
+            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
+            this.panel2.ForeColor = Settings1.Default.Color;
+            this.PresentMonth.ForeColor = Settings1.Default.Color;
+            Settings1.Default.Save();
+        }
+
+        private void testEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+
+                message.From = new MailAddress("Dragonnica123@gmail.com");
+                message.To.Add(new MailAddress("18520359@gm.uit.edu.vn"));
+                message.Subject = "Test";
+                message.Body = "Content";
+
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("Dragonnica123@gmail.com", "0964495600");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("err: " + ex.Message);
+            }
+        }
+
+        private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
+        {
+            AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
+            e.DrawDefault();
+            int widthCell = viewInfo.Bounds.Width / 4;
+            PlanItem pi =  (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
+            if (pi.priority == PriorityEnum.normal)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 99, 110, 114)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.medium)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 255, 195, 0)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.high)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 87, 51)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.urgent)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(199, 0, 57)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            e.Handled = true;
+        }
+
+        private void schedulerControl1_AppointmentDrag(object sender, AppointmentDragEventArgs e)
+        {
+            e.Allow = false;
+        }
+
+        private void schedulerControl1_AllowAppointmentDrag(object sender, AppointmentOperationEventArgs e)
+        {
+            e.Allow = false;
         }
     } 
 }

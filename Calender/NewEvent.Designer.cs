@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Event));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.alertoff = new System.Windows.Forms.PictureBox();
             this.alerton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,11 +69,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.RepeatEndLabel = new System.Windows.Forms.Label();
             this.cbbRepeat = new System.Windows.Forms.ComboBox();
-            this.alertoff = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alerton)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,6 +87,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(359, 84);
             this.panel1.TabIndex = 0;
+            // 
+            // alertoff
+            // 
+            this.alertoff.BackColor = System.Drawing.Color.White;
+            this.alertoff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertoff.BackgroundImage")));
+            this.alertoff.Location = new System.Drawing.Point(293, 34);
+            this.alertoff.Name = "alertoff";
+            this.alertoff.Size = new System.Drawing.Size(35, 35);
+            this.alertoff.TabIndex = 2;
+            this.alertoff.TabStop = false;
             // 
             // alerton
             // 
@@ -161,6 +171,7 @@
             this.label16.Size = new System.Drawing.Size(56, 21);
             this.label16.TabIndex = 26;
             this.label16.Text = "Cancel";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label15
             // 
@@ -607,16 +618,6 @@
             this.cbbRepeat.TabIndex = 9;
             this.cbbRepeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
             // 
-            // alertoff
-            // 
-            this.alertoff.BackColor = System.Drawing.Color.White;
-            this.alertoff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertoff.BackgroundImage")));
-            this.alertoff.Location = new System.Drawing.Point(293, 34);
-            this.alertoff.Name = "alertoff";
-            this.alertoff.Size = new System.Drawing.Size(35, 35);
-            this.alertoff.TabIndex = 2;
-            this.alertoff.TabStop = false;
-            // 
             // New_Event
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -636,10 +637,10 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.New_Event_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alerton)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).EndInit();
             this.ResumeLayout(false);
 
         }
