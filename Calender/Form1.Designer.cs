@@ -39,7 +39,11 @@
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TimeTablePanel = new System.Windows.Forms.Panel();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.SettingPanel = new System.Windows.Forms.Panel();
+            this.testEmail = new System.Windows.Forms.Button();
+            this.buttonDefaultSetting = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -60,8 +64,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TimeTablePanel = new System.Windows.Forms.Panel();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,15 +76,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.buttonDefaultSetting = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.TimeTablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.SettingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
-            this.TimeTablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -120,13 +121,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
             this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -135,8 +136,43 @@
             this.panel2.Size = new System.Drawing.Size(707, 688);
             this.panel2.TabIndex = 0;
             // 
+            // TimeTablePanel
+            // 
+            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
+            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
+            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeTablePanel.Name = "TimeTablePanel";
+            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
+            this.TimeTablePanel.TabIndex = 4;
+            this.TimeTablePanel.Visible = false;
+            // 
+            // schedulerControl1
+            // 
+            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 28, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 0;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
+            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
+            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
+            // 
             // SettingPanel
             // 
+            this.SettingPanel.Controls.Add(this.testEmail);
             this.SettingPanel.Controls.Add(this.buttonDefaultSetting);
             this.SettingPanel.Controls.Add(this.pictureBox2);
             this.SettingPanel.Controls.Add(this.pictureBox1);
@@ -151,6 +187,27 @@
             this.SettingPanel.Size = new System.Drawing.Size(702, 634);
             this.SettingPanel.TabIndex = 4;
             this.SettingPanel.Visible = false;
+            // 
+            // testEmail
+            // 
+            this.testEmail.Location = new System.Drawing.Point(71, 278);
+            this.testEmail.Name = "testEmail";
+            this.testEmail.Size = new System.Drawing.Size(75, 23);
+            this.testEmail.TabIndex = 10;
+            this.testEmail.Text = "button1";
+            this.testEmail.UseVisualStyleBackColor = true;
+            this.testEmail.Click += new System.EventHandler(this.testEmail_Click);
+            // 
+            // buttonDefaultSetting
+            // 
+            this.buttonDefaultSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDefaultSetting.Location = new System.Drawing.Point(49, 529);
+            this.buttonDefaultSetting.Name = "buttonDefaultSetting";
+            this.buttonDefaultSetting.Size = new System.Drawing.Size(230, 58);
+            this.buttonDefaultSetting.TabIndex = 9;
+            this.buttonDefaultSetting.Text = "Default";
+            this.buttonDefaultSetting.UseVisualStyleBackColor = true;
+            this.buttonDefaultSetting.Click += new System.EventHandler(this.buttonDefaultSetting_Click);
             // 
             // pictureBox2
             // 
@@ -415,39 +472,6 @@
             this.label2.Text = "SUN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TimeTablePanel
-            // 
-            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
-            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.TimeTablePanel.Name = "TimeTablePanel";
-            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
-            this.TimeTablePanel.TabIndex = 4;
-            this.TimeTablePanel.Visible = false;
-            // 
-            // schedulerControl1
-            // 
-            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 10, 28, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 0;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
-            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
-            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.AllowMerge = false;
@@ -591,17 +615,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // buttonDefaultSetting
-            // 
-            this.buttonDefaultSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDefaultSetting.Location = new System.Drawing.Point(49, 529);
-            this.buttonDefaultSetting.Name = "buttonDefaultSetting";
-            this.buttonDefaultSetting.Size = new System.Drawing.Size(230, 58);
-            this.buttonDefaultSetting.TabIndex = 9;
-            this.buttonDefaultSetting.Text = "Default";
-            this.buttonDefaultSetting.UseVisualStyleBackColor = true;
-            this.buttonDefaultSetting.Click += new System.EventHandler(this.buttonDefaultSetting_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,13 +636,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.TimeTablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.SettingPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.TimeTablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -684,6 +697,7 @@
         private System.Windows.Forms.Button prevmonth;
         private System.Windows.Forms.Button nextmonth;
         private System.Windows.Forms.Button buttonDefaultSetting;
+        private System.Windows.Forms.Button testEmail;
     }
 }
 

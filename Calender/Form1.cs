@@ -12,7 +12,9 @@ using System.Xml.Serialization;
 using System.Media;
 using DevExpress.XtraScheduler;
 using System.Drawing.Imaging;
-
+using System.Net.Mail;
+using System.Net;
+using DevExpress.XtraScheduler.Drawing;
 
 namespace Calender
 {
@@ -1158,6 +1160,57 @@ namespace Calender
             this.panel2.ForeColor = Settings1.Default.Color;
             this.PresentMonth.ForeColor = Settings1.Default.Color;
             Settings1.Default.Save();
+        }
+
+        private void testEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+
+                message.From = new MailAddress("Dragonnica123@gmail.com");
+                message.To.Add(new MailAddress("18520359@gm.uit.edu.vn"));
+                message.Subject = "Test";
+                message.Body = "Content";
+
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("Dragonnica123@gmail.com", "0964495600");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("err: " + ex.Message);
+            }
+        }
+
+        private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
+        {
+            AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
+            e.DrawDefault();
+            int widthCell = viewInfo.Bounds.Width / 4;
+            PlanItem pi =  (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
+            if (pi.priority == PriorityEnum.normal)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 99, 110, 114)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.medium)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 255, 195, 0)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.high)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 87, 51)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            if (pi.priority == PriorityEnum.urgent)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(199, 0, 57)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+            }
+            e.Handled = true;
         }
     } 
 }
