@@ -14,6 +14,9 @@ namespace Calender
         [STAThread]
         static void Main()
         {
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-EN");
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

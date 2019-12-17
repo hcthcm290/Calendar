@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ClockPicker;
 
 namespace Calender
 {
     public partial class New_Event : Form
     {
         public PlanData thisPlan;
-
+        
         public New_Event()
         {
             InitializeComponent();
@@ -31,6 +32,10 @@ namespace Calender
             this.Day_Start.Text = this.Day_End.Text = focusedDate.Day.ToString();
             this.Month_Start.Text = this.Month_End.Text = focusedDate.Month.ToString();
             this.Year_Start.Text = this.Year_End.Text = focusedDate.Year.ToString();
+            this.label1.Focus();
+            startDateDE.DateTime = focusedDate;
+            EndDateDE.DateTime = focusedDate;
+            string sad = startTimeTP.Text;
         }
 
         void Init()
@@ -184,18 +189,20 @@ namespace Calender
         }
         private void Repeat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbRepeat.SelectedItem.ToString() == "Custom")
+            if (cbbRepeat.SelectedItem.ToString() == "custom")
             {
                 repeatValue.Visible = true;
                 repeatValue.BringToFront();
+                repeatValue.Focus();
                 //edit this
             }
             else
             {
                 repeatValue.Visible = false;
+                label1.Focus();
                 //edit this
             }
-            if (cbbRepeat.SelectedItem.ToString() == "None")
+            if (cbbRepeat.SelectedItem.ToString() == "none")
             {
                 Day_RepeatEnd.Enabled = false;
                 Month_RepeatEnd.Enabled = false;
@@ -474,6 +481,7 @@ namespace Calender
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
+            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Black), 10), new Rectangle(0, 0, this.Width, this.Height));
         }
 
         private void Day_End_SelectedIndexChanged(object sender, EventArgs e)
@@ -484,6 +492,41 @@ namespace Calender
         private void label16_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void New_Event_MouseDown(object sender, MouseEventArgs e)
+        {
+            label1.Focus();
+        }
+
+        private void dateEdit1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateEdit1_Click_1(object sender, EventArgs e)
+        {
+            startDateDE.ShowPopup();
+        }
+
+        private void dateEdit2_Click(object sender, EventArgs e)
+        {
+            EndDateDE.ShowPopup();
+        }
+
+        private void dateEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            label1.Focus();
+        }
+
+        private void dateEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            label1.Focus();
+        }
+
+        private void timePicker1_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
