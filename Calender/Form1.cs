@@ -1378,5 +1378,15 @@ namespace Calender
         {
 
         }
+
+        private void pnlStatistics_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
