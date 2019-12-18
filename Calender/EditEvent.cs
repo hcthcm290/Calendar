@@ -29,7 +29,7 @@ namespace Calender
             this.item = item;
             this.title.Text = item.title;
             this.notes.Text = item.note;
-
+            /*
             this.Day_Start.Text = item.startTime.Day.ToString();
             this.Month_Start.Text = item.startTime.Month.ToString();
             this.Year_Start.Text = item.startTime.Year.ToString();
@@ -74,7 +74,7 @@ namespace Calender
             }
             */
         }
-
+        /*
         private bool DontChangeRepeat()
         {
             if(this.cbbRepeat.SelectedIndex == 0 && group.repeatKind == 0)
@@ -117,7 +117,7 @@ namespace Calender
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }
-            */
+
             // start time
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
             Int32.TryParse(Day_Start.Text, out tDay_Start);
@@ -266,5 +266,6 @@ namespace Calender
             Form1.GeneratePriorityColorArray();
             this.Close();
         }
+                    */
     }
 }

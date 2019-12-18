@@ -28,10 +28,11 @@ namespace Calender
             InitializeComponent();
             Init();
             thisPlan = planData;
-            this.StartPosition = FormStartPosition.CenterParent;
+            this.StartPosition = FormStartPosition.CenterParent;/*
             this.Day_Start.Text = this.Day_End.Text = focusedDate.Day.ToString();
             this.Month_Start.Text = this.Month_End.Text = focusedDate.Month.ToString();
             this.Year_Start.Text = this.Year_End.Text = focusedDate.Year.ToString();
+            */
             this.label1.Focus();
             startDateDE.DateTime = focusedDate;
             EndDateDE.DateTime = focusedDate;
@@ -40,7 +41,7 @@ namespace Calender
 
         void Init()
         {
-
+            /*
             for (int i = 1; i <= 31; i++)
             {
                 this.Day_End.Items.Add(i.ToString());
@@ -74,19 +75,19 @@ namespace Calender
                 this.Minute_Start.Items.Add(i.ToString());
                 this.Minute_End.Items.Add(i.ToString());
             }
-
-            this.cbbRepeat.Items.Add("no repeat");
-            this.cbbRepeat.Items.Add("every day");
-            this.cbbRepeat.Items.Add("every week");
-            this.cbbRepeat.Items.Add("every month");
-            this.cbbRepeat.Items.Add("every year");
-            this.cbbRepeat.Items.Add("custom");
+            */
+            this.cbbRepeat.Items.Add("No repeat");
+            this.cbbRepeat.Items.Add("Every day");
+            this.cbbRepeat.Items.Add("Every week");
+            this.cbbRepeat.Items.Add("Every month");
+            this.cbbRepeat.Items.Add("Every year");
+            this.cbbRepeat.Items.Add("Custom");
             this.cbbRepeat.SelectedIndex = 0;
 
             this.cbbalert.Items.Add("1 hour before");
             this.cbbalert.Items.Add("30 mins before");
             this.cbbalert.Items.Add("15 mins before");
-            this.cbbalert.Items.Add("at time of event");
+            this.cbbalert.Items.Add("At time of event");
             this.cbbalert.SelectedIndex = 3;
 
 
@@ -202,6 +203,7 @@ namespace Calender
                 label1.Focus();
                 //edit this
             }
+            /*
             if (cbbRepeat.SelectedItem.ToString() == "none")
             {
                 Day_RepeatEnd.Enabled = false;
@@ -218,6 +220,7 @@ namespace Calender
                 Month_RepeatEnd.Enabled = true;
                 Year_RepeatEnd.Enabled = true;
             }
+            */
         }
         public bool CheckLegitDate(int year, int month, int day)
         {
@@ -248,8 +251,9 @@ namespace Calender
             }
 
             GroupPlanItem newGroup = new GroupPlanItem();
-
+            /*
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
+          
             Int32.TryParse(Day_Start.Text, out tDay_Start);
             Int32.TryParse(Month_Start.Text, out tMonth_Start);
             Int32.TryParse(Year_Start.Text, out tYear_Start);
@@ -260,6 +264,7 @@ namespace Calender
                 MessageBox.Show("Invalid Start Date");
                 return;
             }
+            
             DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
 
             int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
@@ -280,7 +285,7 @@ namespace Calender
                 MessageBox.Show("End Day must after Start Day");
                 return;
             }
-
+            */
             ////////////////////////////////////////////////////////////////
             ///
             // FOR NONE //
@@ -290,7 +295,7 @@ namespace Calender
                 this.Close();
                 return;
             }
-
+            /*
             int tDay_RepeatEnd, tMonth_RepeatEnd, tYear_RepeatEnd;
             Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
             Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
@@ -366,6 +371,7 @@ namespace Calender
                     }
                 }
             }
+            
             else if (cbbRepeat.Text.ToString() == "A Year")
             {
                 newGroup.repeatKind = 4;
@@ -406,9 +412,10 @@ namespace Calender
                     }
                 }
             }
+            */
         }
 
-
+        /*
         private void Day_Start_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -464,7 +471,7 @@ namespace Calender
         {
 
         }
-
+        */
         private void Minute_End_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -525,6 +532,11 @@ namespace Calender
         }
 
         private void timePicker1_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

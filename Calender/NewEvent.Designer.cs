@@ -29,30 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Event));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.alertoff = new System.Windows.Forms.PictureBox();
             this.alerton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.repeatEndDE = new DevExpress.XtraEditors.DateEdit();
+            this.endTimeTP = new ClockPicker.TimePicker();
             this.label16 = new System.Windows.Forms.Label();
+            this.startTimeTP = new ClockPicker.TimePicker();
+            this.EndDateDE = new DevExpress.XtraEditors.DateEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.startDateDE = new DevExpress.XtraEditors.DateEdit();
             this.cbbalert = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.repeatValue = new System.Windows.Forms.TextBox();
@@ -63,42 +68,24 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.TextBox();
-            this.Minute_End = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Hour_End = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Minute_Start = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Year_End = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Month_End = new System.Windows.Forms.ComboBox();
-            this.Hour_Start = new System.Windows.Forms.ComboBox();
-            this.Day_End = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Year_RepeatEnd = new System.Windows.Forms.ComboBox();
-            this.Year_Start = new System.Windows.Forms.ComboBox();
-            this.Month_Start = new System.Windows.Forms.ComboBox();
-            this.Month_RepeatEnd = new System.Windows.Forms.ComboBox();
-            this.Day_Start = new System.Windows.Forms.ComboBox();
-            this.Day_RepeatEnd = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.RepeatEndLabel = new System.Windows.Forms.Label();
             this.cbbRepeat = new System.Windows.Forms.ComboBox();
-            this.startDateDE = new DevExpress.XtraEditors.DateEdit();
-            this.EndDateDE = new DevExpress.XtraEditors.DateEdit();
-            this.repeatEndDE = new DevExpress.XtraEditors.DateEdit();
-            this.endTimeTP = new ClockPicker.TimePicker();
-            this.startTimeTP = new ClockPicker.TimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alerton)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,7 +98,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(589, 84);
+            this.panel1.Size = new System.Drawing.Size(361, 84);
             this.panel1.TabIndex = 0;
             // 
             // alertoff
@@ -147,10 +134,15 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.repeatEndDE);
+            this.panel2.Controls.Add(this.endTimeTP);
             this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.startTimeTP);
+            this.panel2.Controls.Add(this.EndDateDE);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.notes);
             this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.startDateDE);
             this.panel2.Controls.Add(this.cbbalert);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.repeatValue);
@@ -161,24 +153,11 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.title);
-            this.panel2.Controls.Add(this.Minute_End);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.Hour_End);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.Minute_Start);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.Year_End);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.Month_End);
-            this.panel2.Controls.Add(this.Hour_Start);
-            this.panel2.Controls.Add(this.Day_End);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.Year_RepeatEnd);
-            this.panel2.Controls.Add(this.Year_Start);
-            this.panel2.Controls.Add(this.Month_Start);
-            this.panel2.Controls.Add(this.Month_RepeatEnd);
-            this.panel2.Controls.Add(this.Day_Start);
-            this.panel2.Controls.Add(this.Day_RepeatEnd);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.RepeatEndLabel);
             this.panel2.Controls.Add(this.cbbRepeat);
@@ -187,6 +166,63 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 520);
             this.panel2.TabIndex = 1;
+            // 
+            // repeatEndDE
+            // 
+            this.repeatEndDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
+            this.repeatEndDE.Location = new System.Drawing.Point(164, 357);
+            this.repeatEndDE.Name = "repeatEndDE";
+            this.repeatEndDE.Properties.AllowFocused = false;
+            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatEndDE.Properties.Appearance.Options.UseFont = true;
+            this.repeatEndDE.Properties.Appearance.Options.UseTextOptions = true;
+            this.repeatEndDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.repeatEndDE.Properties.AutoHeight = false;
+            this.repeatEndDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repeatEndDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repeatEndDE.Properties.CalendarTimeProperties.AllowFocused = false;
+            this.repeatEndDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repeatEndDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
+            this.repeatEndDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repeatEndDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
+            this.repeatEndDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repeatEndDE.Properties.Mask.EditMask = "dd MMMM yyyy";
+            this.repeatEndDE.Size = new System.Drawing.Size(164, 29);
+            this.repeatEndDE.TabIndex = 6;
+            // 
+            // endTimeTP
+            // 
+            this.endTimeTP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.endTimeTP.ByDigit = false;
+            this.endTimeTP.CaretVisible = false;
+            this.endTimeTP.CaretWrapsAround = true;
+            this.endTimeTP.ChopRunningText = true;
+            this.endTimeTP.Cursor = System.Windows.Forms.Cursors.Default;
+            this.endTimeTP.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.endTimeTP.DateTimeFormat = "HH:mm:ss";
+            this.endTimeTP.DeleteKeyShiftsTextLeft = true;
+            this.endTimeTP.EscapeKeyRevertsValue = false;
+            this.endTimeTP.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.endTimeTP.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.endTimeTP.KeepSelectedIncludesWhitespace = false;
+            this.endTimeTP.KeepTokenSelected = true;
+            this.endTimeTP.Location = new System.Drawing.Point(272, 218);
+            this.endTimeTP.Mask = "99:99:99";
+            this.endTimeTP.Name = "endTimeTP";
+            this.endTimeTP.PromptChar = '0';
+            this.endTimeTP.Size = new System.Drawing.Size(56, 22);
+            this.endTimeTP.SplitChars = null;
+            this.endTimeTP.TabIndex = 8;
+            this.endTimeTP.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.endTimeTP.UseMaxValueIfTooLarge = false;
+            this.endTimeTP.Value = new System.DateTime(2019, 12, 17, 0, 0, 0, 0);
+            this.endTimeTP.ValuesCarryOver = false;
+            this.endTimeTP.ValuesWrapAround = true;
+            this.endTimeTP.ValuesWrapIfNoCarryRoom = true;
+            this.endTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
+            this.endTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
             // 
             // label16
             // 
@@ -198,6 +234,69 @@
             this.label16.TabIndex = 26;
             this.label16.Text = "Cancel";
             this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // startTimeTP
+            // 
+            this.startTimeTP.AllowDrop = true;
+            this.startTimeTP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.startTimeTP.ByDigit = false;
+            this.startTimeTP.CaretVisible = false;
+            this.startTimeTP.CaretWrapsAround = true;
+            this.startTimeTP.ChopRunningText = true;
+            this.startTimeTP.Cursor = System.Windows.Forms.Cursors.Default;
+            this.startTimeTP.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.startTimeTP.DateTimeFormat = "HH:mm";
+            this.startTimeTP.DeleteKeyShiftsTextLeft = true;
+            this.startTimeTP.EscapeKeyRevertsValue = false;
+            this.startTimeTP.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.startTimeTP.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.startTimeTP.KeepSelectedIncludesWhitespace = false;
+            this.startTimeTP.KeepTokenSelected = true;
+            this.startTimeTP.Location = new System.Drawing.Point(272, 138);
+            this.startTimeTP.Mask = "99:99:99";
+            this.startTimeTP.Name = "startTimeTP";
+            this.startTimeTP.PromptChar = '0';
+            this.startTimeTP.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.startTimeTP.Size = new System.Drawing.Size(56, 22);
+            this.startTimeTP.SplitChars = null;
+            this.startTimeTP.TabIndex = 7;
+            this.startTimeTP.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.startTimeTP.UseMaxValueIfTooLarge = false;
+            this.startTimeTP.ValidatingType = typeof(int);
+            this.startTimeTP.Value = new System.DateTime(((long)(0)));
+            this.startTimeTP.ValuesCarryOver = false;
+            this.startTimeTP.ValuesWrapAround = true;
+            this.startTimeTP.ValuesWrapIfNoCarryRoom = true;
+            this.startTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
+            this.startTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
+            this.startTimeTP.Leave += new System.EventHandler(this.timePicker1_Leave);
+            // 
+            // EndDateDE
+            // 
+            this.EndDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
+            this.EndDateDE.Location = new System.Drawing.Point(164, 175);
+            this.EndDateDE.Name = "EndDateDE";
+            this.EndDateDE.Properties.AllowFocused = false;
+            this.EndDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDateDE.Properties.Appearance.Options.UseFont = true;
+            this.EndDateDE.Properties.Appearance.Options.UseTextOptions = true;
+            this.EndDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.EndDateDE.Properties.AutoHeight = false;
+            this.EndDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.EndDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.EndDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
+            this.EndDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.EndDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
+            this.EndDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.EndDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
+            this.EndDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.EndDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
+            this.EndDateDE.Size = new System.Drawing.Size(164, 29);
+            this.EndDateDE.TabIndex = 3;
+            this.EndDateDE.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
+            this.EndDateDE.Click += new System.EventHandler(this.dateEdit2_Click);
             // 
             // label15
             // 
@@ -236,6 +335,35 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Alert";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // startDateDE
+            // 
+            this.startDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
+            this.startDateDE.Location = new System.Drawing.Point(164, 95);
+            this.startDateDE.Name = "startDateDE";
+            this.startDateDE.Properties.AllowFocused = false;
+            this.startDateDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.startDateDE.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.startDateDE.Properties.Appearance.Options.UseFont = true;
+            this.startDateDE.Properties.Appearance.Options.UseForeColor = true;
+            this.startDateDE.Properties.Appearance.Options.UseTextOptions = true;
+            this.startDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.startDateDE.Properties.AutoHeight = false;
+            this.startDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.startDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.startDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
+            this.startDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.startDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
+            this.startDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.startDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
+            this.startDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.startDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
+            this.startDateDE.Size = new System.Drawing.Size(164, 29);
+            this.startDateDE.TabIndex = 2;
+            this.startDateDE.EditValueChanged += new System.EventHandler(this.dateEdit1_EditValueChanged);
+            this.startDateDE.Click += new System.EventHandler(this.dateEdit1_Click_1);
             // 
             // cbbalert
             // 
@@ -294,7 +422,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(202, 218);
+            this.label14.Location = new System.Drawing.Point(244, 218);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(23, 21);
             this.label14.TabIndex = 17;
@@ -344,21 +472,6 @@
             this.title.TabIndex = 13;
             this.title.Text = "Title goes here";
             // 
-            // Minute_End
-            // 
-            this.Minute_End.DropDownHeight = 72;
-            this.Minute_End.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Minute_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minute_End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minute_End.ForeColor = System.Drawing.Color.Black;
-            this.Minute_End.FormattingEnabled = true;
-            this.Minute_End.IntegralHeight = false;
-            this.Minute_End.Location = new System.Drawing.Point(281, 215);
-            this.Minute_End.Name = "Minute_End";
-            this.Minute_End.Size = new System.Drawing.Size(47, 29);
-            this.Minute_End.TabIndex = 6;
-            this.Minute_End.SelectedIndexChanged += new System.EventHandler(this.Minute_End_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -368,21 +481,6 @@
             this.label6.Size = new System.Drawing.Size(23, 21);
             this.label6.TabIndex = 7;
             this.label6.Text = "at";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // Hour_End
-            // 
-            this.Hour_End.DropDownHeight = 72;
-            this.Hour_End.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Hour_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Hour_End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hour_End.ForeColor = System.Drawing.Color.Black;
-            this.Hour_End.FormattingEnabled = true;
-            this.Hour_End.IntegralHeight = false;
-            this.Hour_End.Location = new System.Drawing.Point(228, 215);
-            this.Hour_End.Name = "Hour_End";
-            this.Hour_End.Size = new System.Drawing.Size(47, 29);
-            this.Hour_End.TabIndex = 5;
             // 
             // label5
             // 
@@ -394,21 +492,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Ends";
             // 
-            // Minute_Start
-            // 
-            this.Minute_Start.DropDownHeight = 72;
-            this.Minute_Start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Minute_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minute_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minute_Start.ForeColor = System.Drawing.Color.Black;
-            this.Minute_Start.FormattingEnabled = true;
-            this.Minute_Start.IntegralHeight = false;
-            this.Minute_Start.Location = new System.Drawing.Point(228, 135);
-            this.Minute_Start.Name = "Minute_Start";
-            this.Minute_Start.Size = new System.Drawing.Size(47, 29);
-            this.Minute_Start.TabIndex = 6;
-            this.Minute_Start.SelectedIndexChanged += new System.EventHandler(this.Minute_Start_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -419,76 +502,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "at";
             // 
-            // Year_End
-            // 
-            this.Year_End.DropDownHeight = 72;
-            this.Year_End.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Year_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Year_End.ForeColor = System.Drawing.Color.Black;
-            this.Year_End.FormattingEnabled = true;
-            this.Year_End.IntegralHeight = false;
-            this.Year_End.Location = new System.Drawing.Point(153, 175);
-            this.Year_End.Name = "Year_End";
-            this.Year_End.Size = new System.Drawing.Size(69, 29);
-            this.Year_End.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(202, 138);
+            this.label7.Location = new System.Drawing.Point(244, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 21);
             this.label7.TabIndex = 4;
             this.label7.Text = "at";
-            // 
-            // Month_End
-            // 
-            this.Month_End.DropDownHeight = 72;
-            this.Month_End.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Month_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Month_End.ForeColor = System.Drawing.Color.Black;
-            this.Month_End.FormattingEnabled = true;
-            this.Month_End.IntegralHeight = false;
-            this.Month_End.Location = new System.Drawing.Point(281, 175);
-            this.Month_End.Name = "Month_End";
-            this.Month_End.Size = new System.Drawing.Size(47, 29);
-            this.Month_End.TabIndex = 2;
-            this.Month_End.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Month_KeyDown);
-            // 
-            // Hour_Start
-            // 
-            this.Hour_Start.DropDownHeight = 72;
-            this.Hour_Start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Hour_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Hour_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hour_Start.ForeColor = System.Drawing.Color.Black;
-            this.Hour_Start.FormattingEnabled = true;
-            this.Hour_Start.IntegralHeight = false;
-            this.Hour_Start.Location = new System.Drawing.Point(281, 135);
-            this.Hour_Start.Name = "Hour_Start";
-            this.Hour_Start.Size = new System.Drawing.Size(47, 29);
-            this.Hour_Start.TabIndex = 5;
-            this.Hour_Start.SelectedIndexChanged += new System.EventHandler(this.Hour_Start_SelectedIndexChanged);
-            // 
-            // Day_End
-            // 
-            this.Day_End.DropDownHeight = 72;
-            this.Day_End.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Day_End.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_End.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Day_End.ForeColor = System.Drawing.Color.Black;
-            this.Day_End.FormattingEnabled = true;
-            this.Day_End.IntegralHeight = false;
-            this.Day_End.Location = new System.Drawing.Point(228, 175);
-            this.Day_End.Name = "Day_End";
-            this.Day_End.Size = new System.Drawing.Size(47, 29);
-            this.Day_End.TabIndex = 1;
-            this.Day_End.SelectedIndexChanged += new System.EventHandler(this.Day_End_SelectedIndexChanged);
-            this.Day_End.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Day_KeyDown);
-            this.Day_End.Leave += new System.EventHandler(this.Day_Leave);
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label4
             // 
@@ -499,108 +522,6 @@
             this.label4.Size = new System.Drawing.Size(53, 21);
             this.label4.TabIndex = 8;
             this.label4.Text = "Starts";
-            // 
-            // Year_RepeatEnd
-            // 
-            this.Year_RepeatEnd.DropDownHeight = 72;
-            this.Year_RepeatEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Year_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Year_RepeatEnd.ForeColor = System.Drawing.Color.Black;
-            this.Year_RepeatEnd.FormattingEnabled = true;
-            this.Year_RepeatEnd.IntegralHeight = false;
-            this.Year_RepeatEnd.Location = new System.Drawing.Point(156, 357);
-            this.Year_RepeatEnd.Name = "Year_RepeatEnd";
-            this.Year_RepeatEnd.Size = new System.Drawing.Size(69, 29);
-            this.Year_RepeatEnd.TabIndex = 9;
-            // 
-            // Year_Start
-            // 
-            this.Year_Start.DropDownHeight = 72;
-            this.Year_Start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Year_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Year_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Year_Start.ForeColor = System.Drawing.Color.Black;
-            this.Year_Start.FormattingEnabled = true;
-            this.Year_Start.IntegralHeight = false;
-            this.Year_Start.Location = new System.Drawing.Point(153, 95);
-            this.Year_Start.Name = "Year_Start";
-            this.Year_Start.Size = new System.Drawing.Size(69, 29);
-            this.Year_Start.TabIndex = 3;
-            this.Year_Start.SelectedIndexChanged += new System.EventHandler(this.Year_Start_SelectedIndexChanged);
-            this.Year_Start.TextChanged += new System.EventHandler(this.Year_Start_TextChanged);
-            // 
-            // Month_Start
-            // 
-            this.Month_Start.DisplayMember = "1";
-            this.Month_Start.DropDownHeight = 72;
-            this.Month_Start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Month_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Month_Start.ForeColor = System.Drawing.Color.Black;
-            this.Month_Start.FormattingEnabled = true;
-            this.Month_Start.IntegralHeight = false;
-            this.Month_Start.Location = new System.Drawing.Point(281, 95);
-            this.Month_Start.Name = "Month_Start";
-            this.Month_Start.Size = new System.Drawing.Size(47, 29);
-            this.Month_Start.TabIndex = 2;
-            this.Month_Start.ValueMember = "1";
-            this.Month_Start.SelectedIndexChanged += new System.EventHandler(this.Month_Start_SelectedIndexChanged);
-            this.Month_Start.TextChanged += new System.EventHandler(this.Month_Start_TextChanged);
-            this.Month_Start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Month_KeyDown);
-            this.Month_Start.Leave += new System.EventHandler(this.Month_Leave);
-            // 
-            // Month_RepeatEnd
-            // 
-            this.Month_RepeatEnd.DisplayMember = "1";
-            this.Month_RepeatEnd.DropDownHeight = 72;
-            this.Month_RepeatEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Month_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Month_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Month_RepeatEnd.ForeColor = System.Drawing.Color.Black;
-            this.Month_RepeatEnd.FormattingEnabled = true;
-            this.Month_RepeatEnd.IntegralHeight = false;
-            this.Month_RepeatEnd.Location = new System.Drawing.Point(281, 357);
-            this.Month_RepeatEnd.Name = "Month_RepeatEnd";
-            this.Month_RepeatEnd.Size = new System.Drawing.Size(47, 29);
-            this.Month_RepeatEnd.TabIndex = 9;
-            this.Month_RepeatEnd.ValueMember = "1";
-            // 
-            // Day_Start
-            // 
-            this.Day_Start.DisplayMember = "1";
-            this.Day_Start.DropDownHeight = 72;
-            this.Day_Start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Day_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_Start.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Day_Start.ForeColor = System.Drawing.Color.Black;
-            this.Day_Start.FormattingEnabled = true;
-            this.Day_Start.IntegralHeight = false;
-            this.Day_Start.Location = new System.Drawing.Point(228, 95);
-            this.Day_Start.Name = "Day_Start";
-            this.Day_Start.Size = new System.Drawing.Size(47, 29);
-            this.Day_Start.TabIndex = 1;
-            this.Day_Start.SelectedIndexChanged += new System.EventHandler(this.Day_Start_SelectedIndexChanged);
-            this.Day_Start.TextChanged += new System.EventHandler(this.Day_Start_TextChanged);
-            this.Day_Start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Day_KeyDown);
-            this.Day_Start.Leave += new System.EventHandler(this.Day_Leave);
-            // 
-            // Day_RepeatEnd
-            // 
-            this.Day_RepeatEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.Day_RepeatEnd.DisplayMember = "1";
-            this.Day_RepeatEnd.DropDownHeight = 72;
-            this.Day_RepeatEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Day_RepeatEnd.Enabled = false;
-            this.Day_RepeatEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Day_RepeatEnd.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Day_RepeatEnd.ForeColor = System.Drawing.Color.Black;
-            this.Day_RepeatEnd.FormattingEnabled = true;
-            this.Day_RepeatEnd.IntegralHeight = false;
-            this.Day_RepeatEnd.Location = new System.Drawing.Point(228, 357);
-            this.Day_RepeatEnd.Name = "Day_RepeatEnd";
-            this.Day_RepeatEnd.Size = new System.Drawing.Size(47, 29);
-            this.Day_RepeatEnd.TabIndex = 9;
             // 
             // label8
             // 
@@ -626,7 +547,6 @@
             this.RepeatEndLabel.TabIndex = 0;
             this.RepeatEndLabel.Text = "Repeat end";
             this.RepeatEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RepeatEndLabel.Click += new System.EventHandler(this.RepeatEndLabel_Click);
             // 
             // cbbRepeat
             // 
@@ -637,170 +557,19 @@
             this.cbbRepeat.ForeColor = System.Drawing.Color.Black;
             this.cbbRepeat.FormattingEnabled = true;
             this.cbbRepeat.IntegralHeight = false;
-            this.cbbRepeat.Location = new System.Drawing.Point(192, 289);
+            this.cbbRepeat.Location = new System.Drawing.Point(205, 289);
             this.cbbRepeat.Name = "cbbRepeat";
             this.cbbRepeat.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbbRepeat.Size = new System.Drawing.Size(136, 29);
+            this.cbbRepeat.Size = new System.Drawing.Size(123, 29);
             this.cbbRepeat.TabIndex = 9;
             this.cbbRepeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
-            // 
-            // startDateDE
-            // 
-            this.startDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.startDateDE.Location = new System.Drawing.Point(382, 183);
-            this.startDateDE.Name = "startDateDE";
-            this.startDateDE.Properties.AllowFocused = false;
-            this.startDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startDateDE.Properties.Appearance.Options.UseFont = true;
-            this.startDateDE.Properties.Appearance.Options.UseTextOptions = true;
-            this.startDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.startDateDE.Properties.AutoHeight = false;
-            this.startDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.startDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.startDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
-            this.startDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.startDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
-            this.startDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.startDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
-            this.startDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.startDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
-            this.startDateDE.Size = new System.Drawing.Size(195, 29);
-            this.startDateDE.TabIndex = 2;
-            this.startDateDE.EditValueChanged += new System.EventHandler(this.dateEdit1_EditValueChanged);
-            this.startDateDE.Click += new System.EventHandler(this.dateEdit1_Click_1);
-            // 
-            // EndDateDE
-            // 
-            this.EndDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.EndDateDE.Location = new System.Drawing.Point(382, 262);
-            this.EndDateDE.Name = "EndDateDE";
-            this.EndDateDE.Properties.AllowFocused = false;
-            this.EndDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDateDE.Properties.Appearance.Options.UseFont = true;
-            this.EndDateDE.Properties.Appearance.Options.UseTextOptions = true;
-            this.EndDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.EndDateDE.Properties.AutoHeight = false;
-            this.EndDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.EndDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.EndDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
-            this.EndDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.EndDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
-            this.EndDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.EndDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
-            this.EndDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.EndDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
-            this.EndDateDE.Size = new System.Drawing.Size(195, 29);
-            this.EndDateDE.TabIndex = 3;
-            this.EndDateDE.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
-            this.EndDateDE.Click += new System.EventHandler(this.dateEdit2_Click);
-            // 
-            // repeatEndDE
-            // 
-            this.repeatEndDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.repeatEndDE.Location = new System.Drawing.Point(382, 445);
-            this.repeatEndDE.Name = "repeatEndDE";
-            this.repeatEndDE.Properties.AllowFocused = false;
-            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repeatEndDE.Properties.Appearance.Options.UseFont = true;
-            this.repeatEndDE.Properties.Appearance.Options.UseTextOptions = true;
-            this.repeatEndDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.repeatEndDE.Properties.AutoHeight = false;
-            this.repeatEndDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repeatEndDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repeatEndDE.Properties.CalendarTimeProperties.AllowFocused = false;
-            this.repeatEndDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repeatEndDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
-            this.repeatEndDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.repeatEndDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
-            this.repeatEndDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.repeatEndDE.Properties.Mask.EditMask = "dd MMMM yyyy";
-            this.repeatEndDE.Size = new System.Drawing.Size(195, 29);
-            this.repeatEndDE.TabIndex = 6;
-            // 
-            // endTimeTP
-            // 
-            this.endTimeTP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.endTimeTP.ByDigit = false;
-            this.endTimeTP.CaretVisible = false;
-            this.endTimeTP.CaretWrapsAround = true;
-            this.endTimeTP.ChopRunningText = true;
-            this.endTimeTP.Culture = new System.Globalization.CultureInfo("en-US");
-            this.endTimeTP.Cursor = System.Windows.Forms.Cursors.Default;
-            this.endTimeTP.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.endTimeTP.DateTimeFormat = "HH:mm:ss";
-            this.endTimeTP.DeleteKeyShiftsTextLeft = true;
-            this.endTimeTP.EscapeKeyRevertsValue = false;
-            this.endTimeTP.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endTimeTP.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.endTimeTP.KeepSelectedIncludesWhitespace = false;
-            this.endTimeTP.KeepTokenSelected = true;
-            this.endTimeTP.Location = new System.Drawing.Point(507, 302);
-            this.endTimeTP.Mask = "99:99:99";
-            this.endTimeTP.Name = "endTimeTP";
-            this.endTimeTP.PromptChar = '0';
-            this.endTimeTP.Size = new System.Drawing.Size(69, 25);
-            this.endTimeTP.SplitChars = null;
-            this.endTimeTP.TabIndex = 8;
-            this.endTimeTP.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.endTimeTP.UseMaxValueIfTooLarge = false;
-            this.endTimeTP.Value = new System.DateTime(2019, 12, 17, 0, 0, 0, 0);
-            this.endTimeTP.ValuesCarryOver = false;
-            this.endTimeTP.ValuesWrapAround = true;
-            this.endTimeTP.ValuesWrapIfNoCarryRoom = true;
-            this.endTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
-            this.endTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
-            // 
-            // startTimeTP
-            // 
-            this.startTimeTP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.startTimeTP.ByDigit = false;
-            this.startTimeTP.CaretVisible = false;
-            this.startTimeTP.CaretWrapsAround = true;
-            this.startTimeTP.ChopRunningText = true;
-            this.startTimeTP.Culture = new System.Globalization.CultureInfo("en-US");
-            this.startTimeTP.Cursor = System.Windows.Forms.Cursors.Default;
-            this.startTimeTP.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.startTimeTP.DateTimeFormat = "HH:mm";
-            this.startTimeTP.DeleteKeyShiftsTextLeft = true;
-            this.startTimeTP.EscapeKeyRevertsValue = false;
-            this.startTimeTP.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.startTimeTP.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.startTimeTP.KeepSelectedIncludesWhitespace = false;
-            this.startTimeTP.KeepTokenSelected = true;
-            this.startTimeTP.Location = new System.Drawing.Point(508, 218);
-            this.startTimeTP.Mask = "99:99:99";
-            this.startTimeTP.Name = "startTimeTP";
-            this.startTimeTP.PromptChar = '0';
-            this.startTimeTP.Size = new System.Drawing.Size(69, 25);
-            this.startTimeTP.SplitChars = null;
-            this.startTimeTP.TabIndex = 7;
-            this.startTimeTP.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.startTimeTP.UseMaxValueIfTooLarge = false;
-            this.startTimeTP.Value = new System.DateTime(2019, 12, 17, 0, 0, 0, 0);
-            this.startTimeTP.ValuesCarryOver = false;
-            this.startTimeTP.ValuesWrapAround = true;
-            this.startTimeTP.ValuesWrapIfNoCarryRoom = true;
-            this.startTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
-            this.startTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
-            this.startTimeTP.Leave += new System.EventHandler(this.timePicker1_Leave);
             // 
             // New_Event
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(589, 613);
+            this.ClientSize = new System.Drawing.Size(361, 613);
             this.ControlBox = false;
-            this.Controls.Add(this.endTimeTP);
-            this.Controls.Add(this.startTimeTP);
-            this.Controls.Add(this.repeatEndDE);
-            this.Controls.Add(this.EndDateDE);
-            this.Controls.Add(this.startDateDE);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -819,14 +588,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.alerton)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -834,28 +602,14 @@
 
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.ComboBox Minute_Start;
-        public System.Windows.Forms.ComboBox Hour_Start;
-        public System.Windows.Forms.ComboBox Year_Start;
-        public System.Windows.Forms.ComboBox Month_Start;
-        public System.Windows.Forms.ComboBox Day_Start;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox Minute_End;
-        public System.Windows.Forms.ComboBox Hour_End;
         public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox Year_End;
-        public System.Windows.Forms.ComboBox Month_End;
-        public System.Windows.Forms.ComboBox Day_End;
         public System.Windows.Forms.ComboBox cbbRepeat;
         public System.Windows.Forms.Label RepeatEndLabel;
-        public System.Windows.Forms.ComboBox Year_RepeatEnd;
-        public System.Windows.Forms.ComboBox Month_RepeatEnd;
-        public System.Windows.Forms.ComboBox Day_RepeatEnd;
-        private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox title;
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox location;
@@ -877,5 +631,6 @@
         private DevExpress.XtraEditors.DateEdit repeatEndDE;
         private ClockPicker.TimePicker startTimeTP;
         private ClockPicker.TimePicker endTimeTP;
+        public System.Windows.Forms.Label label9;
     }
 }

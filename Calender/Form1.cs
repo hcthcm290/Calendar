@@ -54,22 +54,32 @@ namespace Calender
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TimeTablePanel = new System.Windows.Forms.Panel();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingPanel = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.labelNotify = new System.Windows.Forms.Label();
-            this.labelColor = new System.Windows.Forms.Label();
-            this.buttonSaveSetting = new System.Windows.Forms.Button();
-            this.buttonColor = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Label();
+            this.lblDefault = new System.Windows.Forms.Label();
+            this.TimeTablePanel = new System.Windows.Forms.Panel();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dayView = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -80,12 +90,16 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.TimeTablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SettingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.TimeTablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,7 +141,6 @@ namespace Calender
             this.panel2.Controls.Add(this.PresentMonth);
             this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -142,7 +155,7 @@ namespace Calender
             this.nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextmonth.ForeColor = System.Drawing.Color.Transparent;
             this.nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("nextmonth.Image")));
-            this.nextmonth.Location = new System.Drawing.Point(642, 433);
+            this.nextmonth.Location = new System.Drawing.Point(642, 439);
             this.nextmonth.Name = "nextmonth";
             this.nextmonth.Size = new System.Drawing.Size(24, 64);
             this.nextmonth.TabIndex = 8;
@@ -155,7 +168,7 @@ namespace Calender
             this.prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prevmonth.ForeColor = System.Drawing.Color.Transparent;
             this.prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("prevmonth.Image")));
-            this.prevmonth.Location = new System.Drawing.Point(45, 433);
+            this.prevmonth.Location = new System.Drawing.Point(45, 439);
             this.prevmonth.Name = "prevmonth";
             this.prevmonth.Size = new System.Drawing.Size(24, 64);
             this.prevmonth.TabIndex = 7;
@@ -168,8 +181,8 @@ namespace Calender
             this.PresentMonth.BackColor = System.Drawing.Color.Transparent;
             this.PresentMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PresentMonth.Font = new System.Drawing.Font("Segoe UI Light", 36F);
-            this.PresentMonth.ForeColor = System.Drawing.Color.DimGray;
-            this.PresentMonth.Location = new System.Drawing.Point(225, 191);
+            this.PresentMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
+            this.PresentMonth.Location = new System.Drawing.Point(225, 197);
             this.PresentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PresentMonth.Name = "PresentMonth";
             this.PresentMonth.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -185,10 +198,8 @@ namespace Calender
             this.YearLabel.BackColor = System.Drawing.Color.Transparent;
             this.YearLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.YearLabel.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
-            this.YearLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
-            this.YearLabel.Location = new System.Drawing.Point(292, 51);
+            this.YearLabel.Location = new System.Drawing.Point(292, 57);
             this.YearLabel.Name = "YearLabel";
-            this.YearLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.YearLabel.Size = new System.Drawing.Size(365, 170);
             this.YearLabel.TabIndex = 6;
             this.YearLabel.Text = "2019";
@@ -207,7 +218,7 @@ namespace Calender
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(67, 261);
+            this.panel6.Location = new System.Drawing.Point(67, 267);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(638, 339);
@@ -218,7 +229,7 @@ namespace Calender
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label8.Location = new System.Drawing.Point(486, 27);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -232,7 +243,7 @@ namespace Calender
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label7.Location = new System.Drawing.Point(427, 27);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -246,7 +257,7 @@ namespace Calender
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label6.Location = new System.Drawing.Point(353, 27);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -260,7 +271,7 @@ namespace Calender
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label5.Location = new System.Drawing.Point(275, 27);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -274,7 +285,7 @@ namespace Calender
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label4.Location = new System.Drawing.Point(201, 27);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -288,7 +299,7 @@ namespace Calender
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label3.Location = new System.Drawing.Point(115, 27);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -302,7 +313,7 @@ namespace Calender
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
             this.label2.Location = new System.Drawing.Point(39, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -310,6 +321,287 @@ namespace Calender
             this.label2.TabIndex = 0;
             this.label2.Text = "SUN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.AllowMerge = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calendarToolStripMenuItem,
+            this.timetableToolStripMenuItem,
+            this.statisticsToolStripMenuItem1,
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(707, 33);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // calendarToolStripMenuItem
+            // 
+            this.calendarToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.calendarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.calendarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
+            this.calendarToolStripMenuItem.Text = "Calendar";
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calenderToolStripMenuItem_Click);
+            // 
+            // timetableToolStripMenuItem
+            // 
+            this.timetableToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.timetableToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
+            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
+            this.timetableToolStripMenuItem.Text = "Timetable";
+            this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
+            // 
+            // statisticsToolStripMenuItem1
+            // 
+            this.statisticsToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statisticsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.statisticsToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
+            this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(96, 29);
+            this.statisticsToolStripMenuItem1.Text = "Statistics";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // SettingPanel
+            // 
+            this.SettingPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SettingPanel.Controls.Add(this.pictureBox6);
+            this.SettingPanel.Controls.Add(this.pictureBox5);
+            this.SettingPanel.Controls.Add(this.pictureBox4);
+            this.SettingPanel.Controls.Add(this.pictureBox3);
+            this.SettingPanel.Controls.Add(this.pictureBox2);
+            this.SettingPanel.Controls.Add(this.textBox2);
+            this.SettingPanel.Controls.Add(this.pictureBox1);
+            this.SettingPanel.Controls.Add(this.radioButton3);
+            this.SettingPanel.Controls.Add(this.radioButton2);
+            this.SettingPanel.Controls.Add(this.radioButton1);
+            this.SettingPanel.Controls.Add(this.textBox1);
+            this.SettingPanel.Controls.Add(this.label10);
+            this.SettingPanel.Controls.Add(this.label9);
+            this.SettingPanel.Controls.Add(this.label13);
+            this.SettingPanel.Controls.Add(this.label12);
+            this.SettingPanel.Controls.Add(this.label11);
+            this.SettingPanel.Controls.Add(this.lblSave);
+            this.SettingPanel.Controls.Add(this.lblDefault);
+            this.SettingPanel.Location = new System.Drawing.Point(0, 43);
+            this.SettingPanel.Name = "SettingPanel";
+            this.SettingPanel.Size = new System.Drawing.Size(702, 634);
+            this.SettingPanel.TabIndex = 4;
+            this.SettingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingPanel_Paint);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(415, 139);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 17;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(455, 139);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.TabIndex = 16;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(535, 139);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(495, 139);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_1);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(530, 190);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(456, 195);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox2.Size = new System.Drawing.Size(68, 25);
+            this.textBox2.TabIndex = 12;
+            this.textBox2.Text = "On";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(530, 190);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.radioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(64)))), ((int)(((byte)(77)))));
+            this.radioButton3.Location = new System.Drawing.Point(352, 373);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton3.Size = new System.Drawing.Size(213, 29);
+            this.radioButton3.TabIndex = 10;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Urgent priority events";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
+            this.radioButton2.Location = new System.Drawing.Point(370, 338);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton2.Size = new System.Drawing.Size(195, 29);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "High priority events";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
+            this.radioButton1.Location = new System.Drawing.Point(340, 303);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton1.Size = new System.Drawing.Size(225, 29);
+            this.radioButton1.TabIndex = 8;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Medium priority events";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.textBox1.Location = new System.Drawing.Point(220, 250);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox1.Size = new System.Drawing.Size(345, 25);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Type email here";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(76, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(190, 59);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Settings";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(81, 305);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(167, 25);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Email notification";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(81, 250);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 25);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Email";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(81, 195);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 25);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Notification";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(81, 140);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 25);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Theme";
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lblSave.Location = new System.Drawing.Point(520, 444);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(53, 25);
+            this.lblSave.TabIndex = 1;
+            this.lblSave.Text = "Save";
+            // 
+            // lblDefault
+            // 
+            this.lblDefault.AutoSize = true;
+            this.lblDefault.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblDefault.ForeColor = System.Drawing.Color.Black;
+            this.lblDefault.Location = new System.Drawing.Point(371, 444);
+            this.lblDefault.Name = "lblDefault";
+            this.lblDefault.Size = new System.Drawing.Size(143, 25);
+            this.lblDefault.TabIndex = 0;
+            this.lblDefault.Text = "Default settings";
             // 
             // TimeTablePanel
             // 
@@ -330,9 +622,11 @@ namespace Calender
             this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
             this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
             this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
             this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
@@ -341,177 +635,15 @@ namespace Calender
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
             this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
             this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
+            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
             this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AllowMerge = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.calendarToolStripMenuItem,
-            this.timetableToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.statisticsToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(707, 33);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // statisticsToolStripMenuItem
-            // 
-            this.calendarToolStripMenuItem.AutoSize = false;
-            this.calendarToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.calendarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.calendarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.calendarToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
-            this.calendarToolStripMenuItem.Text = "Calendar";
-            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
-            // 
-            // timetableToolStripMenuItem
-            // 
-            this.timetableToolStripMenuItem.AutoSize = false;
-            this.timetableToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.timetableToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
-            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(111, 29);
-            this.timetableToolStripMenuItem.Text = "Timetable";
-            this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.AutoSize = false;
-            this.settingsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(96, 29);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // statisticsToolStripMenuItem1
-            // 
-            this.statisticsToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statisticsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.statisticsToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
-            this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
-            this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(101, 29);
-            this.statisticsToolStripMenuItem1.Text = "Statistics";
-            // 
-            // SettingPanel
-            // 
-            this.SettingPanel.Controls.Add(this.pictureBox2);
-            this.SettingPanel.Controls.Add(this.pictureBox1);
-            this.SettingPanel.Controls.Add(this.radioButton2);
-            this.SettingPanel.Controls.Add(this.radioButton1);
-            this.SettingPanel.Controls.Add(this.labelNotify);
-            this.SettingPanel.Controls.Add(this.labelColor);
-            this.SettingPanel.Controls.Add(this.buttonSaveSetting);
-            this.SettingPanel.Controls.Add(this.buttonColor);
-            this.SettingPanel.Location = new System.Drawing.Point(0, 43);
-            this.SettingPanel.Name = "SettingPanel";
-            this.SettingPanel.Size = new System.Drawing.Size(702, 634);
-            this.SettingPanel.TabIndex = 4;
-            this.SettingPanel.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Calender.Properties.Resources.noti;
-            this.pictureBox2.Location = new System.Drawing.Point(49, 144);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 52);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Calender.Properties.Resources.choosecolor;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(535, 157);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(128, 33);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Disable";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(358, 152);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 42);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Enable";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // labelNotify
-            // 
-            this.labelNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotify.Location = new System.Drawing.Point(146, 147);
-            this.labelNotify.Name = "labelNotify";
-            this.labelNotify.Size = new System.Drawing.Size(182, 49);
-            this.labelNotify.TabIndex = 4;
-            this.labelNotify.Text = "Notification:";
-            this.labelNotify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelNotify.Click += new System.EventHandler(this.labelNotify_Click);
-            // 
-            // labelColor
-            // 
-            this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelColor.Location = new System.Drawing.Point(146, 37);
-            this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(172, 49);
-            this.labelColor.TabIndex = 3;
-            this.labelColor.Text = "Color:";
-            this.labelColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonSaveSetting
-            // 
-            this.buttonSaveSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveSetting.Location = new System.Drawing.Point(433, 529);
-            this.buttonSaveSetting.Name = "buttonSaveSetting";
-            this.buttonSaveSetting.Size = new System.Drawing.Size(230, 58);
-            this.buttonSaveSetting.TabIndex = 2;
-            this.buttonSaveSetting.Text = "Save";
-            this.buttonSaveSetting.UseVisualStyleBackColor = true;
-            this.buttonSaveSetting.Click += new System.EventHandler(this.buttonSaveSetting_Click);
-            // 
-            // buttonColor
-            // 
-            this.buttonColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonColor.Location = new System.Drawing.Point(415, 34);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(172, 49);
-            this.buttonColor.TabIndex = 1;
-            this.buttonColor.Text = "Choose Color";
-            this.buttonColor.UseVisualStyleBackColor = true;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.panel3.Controls.Add(this.dayView);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -526,22 +658,22 @@ namespace Calender
             this.dayView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dayView.BackColor = System.Drawing.Color.Transparent;
-            this.dayView.Location = new System.Drawing.Point(29, 89);
+            this.dayView.Location = new System.Drawing.Point(29, 105);
             this.dayView.Margin = new System.Windows.Forms.Padding(4);
             this.dayView.Name = "dayView";
-            this.dayView.Size = new System.Drawing.Size(532, 582);
+            this.dayView.Size = new System.Drawing.Size(532, 557);
             this.dayView.TabIndex = 3;
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.panel8.Controls.Add(this.addbutton);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(567, 81);
+            this.panel8.Size = new System.Drawing.Size(567, 97);
             this.panel8.TabIndex = 2;
             // 
             // addbutton
@@ -553,11 +685,11 @@ namespace Calender
             this.addbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbutton.ForeColor = System.Drawing.Color.Transparent;
             this.addbutton.Image = ((System.Drawing.Image)(resources.GetObject("addbutton.Image")));
-            this.addbutton.Location = new System.Drawing.Point(482, 15);
+            this.addbutton.Location = new System.Drawing.Point(490, 34);
             this.addbutton.Margin = new System.Windows.Forms.Padding(4);
             this.addbutton.Name = "addbutton";
             this.addbutton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addbutton.Size = new System.Drawing.Size(58, 58);
+            this.addbutton.Size = new System.Drawing.Size(48, 48);
             this.addbutton.TabIndex = 1;
             this.addbutton.UseVisualStyleBackColor = false;
             this.addbutton.Click += new System.EventHandler(this.Addbutton_Click);
@@ -566,13 +698,13 @@ namespace Calender
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 9);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(19, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 65);
+            this.label1.Size = new System.Drawing.Size(163, 65);
             this.label1.TabIndex = 0;
-            this.label1.Text = "12/16/2019";
+            this.label1.Text = "Today";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -597,34 +729,38 @@ namespace Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
-            this.Text = "Calendar";
+            this.ShowIcon = false;
+            this.Text = "CalendEr";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.TimeTablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.SettingPanel.ResumeLayout(false);
+            this.SettingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.TimeTablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -632,6 +768,7 @@ namespace Calender
             this.ResumeLayout(false);
 
         }
+        //end init design
 
         public Form1()
         {
@@ -642,10 +779,6 @@ namespace Calender
             if (dayView.VerticalScroll.Visible == true)
                 dayView.BackColor = Color.Black;
             addbutton.FlatAppearance.BorderSize = 0;
-            if (Settings1.Default.Notification == true)
-                this.radioButton1.Checked = true;
-            else
-                this.radioButton2.Checked = true;
             this.PresentMonth.Text = Months.ToString();
             try
             {
@@ -731,7 +864,7 @@ namespace Calender
                     DateButton[i, j].FlatAppearance.BorderSize = 0;
                     DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
-                    DateButton[i, j].ForeColor = Color.Black;
+                    DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                     DateButton[i, j].Width = label2.Width+4;
                     DateButton[i, j].Height = label2.Width - 20;
                     DateButton[i, j].Location = new Point(label2.Location.X -7 + (label2.Width+4 + Const.DateButtonOffSet) * j,
@@ -787,7 +920,7 @@ namespace Calender
                 {
                     DateButton[i, j].Text = "";
                     DateButton[i, j].BackColor = Color.Transparent;
-                    DateButton[i, j].ForeColor = Color.DimGray;
+                    DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                     DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
                     DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Enabled = false;
@@ -816,13 +949,13 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50,0,0,0);
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                         DateButton[i, j].Enabled = true;
                         if (count == DateTime.Now.Day && month == DateTime.Now.Month)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
                             DateButton[i, j].Font= new Font("Segoe UI Black", 19);
-                            DateButton[i, j].ForeColor = Color.Black;
+                            DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                             focusedButton = DateButton[i, j];
                         }
                         count++;
@@ -944,7 +1077,7 @@ namespace Calender
                 return;
             focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
             focusedButton.BackColor = Color.Transparent;
-            b.BackColor = Color.FromArgb(50, 0, 0, 0);
+            b.BackColor = Color.FromArgb(194, 200, 207);
             focusedButton = b;
             if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
             {
@@ -1232,5 +1365,18 @@ namespace Calender
             e.Allow = false;
         }
 
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void SettingPanel_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

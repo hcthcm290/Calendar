@@ -62,7 +62,7 @@
             // endTime
             // 
             this.endTime.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.endTime.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.endTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.endTime.Location = new System.Drawing.Point(69, 31);
             this.endTime.Name = "endTime";
             this.endTime.Size = new System.Drawing.Size(96, 23);
@@ -74,7 +74,7 @@
             // 
             this.location.AutoSize = true;
             this.location.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.location.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.location.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.location.Location = new System.Drawing.Point(131, 31);
             this.location.Name = "location";
             this.location.Size = new System.Drawing.Size(69, 21);
@@ -86,9 +86,9 @@
             // 
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Location = new System.Drawing.Point(458, 14);
+            this.edit.Location = new System.Drawing.Point(477, 3);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(34, 36);
+            this.edit.Size = new System.Drawing.Size(25, 25);
             this.edit.TabIndex = 4;
             this.edit.UseVisualStyleBackColor = true;
             this.edit.Click += new System.EventHandler(this.edit_Click);
@@ -98,7 +98,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
             this.label1.Location = new System.Drawing.Point(117, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 39);
