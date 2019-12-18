@@ -49,7 +49,7 @@ namespace Calender {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
         public global::System.Drawing.Color DefaultColor {
             get {
                 return ((global::System.Drawing.Color)(this["DefaultColor"]));

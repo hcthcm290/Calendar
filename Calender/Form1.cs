@@ -29,6 +29,10 @@ namespace Calender
         Button focusedButton;
         static public Color[] PriorityColorForDay = new Color[32];
 
+        int[] jobDoneInMonth;
+        int allDoneJobs;
+        int jobsDoneToday;
+
         private void InitDesign()
         {
             this.components = new System.ComponentModel.Container();
@@ -88,14 +92,14 @@ namespace Calender
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pnlStatistics = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbSummary = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.sumall = new System.Windows.Forms.Label();
             this.summonth = new System.Windows.Forms.Label();
             this.sumday = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lbReports = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
@@ -360,7 +364,7 @@ namespace Calender
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
             this.calendarToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
             this.calendarToolStripMenuItem.Text = "Calendar";
-            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calenderToolStripMenuItem_Click);
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
             // 
             // timetableToolStripMenuItem
             // 
@@ -742,14 +746,14 @@ namespace Calender
             // 
             this.pnlStatistics.Controls.Add(this.label20);
             this.pnlStatistics.Controls.Add(this.label18);
-            this.pnlStatistics.Controls.Add(this.label19);
+            this.pnlStatistics.Controls.Add(this.lbReports);
             this.pnlStatistics.Controls.Add(this.sumday);
             this.pnlStatistics.Controls.Add(this.summonth);
             this.pnlStatistics.Controls.Add(this.sumall);
             this.pnlStatistics.Controls.Add(this.label17);
             this.pnlStatistics.Controls.Add(this.label16);
             this.pnlStatistics.Controls.Add(this.label15);
-            this.pnlStatistics.Controls.Add(this.label14);
+            this.pnlStatistics.Controls.Add(this.lbSummary);
             this.pnlStatistics.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.pnlStatistics.ForeColor = System.Drawing.Color.Black;
             this.pnlStatistics.Location = new System.Drawing.Point(9, 36);
@@ -760,13 +764,13 @@ namespace Calender
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(189, 50);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Summary";
+            this.lbSummary.AutoSize = true;
+            this.lbSummary.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSummary.Location = new System.Drawing.Point(30, 20);
+            this.lbSummary.Name = "label14";
+            this.lbSummary.Size = new System.Drawing.Size(189, 50);
+            this.lbSummary.TabIndex = 0;
+            this.lbSummary.Text = "Summary";
             // 
             // label15
             // 
@@ -831,13 +835,13 @@ namespace Calender
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(30, 163);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(157, 50);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Reports";
+            this.lbReports.AutoSize = true;
+            this.lbReports.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports.Location = new System.Drawing.Point(30, 163);
+            this.lbReports.Name = "label19";
+            this.lbReports.Size = new System.Drawing.Size(157, 50);
+            this.lbReports.TabIndex = 8;
+            this.lbReports.Text = "Reports";
             // 
             // label18
             // 
@@ -911,6 +915,10 @@ namespace Calender
 
         public Form1()
         {
+            jobDoneInMonth = new int[13];
+            allDoneJobs = 0;
+            jobsDoneToday = JobsDoneInToday();
+
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
@@ -951,14 +959,14 @@ namespace Calender
             addbutton.FlatStyle = FlatStyle.Flat;
             addbutton.FlatAppearance.BorderSize = 0;
 
-            this.panel3.BackColor = Settings1.Default.Color;
-            this.panel8.BackColor = Settings1.Default.Color;
-            this.addbutton.BackColor = Settings1.Default.Color;
+            //this.panel3.BackColor = Settings1.Default.Color;
+            //this.panel8.BackColor = Settings1.Default.Color;
+            //this.addbutton.BackColor = Settings1.Default.Color;
             //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
             //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
             //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            this.panel2.ForeColor = Settings1.Default.Color;
-            this.PresentMonth.ForeColor = Settings1.Default.Color;
+            //this.panel2.ForeColor = Settings1.Default.Color;
+            //this.PresentMonth.ForeColor = Settings1.Default.Color;
 
             //schedulerControl1.AllowAppointmentDrag = false;
         }
@@ -1127,10 +1135,6 @@ namespace Calender
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -1283,17 +1287,18 @@ namespace Calender
             panel6.Visible = false;
             YearLabel.Visible = false;
             PresentMonth.Visible = false;
-            SettingPanel.Visible = false;
             nextmonth.Visible = false;
             prevmonth.Visible = false;
             SettingPanel.Visible = false;
+            pnlStatistics.Visible = false;
             this.Refresh();
         }
 
-        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeTablePanel.Visible = false;
             SettingPanel.Visible = false;
+            pnlStatistics.Visible = false;
             panel6.Visible = true;
             YearLabel.Visible = true;
             PresentMonth.Visible = true;
@@ -1302,6 +1307,39 @@ namespace Calender
             this.Refresh();
         }
 
+
+        private void StatisticsToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            CountJob(DateTime.Now.Year);
+            series1.DataSource = JobsDoneInMonth();
+            sumall.Text = allDoneJobs.ToString();
+            int month = DateTime.Now.Month;
+            summonth.Text = jobDoneInMonth[month].ToString();
+            sumday.Text = jobsDoneToday.ToString();
+
+            TimeTablePanel.Visible = false;
+            panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
+            SettingPanel.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
+            pnlStatistics.Visible = true;
+            this.Refresh();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTablePanel.Visible = false;
+            panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
+            pnlStatistics.Visible = false;
+            SettingPanel.Visible = true;
+            this.Refresh();
+        }
         private void schedulerControl1_EditAppointmentDependencyFormShowing(object sender, AppointmentDependencyFormEventArgs e)
         {
             new_Event = new New_Event(allPlan);
@@ -1323,19 +1361,6 @@ namespace Calender
             edit.ShowDialog();
             LoadDataToTimeTable();
             e.Handled = true;
-        }
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TimeTablePanel.Visible = false;
-            panel6.Visible = false;
-            YearLabel.Visible = false;
-            PresentMonth.Visible = false;
-            SettingPanel.Visible = false;
-            nextmonth.Visible = false;
-            prevmonth.Visible = false;
-            SettingPanel.Visible = true;
-            this.Refresh();
         }
 
         private void buttonColor_Click(object sender, EventArgs e)
@@ -1414,19 +1439,6 @@ namespace Calender
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void calenderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TimeTablePanel.Visible = false;
-            SettingPanel.Visible = false;
-            panel6.Visible = true;
-            YearLabel.Visible = true;
-            PresentMonth.Visible = true;
-            nextmonth.Visible = true;
-            prevmonth.Visible = true;
-            SettingPanel.Visible = false;
-            this.Refresh();
         }
 
         private void buttonDefaultSetting_Click(object sender, EventArgs e)
@@ -1526,6 +1538,103 @@ namespace Calender
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CountJob(int year)
+        {
+            jobDoneInMonth = new int[13];
+            allDoneJobs = 0;
+
+            int numberOfGroup = allPlan.group.Count;
+            int numberOfItem;
+
+            for (int i = 0; i < numberOfGroup; i++)
+            {
+                numberOfItem = allPlan.group[i].data.Count;
+                for (int j = 0; j < numberOfItem; j++)
+                {
+                    if (allPlan.group[i].data[j].done == true)
+                        allDoneJobs++;
+
+                    if (allPlan.group[i].data[j].startTime.Year == year)
+                    {
+                        int monthStart = allPlan.group[i].data[j].startTime.Month;
+                        int monthEnd = allPlan.group[i].data[j].endTime.Month;
+
+                        if (allPlan.group[i].data[j].done == true)
+                        {
+                            if (monthStart != monthEnd)
+                            {
+                                jobDoneInMonth[monthStart]++;
+                                jobDoneInMonth[monthEnd]++;
+                            }
+                            else jobDoneInMonth[monthStart]++;
+                        }
+                    }
+                }
+            }
+        }
+        private DataTable JobsDoneInMonth()
+        {
+            DataTable dataTable = new DataTable("table1");
+            dataTable.Columns.Add("Argument", typeof(Int32));
+            dataTable.Columns.Add("Value", typeof(Int32));
+
+            DataRow row = null;
+            for (int i = 1; i <= 12; i++)
+            {
+                row = dataTable.NewRow();
+                row["Argument"] = i;
+                row["Value"] = jobDoneInMonth[i];
+                dataTable.Rows.Add(row);
+            }
+
+            return dataTable;
+        }
+
+        private int JobsDoneInToday()
+        {
+            int count = 0;
+            List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(DateTime.Now);
+            int numberOfGroup = groups.Count;
+
+            for( int i=0; i<numberOfGroup; i++)
+            {
+                int numberOfItem = groups[i].data.Count;
+                for( int j=0; j<numberOfItem; j++)
+                {
+                    if(groups[j].data[j].startTime.Date==DateTime.Now || groups[i].data[j].endTime.Date==DateTime.Now)
+                    {
+                        if (groups[i].data[j].done == true)
+                            count++;
+                    }
+                }
+            }
+
+            return count;
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            CountJob(DateTime.Now.Year);
+            try
+            {
+                series1.DataSource = JobsDoneInMonth();
+            }
+            catch { }
+
+            // all jobs completed in data
+            sumall.Text = allDoneJobs.ToString();
+
+            // jobs in month completed
+            int month = DateTime.Now.Month;
+            summonth.Text = jobDoneInMonth[month].ToString();
+
+            // jobs in today completed
+            sumday.Text = jobsDoneToday.ToString();
+
+            
         }
     } 
 }

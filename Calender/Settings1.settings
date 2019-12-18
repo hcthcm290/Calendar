@@ -9,7 +9,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="DefaultColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 128, 0</Value>
+      <Value Profile="(Default)">DarkOrange</Value>
     </Setting>
   </Settings>
 </SettingsFile>

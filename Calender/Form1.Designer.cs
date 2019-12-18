@@ -1,4 +1,6 @@
-﻿namespace Calender
+﻿using DevExpress.XtraCharts;
+
+namespace Calender
 {
     partial class Form1
     {
@@ -30,15 +32,30 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraScheduler.TimeRuler timeRuler28 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler29 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler30 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlStatistics = new System.Windows.Forms.Panel();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lbReports = new System.Windows.Forms.Label();
+            this.sumday = new System.Windows.Forms.Label();
+            this.summonth = new System.Windows.Forms.Label();
+            this.sumall = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbSummary = new System.Windows.Forms.Label();
             this.nextmonth = new System.Windows.Forms.Button();
             this.prevmonth = new System.Windows.Forms.Button();
             this.PresentMonth = new System.Windows.Forms.Label();
@@ -56,6 +73,8 @@
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TimeTablePanel = new System.Windows.Forms.Panel();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.SettingPanel = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -75,8 +94,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblSave = new System.Windows.Forms.Label();
             this.lblDefault = new System.Windows.Forms.Label();
-            this.TimeTablePanel = new System.Windows.Forms.Panel();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dayView = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -84,21 +101,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pnlStatistics = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.sumall = new System.Windows.Forms.Label();
-            this.summonth = new System.Windows.Forms.Label();
-            this.sumday = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.pnlStatistics.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
             this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.TimeTablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.SettingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -106,12 +119,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.TimeTablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pnlStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // schedulerDataStorage1
@@ -152,12 +162,161 @@
             this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.menuStrip1);
+            this.panel2.Controls.Add(this.TimeTablePanel);
+            this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(707, 688);
             this.panel2.TabIndex = 0;
+            // 
+            // pnlStatistics
+            // 
+            this.pnlStatistics.Controls.Add(this.chartControl1);
+            this.pnlStatistics.Controls.Add(this.label20);
+            this.pnlStatistics.Controls.Add(this.label18);
+            this.pnlStatistics.Controls.Add(this.lbReports);
+            this.pnlStatistics.Controls.Add(this.sumday);
+            this.pnlStatistics.Controls.Add(this.summonth);
+            this.pnlStatistics.Controls.Add(this.sumall);
+            this.pnlStatistics.Controls.Add(this.label17);
+            this.pnlStatistics.Controls.Add(this.label16);
+            this.pnlStatistics.Controls.Add(this.label15);
+            this.pnlStatistics.Controls.Add(this.lbSummary);
+            this.pnlStatistics.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.pnlStatistics.ForeColor = System.Drawing.Color.Black;
+            this.pnlStatistics.Location = new System.Drawing.Point(9, 36);
+            this.pnlStatistics.Name = "pnlStatistics";
+            this.pnlStatistics.Size = new System.Drawing.Size(690, 633);
+            this.pnlStatistics.TabIndex = 9;
+            this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
+            // 
+            // chartControl1
+            // 
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram1;
+            this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Left;
+            this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.BottomOutside;
+            this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Location = new System.Drawing.Point(3, 231);
+            this.chartControl1.Name = "chartControl1";
+            series1.ArgumentDataMember = "Argument";
+            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            series1.Name = "Số lượng công việc của tháng đã hoàn thành";
+            series1.ValueDataMembersSerializable = "Value";
+            sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
+            series1.View = sideBySideBarSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl1.SeriesTemplate.SeriesColorizer = null;
+            this.chartControl1.Size = new System.Drawing.Size(684, 399);
+            this.chartControl1.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.label20.Location = new System.Drawing.Point(573, 183);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 25);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Yearly";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label18.Location = new System.Drawing.Point(494, 183);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 25);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Monthly";
+            // 
+            // lbReports
+            // 
+            this.lbReports.AutoSize = true;
+            this.lbReports.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports.Location = new System.Drawing.Point(30, 163);
+            this.lbReports.Name = "lbReports";
+            this.lbReports.Size = new System.Drawing.Size(157, 50);
+            this.lbReports.TabIndex = 8;
+            this.lbReports.Text = "Reports";
+            // 
+            // sumday
+            // 
+            this.sumday.AutoSize = true;
+            this.sumday.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.sumday.Location = new System.Drawing.Point(454, 110);
+            this.sumday.Name = "sumday";
+            this.sumday.Size = new System.Drawing.Size(34, 25);
+            this.sumday.TabIndex = 6;
+            this.sumday.Text = "20";
+            // 
+            // summonth
+            // 
+            this.summonth.AutoSize = true;
+            this.summonth.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.summonth.Location = new System.Drawing.Point(215, 110);
+            this.summonth.Name = "summonth";
+            this.summonth.Size = new System.Drawing.Size(34, 25);
+            this.summonth.TabIndex = 5;
+            this.summonth.Text = "20";
+            // 
+            // sumall
+            // 
+            this.sumall.AutoSize = true;
+            this.sumall.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.sumall.Location = new System.Drawing.Point(34, 110);
+            this.sumall.Name = "sumall";
+            this.sumall.Size = new System.Drawing.Size(34, 25);
+            this.sumall.TabIndex = 4;
+            this.sumall.Text = "20";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label17.Location = new System.Drawing.Point(454, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(193, 25);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Tasks completed today";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label16.Location = new System.Drawing.Point(34, 85);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(166, 25);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "All completed tasks";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label15.Location = new System.Drawing.Point(213, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(232, 25);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tasks completed this month";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // lbSummary
+            // 
+            this.lbSummary.AutoSize = true;
+            this.lbSummary.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSummary.Location = new System.Drawing.Point(30, 20);
+            this.lbSummary.Name = "lbSummary";
+            this.lbSummary.Size = new System.Drawing.Size(189, 50);
+            this.lbSummary.TabIndex = 0;
+            this.lbSummary.Text = "Summary";
             // 
             // nextmonth
             // 
@@ -357,7 +516,7 @@
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
             this.calendarToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
             this.calendarToolStripMenuItem.Text = "Calendar";
-            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calenderToolStripMenuItem_Click);
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
             // 
             // timetableToolStripMenuItem
             // 
@@ -377,6 +536,7 @@
             this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
             this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(96, 29);
             this.statisticsToolStripMenuItem1.Text = "Statistics";
+            this.statisticsToolStripMenuItem1.Click += StatisticsToolStripMenuItem1_Click;
             // 
             // settingsToolStripMenuItem
             // 
@@ -387,6 +547,44 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // TimeTablePanel
+            // 
+            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
+            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
+            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeTablePanel.Name = "TimeTablePanel";
+            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
+            this.TimeTablePanel.TabIndex = 4;
+            this.TimeTablePanel.Visible = false;
+            // 
+            // schedulerControl1
+            // 
+            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
+            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 0;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
+            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
+            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
+            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
+            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
             // 
             // SettingPanel
             // 
@@ -613,44 +811,6 @@
             this.lblDefault.TabIndex = 0;
             this.lblDefault.Text = "Default settings";
             // 
-            // TimeTablePanel
-            // 
-            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
-            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.TimeTablePanel.Name = "TimeTablePanel";
-            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
-            this.TimeTablePanel.TabIndex = 4;
-            this.TimeTablePanel.Visible = false;
-            // 
-            // schedulerControl1
-            // 
-            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
-            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 0;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler28);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler29);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler30);
-            this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
-            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
-            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
-            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
-            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
@@ -722,7 +882,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Coral;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-4, -3);
@@ -735,135 +895,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pnlStatistics
-            // 
-            this.pnlStatistics.Controls.Add(this.label20);
-            this.pnlStatistics.Controls.Add(this.label18);
-            this.pnlStatistics.Controls.Add(this.label19);
-            this.pnlStatistics.Controls.Add(this.sumday);
-            this.pnlStatistics.Controls.Add(this.summonth);
-            this.pnlStatistics.Controls.Add(this.sumall);
-            this.pnlStatistics.Controls.Add(this.label17);
-            this.pnlStatistics.Controls.Add(this.label16);
-            this.pnlStatistics.Controls.Add(this.label15);
-            this.pnlStatistics.Controls.Add(this.label14);
-            this.pnlStatistics.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.pnlStatistics.ForeColor = System.Drawing.Color.Black;
-            this.pnlStatistics.Location = new System.Drawing.Point(9, 36);
-            this.pnlStatistics.Name = "pnlStatistics";
-            this.pnlStatistics.Size = new System.Drawing.Size(690, 633);
-            this.pnlStatistics.TabIndex = 9;
-            this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(189, 50);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Summary";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.label15.Location = new System.Drawing.Point(213, 85);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(232, 25);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Tasks completed this month";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.label16.Location = new System.Drawing.Point(34, 85);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(166, 25);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "All completed tasks";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.label17.Location = new System.Drawing.Point(454, 85);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(193, 25);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Tasks completed today";
-            // 
-            // sumall
-            // 
-            this.sumall.AutoSize = true;
-            this.sumall.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.sumall.Location = new System.Drawing.Point(34, 110);
-            this.sumall.Name = "sumall";
-            this.sumall.Size = new System.Drawing.Size(34, 25);
-            this.sumall.TabIndex = 4;
-            this.sumall.Text = "20";
-            // 
-            // summonth
-            // 
-            this.summonth.AutoSize = true;
-            this.summonth.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.summonth.Location = new System.Drawing.Point(215, 110);
-            this.summonth.Name = "summonth";
-            this.summonth.Size = new System.Drawing.Size(34, 25);
-            this.summonth.TabIndex = 5;
-            this.summonth.Text = "20";
-            // 
-            // sumday
-            // 
-            this.sumday.AutoSize = true;
-            this.sumday.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.sumday.Location = new System.Drawing.Point(454, 110);
-            this.sumday.Name = "sumday";
-            this.sumday.Size = new System.Drawing.Size(34, 25);
-            this.sumday.TabIndex = 6;
-            this.sumday.Text = "20";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(30, 163);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(157, 50);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Reports";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.label18.Location = new System.Drawing.Point(494, 183);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 25);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Monthly";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
-            this.label20.Location = new System.Drawing.Point(573, 183);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(65, 25);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "Yearly";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
@@ -881,10 +917,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnlStatistics.ResumeLayout(false);
+            this.pnlStatistics.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.TimeTablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.SettingPanel.ResumeLayout(false);
             this.SettingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -893,17 +937,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.TimeTablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.pnlStatistics.ResumeLayout(false);
-            this.pnlStatistics.PerformLayout();
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
         private System.Windows.Forms.Button[,] DateButton;
@@ -959,16 +1000,19 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel pnlStatistics;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbSummary;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label sumall;
         private System.Windows.Forms.Label summonth;
         private System.Windows.Forms.Label sumday;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbReports;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
+        private DevExpress.XtraCharts.ChartControl chartControl1;
+        public DevExpress.XtraCharts.Series series1;
+
     }
 }
 
