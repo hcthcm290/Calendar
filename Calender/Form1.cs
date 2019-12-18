@@ -33,9 +33,9 @@ namespace Calender
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler28 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler29 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler30 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -87,6 +87,17 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pnlStatistics = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.sumall = new System.Windows.Forms.Label();
+            this.summonth = new System.Windows.Forms.Label();
+            this.sumday = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -103,6 +114,7 @@ namespace Calender
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // schedulerDataStorage1
@@ -136,6 +148,7 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pnlStatistics);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
@@ -631,10 +644,10 @@ namespace Calender
             this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler28);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler29);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler30);
             this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
             this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
@@ -725,6 +738,130 @@ namespace Calender
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // pnlStatistics
+            // 
+            this.pnlStatistics.Controls.Add(this.label20);
+            this.pnlStatistics.Controls.Add(this.label18);
+            this.pnlStatistics.Controls.Add(this.label19);
+            this.pnlStatistics.Controls.Add(this.sumday);
+            this.pnlStatistics.Controls.Add(this.summonth);
+            this.pnlStatistics.Controls.Add(this.sumall);
+            this.pnlStatistics.Controls.Add(this.label17);
+            this.pnlStatistics.Controls.Add(this.label16);
+            this.pnlStatistics.Controls.Add(this.label15);
+            this.pnlStatistics.Controls.Add(this.label14);
+            this.pnlStatistics.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.pnlStatistics.ForeColor = System.Drawing.Color.Black;
+            this.pnlStatistics.Location = new System.Drawing.Point(9, 36);
+            this.pnlStatistics.Name = "pnlStatistics";
+            this.pnlStatistics.Size = new System.Drawing.Size(690, 633);
+            this.pnlStatistics.TabIndex = 9;
+            this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(30, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(189, 50);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Summary";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label15.Location = new System.Drawing.Point(213, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(232, 25);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tasks completed this month";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label16.Location = new System.Drawing.Point(34, 85);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(166, 25);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "All completed tasks";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label17.Location = new System.Drawing.Point(454, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(193, 25);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Tasks completed today";
+            // 
+            // sumall
+            // 
+            this.sumall.AutoSize = true;
+            this.sumall.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.sumall.Location = new System.Drawing.Point(34, 110);
+            this.sumall.Name = "sumall";
+            this.sumall.Size = new System.Drawing.Size(34, 25);
+            this.sumall.TabIndex = 4;
+            this.sumall.Text = "20";
+            // 
+            // summonth
+            // 
+            this.summonth.AutoSize = true;
+            this.summonth.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.summonth.Location = new System.Drawing.Point(215, 110);
+            this.summonth.Name = "summonth";
+            this.summonth.Size = new System.Drawing.Size(34, 25);
+            this.summonth.TabIndex = 5;
+            this.summonth.Text = "20";
+            // 
+            // sumday
+            // 
+            this.sumday.AutoSize = true;
+            this.sumday.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.sumday.Location = new System.Drawing.Point(454, 110);
+            this.sumday.Name = "sumday";
+            this.sumday.Size = new System.Drawing.Size(34, 25);
+            this.sumday.TabIndex = 6;
+            this.sumday.Text = "20";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(30, 163);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(157, 50);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Reports";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label18.Location = new System.Drawing.Point(494, 183);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 25);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Monthly";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.label20.Location = new System.Drawing.Point(573, 183);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 25);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Yearly";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,11 +871,11 @@ namespace Calender
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.Text = "CalendEr";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -765,6 +902,8 @@ namespace Calender
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.pnlStatistics.ResumeLayout(false);
+            this.pnlStatistics.PerformLayout();
             this.ResumeLayout(false);
 
         }
