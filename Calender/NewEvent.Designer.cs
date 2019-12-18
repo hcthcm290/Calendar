@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Event));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,33 +50,39 @@
             this.alerton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.normalLB = new System.Windows.Forms.Label();
+            this.MediumLB = new System.Windows.Forms.Label();
+            this.highLB = new System.Windows.Forms.Label();
             this.repeatEndDE = new DevExpress.XtraEditors.DateEdit();
             this.endTimeTP = new ClockPicker.TimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.startTimeTP = new ClockPicker.TimePicker();
             this.EndDateDE = new DevExpress.XtraEditors.DateEdit();
             this.label15 = new System.Windows.Forms.Label();
-            this.notes = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.notesTB = new System.Windows.Forms.TextBox();
+            this.alertLB = new System.Windows.Forms.Label();
             this.startDateDE = new DevExpress.XtraEditors.DateEdit();
-            this.cbbalert = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.repeatValue = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.alertCB = new System.Windows.Forms.ComboBox();
+            this.priorityLB = new System.Windows.Forms.Label();
+            this.repeatValueTB = new System.Windows.Forms.TextBox();
+            this.daysLB = new System.Windows.Forms.Label();
+            this.repeatValueLB = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.location = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.title = new System.Windows.Forms.TextBox();
+            this.locationTB = new System.Windows.Forms.TextBox();
+            this.locationLB = new System.Windows.Forms.Label();
+            this.titleLB = new System.Windows.Forms.Label();
+            this.titleTB = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.endsLB = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RepeatEndLabel = new System.Windows.Forms.Label();
+            this.startsLB = new System.Windows.Forms.Label();
+            this.repeatLB = new System.Windows.Forms.Label();
+            this.repeatEndLabel = new System.Windows.Forms.Label();
             this.cbbRepeat = new System.Windows.Forms.ComboBox();
+            this.highTT = new System.Windows.Forms.ToolTip(this.components);
+            this.normalTT = new System.Windows.Forms.ToolTip(this.components);
+            this.mediumTT = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alerton)).BeginInit();
@@ -134,38 +141,62 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.normalLB);
+            this.panel2.Controls.Add(this.MediumLB);
+            this.panel2.Controls.Add(this.highLB);
             this.panel2.Controls.Add(this.repeatEndDE);
             this.panel2.Controls.Add(this.endTimeTP);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.startTimeTP);
             this.panel2.Controls.Add(this.EndDateDE);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.notes);
-            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.notesTB);
+            this.panel2.Controls.Add(this.alertLB);
             this.panel2.Controls.Add(this.startDateDE);
-            this.panel2.Controls.Add(this.cbbalert);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.repeatValue);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.alertCB);
+            this.panel2.Controls.Add(this.priorityLB);
+            this.panel2.Controls.Add(this.repeatValueTB);
+            this.panel2.Controls.Add(this.daysLB);
+            this.panel2.Controls.Add(this.repeatValueLB);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.location);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.title);
+            this.panel2.Controls.Add(this.locationTB);
+            this.panel2.Controls.Add(this.locationLB);
+            this.panel2.Controls.Add(this.titleLB);
+            this.panel2.Controls.Add(this.titleTB);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.endsLB);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.RepeatEndLabel);
+            this.panel2.Controls.Add(this.startsLB);
+            this.panel2.Controls.Add(this.repeatLB);
+            this.panel2.Controls.Add(this.repeatEndLabel);
             this.panel2.Controls.Add(this.cbbRepeat);
             this.panel2.Location = new System.Drawing.Point(0, 88);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 520);
             this.panel2.TabIndex = 1;
+            // 
+            // normalLB
+            // 
+            this.normalLB.Location = new System.Drawing.Point(198, 257);
+            this.normalLB.Name = "normalLB";
+            this.normalLB.Size = new System.Drawing.Size(22, 22);
+            this.normalLB.TabIndex = 30;
+            // 
+            // MediumLB
+            // 
+            this.MediumLB.Location = new System.Drawing.Point(251, 257);
+            this.MediumLB.Name = "MediumLB";
+            this.MediumLB.Size = new System.Drawing.Size(22, 22);
+            this.MediumLB.TabIndex = 29;
+            // 
+            // highLB
+            // 
+            this.highLB.Location = new System.Drawing.Point(304, 257);
+            this.highLB.Name = "highLB";
+            this.highLB.Size = new System.Drawing.Size(22, 22);
+            this.highLB.TabIndex = 28;
             // 
             // repeatEndDE
             // 
@@ -191,6 +222,8 @@
             this.repeatEndDE.Properties.Mask.EditMask = "dd MMMM yyyy";
             this.repeatEndDE.Size = new System.Drawing.Size(164, 29);
             this.repeatEndDE.TabIndex = 6;
+            this.repeatEndDE.EditValueChanged += new System.EventHandler(this.repeatEndDE_EditValueChanged);
+            this.repeatEndDE.Click += new System.EventHandler(this.repeatEndDE_Click);
             // 
             // endTimeTP
             // 
@@ -223,6 +256,7 @@
             this.endTimeTP.ValuesWrapIfNoCarryRoom = true;
             this.endTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
             this.endTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
+            this.endTimeTP.ValueChanged += new ClockPicker.ValueChangedEventHandler<System.DateTime>(this.endTimeTP_ValueChanged);
             // 
             // label16
             // 
@@ -269,6 +303,7 @@
             this.startTimeTP.ValuesWrapIfNoCarryRoom = true;
             this.startTimeTP.ValueTooLargeFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
             this.startTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
+            this.startTimeTP.ValueChanged += new ClockPicker.ValueChangedEventHandler<System.DateTime>(this.startTimeTP_ValueChanged);
             this.startTimeTP.Leave += new System.EventHandler(this.timePicker1_Leave);
             // 
             // EndDateDE
@@ -309,32 +344,34 @@
             this.label15.TabIndex = 25;
             this.label15.Text = "Apply";
             // 
-            // notes
+            // notesTB
             // 
-            this.notes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.notes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.notes.Location = new System.Drawing.Point(36, 428);
-            this.notes.Name = "notes";
-            this.notes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.notes.Size = new System.Drawing.Size(292, 22);
-            this.notes.TabIndex = 24;
-            this.notes.Text = "Add some notes here";
+            this.notesTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.notesTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notesTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.notesTB.Location = new System.Drawing.Point(36, 428);
+            this.notesTB.Name = "notesTB";
+            this.notesTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.notesTB.Size = new System.Drawing.Size(292, 22);
+            this.notesTB.TabIndex = 24;
+            this.notesTB.Text = "Add some notes here";
+            this.notesTB.Click += new System.EventHandler(this.notesTB_Click);
+            this.notesTB.Leave += new System.EventHandler(this.notesTB_Leave);
             // 
-            // label10
+            // alertLB
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.alertLB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.label10.Location = new System.Drawing.Point(32, 394);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 21);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Alert";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.alertLB.AutoSize = true;
+            this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertLB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.alertLB.Location = new System.Drawing.Point(32, 394);
+            this.alertLB.Name = "alertLB";
+            this.alertLB.Size = new System.Drawing.Size(47, 21);
+            this.alertLB.TabIndex = 23;
+            this.alertLB.Text = "Alert";
+            this.alertLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // startDateDE
             // 
@@ -365,58 +402,59 @@
             this.startDateDE.EditValueChanged += new System.EventHandler(this.dateEdit1_EditValueChanged);
             this.startDateDE.Click += new System.EventHandler(this.dateEdit1_Click_1);
             // 
-            // cbbalert
+            // alertCB
             // 
-            this.cbbalert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbalert.FormattingEnabled = true;
-            this.cbbalert.Location = new System.Drawing.Point(192, 391);
-            this.cbbalert.Name = "cbbalert";
-            this.cbbalert.Size = new System.Drawing.Size(136, 29);
-            this.cbbalert.TabIndex = 22;
+            this.alertCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.alertCB.FormattingEnabled = true;
+            this.alertCB.Location = new System.Drawing.Point(192, 391);
+            this.alertCB.Name = "alertCB";
+            this.alertCB.Size = new System.Drawing.Size(136, 29);
+            this.alertCB.TabIndex = 22;
+            this.alertCB.SelectedIndexChanged += new System.EventHandler(this.alertCB_SelectedIndexChanged);
             // 
-            // label1
+            // priorityLB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(32, 258);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 21);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Priority";
+            this.priorityLB.AutoSize = true;
+            this.priorityLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.priorityLB.Location = new System.Drawing.Point(32, 258);
+            this.priorityLB.Name = "priorityLB";
+            this.priorityLB.Size = new System.Drawing.Size(67, 21);
+            this.priorityLB.TabIndex = 21;
+            this.priorityLB.Text = "Priority";
             // 
-            // repeatValue
+            // repeatValueTB
             // 
-            this.repeatValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.repeatValue.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.repeatValue.ForeColor = System.Drawing.Color.Black;
-            this.repeatValue.Location = new System.Drawing.Point(228, 326);
-            this.repeatValue.Name = "repeatValue";
-            this.repeatValue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.repeatValue.Size = new System.Drawing.Size(48, 22);
-            this.repeatValue.TabIndex = 20;
-            this.repeatValue.Text = "2";
+            this.repeatValueTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.repeatValueTB.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.repeatValueTB.ForeColor = System.Drawing.Color.Black;
+            this.repeatValueTB.Location = new System.Drawing.Point(228, 326);
+            this.repeatValueTB.Name = "repeatValueTB";
+            this.repeatValueTB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.repeatValueTB.Size = new System.Drawing.Size(48, 22);
+            this.repeatValueTB.TabIndex = 20;
+            this.repeatValueTB.Text = "2";
             // 
-            // label11
+            // daysLB
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.label11.Location = new System.Drawing.Point(282, 326);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 21);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "day(s)";
+            this.daysLB.AutoSize = true;
+            this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.daysLB.Location = new System.Drawing.Point(282, 326);
+            this.daysLB.Name = "daysLB";
+            this.daysLB.Size = new System.Drawing.Size(52, 21);
+            this.daysLB.TabIndex = 19;
+            this.daysLB.Text = "day(s)";
             // 
-            // label3
+            // repeatValueLB
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.label3.Location = new System.Drawing.Point(32, 326);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 21);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Repeat every";
+            this.repeatValueLB.AutoSize = true;
+            this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatValueLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.repeatValueLB.Location = new System.Drawing.Point(32, 326);
+            this.repeatValueLB.Name = "repeatValueLB";
+            this.repeatValueLB.Size = new System.Drawing.Size(110, 21);
+            this.repeatValueLB.TabIndex = 18;
+            this.repeatValueLB.Text = "Repeat every";
             // 
             // label14
             // 
@@ -428,49 +466,53 @@
             this.label14.TabIndex = 17;
             this.label14.Text = "at";
             // 
-            // location
+            // locationTB
             // 
-            this.location.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.location.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.location.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.location.Location = new System.Drawing.Point(131, 58);
-            this.location.Name = "location";
-            this.location.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.location.Size = new System.Drawing.Size(197, 22);
-            this.location.TabIndex = 16;
-            this.location.Text = "Location goes here";
+            this.locationTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.locationTB.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.locationTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.locationTB.Location = new System.Drawing.Point(131, 58);
+            this.locationTB.Name = "locationTB";
+            this.locationTB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.locationTB.Size = new System.Drawing.Size(197, 22);
+            this.locationTB.TabIndex = 16;
+            this.locationTB.Text = "Location goes here";
+            this.locationTB.Click += new System.EventHandler(this.locationTB_Click);
+            this.locationTB.Leave += new System.EventHandler(this.locationTB_Leave);
             // 
-            // label13
+            // locationLB
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(32, 58);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 21);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Location";
+            this.locationLB.AutoSize = true;
+            this.locationLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.locationLB.Location = new System.Drawing.Point(32, 58);
+            this.locationLB.Name = "locationLB";
+            this.locationLB.Size = new System.Drawing.Size(76, 21);
+            this.locationLB.TabIndex = 15;
+            this.locationLB.Text = "Location";
             // 
-            // label12
+            // titleLB
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(32, 18);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 21);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Title";
+            this.titleLB.AutoSize = true;
+            this.titleLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.titleLB.Location = new System.Drawing.Point(32, 18);
+            this.titleLB.Name = "titleLB";
+            this.titleLB.Size = new System.Drawing.Size(44, 21);
+            this.titleLB.TabIndex = 14;
+            this.titleLB.Text = "Title";
             // 
-            // title
+            // titleTB
             // 
-            this.title.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.title.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.title.Location = new System.Drawing.Point(93, 18);
-            this.title.Name = "title";
-            this.title.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.title.Size = new System.Drawing.Size(235, 22);
-            this.title.TabIndex = 13;
-            this.title.Text = "Title goes here";
+            this.titleTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.titleTB.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.titleTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.titleTB.Location = new System.Drawing.Point(93, 18);
+            this.titleTB.Name = "titleTB";
+            this.titleTB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.titleTB.Size = new System.Drawing.Size(235, 22);
+            this.titleTB.TabIndex = 13;
+            this.titleTB.Text = "Title goes here";
+            this.titleTB.Click += new System.EventHandler(this.titleTB_Click);
+            this.titleTB.Leave += new System.EventHandler(this.titleTB_Leave);
             // 
             // label6
             // 
@@ -482,15 +524,15 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "at";
             // 
-            // label5
+            // endsLB
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(32, 178);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 21);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Ends";
+            this.endsLB.AutoSize = true;
+            this.endsLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.endsLB.Location = new System.Drawing.Point(32, 178);
+            this.endsLB.Name = "endsLB";
+            this.endsLB.Size = new System.Drawing.Size(46, 21);
+            this.endsLB.TabIndex = 8;
+            this.endsLB.Text = "Ends";
             // 
             // label2
             // 
@@ -513,40 +555,40 @@
             this.label7.Text = "at";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label4
+            // startsLB
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(32, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 21);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Starts";
+            this.startsLB.AutoSize = true;
+            this.startsLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.startsLB.Location = new System.Drawing.Point(32, 98);
+            this.startsLB.Name = "startsLB";
+            this.startsLB.Size = new System.Drawing.Size(53, 21);
+            this.startsLB.TabIndex = 8;
+            this.startsLB.Text = "Starts";
             // 
-            // label8
+            // repeatLB
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(32, 292);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 21);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Repeat";
+            this.repeatLB.AutoSize = true;
+            this.repeatLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.repeatLB.Location = new System.Drawing.Point(32, 292);
+            this.repeatLB.Name = "repeatLB";
+            this.repeatLB.Size = new System.Drawing.Size(63, 21);
+            this.repeatLB.TabIndex = 9;
+            this.repeatLB.Text = "Repeat";
             // 
-            // RepeatEndLabel
+            // repeatEndLabel
             // 
-            this.RepeatEndLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.repeatEndLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RepeatEndLabel.AutoSize = true;
-            this.RepeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RepeatEndLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.RepeatEndLabel.Location = new System.Drawing.Point(32, 360);
-            this.RepeatEndLabel.Name = "RepeatEndLabel";
-            this.RepeatEndLabel.Size = new System.Drawing.Size(96, 21);
-            this.RepeatEndLabel.TabIndex = 0;
-            this.RepeatEndLabel.Text = "Repeat end";
-            this.RepeatEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.repeatEndLabel.AutoSize = true;
+            this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatEndLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.repeatEndLabel.Location = new System.Drawing.Point(32, 360);
+            this.repeatEndLabel.Name = "repeatEndLabel";
+            this.repeatEndLabel.Size = new System.Drawing.Size(96, 21);
+            this.repeatEndLabel.TabIndex = 0;
+            this.repeatEndLabel.Text = "Repeat end";
+            this.repeatEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbbRepeat
             // 
@@ -564,6 +606,18 @@
             this.cbbRepeat.TabIndex = 9;
             this.cbbRepeat.SelectedIndexChanged += new System.EventHandler(this.Repeat_SelectedIndexChanged);
             // 
+            // highTT
+            // 
+            this.highTT.AutomaticDelay = 100;
+            // 
+            // normalTT
+            // 
+            this.normalTT.AutomaticDelay = 100;
+            // 
+            // mediumTT
+            // 
+            this.mediumTT.AutomaticDelay = 100;
+            // 
             // New_Event
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -580,6 +634,7 @@
             this.Name = "New_Event";
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.New_Event_Load);
+            this.Shown += new System.EventHandler(this.New_Event_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.New_Event_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.New_Event_MouseDown);
             this.panel1.ResumeLayout(false);
@@ -603,34 +658,40 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label startsLB;
+        public System.Windows.Forms.Label repeatLB;
+        public System.Windows.Forms.Label endsLB;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cbbRepeat;
-        public System.Windows.Forms.Label RepeatEndLabel;
-        public System.Windows.Forms.TextBox title;
-        public System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox location;
-        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label repeatEndLabel;
+        public System.Windows.Forms.TextBox titleTB;
+        public System.Windows.Forms.Label titleLB;
+        public System.Windows.Forms.TextBox locationTB;
+        public System.Windows.Forms.Label locationLB;
         public System.Windows.Forms.Label label14;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox repeatValue;
-        public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbbalert;
-        public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox notes;
+        public System.Windows.Forms.Label repeatValueLB;
+        public System.Windows.Forms.Label daysLB;
+        public System.Windows.Forms.TextBox repeatValueTB;
+        public System.Windows.Forms.Label priorityLB;
+        public System.Windows.Forms.Label alertLB;
+        public System.Windows.Forms.TextBox notesTB;
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox alerton;
         private System.Windows.Forms.PictureBox alertoff;
-        private DevExpress.XtraEditors.DateEdit startDateDE;
-        private DevExpress.XtraEditors.DateEdit EndDateDE;
-        private DevExpress.XtraEditors.DateEdit repeatEndDE;
-        private ClockPicker.TimePicker startTimeTP;
-        private ClockPicker.TimePicker endTimeTP;
         public System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolTip highTT;
+        protected System.Windows.Forms.Label highLB;
+        protected System.Windows.Forms.Label normalLB;
+        protected System.Windows.Forms.Label MediumLB;
+        protected System.Windows.Forms.ToolTip normalTT;
+        protected System.Windows.Forms.ToolTip mediumTT;
+        protected DevExpress.XtraEditors.DateEdit startDateDE;
+        protected System.Windows.Forms.ComboBox alertCB;
+        protected DevExpress.XtraEditors.DateEdit EndDateDE;
+        protected DevExpress.XtraEditors.DateEdit repeatEndDE;
+        protected ClockPicker.TimePicker startTimeTP;
+        protected ClockPicker.TimePicker endTimeTP;
     }
 }

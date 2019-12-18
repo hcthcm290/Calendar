@@ -14,8 +14,9 @@ namespace Calender
     {
         GroupPlanItem group;
         PlanItem item;
+        Form1 form1;
 
-        public Item(GroupPlanItem group, PlanItem item, DateTime today)
+        public Item(GroupPlanItem group, PlanItem item, DateTime today, Form1 form1)
         {
             InitializeComponent();
             this.group = group;
@@ -39,6 +40,7 @@ namespace Calender
             {
                 this.endTime.Text = "23:59";
             }
+            this.form1 = form1;
         }
 
         private void Item_Load(object sender, EventArgs e)
@@ -50,6 +52,7 @@ namespace Calender
         {
             EditEvent edit = new EditEvent(Form1.allPlan, group, item);
             edit.ShowDialog();
+            form1.ReloadItemToDayView();
         }
 
         private void Item_Paint(object sender, PaintEventArgs e)

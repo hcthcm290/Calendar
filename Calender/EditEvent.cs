@@ -23,12 +23,65 @@ namespace Calender
             base(planData)
         {
             InitializeComponent();
+            highTT.SetToolTip(highLB, "High");
+            mediumTT.SetToolTip(MediumLB, "Medium");
+            normalTT.SetToolTip(normalLB, "Normal");
 
-            
             this.group = group;
             this.item = item;
-            this.title.Text = item.title;
-            this.notes.Text = item.note;
+            if (item.title != "")
+            {
+                this.titleTB.Text = item.title;
+                this.titleTB.ForeColor = SystemColors.ControlText;
+            }
+            if (item.note != "")
+            {
+                this.notesTB.Text = item.note;
+                this.notesTB.ForeColor = SystemColors.ControlText;
+            }
+            if (item.location != "")
+            {
+                this.locationTB.Text = item.location;
+                this.locationTB.ForeColor = SystemColors.ControlText;
+            }
+
+            this.startDateDE.DateTime = item.startTime;
+            this.EndDateDE.DateTime = item.endTime;
+
+            this.startTimeTP.Value = item.startTime;
+            this.endTimeTP.Value = item.endTime;
+
+            this.timeSpan = item.endTime - item.startTime;
+
+            this.cbbRepeat.SelectedIndex = group.repeatKind;
+
+            this.repeatValueTB.Text = group.repeatValue.ToString();
+
+            if(cbbRepeat.SelectedIndex == 5)
+            {
+                repeatValueTB.Visible = true;
+            }
+
+            TimeSpan ts = item.startTime - item.alert;
+            
+            if(ts.Hours == 1)
+            {
+                this.alertCB.SelectedIndex = 0;
+            } 
+            else if(ts.Minutes == 30)
+            {
+                this.alertCB.SelectedIndex = 1;
+            }
+            else if (ts.Minutes == 15)
+            {
+                this.alertCB.SelectedIndex = 2;
+            }
+            else
+            {
+                this.alertCB.SelectedIndex = 3;
+            }
+
+            this.repeatEndDE.DateTime = group.repeatEnd;
             /*
             this.Day_Start.Text = item.startTime.Day.ToString();
             this.Month_Start.Text = item.startTime.Month.ToString();

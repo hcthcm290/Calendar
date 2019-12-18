@@ -87,7 +87,7 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pnlStatistics = new System.Windows.Forms.Panel();
+            this.statisticsPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@ namespace Calender
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pnlStatistics.SuspendLayout();
+            this.statisticsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // schedulerDataStorage1
@@ -148,7 +148,7 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pnlStatistics);
+            this.panel2.Controls.Add(this.statisticsPanel);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
@@ -740,23 +740,23 @@ namespace Calender
             // 
             // pnlStatistics
             // 
-            this.pnlStatistics.Controls.Add(this.label20);
-            this.pnlStatistics.Controls.Add(this.label18);
-            this.pnlStatistics.Controls.Add(this.label19);
-            this.pnlStatistics.Controls.Add(this.sumday);
-            this.pnlStatistics.Controls.Add(this.summonth);
-            this.pnlStatistics.Controls.Add(this.sumall);
-            this.pnlStatistics.Controls.Add(this.label17);
-            this.pnlStatistics.Controls.Add(this.label16);
-            this.pnlStatistics.Controls.Add(this.label15);
-            this.pnlStatistics.Controls.Add(this.label14);
-            this.pnlStatistics.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.pnlStatistics.ForeColor = System.Drawing.Color.Black;
-            this.pnlStatistics.Location = new System.Drawing.Point(9, 36);
-            this.pnlStatistics.Name = "pnlStatistics";
-            this.pnlStatistics.Size = new System.Drawing.Size(690, 633);
-            this.pnlStatistics.TabIndex = 9;
-            this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
+            this.statisticsPanel.Controls.Add(this.label20);
+            this.statisticsPanel.Controls.Add(this.label18);
+            this.statisticsPanel.Controls.Add(this.label19);
+            this.statisticsPanel.Controls.Add(this.sumday);
+            this.statisticsPanel.Controls.Add(this.summonth);
+            this.statisticsPanel.Controls.Add(this.sumall);
+            this.statisticsPanel.Controls.Add(this.label17);
+            this.statisticsPanel.Controls.Add(this.label16);
+            this.statisticsPanel.Controls.Add(this.label15);
+            this.statisticsPanel.Controls.Add(this.label14);
+            this.statisticsPanel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.statisticsPanel.ForeColor = System.Drawing.Color.Black;
+            this.statisticsPanel.Location = new System.Drawing.Point(9, 36);
+            this.statisticsPanel.Name = "pnlStatistics";
+            this.statisticsPanel.Size = new System.Drawing.Size(690, 633);
+            this.statisticsPanel.TabIndex = 9;
+            this.statisticsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
             // 
             // label14
             // 
@@ -902,8 +902,8 @@ namespace Calender
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.pnlStatistics.ResumeLayout(false);
-            this.pnlStatistics.PerformLayout();
+            this.statisticsPanel.ResumeLayout(false);
+            this.statisticsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -960,7 +960,8 @@ namespace Calender
             this.panel2.ForeColor = Settings1.Default.Color;
             this.PresentMonth.ForeColor = Settings1.Default.Color;
 
-            //schedulerControl1.AllowAppointmentDrag = false;
+            calenderToolStripMenuItem_Click(new object(), new EventArgs());
+
         }
 
         void LoadDataToTimeTable()
@@ -1088,14 +1089,19 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 0, 0, 0);
                         DateButton[i, j].Enabled = true;
-                        if (count == DateTime.Now.Day && month == DateTime.Now.Month)
+                        if (count == DateTime.Now.Day && month == DateTime.Now.Month) // highlight today
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
                             DateButton[i, j].Font= new Font("Segoe UI Black", 19);
                             DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                             focusedButton = DateButton[i, j];
+                        }
+
+                        if(count == focusedDate.Day && month == focusedDate.Month) // highlight the day user focus
+                        {
+                            DateButton[i, j].Font = new Font("Segoe UI Black", 19);
                         }
                         count++;
                     }
@@ -1144,6 +1150,7 @@ namespace Calender
             LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
             LoadDataToTimeTable();
             GeneratePriorityColorArray();
+            this.Refresh();
         }
 
         private void PrevMonth_Click(object sender, EventArgs e)
@@ -1204,19 +1211,26 @@ namespace Calender
                 List<PlanItem> items = groups[i].ListItemsForToday(today);
                 for (int j = 0; j < items.Count; j++)
                 {
-                    dayView.Controls.Add(new Item(groups[i], items[j], today));
+                    dayView.Controls.Add(new Item(groups[i], items[j], today, this));
                 }
             }
+        }
+        public void ReloadItemToDayView()
+        {
+            LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
         }
 
         private void DayButton_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
+            if(focusedDate.Date != DateTime.Now.Date)
+            {
+                focusedButton.Font = new Font("Segoe UI SemiLight", 19);
+            }
             if (b.Text == "")
                 return;
             focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
-            focusedButton.BackColor = Color.Transparent;
-            b.BackColor = Color.FromArgb(194, 200, 207);
+            b.Font = new Font("Segoe UI Black", 19);
             focusedButton = b;
             if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
             {
@@ -1287,6 +1301,7 @@ namespace Calender
             nextmonth.Visible = false;
             prevmonth.Visible = false;
             SettingPanel.Visible = false;
+            statisticsPanel.Visible = false;
             this.Refresh();
         }
 
@@ -1294,11 +1309,12 @@ namespace Calender
         {
             TimeTablePanel.Visible = false;
             SettingPanel.Visible = false;
-            panel6.Visible = true;
-            YearLabel.Visible = true;
-            PresentMonth.Visible = true;
-            nextmonth.Visible = true;
-            prevmonth.Visible = true;
+            panel6.Visible = false;
+            YearLabel.Visible = false;
+            PresentMonth.Visible = false;
+            nextmonth.Visible = false;
+            prevmonth.Visible = false;
+            statisticsPanel.Visible = true;
             this.Refresh();
         }
 
@@ -1335,6 +1351,7 @@ namespace Calender
             nextmonth.Visible = false;
             prevmonth.Visible = false;
             SettingPanel.Visible = true;
+            statisticsPanel.Visible = false;
             this.Refresh();
         }
 
@@ -1426,6 +1443,7 @@ namespace Calender
             nextmonth.Visible = true;
             prevmonth.Visible = true;
             SettingPanel.Visible = false;
+            statisticsPanel.Visible = false;
             this.Refresh();
         }
 
@@ -1506,7 +1524,6 @@ namespace Calender
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-           
         }
 
         private void SettingPanel_Paint(object sender, PaintEventArgs e)

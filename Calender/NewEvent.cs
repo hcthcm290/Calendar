@@ -8,13 +8,13 @@ namespace Calender
     public partial class New_Event : Form
     {
         public PlanData thisPlan;
+        protected TimeSpan timeSpan; // timespan between starttime and endtime
         
         public New_Event()
         {
             InitializeComponent();
             Init();
             this.Refresh();
-
         }
         public New_Event(PlanData planData)
         {
@@ -28,54 +28,22 @@ namespace Calender
             InitializeComponent();
             Init();
             thisPlan = planData;
-            this.StartPosition = FormStartPosition.CenterParent;/*
-            this.Day_Start.Text = this.Day_End.Text = focusedDate.Day.ToString();
-            this.Month_Start.Text = this.Month_End.Text = focusedDate.Month.ToString();
-            this.Year_Start.Text = this.Year_End.Text = focusedDate.Year.ToString();
-            */
-            this.label1.Focus();
+            this.StartPosition = FormStartPosition.CenterParent;
             startDateDE.DateTime = focusedDate;
             EndDateDE.DateTime = focusedDate;
             string sad = startTimeTP.Text;
+            this.titleTB.Focus();
+            timeSpan = new TimeSpan(1, 0, 0);
+            startTimeTP.Value = DateTime.Now;
+            endTimeTP.Value = DateTime.Now + timeSpan;
+            highTT.SetToolTip(highLB, "High");
+            normalTT.SetToolTip(normalLB, "Normal");
+            mediumTT.SetToolTip(MediumLB, "Medium");
+            repeatEndDE.DateTime = focusedDate;
         }
 
         void Init()
         {
-            /*
-            for (int i = 1; i <= 31; i++)
-            {
-                this.Day_End.Items.Add(i.ToString());
-                this.Day_Start.Items.Add(i.ToString());
-                this.Day_RepeatEnd.Items.Add(i.ToString());
-            }
-
-            for (int i = 1; i <= 12; i++)
-            {
-                this.Month_Start.Items.Add(i.ToString());
-                this.Month_End.Items.Add(i.ToString());
-                this.Month_RepeatEnd.Items.Add(i.ToString());
-            }
-
-            DateTime datetime = DateTime.Now;
-            for (int i = datetime.Year; i < datetime.Year + 10; i++)
-            {
-                this.Year_Start.Items.Add(i.ToString());
-                this.Year_End.Items.Add(i.ToString());
-                this.Year_RepeatEnd.Items.Add(i.ToString());
-            }
-
-            for (int i = 0; i <= 23; i++)
-            {
-                this.Hour_Start.Items.Add(i.ToString());
-                this.Hour_End.Items.Add(i.ToString());
-            }
-
-            for (int i = 0; i <= 59; i++)
-            {
-                this.Minute_Start.Items.Add(i.ToString());
-                this.Minute_End.Items.Add(i.ToString());
-            }
-            */
             this.cbbRepeat.Items.Add("No repeat");
             this.cbbRepeat.Items.Add("Every day");
             this.cbbRepeat.Items.Add("Every week");
@@ -84,11 +52,11 @@ namespace Calender
             this.cbbRepeat.Items.Add("Custom");
             this.cbbRepeat.SelectedIndex = 0;
 
-            this.cbbalert.Items.Add("1 hour before");
-            this.cbbalert.Items.Add("30 mins before");
-            this.cbbalert.Items.Add("15 mins before");
-            this.cbbalert.Items.Add("At time of event");
-            this.cbbalert.SelectedIndex = 3;
+            this.alertCB.Items.Add("1 hour before");
+            this.alertCB.Items.Add("30 mins before");
+            this.alertCB.Items.Add("15 mins before");
+            this.alertCB.Items.Add("At time of event");
+            this.alertCB.SelectedIndex = 3;
 
 
         }
@@ -190,37 +158,53 @@ namespace Calender
         }
         private void Repeat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbRepeat.SelectedItem.ToString() == "custom")
+            if (cbbRepeat.SelectedIndex == 0) // if no repeat
             {
-                repeatValue.Visible = true;
-                repeatValue.BringToFront();
-                repeatValue.Focus();
-                //edit this
-            }
-            else
-            {
-                repeatValue.Visible = false;
-                label1.Focus();
-                //edit this
-            }
-            /*
-            if (cbbRepeat.SelectedItem.ToString() == "none")
-            {
-                Day_RepeatEnd.Enabled = false;
-                Month_RepeatEnd.Enabled = false;
-                Year_RepeatEnd.Enabled = false;
+                this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatValueLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+                this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatEndLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
 
-                Day_RepeatEnd.Text = "dd";
-                Month_RepeatEnd.Text = "mm";
-                Year_RepeatEnd.Text = "yyyy";
+                repeatEndDE.Visible = false;
+
+                repeatValueTB.Visible = false;
+            }
+            else if (cbbRepeat.SelectedIndex == 5) // if custom repeat
+            {
+                this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatValueLB.ForeColor = SystemColors.ControlText;
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.ForeColor = SystemColors.ControlText;
+                this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatEndLabel.ForeColor = SystemColors.ControlText;
+
+                repeatValueTB.Visible = true;
+                repeatValueTB.BringToFront();
+                repeatValueTB.Focus();
+
+                repeatEndDE.Visible = true;
+                return;
+                //edit this
             }
             else
             {
-                Day_RepeatEnd.Enabled = true;
-                Month_RepeatEnd.Enabled = true;
-                Year_RepeatEnd.Enabled = true;
+                this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatValueLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+                this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.repeatEndLabel.ForeColor = SystemColors.ControlText;
+
+                repeatValueTB.Visible = false;
+                priorityLB.Focus();
+
+                repeatEndDE.Visible = true;
+                //edit this
             }
-            */
+
+            titleLB.Focus();
         }
         public bool CheckLegitDate(int year, int month, int day)
         {
@@ -233,19 +217,19 @@ namespace Calender
         public virtual void SaveButton_Click(object sender, EventArgs e)
         {
             TimeSpan alertTimeSpane = new TimeSpan();
-            if(cbbalert.SelectedIndex == 0)
+            if(alertCB.SelectedIndex == 0)
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
-            else if (cbbalert.SelectedIndex == 1)
+            else if (alertCB.SelectedIndex == 1)
             {
                 alertTimeSpane = new TimeSpan(0, 30, 0);
             }
-            else if (cbbalert.SelectedIndex == 2)
+            else if (alertCB.SelectedIndex == 2)
             {
                 alertTimeSpane = new TimeSpan(0, 15, 0);
             }
-            else if (cbbalert.SelectedIndex == 3)
+            else if (alertCB.SelectedIndex == 3)
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }
@@ -291,7 +275,8 @@ namespace Calender
             // FOR NONE //
             if (cbbRepeat.Text.ToString() == "None")
             {
-                newGroup.repeatKind = 0;                thisPlan.Insert(newGroup);
+                newGroup.repeatKind = 0;                
+                thisPlan.Insert(newGroup);
                 this.Close();
                 return;
             }
@@ -503,7 +488,7 @@ namespace Calender
 
         private void New_Event_MouseDown(object sender, MouseEventArgs e)
         {
-            label1.Focus();
+            priorityLB.Focus();
         }
 
         private void dateEdit1_Click(object sender, EventArgs e)
@@ -523,12 +508,12 @@ namespace Calender
 
         private void dateEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            label1.Focus();
+            priorityLB.Focus();
         }
 
         private void dateEdit2_EditValueChanged(object sender, EventArgs e)
         {
-            label1.Focus();
+            priorityLB.Focus();
         }
 
         private void timePicker1_Leave(object sender, EventArgs e)
@@ -539,6 +524,90 @@ namespace Calender
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void New_Event_Shown(object sender, EventArgs e)
+        {
+            titleLB.Focus();
+        }
+
+        private void titleTB_Click(object sender, EventArgs e)
+        {
+            if (titleTB.ForeColor == Color.FromArgb(194, 200, 207))
+            {
+                titleTB.Text = "";
+                titleTB.ForeColor = SystemColors.ControlText;
+            }
+        }
+
+        private void titleTB_Leave(object sender, EventArgs e)
+        {
+            if(titleTB.Text == "")
+            {
+                titleTB.ForeColor = Color.FromArgb(194,200,207);
+                titleTB.Text = "Title goes here";
+            }
+        }
+
+        private void locationTB_Click(object sender, EventArgs e)
+        {
+            if (locationTB.ForeColor == Color.FromArgb(194, 200, 207))
+            {
+                locationTB.Text = "";
+                locationTB.ForeColor = SystemColors.ControlText;
+            }
+        }
+
+        private void locationTB_Leave(object sender, EventArgs e)
+        {
+            if (locationTB.Text == "")
+            {
+                locationTB.ForeColor = Color.FromArgb(194, 200, 207);
+                locationTB.Text = "Location goes here";
+            }
+        }
+
+        private void notesTB_Click(object sender, EventArgs e)
+        {
+            if (notesTB.ForeColor == Color.FromArgb(194, 200, 207))
+            {
+                notesTB.Text = "";
+                notesTB.ForeColor = SystemColors.ControlText;
+            }
+        }
+
+        private void notesTB_Leave(object sender, EventArgs e)
+        {
+            if (notesTB.Text == "")
+            {
+                notesTB.ForeColor = Color.FromArgb(194, 200, 207);
+                notesTB.Text = "Location goes here";
+            }
+        }
+        
+        private void startTimeTP_ValueChanged(object sender, ValueChangedEventArgs<DateTime> e)
+        {
+            endTimeTP.Value = startTimeTP.Value + timeSpan;
+        }
+
+        private void endTimeTP_ValueChanged(object sender, ValueChangedEventArgs<DateTime> e)
+        {
+            timeSpan = endTimeTP.Value - startTimeTP.Value;
+        }
+
+        private void repeatEndDE_Click(object sender, EventArgs e)
+        {
+            repeatEndDE.ShowPopup();
+        }
+
+        private void repeatEndDE_EditValueChanged(object sender, EventArgs e)
+        {
+            priorityLB.Focus();
+        }
+
+        private void alertCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            priorityLB.Focus();
         }
     }
 }
