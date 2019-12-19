@@ -943,7 +943,7 @@ namespace Calender
             LoadItemToDayView(Year.GetCurrentYear(), Months.iCurrent, DateTime.Now.Day);
 
             List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
-            for(int i=0; i<groupsAlert.Count; i++)
+            for (int i = 0; i < groupsAlert.Count; i++)
             {
                 alertForToday.AddRange(groupsAlert[i].ListAlertForToday(DateTime.Now));
             }
@@ -952,7 +952,7 @@ namespace Calender
             InitDateMatrix();
             timer = new Timer();
             timer.Tick += Notify;
-            timer.Interval = (60 - DateTime.Now.Second)*1000;
+            timer.Interval = (60 - DateTime.Now.Second) * 1000;
             timer.Start();
             focusedDate = DateTime.Now;
 
@@ -998,7 +998,7 @@ namespace Calender
                 }
             }
         }
-        
+
         void InitDateMatrix()
         {
             DateButton = new Button[5, 7];
@@ -1012,10 +1012,10 @@ namespace Calender
                     DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
                     DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
-                    DateButton[i, j].Width = label2.Width+4;
+                    DateButton[i, j].Width = label2.Width + 4;
                     DateButton[i, j].Height = label2.Width - 20;
-                    DateButton[i, j].Location = new Point(label2.Location.X -7 + (label2.Width+4 + Const.DateButtonOffSet) * j,
-                                                          label2.Location.Y + (label2.Width -20  + Const.DateButtonOffSet) * (i + 1));
+                    DateButton[i, j].Location = new Point(label2.Location.X - 7 + (label2.Width + 4 + Const.DateButtonOffSet) * j,
+                                                          label2.Location.Y + (label2.Width - 20 + Const.DateButtonOffSet) * (i + 1));
                     DateButton[i, j].UseVisualStyleBackColor = true;
                     DateButton[i, j].Text = "";
                     DateButton[i, j].Click += DayButton_Click;
@@ -1023,7 +1023,7 @@ namespace Calender
                     panel6.Controls.Add(DateButton[i, j]);
                 }
             }
-            for(int i=1; i<32; i++)
+            for (int i = 1; i < 32; i++)
             {
                 PriorityColorForDay[i] = new Color();
             }
@@ -1079,15 +1079,15 @@ namespace Calender
                     if (started && count <= maxDay)
                     {
                         int countEventForToday = allPlan.ListGroupItemsForToday(new DateTime(Year.GetCurrentYear(), month, count)).Count;
-                        if(countEventForToday < 3)
+                        if (countEventForToday < 3)
                         {
                             PriorityColorForDay[count] = Color.Black;
-                        } 
-                        else if(countEventForToday < 7)
-                        {
-                            PriorityColorForDay[count] = Color.FromArgb(255,195,0);
                         }
-                        else if(countEventForToday < 10)
+                        else if (countEventForToday < 7)
+                        {
+                            PriorityColorForDay[count] = Color.FromArgb(255, 195, 0);
+                        }
+                        else if (countEventForToday < 10)
                         {
                             PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
                         }
@@ -1101,7 +1101,7 @@ namespace Calender
                         if (count == DateTime.Now.Day && month == DateTime.Now.Month)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
-                            DateButton[i, j].Font= new Font("Segoe UI Black", 19);
+                            DateButton[i, j].Font = new Font("Segoe UI Black", 19);
                             DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                             focusedButton = DateButton[i, j];
                         }
@@ -1197,6 +1197,10 @@ namespace Calender
             SerializeToXML(allPlan, filepath);
         }
 
+        public void ReloadItemToDayView()
+        {
+            LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
+        }
         private void LoadItemToDayView(int year, int month, int day)
         {
             dayView.Controls.Clear();
@@ -1208,7 +1212,7 @@ namespace Calender
                 List<PlanItem> items = groups[i].ListItemsForToday(today);
                 for (int j = 0; j < items.Count; j++)
                 {
-                    dayView.Controls.Add(new Item(groups[i], items[j], today));
+                    dayView.Controls.Add(new Item(groups[i], items[j], today, this));
                 }
             }
         }
@@ -1222,7 +1226,7 @@ namespace Calender
             focusedButton.BackColor = Color.Transparent;
             b.BackColor = Color.FromArgb(194, 200, 207);
             focusedButton = b;
-            if(focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
+            if (focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
             {
                 label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 label1.Text = "Today";
@@ -1237,7 +1241,7 @@ namespace Calender
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if(this.WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
                 Hide();
@@ -1253,7 +1257,7 @@ namespace Calender
 
         private void Notify(object sender, EventArgs e)
         {
-            if( Settings1.Default.Notification == true)
+            if (Settings1.Default.Notification == true)
             {
                 List<GroupPlanItem> groupsAlert = allPlan.ListGroupAlertForToday(DateTime.Now);
                 alertForToday.RemoveRange(0, alertForToday.Count);
@@ -1349,7 +1353,7 @@ namespace Calender
 
         private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
-            if(e.Appointment.CustomFields.Count == 0)
+            if (e.Appointment.CustomFields.Count == 0)
             {
                 New_Event new_Event = new New_Event(allPlan);
                 new_Event.ShowDialog();
@@ -1365,7 +1369,7 @@ namespace Calender
 
         private void buttonColor_Click(object sender, EventArgs e)
         {
-            if( colorDialog1.ShowDialog() != DialogResult.Cancel)
+            if (colorDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 Settings1.Default.Color = colorDialog1.Color;
                 this.panel3.BackColor = Settings1.Default.Color;
@@ -1428,7 +1432,7 @@ namespace Calender
                 Rectangle rect = new Rectangle((btn.Width - bmp.Width) / 2, (btn.Height - bmp.Height) / 2, bmp.Width, bmp.Height);
                 gfx.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
             }
-            
+
         }
 
         private void PresentMonth_Click(object sender, EventArgs e)
@@ -1486,7 +1490,7 @@ namespace Calender
             AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
             e.DrawDefault();
             int widthCell = viewInfo.Bounds.Width / 4;
-            PlanItem pi =  (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
+            PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
                 e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 99, 110, 114)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
@@ -1518,7 +1522,7 @@ namespace Calender
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-           
+
         }
 
         private void SettingPanel_Paint(object sender, PaintEventArgs e)
@@ -1598,12 +1602,12 @@ namespace Calender
             List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(DateTime.Now);
             int numberOfGroup = groups.Count;
 
-            for( int i=0; i<numberOfGroup; i++)
+            for (int i = 0; i < numberOfGroup; i++)
             {
                 int numberOfItem = groups[i].data.Count;
-                for( int j=0; j<numberOfItem; j++)
+                for (int j = 0; j < numberOfItem; j++)
                 {
-                    if(groups[j].data[j].startTime.Date==DateTime.Now || groups[i].data[j].endTime.Date==DateTime.Now)
+                    if (groups[j].data[j].startTime.Date == DateTime.Now || groups[i].data[j].endTime.Date == DateTime.Now)
                     {
                         if (groups[i].data[j].done == true)
                             count++;
@@ -1634,7 +1638,7 @@ namespace Calender
             // jobs in today completed
             sumday.Text = jobsDoneToday.ToString();
 
-            
+
         }
-    } 
+    }
 }

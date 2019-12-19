@@ -92,7 +92,7 @@ namespace Calender
 
         private void Item_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void location_Click(object sender, EventArgs e)
