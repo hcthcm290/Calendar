@@ -922,6 +922,16 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+            series1 = new DevExpress.XtraCharts.Series();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit(); 
+            series1.ArgumentDataMember = "Argument";
+            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            series1.Name = "Số lượng công việc của tháng đã hoàn thành";
+            series1.ValueDataMembersSerializable = "Value";
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+
             dayView.AutoScroll = true;
             if (dayView.VerticalScroll.Visible == true)
                 dayView.BackColor = Color.Black;

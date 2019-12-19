@@ -645,5 +645,55 @@ namespace Calender
         {
             SaveButton_Click(sender, e);
         }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            titleLB.Focus();
+        }
+
+        private void repeatValueTB_KeyDown(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void repeatValueTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void locationTB_Enter(object sender, EventArgs e)
+        {
+            locationTB_Click(sender, e);
+        }
+
+        private void titleTB_Enter(object sender, EventArgs e)
+        {
+            titleTB_Click(sender, e);
+        }
+
+        private void notesTB_Enter(object sender, EventArgs e)
+        {
+            notesTB_Click(sender, e);
+        }
     }
 }
