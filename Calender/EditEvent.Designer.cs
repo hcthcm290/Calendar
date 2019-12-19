@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label17 = new System.Windows.Forms.Label();
+            this.highTT = new System.Windows.Forms.ToolTip(this.components);
+            this.normalTT = new System.Windows.Forms.ToolTip(this.components);
+            this.mediumTT = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -41,24 +45,24 @@
             // 
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.SetChildIndex(this.cbbRepeat, 0);
-            this.panel2.Controls.SetChildIndex(this.RepeatEndLabel, 0);
-            this.panel2.Controls.SetChildIndex(this.label8, 0);
-            this.panel2.Controls.SetChildIndex(this.label4, 0);
+            this.panel2.Controls.SetChildIndex(this.repeatEndLabel, 0);
+            this.panel2.Controls.SetChildIndex(this.repeatLB, 0);
+            this.panel2.Controls.SetChildIndex(this.startsLB, 0);
             this.panel2.Controls.SetChildIndex(this.label7, 0);
             this.panel2.Controls.SetChildIndex(this.label2, 0);
-            this.panel2.Controls.SetChildIndex(this.label5, 0);
+            this.panel2.Controls.SetChildIndex(this.endsLB, 0);
             this.panel2.Controls.SetChildIndex(this.label6, 0);
-            this.panel2.Controls.SetChildIndex(this.title, 0);
-            this.panel2.Controls.SetChildIndex(this.label12, 0);
-            this.panel2.Controls.SetChildIndex(this.label13, 0);
-            this.panel2.Controls.SetChildIndex(this.location, 0);
+            this.panel2.Controls.SetChildIndex(this.titleTB, 0);
+            this.panel2.Controls.SetChildIndex(this.titleLB, 0);
+            this.panel2.Controls.SetChildIndex(this.locationLB, 0);
+            this.panel2.Controls.SetChildIndex(this.locationTB, 0);
             this.panel2.Controls.SetChildIndex(this.label14, 0);
-            this.panel2.Controls.SetChildIndex(this.label3, 0);
-            this.panel2.Controls.SetChildIndex(this.label11, 0);
-            this.panel2.Controls.SetChildIndex(this.repeatValue, 0);
-            this.panel2.Controls.SetChildIndex(this.label1, 0);
-            this.panel2.Controls.SetChildIndex(this.label10, 0);
-            this.panel2.Controls.SetChildIndex(this.notes, 0);
+            this.panel2.Controls.SetChildIndex(this.repeatValueLB, 0);
+            this.panel2.Controls.SetChildIndex(this.daysLB, 0);
+            this.panel2.Controls.SetChildIndex(this.repeatValueTB, 0);
+            this.panel2.Controls.SetChildIndex(this.priorityLB, 0);
+            this.panel2.Controls.SetChildIndex(this.alertLB, 0);
+            this.panel2.Controls.SetChildIndex(this.notesTB, 0);
             this.panel2.Controls.SetChildIndex(this.label15, 0);
             this.panel2.Controls.SetChildIndex(this.label16, 0);
             this.panel2.Controls.SetChildIndex(this.label17, 0);
@@ -79,6 +83,19 @@
             this.label17.TabIndex = 27;
             this.label17.Text = "Delete";
             // 
+            // highTT
+            // 
+            this.highTT.AutomaticDelay = 100;
+            this.highTT.ShowAlways = true;
+            // 
+            // normalTT
+            // 
+            this.normalTT.AutomaticDelay = 100;
+            // 
+            // mediumTT
+            // 
+            this.mediumTT.AutomaticDelay = 100;
+            // 
             // EditEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -98,5 +115,8 @@
         #endregion
 
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ToolTip highTT;
+        private new System.Windows.Forms.ToolTip normalTT;
+        private new System.Windows.Forms.ToolTip mediumTT;
     }
 }
