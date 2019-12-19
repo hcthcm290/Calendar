@@ -969,6 +969,9 @@ namespace Calender
             //this.PresentMonth.ForeColor = Settings1.Default.Color;
 
             //schedulerControl1.AllowAppointmentDrag = false;
+
+            focusedButton = new Button();
+            calendarToolStripMenuItem_Click(new object(), new EventArgs());
         }
 
         void LoadDataToTimeTable()
@@ -1001,8 +1004,8 @@ namespace Calender
         
         void InitDateMatrix()
         {
-            DateButton = new Button[5, 7];
-            for (int i = 0; i < 5; i++)
+            DateButton = new Button[6, 7];
+            for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -1012,9 +1015,9 @@ namespace Calender
                     DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
                     DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
-                    DateButton[i, j].Width = label2.Width+4;
+                    DateButton[i, j].Width = label2.Width + 4;
                     DateButton[i, j].Height = label2.Width - 20;
-                    DateButton[i, j].Location = new Point(label2.Location.X -7 + (label2.Width+4 + Const.DateButtonOffSet) * j,
+                    DateButton[i, j].Location = new Point(label2.Location.X -7 + (label2.Width + 4 + Const.DateButtonOffSet) * j,
                                                           label2.Location.Y + (label2.Width -20  + Const.DateButtonOffSet) * (i + 1));
                     DateButton[i, j].UseVisualStyleBackColor = true;
                     DateButton[i, j].Text = "";
@@ -1061,7 +1064,7 @@ namespace Calender
             }
             bool started = false;
             int count = 1;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -1096,13 +1099,17 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 0, 0, 0);
                         DateButton[i, j].Enabled = true;
-                        if (count == DateTime.Now.Day && month == DateTime.Now.Month)
+                        if (count == DateTime.Now.Day && month == DateTime.Now.Month) // highlight today
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
                             DateButton[i, j].Font= new Font("Segoe UI Black", 19);
                             DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
+                        }
+                        if(count == focusedDate.Day && month == focusedDate.Month) // hightlight focusedDate
+                        {
+                            DateButton[i, j].BackColor = Color.FromArgb(50, 0, 0, 0);
                             focusedButton = DateButton[i, j];
                         }
                         count++;
@@ -1208,11 +1215,14 @@ namespace Calender
                 List<PlanItem> items = groups[i].ListItemsForToday(today);
                 for (int j = 0; j < items.Count; j++)
                 {
-                    dayView.Controls.Add(new Item(groups[i], items[j], today));
+                    dayView.Controls.Add(new Item(groups[i], items[j], today, this));
                 }
             }
         }
-
+        public void ReloadItemToDayView()
+        {
+            LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
+        }
         private void DayButton_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;

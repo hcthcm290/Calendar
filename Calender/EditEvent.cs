@@ -46,7 +46,7 @@ namespace Calender
             }
 
             this.startDateDE.DateTime = item.startTime;
-            this.EndDateDE.DateTime = item.endTime;
+            this.endDateDE.DateTime = item.endTime;
 
             this.startTimeTP.Value = item.startTime;
             this.endTimeTP.Value = item.endTime;

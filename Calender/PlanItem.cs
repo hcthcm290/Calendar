@@ -33,7 +33,7 @@ namespace Calender
             this.alert = alert;
         }
 
-        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "")
+        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "", bool notifycation = true)
         {
             this.title = title;
             this.note = note;
@@ -42,6 +42,7 @@ namespace Calender
             this.location = location;
             this.priority = (PriorityEnum)priority;
             this.alert = alert;
+
         }
 
         public string title;
@@ -50,7 +51,8 @@ namespace Calender
         public String location;
         public string note;
         public PriorityEnum priority;
-        public DateTime alert;
+        public DateTime alert; // the time alert will occur
         public bool done = false;
+        public bool notification;
     }
 }
