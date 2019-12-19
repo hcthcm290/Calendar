@@ -226,6 +226,8 @@
   <ItemGroup>
     <Content Include="Resources\check.png" />
     <Content Include="Resources\ClockPicker.dll" />
+    <Content Include="Resources\error.ico" />
+    <Content Include="Resources\ok-icon.ico" />
     <None Include="Resources\tick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

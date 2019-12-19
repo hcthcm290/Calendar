@@ -83,6 +83,8 @@
             this.highTT = new System.Windows.Forms.ToolTip(this.components);
             this.normalTT = new System.Windows.Forms.ToolTip(this.components);
             this.mediumTT = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertOn)).BeginInit();
@@ -93,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -633,6 +637,16 @@
             // 
             this.mediumTT.AutomaticDelay = 100;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            this.errorProvider2.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider2.Icon")));
+            // 
             // New_Event
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -664,6 +678,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -708,5 +724,7 @@
         protected DevExpress.XtraEditors.DateEdit repeatEndDE;
         protected ClockPicker.TimePicker startTimeTP;
         protected ClockPicker.TimePicker endTimeTP;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

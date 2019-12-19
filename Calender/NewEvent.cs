@@ -248,14 +248,16 @@ namespace Calender
 
             if (end <= start)
             {
-                MessageBox.Show("End Day must after Start Day");
+                ToolTip error = new ToolTip();
                 return;
             }
 
             string title = titleTB.Text;
             if (titleTB.ForeColor != SystemColors.ControlText)
             {
+                errorProvider2.SetError(titleTB, "Title cannnot be blank");
                 title = "";
+                return;
             }
 
             string location = locationTB.Text;
@@ -536,11 +538,27 @@ namespace Calender
 
         private void dateEdit1_EditValueChanged(object sender, EventArgs e)
         {
+            if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
+            {
+                errorProvider1.SetError(startDateDE, "Start date cannot after end date");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
             priorityLB.Focus();
         }
 
         private void dateEdit2_EditValueChanged(object sender, EventArgs e)
         {
+            if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
+            {
+                errorProvider1.SetError(endDateDE, "End date cannot less than start date");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
             priorityLB.Focus();
         }
 
@@ -565,6 +583,7 @@ namespace Calender
             {
                 titleTB.Text = "";
                 titleTB.ForeColor = SystemColors.ControlText;
+                errorProvider2.Clear();
             }
         }
 
@@ -620,6 +639,15 @@ namespace Calender
 
         private void endTimeTP_ValueChanged(object sender, ValueChangedEventArgs<DateTime> e)
         {
+            if(startDateDE.DateTime.Date == endDateDE.DateTime.Date &&
+               startTimeTP.Value >= endTimeTP.Value)
+            {
+                errorProvider1.SetError(endTimeTP, "End time must after start time");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
             timeSpan = endTimeTP.Value - startTimeTP.Value;
         }
 
