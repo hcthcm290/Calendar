@@ -327,6 +327,7 @@ namespace Calender
                     }
                 }
             }
+            /*
             else if (cbbRepeat.SelectedIndex == 3) // repeat monthly
             {
                 newGroup.repeatKind = 3;
@@ -391,7 +392,7 @@ namespace Calender
                 }
                 
             }
-            
+            */
         }
 
         /*
