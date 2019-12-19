@@ -22,7 +22,7 @@ namespace Calender
 
         }
 
-        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, PriorityEnum priority, DateTime alert, string location = "")
+        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, PriorityEnum priority, DateTime alert, string location = "", bool notification = true)
         {
             this.title = title;
             this.note = note;
@@ -33,7 +33,7 @@ namespace Calender
             this.alert = alert;
         }
 
-        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "")
+        public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "", bool notification = true)
         {
             this.title = title;
             this.note = note;

@@ -969,6 +969,9 @@ namespace Calender
             //this.PresentMonth.ForeColor = Settings1.Default.Color;
 
             //schedulerControl1.AllowAppointmentDrag = false;
+
+            calendarToolStripMenuItem_Click(new object(), new EventArgs());
+            focusedButton = new Button();
         }
 
         void LoadDataToTimeTable()
@@ -1001,8 +1004,8 @@ namespace Calender
 
         void InitDateMatrix()
         {
-            DateButton = new Button[5, 7];
-            for (int i = 0; i < 5; i++)
+            DateButton = new Button[6, 7];
+            for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -1061,7 +1064,7 @@ namespace Calender
             }
             bool started = false;
             int count = 1;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -1096,14 +1099,17 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 0, 0, 0);
                         DateButton[i, j].Enabled = true;
-                        if (count == DateTime.Now.Day && month == DateTime.Now.Month)
+                        if (count == DateTime.Now.Day && month == DateTime.Now.Month && Year.GetCurrentYear() == DateTime.Now.Year)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
                             DateButton[i, j].Font = new Font("Segoe UI Black", 19);
                             DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
-                            focusedButton = DateButton[i, j];
+                        }
+                        if (count == focusedDate.Day && month == focusedDate.Month && Year.GetCurrentYear() == focusedDate.Year)
+                        {
+                            DateButton[i, j].BackColor = Color.FromArgb(50, 0, 0, 0);
                         }
                         count++;
                     }
@@ -1134,7 +1140,6 @@ namespace Calender
                 }
             }
         }
-
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {

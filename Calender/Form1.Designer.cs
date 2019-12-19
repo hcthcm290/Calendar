@@ -33,7 +33,7 @@ namespace Calender
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
@@ -45,6 +45,7 @@ namespace Calender
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlStatistics = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.lbReports = new System.Windows.Forms.Label();
             this.sumday = new System.Windows.Forms.Label();
@@ -99,7 +100,6 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlStatistics.SuspendLayout();
@@ -189,6 +189,17 @@ namespace Calender
             this.pnlStatistics.Size = new System.Drawing.Size(690, 638);
             this.pnlStatistics.TabIndex = 9;
             this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(584, 180);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(63, 33);
+            this.comboBox1.TabIndex = 12;
+            this.comboBox1.Text = "2019";
             // 
             // chartControl1
             // 
@@ -511,6 +522,7 @@ namespace Calender
             this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
             this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(96, 29);
             this.statisticsToolStripMenuItem1.Text = "Statistics";
+            this.statisticsToolStripMenuItem1.Click += new System.EventHandler(this.StatisticsToolStripMenuItem1_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -547,7 +559,7 @@ namespace Calender
             this.schedulerControl1.Name = "schedulerControl1";
             this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
             this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 10, 27, 0, 0, 0, 0);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 21, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
@@ -868,17 +880,6 @@ namespace Calender
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(584, 180);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 33);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.Text = "2019";
             // 
             // Form1
             // 

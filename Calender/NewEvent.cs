@@ -11,7 +11,7 @@ namespace Calender
         protected TimeSpan timeSpan; // timespan between starttime and endtime
         PriorityEnum priority;
         bool notification;
-        
+
         public New_Event()
         {
             InitializeComponent();
@@ -41,7 +41,6 @@ namespace Calender
             highTT.SetToolTip(highLB, "High");
             normalTT.SetToolTip(normalLB, "Normal");
             mediumTT.SetToolTip(MediumLB, "Medium");
-
             repeatEndDE.DateTime = focusedDate;
         }
 
@@ -69,7 +68,7 @@ namespace Calender
         }
         private void Silent_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -93,7 +92,7 @@ namespace Calender
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
-            
+
         }
         private void Month_KeyDown(object sender, KeyEventArgs e)
         {
@@ -220,7 +219,7 @@ namespace Calender
         public virtual void SaveButton_Click(object sender, EventArgs e)
         {
             TimeSpan alertTimeSpane = new TimeSpan();
-            if(alertCB.SelectedIndex == 0)
+            if (alertCB.SelectedIndex == 0)
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
@@ -238,8 +237,8 @@ namespace Calender
             }
 
             GroupPlanItem newGroup = new GroupPlanItem();
-            
-            DateTime start = new DateTime(startDateDE.DateTime.Year, startDateDE.DateTime.Month, startDateDE.DateTime.Day, 
+
+            DateTime start = new DateTime(startDateDE.DateTime.Year, startDateDE.DateTime.Month, startDateDE.DateTime.Day,
                                           startTimeTP.Value.Hour, startTimeTP.Value.Minute, 0);
 
 
@@ -254,7 +253,7 @@ namespace Calender
             }
 
             string title = titleTB.Text;
-            if(titleTB.ForeColor != SystemColors.ControlText)
+            if (titleTB.ForeColor != SystemColors.ControlText)
             {
                 title = "";
             }
@@ -282,7 +281,7 @@ namespace Calender
                 this.Close();
                 return;
             }
-           
+
             DateTime repeatEnd = new DateTime(repeatEndDE.DateTime.Year, repeatEndDE.DateTime.Month, repeatEndDE.DateTime.Day, 23, 59, 59);
 
             if (repeatEnd < end)
@@ -293,7 +292,7 @@ namespace Calender
 
             newGroup.repeatEnd = repeatEnd;
 
-            
+
             if (cbbRepeat.SelectedIndex == 1) // repeat daily
             {
                 newGroup.repeatKind = 1;
@@ -351,7 +350,7 @@ namespace Calender
                     }
                 }
             }
-            
+
             else if (cbbRepeat.Text.ToString() == "A Year")
             {
                 newGroup.repeatKind = 4;
@@ -391,7 +390,7 @@ namespace Calender
                         return;
                     }
                 }
-                
+
             }
             */
         }
@@ -469,7 +468,7 @@ namespace Calender
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
-            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180,0,0,0)), 5), new Rectangle(0, 0, this.Width, this.Height));
+            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180, 0, 0, 0)), 5), new Rectangle(0, 0, this.Width, this.Height));
         }
 
         private void Day_End_SelectedIndexChanged(object sender, EventArgs e)
@@ -538,9 +537,9 @@ namespace Calender
 
         private void titleTB_Leave(object sender, EventArgs e)
         {
-            if(titleTB.Text == "")
+            if (titleTB.Text == "")
             {
-                titleTB.ForeColor = Color.FromArgb(194,200,207);
+                titleTB.ForeColor = Color.FromArgb(194, 200, 207);
                 titleTB.Text = "Title goes here";
             }
         }
@@ -580,7 +579,7 @@ namespace Calender
                 notesTB.Text = "Location goes here";
             }
         }
-        
+
         private void startTimeTP_ValueChanged(object sender, ValueChangedEventArgs<DateTime> e)
         {
             endTimeTP.Value = startTimeTP.Value + timeSpan;
@@ -624,7 +623,7 @@ namespace Calender
 
             this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            
+
             this.alertCB.Visible = false;
         }
     }
