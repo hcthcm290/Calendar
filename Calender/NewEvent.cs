@@ -9,8 +9,6 @@ namespace Calender
     {
         public PlanData thisPlan;
         protected TimeSpan timeSpan; // timespan between starttime and endtime
-        PriorityEnum priority;
-        bool notification;
         
         public New_Event()
         {
@@ -32,7 +30,7 @@ namespace Calender
             thisPlan = planData;
             this.StartPosition = FormStartPosition.CenterParent;
             startDateDE.DateTime = focusedDate;
-            endDateDE.DateTime = focusedDate;
+            EndDateDE.DateTime = focusedDate;
             string sad = startTimeTP.Text;
             this.titleTB.Focus();
             timeSpan = new TimeSpan(1, 0, 0);
@@ -237,52 +235,62 @@ namespace Calender
             }
 
             GroupPlanItem newGroup = new GroupPlanItem();
+            /*
+            int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
+          
+            Int32.TryParse(Day_Start.Text, out tDay_Start);
+            Int32.TryParse(Month_Start.Text, out tMonth_Start);
+            Int32.TryParse(Year_Start.Text, out tYear_Start);
+            Int32.TryParse(Hour_Start.Text, out tHour_Start);
+            Int32.TryParse(Minute_Start.Text, out tMinute_Start);
+            if (CheckLegitDate(tYear_Start, tMonth_Start, tDay_Start) == false)
+            {
+                MessageBox.Show("Invalid Start Date");
+                return;
+            }
             
-            DateTime start = new DateTime(startDateDE.DateTime.Year, startDateDE.DateTime.Month, startDateDE.DateTime.Day, 
-                                          startTimeTP.Value.Hour, startTimeTP.Value.Minute, 0);
+            DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
 
-
-            DateTime end = new DateTime(endDateDE.DateTime.Year, endDateDE.DateTime.Month, endDateDE.DateTime.Day,
-                                        endTimeTP.Value.Hour, endTimeTP.Value.Minute, 0);
-
+            int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
+            Int32.TryParse(Day_End.Text, out tDay_End);
+            Int32.TryParse(Month_End.Text, out tMonth_End);
+            Int32.TryParse(Year_End.Text, out tYear_End);
+            Int32.TryParse(Hour_End.Text, out tHour_End);
+            Int32.TryParse(Minute_End.Text, out tMinute_End);
+            if (CheckLegitDate(tYear_End, tMonth_End, tDay_End) == false)
+            {
+                MessageBox.Show("Invalid End Date");
+                return;
+            }
+            DateTime end = new DateTime(tYear_End, tMonth_End, tDay_End, tHour_End, tMinute_End, 0);
 
             if (end <= start)
             {
                 MessageBox.Show("End Day must after Start Day");
                 return;
             }
-
-            string title = titleTB.Text;
-            if(titleTB.ForeColor != SystemColors.ControlText)
-            {
-                title = "";
-            }
-
-            string location = locationTB.Text;
-            if (locationTB.ForeColor != SystemColors.ControlText)
-            {
-                location = "";
-            }
-
-            string note = notesTB.Text;
-            if (notesTB.ForeColor != SystemColors.ControlText)
-            {
-                note = "";
-            }
-
+            */
             ////////////////////////////////////////////////////////////////
             ///
-            // FOR NO REPEAT //
-            if (cbbRepeat.SelectedIndex == 0)
+            // FOR NONE //
+            if (cbbRepeat.Text.ToString() == "None")
             {
-                newGroup.repeatKind = 0;
-                newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
+                newGroup.repeatKind = 0;                
                 thisPlan.Insert(newGroup);
                 this.Close();
                 return;
             }
-           
-            DateTime repeatEnd = new DateTime(repeatEndDE.DateTime.Year, repeatEndDE.DateTime.Month, repeatEndDE.DateTime.Day, 23, 59, 59);
+            /*
+            int tDay_RepeatEnd, tMonth_RepeatEnd, tYear_RepeatEnd;
+            Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
+            Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
+            Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
+            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false)
+            {
+                MessageBox.Show("Invalid RepeatEnd Date");
+                return;
+            }
+            DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
             if (repeatEnd < end)
             {
@@ -292,15 +300,14 @@ namespace Calender
 
             newGroup.repeatEnd = repeatEnd;
 
-            
-            if (cbbRepeat.SelectedIndex == 1) // repeat daily
+            if (cbbRepeat.Text.ToString() == "Daily")
             {
                 newGroup.repeatKind = 1;
                 while (true)
                 {
+
                     start = start.AddDays(1);
                     end = end.AddDays(1);
-                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
 
                     if (start > repeatEnd)
                     {
@@ -310,14 +317,14 @@ namespace Calender
                     }
                 }
             }
-            else if (cbbRepeat.SelectedIndex == 2) // repeat weekly
+            else if (cbbRepeat.Text.ToString() == "A Week")
             {
                 newGroup.repeatKind = 2;
                 while (true)
                 {
+
                     start = start.AddDays(7);
                     end = end.AddDays(7);
-                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
 
                     if (start > repeatEnd)
                     {
@@ -327,7 +334,7 @@ namespace Calender
                     }
                 }
             }
-            else if (cbbRepeat.SelectedIndex == 3) // repeat monthly
+            else if (cbbRepeat.Text.ToString() == "A Month")
             {
                 newGroup.repeatKind = 3;
 
@@ -389,9 +396,8 @@ namespace Calender
                         return;
                     }
                 }
-                
             }
-            
+            */
         }
 
         /*
@@ -467,7 +473,7 @@ namespace Calender
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
             e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
-            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180,0,0,0)), 5), new Rectangle(0, 0, this.Width, this.Height));
+            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Black), 10), new Rectangle(0, 0, this.Width, this.Height));
         }
 
         private void Day_End_SelectedIndexChanged(object sender, EventArgs e)
@@ -497,7 +503,7 @@ namespace Calender
 
         private void dateEdit2_Click(object sender, EventArgs e)
         {
-            endDateDE.ShowPopup();
+            EndDateDE.ShowPopup();
         }
 
         private void dateEdit1_EditValueChanged(object sender, EventArgs e)
@@ -602,28 +608,6 @@ namespace Calender
         private void alertCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             priorityLB.Focus();
-        }
-
-        private void alertOff_Click(object sender, EventArgs e)
-        {
-            this.alertOff.Visible = false;
-            this.alertOn.Visible = true;
-
-            this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertLB.ForeColor = SystemColors.ControlText;
-
-            this.alertCB.Visible = true;
-        }
-
-        private void alertOn_Click(object sender, EventArgs e)
-        {
-            this.alertOff.Visible = true;
-            this.alertOn.Visible = false;
-
-            this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            
-            this.alertCB.Visible = false;
         }
     }
 }
