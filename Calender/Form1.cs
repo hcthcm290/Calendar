@@ -1276,7 +1276,8 @@ namespace Calender
                 {
                     if (
                         alertForToday[i].alert.Hour == dt.Hour &&
-                        alertForToday[i].alert.Minute == dt.Minute
+                        alertForToday[i].alert.Minute == dt.Minute &&
+                        alertForToday[i].notification == true
                        )
                     {
                         notifyIcon1.Visible = true;

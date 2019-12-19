@@ -624,6 +624,8 @@ namespace Calender
             this.alertLB.ForeColor = SystemColors.ControlText;
 
             this.alertCB.Visible = true;
+
+            this.notification = true;
         }
 
         private void alertOn_Click(object sender, EventArgs e)
@@ -635,6 +637,8 @@ namespace Calender
             this.alertLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
 
             this.alertCB.Visible = false;
+
+            this.notification = false;
         }
 
         private void applyLB_Click(object sender, EventArgs e)
