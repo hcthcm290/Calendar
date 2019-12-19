@@ -41,6 +41,7 @@ namespace Calender
             highTT.SetToolTip(highLB, "High");
             normalTT.SetToolTip(normalLB, "Normal");
             mediumTT.SetToolTip(MediumLB, "Medium");
+
             repeatEndDE.DateTime = focusedDate;
         }
 
