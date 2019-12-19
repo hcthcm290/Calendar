@@ -33,7 +33,7 @@ namespace Calender
         int allDoneJobs;
         int jobsDoneToday;
 
-        private void InitDesign()
+    /*    private void InitDesign()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -910,7 +910,7 @@ namespace Calender
             this.pnlStatistics.PerformLayout();
             this.ResumeLayout(false);
 
-        }
+        } */
         //end init design
 
         public Form1()
