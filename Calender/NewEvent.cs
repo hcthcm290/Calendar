@@ -298,9 +298,9 @@ namespace Calender
                 newGroup.repeatKind = 1;
                 while (true)
                 {
+                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
                     start = start.AddDays(1);
                     end = end.AddDays(1);
-                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
 
                     if (start > repeatEnd)
                     {
@@ -315,9 +315,9 @@ namespace Calender
                 newGroup.repeatKind = 2;
                 while (true)
                 {
+                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
                     start = start.AddDays(7);
                     end = end.AddDays(7);
-                    newGroup.Insert(new PlanItem(title, note, start, end, (int)priority, start - alertTimeSpane, location, notification));
 
                     if (start > repeatEnd)
                     {
@@ -327,21 +327,27 @@ namespace Calender
                     }
                 }
             }
-            /*
             else if (cbbRepeat.SelectedIndex == 3) // repeat monthly
             {
                 newGroup.repeatKind = 3;
 
                 TimeSpan timeSpan = end - start;
+
+                int tYear_Start, tMonth_Start;
+
+                tYear_Start = start.Year;
+                tMonth_Start = start.Month;
                 while (true)
                 {
+                    newGroup.Insert(new PlanItem(title, note, start, start + timeSpan, priority, start - alertTimeSpane, location, notification));
                     do
                     {
                         Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 1);
                     }
-                    while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
+                    while (start.Day > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
 
-                    start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
+                    start = new DateTime(tYear_Start, tMonth_Start, start.Day, start.Hour, start.Minute, 0);
+
                     if (start > repeatEnd)
                     {
                         thisPlan.Insert(newGroup);
@@ -350,21 +356,25 @@ namespace Calender
                     }
                 }
             }
-
-            else if (cbbRepeat.Text.ToString() == "A Year")
+            else if (cbbRepeat.Text.ToString() == "A Year") // repeat yearly
             {
                 newGroup.repeatKind = 4;
 
                 TimeSpan timeSpan = end - start;
+                int tYear_Start, tMonth_Start;
+
+                tYear_Start = start.Year;
+                tMonth_Start = start.Month;
                 while (true)
                 {
+                    newGroup.Insert(new PlanItem(title, note, start, start + timeSpan, priority, start - alertTimeSpane, location, notification));
                     do
                     {
                         Date.AddMonth(tYear_Start, tMonth_Start, out tYear_Start, out tMonth_Start, 12);
                     }
-                    while (tDay_Start > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
+                    while (start.Day > Year.GetMaxDaysOfMonth(tYear_Start, tMonth_Start));
 
-                    start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
+                    start = new DateTime(tYear_Start, tMonth_Start, start.Day, start.Hour, start.Minute, 0);
                     if (start > repeatEnd)
                     {
                         thisPlan.Insert(newGroup);
@@ -373,15 +383,16 @@ namespace Calender
                     }
                 }
             }
-            else
+            else // repeat custom
             {
                 newGroup.repeatKind = 5;
-                newGroup.repeatValue = Convert.ToInt32(repeatValue.Text);
+                newGroup.repeatValue = Convert.ToInt32(repeatValueTB.Text);
 
                 while (true)
                 {
-                    start = start.AddDays(Convert.ToInt32(repeatValue.Text));
-                    end = end.AddDays(Convert.ToInt32(repeatValue.Text));
+                    newGroup.Insert(new PlanItem(title, note, start, end, priority, start - alertTimeSpane, location, notification));
+                    start = start.AddDays(Convert.ToInt32(repeatValueTB.Text));
+                    end = end.AddDays(Convert.ToInt32(repeatValueTB.Text));
 
                     if (start > repeatEnd)
                     {
@@ -392,7 +403,6 @@ namespace Calender
                 }
 
             }
-            */
         }
 
         /*
@@ -625,6 +635,11 @@ namespace Calender
             this.alertLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
 
             this.alertCB.Visible = false;
+        }
+
+        private void applyLB_Click(object sender, EventArgs e)
+        {
+            SaveButton_Click(sender, e);
         }
     }
 }

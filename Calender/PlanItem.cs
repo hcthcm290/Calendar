@@ -31,6 +31,7 @@ namespace Calender
             this.location = location;
             this.priority = priority;
             this.alert = alert;
+            this.notification = notification;
         }
 
         public PlanItem(string title, string note, DateTime startTime, DateTime endTime, int priority, DateTime alert, string location = "", bool notification = true)
@@ -42,6 +43,7 @@ namespace Calender
             this.location = location;
             this.priority = (PriorityEnum)priority;
             this.alert = alert;
+            this.notification = notification;
         }
 
         public string title;
@@ -52,5 +54,6 @@ namespace Calender
         public PriorityEnum priority;
         public DateTime alert;
         public bool done = false;
+        public bool notification = true;
     }
 }

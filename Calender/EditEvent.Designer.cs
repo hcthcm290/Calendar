@@ -63,8 +63,8 @@
             this.panel2.Controls.SetChildIndex(this.priorityLB, 0);
             this.panel2.Controls.SetChildIndex(this.alertLB, 0);
             this.panel2.Controls.SetChildIndex(this.notesTB, 0);
-            this.panel2.Controls.SetChildIndex(this.label15, 0);
-            this.panel2.Controls.SetChildIndex(this.label16, 0);
+            this.panel2.Controls.SetChildIndex(this.applyLB, 0);
+            this.panel2.Controls.SetChildIndex(this.cancelLB, 0);
             this.panel2.Controls.SetChildIndex(this.label17, 0);
             // 
             // label9

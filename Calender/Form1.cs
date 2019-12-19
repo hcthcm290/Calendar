@@ -1281,7 +1281,15 @@ namespace Calender
                     {
                         notifyIcon1.Visible = true;
                         notifyIcon1.BalloonTipTitle = alertForToday[i].title;
-                        notifyIcon1.BalloonTipText = alertForToday[i].note;
+                        if(notifyIcon1.BalloonTipTitle == "")
+                        {
+                            notifyIcon1.BalloonTipTitle = "You have an upcoming event";
+                        }
+                        notifyIcon1.BalloonTipText = alertForToday[i].location + " / " + alertForToday[i].note;
+                        if (notifyIcon1.BalloonTipText == "")
+                        {
+                            notifyIcon1.BalloonTipTitle = " ";
+                        }
                         notifyIcon1.ShowBalloonTip(3000);
                     }
                 }

@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Event));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -40,11 +45,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.alertOff = new System.Windows.Forms.PictureBox();
             this.alertOn = new System.Windows.Forms.PictureBox();
@@ -55,10 +55,10 @@
             this.highLB = new System.Windows.Forms.Label();
             this.repeatEndDE = new DevExpress.XtraEditors.DateEdit();
             this.endTimeTP = new ClockPicker.TimePicker();
-            this.label16 = new System.Windows.Forms.Label();
+            this.cancelLB = new System.Windows.Forms.Label();
             this.startTimeTP = new ClockPicker.TimePicker();
             this.endDateDE = new DevExpress.XtraEditors.DateEdit();
-            this.label15 = new System.Windows.Forms.Label();
+            this.applyLB = new System.Windows.Forms.Label();
             this.notesTB = new System.Windows.Forms.TextBox();
             this.alertLB = new System.Windows.Forms.Label();
             this.startDateDE = new DevExpress.XtraEditors.DateEdit();
@@ -148,10 +148,10 @@
             this.panel2.Controls.Add(this.highLB);
             this.panel2.Controls.Add(this.repeatEndDE);
             this.panel2.Controls.Add(this.endTimeTP);
-            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.cancelLB);
             this.panel2.Controls.Add(this.startTimeTP);
             this.panel2.Controls.Add(this.endDateDE);
-            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.applyLB);
             this.panel2.Controls.Add(this.notesTB);
             this.panel2.Controls.Add(this.alertLB);
             this.panel2.Controls.Add(this.startDateDE);
@@ -213,7 +213,7 @@
             this.repeatEndDE.Properties.AutoHeight = false;
             this.repeatEndDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.repeatEndDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repeatEndDE.Properties.CalendarTimeProperties.AllowFocused = false;
             this.repeatEndDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -260,16 +260,16 @@
             this.endTimeTP.ValueTooSmallFixMode = ClockPicker.ValueFixMode.KeepExistingValue;
             this.endTimeTP.ValueChanged += new ClockPicker.ValueChangedEventHandler<System.DateTime>(this.endTimeTP_ValueChanged);
             // 
-            // label16
+            // cancelLB
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(211, 472);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 21);
-            this.label16.TabIndex = 26;
-            this.label16.Text = "Cancel";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
+            this.cancelLB.AutoSize = true;
+            this.cancelLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelLB.Location = new System.Drawing.Point(211, 472);
+            this.cancelLB.Name = "cancelLB";
+            this.cancelLB.Size = new System.Drawing.Size(56, 21);
+            this.cancelLB.TabIndex = 26;
+            this.cancelLB.Text = "Cancel";
+            this.cancelLB.Click += new System.EventHandler(this.label16_Click);
             // 
             // startTimeTP
             // 
@@ -321,7 +321,7 @@
             this.endDateDE.Properties.AutoHeight = false;
             this.endDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.endDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.endDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
             this.endDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -335,16 +335,17 @@
             this.endDateDE.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
             this.endDateDE.Click += new System.EventHandler(this.dateEdit2_Click);
             // 
-            // label15
+            // applyLB
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
-            this.label15.Location = new System.Drawing.Point(273, 472);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 21);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "Apply";
+            this.applyLB.AutoSize = true;
+            this.applyLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.applyLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(216)))), ((int)(((byte)(201)))));
+            this.applyLB.Location = new System.Drawing.Point(273, 472);
+            this.applyLB.Name = "applyLB";
+            this.applyLB.Size = new System.Drawing.Size(55, 21);
+            this.applyLB.TabIndex = 25;
+            this.applyLB.Text = "Apply";
+            this.applyLB.Click += new System.EventHandler(this.applyLB_Click);
             // 
             // notesTB
             // 
@@ -390,7 +391,7 @@
             this.startDateDE.Properties.AutoHeight = false;
             this.startDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.startDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.startDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
             this.startDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -412,8 +413,8 @@
             this.alertCB.Name = "alertCB";
             this.alertCB.Size = new System.Drawing.Size(136, 29);
             this.alertCB.TabIndex = 22;
-            this.alertCB.SelectedIndexChanged += new System.EventHandler(this.alertCB_SelectedIndexChanged);
             this.alertCB.Visible = false;
+            this.alertCB.SelectedIndexChanged += new System.EventHandler(this.alertCB_SelectedIndexChanged);
             // 
             // priorityLB
             // 
@@ -679,8 +680,8 @@
         public System.Windows.Forms.Label priorityLB;
         public System.Windows.Forms.Label alertLB;
         public System.Windows.Forms.TextBox notesTB;
-        public System.Windows.Forms.Label label16;
-        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label cancelLB;
+        public System.Windows.Forms.Label applyLB;
         private System.Windows.Forms.PictureBox alertOn;
         private System.Windows.Forms.PictureBox alertOff;
         public System.Windows.Forms.Label label9;
