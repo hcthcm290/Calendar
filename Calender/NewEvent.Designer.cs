@@ -186,6 +186,7 @@
             this.normalLB.Name = "normalLB";
             this.normalLB.Size = new System.Drawing.Size(22, 22);
             this.normalLB.TabIndex = 30;
+            this.normalLB.Click += new System.EventHandler(this.normalLB_Click);
             // 
             // MediumLB
             // 
@@ -193,6 +194,7 @@
             this.MediumLB.Name = "MediumLB";
             this.MediumLB.Size = new System.Drawing.Size(22, 22);
             this.MediumLB.TabIndex = 29;
+            this.MediumLB.Click += new System.EventHandler(this.MediumLB_Click);
             // 
             // highLB
             // 
@@ -200,6 +202,7 @@
             this.highLB.Name = "highLB";
             this.highLB.Size = new System.Drawing.Size(22, 22);
             this.highLB.TabIndex = 28;
+            this.highLB.Click += new System.EventHandler(this.highLB_Click);
             // 
             // repeatEndDE
             // 
@@ -361,6 +364,7 @@
             this.notesTB.Text = "Add some notes here";
             this.notesTB.Click += new System.EventHandler(this.notesTB_Click);
             this.notesTB.Enter += new System.EventHandler(this.notesTB_Enter);
+            this.notesTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.notesTB_KeyPress);
             this.notesTB.Leave += new System.EventHandler(this.notesTB_Leave);
             // 
             // alertLB
@@ -486,6 +490,7 @@
             this.locationTB.Text = "Location goes here";
             this.locationTB.Click += new System.EventHandler(this.locationTB_Click);
             this.locationTB.Enter += new System.EventHandler(this.locationTB_Enter);
+            this.locationTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.locationTB_KeyPress);
             this.locationTB.Leave += new System.EventHandler(this.locationTB_Leave);
             // 
             // locationLB
@@ -521,6 +526,7 @@
             this.titleTB.Text = "Title goes here";
             this.titleTB.Click += new System.EventHandler(this.titleTB_Click);
             this.titleTB.Enter += new System.EventHandler(this.titleTB_Enter);
+            this.titleTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.titleTB_KeyPress);
             this.titleTB.Leave += new System.EventHandler(this.titleTB_Leave);
             // 
             // label6

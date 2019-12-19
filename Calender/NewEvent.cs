@@ -475,9 +475,32 @@ namespace Calender
         private void New_Event_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
-            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
-            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
+            if (priority == PriorityEnum.high)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(242, 207, 210)), new RectangleF(304, 345, 22, 22));
+            }
+
+            if (priority == PriorityEnum.medium)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(251, 240, 218)), new RectangleF(251, 345, 22, 22));
+            }
+
+            if (priority == PriorityEnum.normal)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(208, 210, 212)), new RectangleF(198, 345, 22, 22));
+            }
             e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180, 0, 0, 0)), 5), new Rectangle(0, 0, this.Width, this.Height));
         }
 
@@ -586,7 +609,7 @@ namespace Calender
             if (notesTB.Text == "")
             {
                 notesTB.ForeColor = Color.FromArgb(194, 200, 207);
-                notesTB.Text = "Location goes here";
+                notesTB.Text = "Add some notes here";
             }
         }
 
@@ -694,6 +717,48 @@ namespace Calender
         private void notesTB_Enter(object sender, EventArgs e)
         {
             notesTB_Click(sender, e);
+        }
+
+        private void titleTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)ConsoleKey.Tab)
+            {
+                locationTB.Focus();
+            }
+        }
+
+        private void locationTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)ConsoleKey.Tab)
+            {
+                notesTB.Focus();
+            }
+        }
+
+        private void notesTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)ConsoleKey.Tab)
+            {
+                titleTB.Focus();
+            }
+        }
+
+        private void normalLB_Click(object sender, EventArgs e)
+        {
+            priority = PriorityEnum.normal;
+            this.Refresh();
+        }
+
+        private void MediumLB_Click(object sender, EventArgs e)
+        {
+            priority = PriorityEnum.medium;
+            this.Refresh();
+        }
+
+        private void highLB_Click(object sender, EventArgs e)
+        {
+            priority = PriorityEnum.high;
+            this.Refresh();
         }
     }
 }
