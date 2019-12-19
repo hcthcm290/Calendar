@@ -390,7 +390,7 @@ namespace Calender
             this.panel6.Location = new System.Drawing.Point(67, 267);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(638, 410);
+            this.panel6.Size = new System.Drawing.Size(638, 339);
             this.panel6.TabIndex = 2;
             // 
             // label8
@@ -536,7 +536,7 @@ namespace Calender
             this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
             this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(96, 29);
             this.statisticsToolStripMenuItem1.Text = "Statistics";
-            this.statisticsToolStripMenuItem1.Click += new System.EventHandler(this.StatisticsToolStripMenuItem1_Click);
+            this.statisticsToolStripMenuItem1.Click += StatisticsToolStripMenuItem1_Click;
             // 
             // settingsToolStripMenuItem
             // 

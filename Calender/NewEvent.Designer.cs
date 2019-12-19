@@ -46,8 +46,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.alertOff = new System.Windows.Forms.PictureBox();
-            this.alertOn = new System.Windows.Forms.PictureBox();
+            this.alertoff = new System.Windows.Forms.PictureBox();
+            this.alerton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.normalLB = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.endTimeTP = new ClockPicker.TimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.startTimeTP = new ClockPicker.TimePicker();
-            this.endDateDE = new DevExpress.XtraEditors.DateEdit();
+            this.EndDateDE = new DevExpress.XtraEditors.DateEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.notesTB = new System.Windows.Forms.TextBox();
             this.alertLB = new System.Windows.Forms.Label();
@@ -84,13 +84,13 @@
             this.normalTT = new System.Windows.Forms.ToolTip(this.components);
             this.mediumTT = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alerton)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).BeginInit();
             this.SuspendLayout();
@@ -98,8 +98,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.alertOff);
-            this.panel1.Controls.Add(this.alertOn);
+            this.panel1.Controls.Add(this.alertoff);
+            this.panel1.Controls.Add(this.alerton);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -108,27 +108,25 @@
             this.panel1.Size = new System.Drawing.Size(361, 84);
             this.panel1.TabIndex = 0;
             // 
-            // alertOff
+            // alertoff
             // 
-            this.alertOff.BackColor = System.Drawing.Color.White;
-            this.alertOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOff.BackgroundImage")));
-            this.alertOff.Location = new System.Drawing.Point(293, 34);
-            this.alertOff.Name = "alertOff";
-            this.alertOff.Size = new System.Drawing.Size(35, 35);
-            this.alertOff.TabIndex = 2;
-            this.alertOff.TabStop = false;
-            this.alertOff.Click += new System.EventHandler(this.alertOff_Click);
+            this.alertoff.BackColor = System.Drawing.Color.White;
+            this.alertoff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertoff.BackgroundImage")));
+            this.alertoff.Location = new System.Drawing.Point(293, 34);
+            this.alertoff.Name = "alertoff";
+            this.alertoff.Size = new System.Drawing.Size(35, 35);
+            this.alertoff.TabIndex = 2;
+            this.alertoff.TabStop = false;
             // 
-            // alertOn
+            // alerton
             // 
-            this.alertOn.BackColor = System.Drawing.Color.White;
-            this.alertOn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOn.BackgroundImage")));
-            this.alertOn.Location = new System.Drawing.Point(293, 34);
-            this.alertOn.Name = "alertOn";
-            this.alertOn.Size = new System.Drawing.Size(35, 35);
-            this.alertOn.TabIndex = 1;
-            this.alertOn.TabStop = false;
-            this.alertOn.Click += new System.EventHandler(this.alertOn_Click);
+            this.alerton.BackColor = System.Drawing.Color.White;
+            this.alerton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alerton.BackgroundImage")));
+            this.alerton.Location = new System.Drawing.Point(293, 34);
+            this.alerton.Name = "alerton";
+            this.alerton.Size = new System.Drawing.Size(35, 35);
+            this.alerton.TabIndex = 1;
+            this.alerton.TabStop = false;
             // 
             // label9
             // 
@@ -150,7 +148,7 @@
             this.panel2.Controls.Add(this.endTimeTP);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.startTimeTP);
-            this.panel2.Controls.Add(this.endDateDE);
+            this.panel2.Controls.Add(this.EndDateDE);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.notesTB);
             this.panel2.Controls.Add(this.alertLB);
@@ -308,32 +306,32 @@
             this.startTimeTP.ValueChanged += new ClockPicker.ValueChangedEventHandler<System.DateTime>(this.startTimeTP_ValueChanged);
             this.startTimeTP.Leave += new System.EventHandler(this.timePicker1_Leave);
             // 
-            // endDateDE
+            // EndDateDE
             // 
-            this.endDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.endDateDE.Location = new System.Drawing.Point(164, 175);
-            this.endDateDE.Name = "endDateDE";
-            this.endDateDE.Properties.AllowFocused = false;
-            this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endDateDE.Properties.Appearance.Options.UseFont = true;
-            this.endDateDE.Properties.Appearance.Options.UseTextOptions = true;
-            this.endDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.endDateDE.Properties.AutoHeight = false;
-            this.endDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.endDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.EndDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
+            this.EndDateDE.Location = new System.Drawing.Point(164, 175);
+            this.EndDateDE.Name = "EndDateDE";
+            this.EndDateDE.Properties.AllowFocused = false;
+            this.EndDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDateDE.Properties.Appearance.Options.UseFont = true;
+            this.EndDateDE.Properties.Appearance.Options.UseTextOptions = true;
+            this.EndDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.EndDateDE.Properties.AutoHeight = false;
+            this.EndDateDE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.EndDateDE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.endDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
-            this.endDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.EndDateDE.Properties.CalendarTimeProperties.AllowFocused = false;
+            this.EndDateDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
-            this.endDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.endDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
-            this.endDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.endDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
-            this.endDateDE.Size = new System.Drawing.Size(164, 29);
-            this.endDateDE.TabIndex = 3;
-            this.endDateDE.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
-            this.endDateDE.Click += new System.EventHandler(this.dateEdit2_Click);
+            this.EndDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
+            this.EndDateDE.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.EndDateDE.Properties.EditFormat.FormatString = "dd MMMM yyyy";
+            this.EndDateDE.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.EndDateDE.Properties.Mask.EditMask = "dd MMMM yyyy";
+            this.EndDateDE.Size = new System.Drawing.Size(164, 29);
+            this.EndDateDE.TabIndex = 3;
+            this.EndDateDE.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
+            this.EndDateDE.Click += new System.EventHandler(this.dateEdit2_Click);
             // 
             // label15
             // 
@@ -366,8 +364,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.alertLB.AutoSize = true;
-            this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.alertLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertLB.ForeColor = System.Drawing.SystemColors.ControlText;
             this.alertLB.Location = new System.Drawing.Point(32, 394);
             this.alertLB.Name = "alertLB";
             this.alertLB.Size = new System.Drawing.Size(47, 21);
@@ -412,7 +410,6 @@
             this.alertCB.Name = "alertCB";
             this.alertCB.Size = new System.Drawing.Size(136, 29);
             this.alertCB.TabIndex = 22;
-            this.alertCB.Visible = false;
             this.alertCB.SelectedIndexChanged += new System.EventHandler(this.alertCB_SelectedIndexChanged);
             // 
             // priorityLB
@@ -642,14 +639,14 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.New_Event_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertoff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alerton)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateDE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -681,8 +678,8 @@
         public System.Windows.Forms.TextBox notesTB;
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label label15;
-        private System.Windows.Forms.PictureBox alertOn;
-        private System.Windows.Forms.PictureBox alertOff;
+        private System.Windows.Forms.PictureBox alerton;
+        private System.Windows.Forms.PictureBox alertoff;
         public System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolTip highTT;
         protected System.Windows.Forms.Label highLB;
@@ -692,7 +689,7 @@
         protected System.Windows.Forms.ToolTip mediumTT;
         protected DevExpress.XtraEditors.DateEdit startDateDE;
         protected System.Windows.Forms.ComboBox alertCB;
-        protected DevExpress.XtraEditors.DateEdit endDateDE;
+        protected DevExpress.XtraEditors.DateEdit EndDateDE;
         protected DevExpress.XtraEditors.DateEdit repeatEndDE;
         protected ClockPicker.TimePicker startTimeTP;
         protected ClockPicker.TimePicker endTimeTP;
