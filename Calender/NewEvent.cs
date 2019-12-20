@@ -29,6 +29,7 @@ namespace Calender
         {
             InitializeComponent();
             Init();
+            
             thisPlan = planData;
             this.StartPosition = FormStartPosition.CenterParent;
             startDateDE.DateTime = focusedDate;
@@ -43,6 +44,8 @@ namespace Calender
             mediumTT.SetToolTip(MediumLB, "Medium");
             repeatEndDE.DateTime = focusedDate;
             priority = PriorityEnum.normal;
+            notification = true;
+            alertOff_Click(new object(), new EventArgs());
         }
 
         void Init()
