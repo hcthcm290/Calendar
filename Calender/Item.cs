@@ -61,18 +61,17 @@ namespace Calender
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (item.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.medium)
             {
                 e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
-
             }
             else if (item.priority == PriorityEnum.high)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(17, 19, 26, 26));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(17, 19, 26, 26));
                 e.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(20, 22, 20, 20));
             }
             else if (item.priority == PriorityEnum.urgent)

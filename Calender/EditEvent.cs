@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calender
-{   
+{
     public partial class EditEvent : New_Event
     {
         GroupPlanItem group;
@@ -23,6 +17,7 @@ namespace Calender
             base(planData)
         {
             InitializeComponent();
+            
             highTT.SetToolTip(highLB, "High");
             mediumTT.SetToolTip(MediumLB, "Medium");
             normalTT.SetToolTip(normalLB, "Normal");
@@ -82,116 +77,86 @@ namespace Calender
             }
 
             this.repeatEndDE.DateTime = group.repeatEnd;
-            /*
-            this.Day_Start.Text = item.startTime.Day.ToString();
-            this.Month_Start.Text = item.startTime.Month.ToString();
-            this.Year_Start.Text = item.startTime.Year.ToString();
-            this.Hour_Start.Text = item.startTime.Hour.ToString();
-            this.Minute_Start.Text = item.startTime.Minute.ToString();
-
-            this.Day_End.Text = item.endTime.Day.ToString();
-            this.Month_End.Text = item.endTime.Month.ToString();
-            this.Year_End.Text = item.endTime.Year.ToString();
-            this.Hour_End.Text = item.endTime.Hour.ToString();
-            this.Minute_End.Text = item.endTime.Minute.ToString();
-
-
-            this.cbbRepeat.SelectedIndex = group.repeatKind;
-            if (group.repeatKind == 5)
+            
+            if(item.notification == true)
             {
-                repeatValue.Text = group.repeatValue.ToString();
+                alertOff_Click(new object(), new EventArgs());
             }
 
-            this.Day_RepeatEnd.Text = group.repeatEnd.Day.ToString();
-            this.Month_RepeatEnd.Text = group.repeatEnd.Month.ToString();
-            this.Year_RepeatEnd.Text = group.repeatEnd.Year.ToString();
-
-
-            TimeSpan ts = item.startTime - item.alert;
-            /*
-            if(ts.Hours == 1)
+            if(item.priority == PriorityEnum.normal)
             {
-                this.cbbalert.SelectedIndex = 0;
-            } 
-            else if(ts.Minutes == 30)
-            {
-                this.cbbalert.SelectedIndex = 1;
+                NormalLB_Click(new object(), new EventArgs());
             }
-            else if (ts.Minutes == 15)
+            if (item.priority == PriorityEnum.medium)
             {
-                this.cbbalert.SelectedIndex = 2;
+                MediumLB_Click(new object(), new EventArgs());
             }
-            else
+            if (item.priority == PriorityEnum.high)
             {
-                this.cbbalert.SelectedIndex = 3;
+                HighLB_Click(new object(), new EventArgs());
             }
-            */
         }
-        /*
+        
         private bool DontChangeRepeat()
         {
-            if(this.cbbRepeat.SelectedIndex == 0 && group.repeatKind == 0)
+            if(this.cbbRepeat.SelectedIndex == 0 && group.repeatKind == 0) 
             {
                 return false;
             }
 
-            if(this.cbbRepeat.SelectedIndex != group.repeatKind)
+            if(this.cbbRepeat.SelectedIndex != group.repeatKind) // if repeatkind change
             {
                 return true;
             }
-            else if(this.Day_RepeatEnd.Text != group.repeatEnd.Day.ToString() || this.Month_RepeatEnd.Text != group.repeatEnd.Month.ToString() || this.Year_RepeatEnd.Text != group.repeatEnd.Year.ToString())
+            else if(repeatEndDE.DateTime.Date != group.repeatEnd.Date) // if repeatkind dont change but repeat end date change
             {
                 return true;
             }
-            else if(this.cbbRepeat.SelectedIndex == 5 && group.repeatValue.ToString() != this.repeatValue.Text)
-            {
+            else if(this.cbbRepeat.SelectedIndex == 5 && 
+                    group.repeatValue.ToString() != this.repeatValueTB.Text) // if repeat kind still custom and repeat end
+            {                                                                //  date dont change but repeat value change
                 return true;
             }
 
             return false;
         }
-
+        
         public override void SaveButton_Click(object sender, EventArgs e)
         {
-            TimeSpan alertTimeSpane = new TimeSpan();/*
-            if (cbbalert.SelectedIndex == 0)
+            TimeSpan alertTimeSpane = new TimeSpan();
+            if (alertCB.SelectedIndex == 0)
             {
                 alertTimeSpane = new TimeSpan(1, 0, 0);
             }
-            else if (cbbalert.SelectedIndex == 1)
+            else if (alertCB.SelectedIndex == 1)
             {
                 alertTimeSpane = new TimeSpan(0, 30, 0);
             }
-            else if (cbbalert.SelectedIndex == 2)
+            else if (alertCB.SelectedIndex == 2)
             {
                 alertTimeSpane = new TimeSpan(0, 15, 0);
             }
-            else if (cbbalert.SelectedIndex == 3)
+            else if (alertCB.SelectedIndex == 3)
             {
                 alertTimeSpane = new TimeSpan(0, 0, 0);
             }
 
             // start time
             int tDay_Start, tMonth_Start, tYear_Start, tHour_Start, tMinute_Start;
-            Int32.TryParse(Day_Start.Text, out tDay_Start);
-            Int32.TryParse(Month_Start.Text, out tMonth_Start);
-            Int32.TryParse(Year_Start.Text, out tYear_Start);
-            Int32.TryParse(Hour_Start.Text, out tHour_Start);
-            Int32.TryParse(Minute_Start.Text, out tMinute_Start);
-            if (CheckLegitDate(tYear_Start, tMonth_Start, tDay_Start) == false)
-            {
-                MessageBox.Show("Invalid Start Date");
-                return;
-            }
+            tDay_Start = startDateDE.DateTime.Day;
+            tMonth_Start = startDateDE.DateTime.Month;
+            tYear_Start = startDateDE.DateTime.Year;
+            tHour_Start = startTimeTP.Value.Hour;
+            tMinute_Start = startTimeTP.Value.Minute;
             DateTime start = new DateTime(tYear_Start, tMonth_Start, tDay_Start, tHour_Start, tMinute_Start, 0);
 
             // end time
             int tDay_End, tMonth_End, tYear_End, tHour_End, tMinute_End;
-            Int32.TryParse(Day_End.Text, out tDay_End);
-            Int32.TryParse(Month_End.Text, out tMonth_End);
-            Int32.TryParse(Year_End.Text, out tYear_End);
-            Int32.TryParse(Hour_End.Text, out tHour_End);
-            Int32.TryParse(Minute_End.Text, out tMinute_End);
+            tDay_End = endDateDE.DateTime.Day;
+            tMonth_End = endDateDE.DateTime.Month;
+            tYear_End = endDateDE.DateTime.Year;
+            tHour_End = endTimeTP.Value.Hour;
+            tMinute_End = endTimeTP.Value.Minute;
             if (CheckLegitDate(tYear_End, tMonth_End, tDay_End) == false)
             {
                 MessageBox.Show("Invalid End Date");
@@ -208,14 +173,9 @@ namespace Calender
 
             // end of repeat
             int tDay_RepeatEnd, tMonth_RepeatEnd, tYear_RepeatEnd;
-            Int32.TryParse(Day_RepeatEnd.Text, out tDay_RepeatEnd);
-            Int32.TryParse(Month_RepeatEnd.Text, out tMonth_RepeatEnd);
-            Int32.TryParse(Year_RepeatEnd.Text, out tYear_RepeatEnd);
-            if (CheckLegitDate(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd) == false && cbbRepeat.SelectedIndex != 0)
-            {
-                MessageBox.Show("Invalid RepeatEnd Date");
-                return;
-            }
+            tDay_RepeatEnd = repeatEndDE.DateTime.Day;
+            tMonth_RepeatEnd = repeatEndDE.DateTime.Month;
+            tYear_RepeatEnd = repeatEndDE.DateTime.Year;
             DateTime repeatEnd = new DateTime(tYear_RepeatEnd, tMonth_RepeatEnd, tDay_RepeatEnd, 23, 59, 59);
 
             // check repeat end
@@ -225,7 +185,27 @@ namespace Calender
                 return;
             }
 
-            // if repeat and repeat end don't change
+            string title = titleTB.Text;
+            if (titleTB.ForeColor != SystemColors.ControlText) // Title cannot be an empty string
+            {
+                errorProvider2.SetError(titleTB, "Title cannnot be blank");
+                title = "";
+                return;
+            }
+
+            string location = locationTB.Text;
+            if (locationTB.ForeColor != SystemColors.ControlText)
+            {
+                location = "";
+            }
+
+            string note = notesTB.Text;
+            if (notesTB.ForeColor != SystemColors.ControlText)
+            {
+                note = "";
+            }
+
+            // if repeat dont change
             if (!DontChangeRepeat())
             {
                 // if dont change the start or the end of event
@@ -237,8 +217,11 @@ namespace Calender
                     // only this item
                     if (result == DialogResult.Yes)
                     {
-                        item.title = this.title.Text;
-                        item.note = this.notes.Text;
+                        item.title = title;
+                        item.note = note;
+                        item.location = location;
+                        item.priority = priority;
+                        item.notification = notification;
                         item.alert = start - alertTimeSpane;
                     }
                     // this and following items
@@ -247,24 +230,30 @@ namespace Calender
                         int i = group.data.IndexOf(item);
                         for (; i < group.data.Count; i++)
                         {
-                            group.data[i].title = this.title.Text;
-                            group.data[i].note = this.notes.Text;
+                            group.data[i].title = title;
+                            group.data[i].note = note;
+                            group.data[i].location = location;
+                            group.data[i].priority = priority;
+                            group.data[i].notification = notification;
                             group.data[i].alert = start - alertTimeSpane;
                         }
                     }
                     // all items
-                    else
+                    else if (result == DialogResult.OK)
                     {
                         int i = 0;
                         for (; i < group.data.Count; i++)
                         {
-                            group.data[i].title = this.title.Text;
-                            group.data[i].note = this.notes.Text;
+                            group.data[i].title = title;
+                            group.data[i].note = note;
+                            group.data[i].location = location;
+                            group.data[i].priority = priority;
+                            group.data[i].notification = notification;
                             group.data[i].alert = start - alertTimeSpane;
                         }
                     }
                 }
-                else
+                else // if change the start and end of item
                 {
                     EditOption opt = new EditOption();
                     DialogResult result = new DialogResult();
@@ -272,8 +261,11 @@ namespace Calender
                     // only this item
                     if (result == DialogResult.Yes)
                     {
-                        item.title = this.title.Text;
-                        item.note = this.notes.Text;
+                        item.title = title;
+                        item.note = note;
+                        item.location = location;
+                        item.priority = priority;
+                        item.notification = notification;
                         item.alert = start - alertTimeSpane;
                         item.startTime = start;
                         item.endTime = end;
@@ -286,15 +278,15 @@ namespace Calender
                         base.SaveButton_Click(sender, e);
                     }
                     // all items
-                    else
+                    else if (result == DialogResult.OK)
                     {
                         int i = 0;
-                        group.data.RemoveRange(i, group.data.Count - i);
+                        group.data.RemoveRange(i, group.data.Count);
                         base.SaveButton_Click(sender, e);
                     }
                 }
             }
-            else
+            else // change the repeat
             {
                 EditOptionS opt = new EditOptionS();
                 DialogResult result = new DialogResult();
@@ -307,10 +299,10 @@ namespace Calender
                     base.SaveButton_Click(sender, e);
                 }
                 // all items
-                else
+                else if (result == DialogResult.OK)
                 {
                     int i = 0;
-                    group.data.RemoveRange(i, group.data.Count - i);
+                    group.data.RemoveRange(i, group.data.Count);
                     base.SaveButton_Click(sender, e);
                 }
             }
@@ -319,6 +311,34 @@ namespace Calender
             Form1.GeneratePriorityColorArray();
             this.Close();
         }
-                    */
+
+        private void deleteLB_Click(object sender, EventArgs e)
+        {
+            EditOption opt = new EditOption();
+            DialogResult result = new DialogResult();
+            result = opt.ShowDialog();
+            // only this item
+            if (result == DialogResult.Yes)
+            {
+                int i = group.data.IndexOf(item);
+                group.data.RemoveRange(i, 1);
+            }
+            // this and following items
+            else if (result == DialogResult.No)
+            {
+                int i = group.data.IndexOf(item);
+                group.data.RemoveRange(i, group.data.Count - i);
+            }
+            // all items
+            else if (result == DialogResult.OK)
+            {
+                int i = 0;
+                group.data.RemoveRange(i, group.data.Count);
+            }
+            group.Sort();
+            Form1.GeneratePriorityColorArray();
+            this.Close();
+        }
     }
+    
 }

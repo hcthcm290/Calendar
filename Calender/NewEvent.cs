@@ -9,8 +9,8 @@ namespace Calender
     {
         public PlanData thisPlan;
         protected TimeSpan timeSpan; // timespan between starttime and endtime
-        PriorityEnum priority;
-        bool notification;
+        protected PriorityEnum priority;
+        protected bool notification;
 
         public New_Event()
         {
@@ -29,6 +29,7 @@ namespace Calender
         {
             InitializeComponent();
             Init();
+            
             thisPlan = planData;
             this.StartPosition = FormStartPosition.CenterParent;
             startDateDE.DateTime = focusedDate;
@@ -42,6 +43,9 @@ namespace Calender
             normalTT.SetToolTip(normalLB, "Normal");
             mediumTT.SetToolTip(MediumLB, "Medium");
             repeatEndDE.DateTime = focusedDate;
+            priority = PriorityEnum.normal;
+            notification = true;
+            alertOff_Click(new object(), new EventArgs());
         }
 
         void Init()
@@ -406,64 +410,6 @@ namespace Calender
 
             }
         }
-
-        /*
-        private void Day_Start_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Day_End.SelectedIndex = cb.SelectedIndex;
-        }
-
-        private void Month_Start_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Month_End.SelectedIndex = cb.SelectedIndex;
-        }
-
-        private void Year_Start_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Year_End.SelectedIndex = cb.SelectedIndex;
-        }
-
-        private void Day_Start_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Day_End.Text = cb.Text;
-        }
-
-        private void Month_Start_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Month_End.Text = cb.Text;
-        }
-
-        private void Year_Start_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            Year_End.Text = cb.Text;
-        }
-
-        private void RepeatEndLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Minute_Start_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-        */
         private void Minute_End_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -666,7 +612,7 @@ namespace Calender
             priorityLB.Focus();
         }
 
-        private void alertOff_Click(object sender, EventArgs e)
+        protected void alertOff_Click(object sender, EventArgs e)
         {
             this.alertOff.Visible = false;
             this.alertOn.Visible = true;
@@ -679,7 +625,7 @@ namespace Calender
             this.notification = true;
         }
 
-        private void alertOn_Click(object sender, EventArgs e)
+        protected void alertOn_Click(object sender, EventArgs e)
         {
             this.alertOff.Visible = true;
             this.alertOn.Visible = false;
@@ -771,19 +717,19 @@ namespace Calender
             }
         }
 
-        private void normalLB_Click(object sender, EventArgs e)
-        {
-            priority = PriorityEnum.normal;
-            this.Refresh();
-        }
-
-        private void MediumLB_Click(object sender, EventArgs e)
+        protected void MediumLB_Click(object sender, EventArgs e)
         {
             priority = PriorityEnum.medium;
             this.Refresh();
         }
 
-        private void highLB_Click(object sender, EventArgs e)
+        protected void NormalLB_Click(object sender, EventArgs e)
+        {
+            priority = PriorityEnum.normal;
+            this.Refresh();
+        }
+
+        protected void HighLB_Click(object sender, EventArgs e)
         {
             priority = PriorityEnum.high;
             this.Refresh();
