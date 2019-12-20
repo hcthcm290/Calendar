@@ -190,7 +190,7 @@
             this.normalLB.Name = "normalLB";
             this.normalLB.Size = new System.Drawing.Size(22, 22);
             this.normalLB.TabIndex = 30;
-            this.normalLB.Click += new System.EventHandler(this.normalLB_Click);
+            this.normalLB.Click += new System.EventHandler(this.NormalLB_Click);
             // 
             // MediumLB
             // 
@@ -206,7 +206,7 @@
             this.highLB.Name = "highLB";
             this.highLB.Size = new System.Drawing.Size(22, 22);
             this.highLB.TabIndex = 28;
-            this.highLB.Click += new System.EventHandler(this.highLB_Click);
+            this.highLB.Click += new System.EventHandler(this.HighLB_Click);
             // 
             // repeatEndDE
             // 
@@ -724,7 +724,7 @@
         protected DevExpress.XtraEditors.DateEdit repeatEndDE;
         protected ClockPicker.TimePicker startTimeTP;
         protected ClockPicker.TimePicker endTimeTP;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
+        protected System.Windows.Forms.ErrorProvider errorProvider1;
+        protected System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
