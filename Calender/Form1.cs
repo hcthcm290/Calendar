@@ -922,6 +922,8 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+
+            // init series for chart control
             series1 = new DevExpress.XtraCharts.Series();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit(); 
             series1.ArgumentDataMember = "Argument";
@@ -982,6 +984,10 @@ namespace Calender
 
             calendarToolStripMenuItem_Click(new object(), new EventArgs());
             focusedButton = new Button();
+
+            // cbbYearly.Text & add year if in new year
+            this.cbbYearly.Text = DateTime.Now.Year.ToString();
+            AddYearForCombobox();
         }
 
         void LoadDataToTimeTable()
@@ -1338,12 +1344,7 @@ namespace Calender
 
         private void StatisticsToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            CountJob(DateTime.Now.Year);
-            series1.DataSource = JobsDoneInMonth();
-            sumall.Text = allDoneJobs.ToString();
-            int month = DateTime.Now.Month;
-            summonth.Text = jobDoneInMonth[month].ToString();
-            sumday.Text = jobsDoneToday.ToString();
+            ReloadChartData();
 
             TimeTablePanel.Visible = false;
             panel6.Visible = false;
@@ -1638,14 +1639,11 @@ namespace Calender
                     }
                 }
             }
-
             return count;
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            CountJob(DateTime.Now.Year);
+            CountJob(Convert.ToInt32(this.cbbYearly.Text));
             try
             {
                 series1.DataSource = JobsDoneInMonth();
@@ -1661,8 +1659,27 @@ namespace Calender
 
             // jobs in today completed
             sumday.Text = jobsDoneToday.ToString();
-
-
         }
+        private void AddYearForCombobox()
+        {
+            do
+            {
+                this.cbbYearly.Items.Add(2013 + this.cbbYearly.Items.Count);
+            } while (DateTime.Now.Year > (2013 + this.cbbYearly.Items.Count - 1));
+        }
+        private void ReloadChartData()
+        {
+            CountJob(Convert.ToInt32(this.cbbYearly.Text));
+            series1.DataSource = JobsDoneInMonth();
+            sumall.Text = allDoneJobs.ToString();
+            int month = DateTime.Now.Month;
+            summonth.Text = jobDoneInMonth[month].ToString();
+            sumday.Text = jobsDoneToday.ToString();
+        }
+        private void cbbYearly_TextChanged(object sender, EventArgs e)
+        {
+            ReloadChartData();
+        }
+
     }
 }
