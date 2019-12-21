@@ -32,12 +32,12 @@ namespace Calender
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView3 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraScheduler.TimeRuler timeRuler7 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler8 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler9 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -45,6 +45,9 @@ namespace Calender
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlStatistics = new System.Windows.Forms.Panel();
+            this.cbbMonthly = new System.Windows.Forms.ComboBox();
+            this.lbMonthly = new System.Windows.Forms.Label();
+            this.lbYearly = new System.Windows.Forms.Label();
             this.cbbYearly = new System.Windows.Forms.ComboBox();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.lbReports = new System.Windows.Forms.Label();
@@ -100,16 +103,13 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lblAnnually = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cbbMonthly = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlStatistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).BeginInit();
             this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.TimeTablePanel.SuspendLayout();
@@ -176,8 +176,8 @@ namespace Calender
             // pnlStatistics
             // 
             this.pnlStatistics.Controls.Add(this.cbbMonthly);
-            this.pnlStatistics.Controls.Add(this.label14);
-            this.pnlStatistics.Controls.Add(this.lblAnnually);
+            this.pnlStatistics.Controls.Add(this.lbMonthly);
+            this.pnlStatistics.Controls.Add(this.lbYearly);
             this.pnlStatistics.Controls.Add(this.cbbYearly);
             this.pnlStatistics.Controls.Add(this.chartControl1);
             this.pnlStatistics.Controls.Add(this.lbReports);
@@ -195,6 +195,57 @@ namespace Calender
             this.pnlStatistics.Size = new System.Drawing.Size(690, 638);
             this.pnlStatistics.TabIndex = 9;
             this.pnlStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlStatistics_Paint);
+            // 
+            // cbbMonthly
+            // 
+            this.cbbMonthly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.cbbMonthly.FormattingEnabled = true;
+            this.cbbMonthly.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbbMonthly.Location = new System.Drawing.Point(535, 180);
+            this.cbbMonthly.Name = "cbbMonthly";
+            this.cbbMonthly.Size = new System.Drawing.Size(43, 29);
+            this.cbbMonthly.TabIndex = 15;
+            this.cbbMonthly.Text = "12";
+            this.cbbMonthly.Visible = false;
+            this.cbbMonthly.TextChanged += new System.EventHandler(this.cbbMonthly_TextChanged);
+            // 
+            // lbMonthly
+            // 
+            this.lbMonthly.AutoSize = true;
+            this.lbMonthly.BackColor = System.Drawing.Color.Transparent;
+            this.lbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lbMonthly.Location = new System.Drawing.Point(193, 189);
+            this.lbMonthly.Name = "lbMonthly";
+            this.lbMonthly.Size = new System.Drawing.Size(68, 19);
+            this.lbMonthly.TabIndex = 14;
+            this.lbMonthly.Text = "Monthly";
+            this.lbMonthly.Click += new System.EventHandler(this.lbMonthly_Click);
+            // 
+            // lbYearly
+            // 
+            this.lbYearly.AutoSize = true;
+            this.lbYearly.BackColor = System.Drawing.Color.Transparent;
+            this.lbYearly.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lbYearly.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lbYearly.Location = new System.Drawing.Point(193, 172);
+            this.lbYearly.Name = "lbYearly";
+            this.lbYearly.Size = new System.Drawing.Size(43, 19);
+            this.lbYearly.TabIndex = 13;
+            this.lbYearly.Text = "Yearly";
+            this.lbYearly.Click += new System.EventHandler(this.lbYearly_Click);
             // 
             // cbbYearly
             // 
@@ -215,22 +266,22 @@ namespace Calender
             // 
             // chartControl1
             // 
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram1;
+            xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram3;
             this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Left;
             this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.BottomOutside;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Location = new System.Drawing.Point(39, 231);
             this.chartControl1.Name = "chartControl1";
-            series1.ArgumentDataMember = "Argument";
-            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series1.Name = "Số lượng công việc của tháng đã hoàn thành";
-            series1.ValueDataMembersSerializable = "Value";
-            sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
-            series1.View = sideBySideBarSeriesView1;
+            series3.ArgumentDataMember = "Argument";
+            series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            series3.Name = "Số lượng công việc của tháng đã hoàn thành";
+            series3.ValueDataMembersSerializable = "Value";
+            sideBySideBarSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
+            series3.View = sideBySideBarSeriesView3;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
+        series3};
             this.chartControl1.SeriesTemplate.SeriesColorizer = null;
             this.chartControl1.Size = new System.Drawing.Size(609, 392);
             this.chartControl1.TabIndex = 11;
@@ -574,10 +625,10 @@ namespace Calender
             this.schedulerControl1.Start = new System.DateTime(2019, 10, 20, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler7);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler8);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler9);
             this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
             this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
@@ -893,45 +944,6 @@ namespace Calender
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // lblAnnually
-            // 
-            this.lblAnnually.AutoSize = true;
-            this.lblAnnually.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnnually.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblAnnually.Location = new System.Drawing.Point(193, 172);
-            this.lblAnnually.Name = "lblAnnually";
-            this.lblAnnually.Size = new System.Drawing.Size(43, 19);
-            this.lblAnnually.TabIndex = 13;
-            this.lblAnnually.Text = "Yearly";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
-            this.label14.Location = new System.Drawing.Point(193, 189);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 19);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Monthly";
-            // 
-            // cbbMonthly
-            // 
-            this.cbbMonthly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.cbbMonthly.FormattingEnabled = true;
-            this.cbbMonthly.Items.AddRange(new object[] {
-            "2013",
-            "2014",
-            "2015",
-            "2016"});
-            this.cbbMonthly.Location = new System.Drawing.Point(535, 180);
-            this.cbbMonthly.Name = "cbbMonthly";
-            this.cbbMonthly.Size = new System.Drawing.Size(43, 29);
-            this.cbbMonthly.TabIndex = 15;
-            this.cbbMonthly.Text = "12";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -956,9 +968,9 @@ namespace Calender
             this.panel2.PerformLayout();
             this.pnlStatistics.ResumeLayout(false);
             this.pnlStatistics.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -1049,8 +1061,8 @@ namespace Calender
         public DevExpress.XtraCharts.Series series1;
         private System.Windows.Forms.ComboBox cbbYearly;
         private System.Windows.Forms.ComboBox cbbMonthly;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblAnnually;
+        private System.Windows.Forms.Label lbMonthly;
+        private System.Windows.Forms.Label lbYearly;
     }
 }
 
