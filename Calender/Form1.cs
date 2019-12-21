@@ -29,7 +29,9 @@ namespace Calender
         Button focusedButton;
         static public Color[] PriorityColorForDay = new Color[32];
 
-        int[] jobDoneInMonth;
+        // data for chart & summary
+        int[] jobsDoneInEachMonth;
+        int[] jobsDoneInEachDay;
         int allDoneJobs;
         int jobsDoneToday;
 
@@ -915,13 +917,16 @@ namespace Calender
 
         public Form1()
         {
-            jobDoneInMonth = new int[13];
+            jobsDoneInEachMonth = new int[13];
+            jobsDoneInEachDay = new int[32];
             allDoneJobs = 0;
             jobsDoneToday = JobsDoneInToday();
 
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+
+            // init series for chart control
             series1 = new DevExpress.XtraCharts.Series();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit(); 
             series1.ArgumentDataMember = "Argument";
@@ -982,6 +987,10 @@ namespace Calender
 
             calendarToolStripMenuItem_Click(new object(), new EventArgs());
             focusedButton = new Button();
+
+            // cbbYearly.Text & add year if in new year
+            this.cbbYearly.Text = DateTime.Now.Year.ToString();
+            AddYearForCombobox();
         }
 
         void LoadDataToTimeTable()
@@ -1338,12 +1347,7 @@ namespace Calender
 
         private void StatisticsToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            CountJob(DateTime.Now.Year);
-            series1.DataSource = JobsDoneInMonth();
-            sumall.Text = allDoneJobs.ToString();
-            int month = DateTime.Now.Month;
-            summonth.Text = jobDoneInMonth[month].ToString();
-            sumday.Text = jobsDoneToday.ToString();
+            ReloadChartData();
 
             TimeTablePanel.Visible = false;
             panel6.Visible = false;
@@ -1570,7 +1574,7 @@ namespace Calender
 
         private void CountJob(int year)
         {
-            jobDoneInMonth = new int[13];
+            jobsDoneInEachMonth = new int[13];
             allDoneJobs = 0;
 
             int numberOfGroup = allPlan.group.Count;
@@ -1582,21 +1586,76 @@ namespace Calender
                 for (int j = 0; j < numberOfItem; j++)
                 {
                     if (allPlan.group[i].data[j].done == true)
-                        allDoneJobs++;
-
-                    if (allPlan.group[i].data[j].startTime.Year == year)
                     {
-                        int monthStart = allPlan.group[i].data[j].startTime.Month;
-                        int monthEnd = allPlan.group[i].data[j].endTime.Month;
+                        allDoneJobs++;
+                        int startYear = allPlan.group[i].data[j].startTime.Year;
+                        int endYear = allPlan.group[i].data[j].endTime.Year;
+                        int startMonth = allPlan.group[i].data[j].startTime.Month;
+                        int endMonth = allPlan.group[i].data[j].endTime.Month;
 
-                        if (allPlan.group[i].data[j].done == true)
+                        if (startYear == year && endYear == year)
                         {
-                            if (monthStart != monthEnd)
+                            if (startMonth != endMonth)
                             {
-                                jobDoneInMonth[monthStart]++;
-                                jobDoneInMonth[monthEnd]++;
+                                jobsDoneInEachMonth[startMonth]++;
+                                jobsDoneInEachMonth[endMonth]++;
                             }
-                            else jobDoneInMonth[monthStart]++;
+                            else jobsDoneInEachMonth[startMonth]++;
+                        }
+                        else
+                        {
+                            if (startYear == year) jobsDoneInEachMonth[startMonth]++;
+                            else if (endYear == year) jobsDoneInEachMonth[endMonth]++;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CountJob(int year, int month)
+        {
+            jobsDoneInEachDay = new int[32];
+            allDoneJobs = 0;
+
+            int numberOfGroup = allPlan.group.Count;
+            int numberOfItem;
+
+            for (int i = 0; i < numberOfGroup; i++)
+            {
+                numberOfItem = allPlan.group[i].data.Count;
+                for (int j = 0; j < numberOfItem; j++)
+                {
+                    if (allPlan.group[i].data[j].done == true)
+                    {
+                        allDoneJobs++;
+                        int startYear = allPlan.group[i].data[j].startTime.Year;
+                        int endYear = allPlan.group[i].data[j].endTime.Year;
+                        int startMonth = allPlan.group[i].data[j].startTime.Month;
+                        int endMonth = allPlan.group[i].data[j].endTime.Month;
+                        int startDay = allPlan.group[i].data[j].startTime.Day;
+                        int endDay = allPlan.group[i].data[j].endTime.Day;
+
+                        if (startYear == year && endYear == year)
+                        {
+                            if (startMonth != endMonth)
+                            {
+                                if (startMonth == month) jobsDoneInEachDay[startDay]++;
+                                else if (endMonth == month) jobsDoneInEachDay[endDay]++;
+                            }
+                            else
+                            {
+                                if (startDay != endDay)
+                                {
+                                    jobsDoneInEachDay[startDay]++;
+                                    jobsDoneInEachDay[endDay]++;
+                                }
+                                else jobsDoneInEachDay[startDay]++;
+                            }
+                        }
+                        else
+                        {
+                            if (startYear == year && startMonth == month) jobsDoneInEachDay[startDay]++;
+                            else if (endYear == year && endMonth == month) jobsDoneInEachDay[endDay]++;
                         }
                     }
                 }
@@ -1613,13 +1672,30 @@ namespace Calender
             {
                 row = dataTable.NewRow();
                 row["Argument"] = i;
-                row["Value"] = jobDoneInMonth[i];
+                row["Value"] = jobsDoneInEachMonth[i];
                 dataTable.Rows.Add(row);
             }
-
             return dataTable;
         }
+        private DataTable JobsDoneInDay()
+        {
+            DataTable dataTable = new DataTable("table1");
+            dataTable.Columns.Add("Argument", typeof(Int32));
+            dataTable.Columns.Add("Value", typeof(Int32));
 
+            DataRow row = null;
+            int year = Convert.ToInt32(this.cbbYearly.Text);
+            int month = 2;
+            int numberOfDay = Year.GetMaxDaysOfMonth(year, month);
+            for (int i = 1; i <= 12; i++)
+            {
+                row = dataTable.NewRow();
+                row["Argument"] = i;
+                row["Value"] = jobsDoneInEachMonth[i];
+                dataTable.Rows.Add(row);
+            }
+            return dataTable;
+        }
         private int JobsDoneInToday()
         {
             int count = 0;
@@ -1638,17 +1714,14 @@ namespace Calender
                     }
                 }
             }
-
             return count;
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            CountJob(DateTime.Now.Year);
+            CountJob(Convert.ToInt32(this.cbbYearly.Text));
             try
             {
-                series1.DataSource = JobsDoneInMonth();
+                series1.DataSource = JobsDoneInMonth();    
             }
             catch { }
 
@@ -1657,12 +1730,31 @@ namespace Calender
 
             // jobs in month completed
             int month = DateTime.Now.Month;
-            summonth.Text = jobDoneInMonth[month].ToString();
+            summonth.Text = jobsDoneInEachMonth[month].ToString();
 
             // jobs in today completed
             sumday.Text = jobsDoneToday.ToString();
-
-
         }
+        private void AddYearForCombobox()
+        {
+            do
+            {
+                this.cbbYearly.Items.Add(2013 + this.cbbYearly.Items.Count);
+            } while (DateTime.Now.Year > (2013 + this.cbbYearly.Items.Count - 1));
+        }
+        private void ReloadChartData()
+        {
+            CountJob(Convert.ToInt32(this.cbbYearly.Text));
+            series1.DataSource = JobsDoneInMonth();
+            sumall.Text = allDoneJobs.ToString();
+            int month = DateTime.Now.Month;
+            summonth.Text = jobsDoneInEachMonth[month].ToString();
+            sumday.Text = jobsDoneToday.ToString();
+        }
+        private void cbbYearly_TextChanged(object sender, EventArgs e)
+        {
+            ReloadChartData();
+        }
+
     }
 }
