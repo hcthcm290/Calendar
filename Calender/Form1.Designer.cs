@@ -100,6 +100,9 @@ namespace Calender
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblAnnually = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbbMonthly = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlStatistics.SuspendLayout();
@@ -172,6 +175,9 @@ namespace Calender
             // 
             // pnlStatistics
             // 
+            this.pnlStatistics.Controls.Add(this.cbbMonthly);
+            this.pnlStatistics.Controls.Add(this.label14);
+            this.pnlStatistics.Controls.Add(this.lblAnnually);
             this.pnlStatistics.Controls.Add(this.cbbYearly);
             this.pnlStatistics.Controls.Add(this.chartControl1);
             this.pnlStatistics.Controls.Add(this.lbReports);
@@ -193,7 +199,7 @@ namespace Calender
             // cbbYearly
             // 
             this.cbbYearly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbYearly.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.cbbYearly.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cbbYearly.FormattingEnabled = true;
             this.cbbYearly.Items.AddRange(new object[] {
             "2013",
@@ -202,8 +208,9 @@ namespace Calender
             "2016"});
             this.cbbYearly.Location = new System.Drawing.Point(584, 180);
             this.cbbYearly.Name = "cbbYearly";
-            this.cbbYearly.Size = new System.Drawing.Size(63, 33);
+            this.cbbYearly.Size = new System.Drawing.Size(63, 29);
             this.cbbYearly.TabIndex = 12;
+            this.cbbYearly.Text = "2019";
             this.cbbYearly.TextChanged += new System.EventHandler(this.cbbYearly_TextChanged);
             // 
             // chartControl1
@@ -886,6 +893,45 @@ namespace Calender
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // lblAnnually
+            // 
+            this.lblAnnually.AutoSize = true;
+            this.lblAnnually.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnnually.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblAnnually.Location = new System.Drawing.Point(193, 172);
+            this.lblAnnually.Name = "lblAnnually";
+            this.lblAnnually.Size = new System.Drawing.Size(43, 19);
+            this.lblAnnually.TabIndex = 13;
+            this.lblAnnually.Text = "Yearly";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.label14.Location = new System.Drawing.Point(193, 189);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 19);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Monthly";
+            // 
+            // cbbMonthly
+            // 
+            this.cbbMonthly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.cbbMonthly.FormattingEnabled = true;
+            this.cbbMonthly.Items.AddRange(new object[] {
+            "2013",
+            "2014",
+            "2015",
+            "2016"});
+            this.cbbMonthly.Location = new System.Drawing.Point(535, 180);
+            this.cbbMonthly.Name = "cbbMonthly";
+            this.cbbMonthly.Size = new System.Drawing.Size(43, 29);
+            this.cbbMonthly.TabIndex = 15;
+            this.cbbMonthly.Text = "12";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1002,6 +1048,9 @@ namespace Calender
         private DevExpress.XtraCharts.ChartControl chartControl1;
         public DevExpress.XtraCharts.Series series1;
         private System.Windows.Forms.ComboBox cbbYearly;
+        private System.Windows.Forms.ComboBox cbbMonthly;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblAnnually;
     }
 }
 
