@@ -68,8 +68,8 @@ namespace Calender
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.pnlStatistics = new System.Windows.Forms.Panel();
             this.cbbMonthly = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblAnnually = new System.Windows.Forms.Label();
+            this.lbMonthly = new System.Windows.Forms.Label();
+            this.lbYearly = new System.Windows.Forms.Label();
             this.cbbYearly = new System.Windows.Forms.ComboBox();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.lbReports = new System.Windows.Forms.Label();
@@ -471,8 +471,8 @@ namespace Calender
             // pnlStatistics
             // 
             this.pnlStatistics.Controls.Add(this.cbbMonthly);
-            this.pnlStatistics.Controls.Add(this.label14);
-            this.pnlStatistics.Controls.Add(this.lblAnnually);
+            this.pnlStatistics.Controls.Add(this.lbMonthly);
+            this.pnlStatistics.Controls.Add(this.lbYearly);
             this.pnlStatistics.Controls.Add(this.cbbYearly);
             this.pnlStatistics.Controls.Add(this.chartControl1);
             this.pnlStatistics.Controls.Add(this.lbReports);
@@ -497,38 +497,50 @@ namespace Calender
             this.cbbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cbbMonthly.FormattingEnabled = true;
             this.cbbMonthly.Items.AddRange(new object[] {
-            "2013",
-            "2014",
-            "2015",
-            "2016"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
             this.cbbMonthly.Location = new System.Drawing.Point(535, 180);
             this.cbbMonthly.Name = "cbbMonthly";
             this.cbbMonthly.Size = new System.Drawing.Size(43, 29);
             this.cbbMonthly.TabIndex = 15;
             this.cbbMonthly.Text = "12";
+            this.cbbMonthly.Visible = false;
+            this.cbbMonthly.TextChanged += new System.EventHandler(this.cbbMonthly_TextChanged);
             // 
-            // label14
+            // lbMonthly
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
-            this.label14.Location = new System.Drawing.Point(193, 189);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 19);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Monthly";
+            this.lbMonthly.AutoSize = true;
+            this.lbMonthly.BackColor = System.Drawing.Color.Transparent;
+            this.lbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lbMonthly.Location = new System.Drawing.Point(193, 189);
+            this.lbMonthly.Name = "lbMonthly";
+            this.lbMonthly.Size = new System.Drawing.Size(56, 19);
+            this.lbMonthly.TabIndex = 14;
+            this.lbMonthly.Text = "Monthly";
+            this.lbMonthly.Click += new System.EventHandler(this.lbMonthly_Click);
             // 
-            // lblAnnually
+            // lbYearly
             // 
-            this.lblAnnually.AutoSize = true;
-            this.lblAnnually.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnnually.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblAnnually.Location = new System.Drawing.Point(193, 172);
-            this.lblAnnually.Name = "lblAnnually";
-            this.lblAnnually.Size = new System.Drawing.Size(43, 19);
-            this.lblAnnually.TabIndex = 13;
-            this.lblAnnually.Text = "Yearly";
+            this.lbYearly.AutoSize = true;
+            this.lbYearly.BackColor = System.Drawing.Color.Transparent;
+            this.lbYearly.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
+            this.lbYearly.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lbYearly.Location = new System.Drawing.Point(193, 172);
+            this.lbYearly.Name = "lbYearly";
+            this.lbYearly.Size = new System.Drawing.Size(52, 19);
+            this.lbYearly.TabIndex = 13;
+            this.lbYearly.Text = "Yearly";
+            this.lbYearly.Click += new System.EventHandler(this.lbYearly_Click);
             // 
             // cbbYearly
             // 
@@ -549,6 +561,7 @@ namespace Calender
             // 
             // chartControl1
             // 
+            xyDiagram1.AxisX.NumericScaleOptions.AutoGrid = false;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControl1.Diagram = xyDiagram1;
@@ -561,6 +574,7 @@ namespace Calender
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
             series1.Name = "Số lượng công việc của tháng đã hoàn thành";
             series1.ValueDataMembersSerializable = "Value";
+            sideBySideBarSeriesView1.BarWidth = 1D;
             sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             series1.View = sideBySideBarSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
@@ -1079,12 +1093,11 @@ namespace Calender
         private System.Windows.Forms.Label lbReports;
         private DevExpress.XtraCharts.ChartControl chartControl1;
         public DevExpress.XtraCharts.Series series1;
+        public DevExpress.XtraCharts.XYDiagram xyDiagram1;
         private System.Windows.Forms.ComboBox cbbYearly;
         private System.Windows.Forms.ComboBox cbbMonthly;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblAnnually;
-        private System.Windows.Forms.Label notificationStatusLB;
-        private System.Windows.Forms.PictureBox theme0PB;
+        private System.Windows.Forms.Label lbMonthly;
+        private System.Windows.Forms.Label lbYearly;
     }
 }
 
