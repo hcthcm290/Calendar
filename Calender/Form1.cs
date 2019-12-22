@@ -931,11 +931,12 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit(); 
             series1.ArgumentDataMember = "Argument";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series1.Name = "Số lượng công việc của tháng đã hoàn thành";
+            series1.Name = "Number of job in each month done";
             series1.ValueDataMembersSerializable = "Value";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            //xyDiagram1.AxisX.WholeRange.SetMinMaxValues(1, 31);
 
             dayView.AutoScroll = true;
             if (dayView.VerticalScroll.Visible == true)
@@ -1714,23 +1715,9 @@ namespace Calender
         }
         private int JobsDoneInToday()
         {
-            int count = 0;
-            List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(DateTime.Now);
-            int numberOfGroup = groups.Count;
-
-            for (int i = 0; i < numberOfGroup; i++)
-            {
-                int numberOfItem = groups[i].data.Count;
-                for (int j = 0; j < numberOfItem; j++)
-                {
-                    if (groups[j].data[j].startTime.Date == DateTime.Now || groups[i].data[j].endTime.Date == DateTime.Now)
-                    {
-                        if (groups[i].data[j].done == true)
-                            count++;
-                    }
-                }
-            }
-            return count;
+            int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+            return jobsDoneInEachDay[month, day];
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -1769,7 +1756,7 @@ namespace Calender
 
             sumall.Text = allDoneJobs.ToString();
             summonth.Text = jobsDoneInEachDay[month,0].ToString();
-            sumday.Text = jobsDoneInEachDay[month, day].ToString();
+            sumday.Text = JobsDoneInToday().ToString();
         }
         private void cbbYearly_TextChanged(object sender, EventArgs e)
         {
@@ -1789,6 +1776,7 @@ namespace Calender
             this.cbbMonthly.Visible = false;
 
             series1.DataSource = JobsDoneInMonth();
+            series1.Name = "Number of job in each month done";
         }
 
         private void lbMonthly_Click(object sender, EventArgs e)
@@ -1800,9 +1788,9 @@ namespace Calender
             this.cbbMonthly.Visible = true;
 
             series1.DataSource = JobsDoneInDay();
-            int year = Convert.ToInt32(this.cbbYearly.Text);
-            int month = Convert.ToInt32(this.cbbMonthly.Text);
-            int numberOfDay = Year.GetMaxDaysOfMonth(year, month);
+            series1.Name = "Number of job in each day done";
+
+            
         }
 
     }
