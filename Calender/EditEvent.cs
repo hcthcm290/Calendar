@@ -252,6 +252,11 @@ namespace Calender
                             group.data[i].alert = start - alertTimeSpane;
                         }
                     }
+                    // cancel
+                    else
+                    {
+                        return;
+                    }
                 }
                 else // if change the start and end of item
                 {
@@ -284,6 +289,11 @@ namespace Calender
                         group.data.RemoveRange(i, group.data.Count);
                         base.SaveButton_Click(sender, e);
                     }
+                    // cancel
+                    else
+                    {
+                        return;
+                    }
                 }
             }
             else // change the repeat
@@ -304,6 +314,11 @@ namespace Calender
                     int i = 0;
                     group.data.RemoveRange(i, group.data.Count);
                     base.SaveButton_Click(sender, e);
+                }
+                // cancel
+                else
+                {
+                    return;
                 }
             }
             
@@ -334,6 +349,11 @@ namespace Calender
             {
                 int i = 0;
                 group.data.RemoveRange(i, group.data.Count);
+            }
+            // cancel
+            else
+            {
+                return;
             }
             group.Sort();
             Form1.GeneratePriorityColorArray();

@@ -182,10 +182,10 @@
     <EmbeddedResource Include="Resources\AddButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\fuck cancel.png" />
+    <EmbeddedResource Include="Resources\cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\fuck save.png" />
+    <EmbeddedResource Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\new left.png" />

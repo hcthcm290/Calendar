@@ -488,10 +488,11 @@
             this.locationTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.locationTB.Location = new System.Drawing.Point(131, 58);
             this.locationTB.Name = "locationTB";
-            this.locationTB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.locationTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.locationTB.Size = new System.Drawing.Size(197, 22);
             this.locationTB.TabIndex = 16;
             this.locationTB.Text = "Location goes here";
+            this.locationTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.locationTB.Click += new System.EventHandler(this.locationTB_Click);
             this.locationTB.Enter += new System.EventHandler(this.locationTB_Enter);
             this.locationTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.locationTB_KeyPress);
@@ -524,10 +525,11 @@
             this.titleTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.titleTB.Location = new System.Drawing.Point(93, 18);
             this.titleTB.Name = "titleTB";
-            this.titleTB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.titleTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.titleTB.Size = new System.Drawing.Size(235, 22);
             this.titleTB.TabIndex = 13;
             this.titleTB.Text = "Title goes here";
+            this.titleTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.titleTB.Click += new System.EventHandler(this.titleTB_Click);
             this.titleTB.Enter += new System.EventHandler(this.titleTB_Enter);
             this.titleTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.titleTB_KeyPress);

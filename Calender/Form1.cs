@@ -974,15 +974,6 @@ namespace Calender
             addbutton.FlatStyle = FlatStyle.Flat;
             addbutton.FlatAppearance.BorderSize = 0;
 
-            //this.panel3.BackColor = Settings1.Default.Color;
-            //this.panel8.BackColor = Settings1.Default.Color;
-            //this.addbutton.BackColor = Settings1.Default.Color;
-            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.panel2.ForeColor = Settings1.Default.Color;
-            //this.PresentMonth.ForeColor = Settings1.Default.Color;
-
             //schedulerControl1.AllowAppointmentDrag = false;
 
             calendarToolStripMenuItem_Click(new object(), new EventArgs());
@@ -991,6 +982,62 @@ namespace Calender
             // cbbYearly.Text & add year if in new year
             this.cbbYearly.Text = DateTime.Now.Year.ToString();
             AddYearForCombobox();
+
+            // load setting
+            // 1: load color
+            Color themeColor = new Color();
+            if(Settings1.Default.Theme == 0)
+            {
+                themeColor = Color.DarkOrange;
+            }
+            else if (Settings1.Default.Theme == 1)
+            {
+                themeColor = Color.FromArgb(112, 76, 161);
+            }
+            else if (Settings1.Default.Theme == 2)
+            {
+                themeColor = Color.FromArgb(238, 197, 106);
+            }
+            else if (Settings1.Default.Theme == 3)
+            {
+                themeColor = Color.FromArgb(78, 169, 119);
+            }
+            else if (Settings1.Default.Theme == 4)
+            {
+                themeColor = Color.FromArgb(194, 200, 207);
+            }
+            this.panel3.BackColor = themeColor;
+            this.panel8.BackColor = themeColor;
+            this.addbutton.BackColor = themeColor;
+            this.panel2.ForeColor = themeColor;
+            this.PresentMonth.ForeColor = themeColor;
+            label2.ForeColor = themeColor;
+
+            // 2: load notifacaiton status
+            if(Settings1.Default.Notification == true)
+            {
+                alertOff.Visible = false;
+                alertOn.Visible = true;
+                notificationStatusLB.Text = "On";
+            }
+            else
+            {
+                alertOff.Visible = true;
+                alertOn.Visible = false;
+                notificationStatusLB.Text = "Off";
+            }
+
+            // 3: load email address
+            if(Settings1.Default.Email != "")
+            {
+                emailTB.Text = Settings1.Default.Email;
+                emailTB.ForeColor = SystemColors.ControlText;
+            }
+
+            // 4: load email notification kind
+            normalChB.Checked = Settings1.Default.normalEmailNoti;
+            mediumChB.Checked = Settings1.Default.mediumEmailNoti;
+            highChB.Checked = Settings1.Default.highEmailNoti;
         }
 
         void LoadDataToTimeTable()
@@ -1159,12 +1206,6 @@ namespace Calender
                 }
             }
         }
-
-        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
         private void Addbutton_Click(object sender, EventArgs e)
         {
             new_Event = new New_Event(allPlan, focusedDate);
@@ -1383,7 +1424,9 @@ namespace Calender
         {
             if (e.Appointment.CustomFields.Count == 0)
             {
-                New_Event new_Event = new New_Event(allPlan);
+                SchedulerControl schedulerControl = sender as SchedulerControl;
+
+                New_Event new_Event = new New_Event(allPlan, schedulerControl.DayView.SelectedInterval.Start);
                 new_Event.ShowDialog();
                 LoadDataToTimeTable();
                 e.Handled = true;
@@ -1395,96 +1438,9 @@ namespace Calender
             e.Handled = true;
         }
 
-        private void buttonColor_Click(object sender, EventArgs e)
-        {
-            if (colorDialog1.ShowDialog() != DialogResult.Cancel)
-            {
-                Settings1.Default.Color = colorDialog1.Color;
-                this.panel3.BackColor = Settings1.Default.Color;
-                this.panel8.BackColor = Settings1.Default.Color;
-                this.addbutton.BackColor = Settings1.Default.Color;
-                //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-                //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
-                //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-                this.panel2.ForeColor = Settings1.Default.Color;
-                this.PresentMonth.ForeColor = Settings1.Default.Color;
-            }
-        }
-
-        private void buttonSaveSetting_Click(object sender, EventArgs e)
-        {
-            this.panel3.BackColor = Settings1.Default.Color;
-            this.panel8.BackColor = Settings1.Default.Color;
-            this.addbutton.BackColor = Settings1.Default.Color;
-            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            this.panel2.ForeColor = Settings1.Default.Color;
-            this.PresentMonth.ForeColor = Settings1.Default.Color;
-            Settings1.Default.Save();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings1.Default.Notification = true;
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings1.Default.Notification = false;
-        }
-
-        private void labelNotify_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NextMonth_Paint(object sender, PaintEventArgs e)
-        {
-            Button btn = (Button)sender;
-            Graphics gfx = e.Graphics;
-            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            using (Bitmap bmp = new Bitmap(global::Calender.Properties.Resources.new_right))
-            {
-                ColorMap[] colorMap = new ColorMap[1];
-                colorMap[0] = new ColorMap();
-                colorMap[0].OldColor = Color.Coral;
-                colorMap[0].NewColor = Settings1.Default.Color;
-                ImageAttributes attr = new ImageAttributes();
-                attr.SetRemapTable(colorMap);
-                Rectangle rect = new Rectangle((btn.Width - bmp.Width) / 2, (btn.Height - bmp.Height) / 2, bmp.Width, bmp.Height);
-                gfx.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
-            }
-
-        }
-
         private void PresentMonth_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDefaultSetting_Click(object sender, EventArgs e)
-        {
-            Settings1.Default.Color = Settings1.Default.DefaultColor;
-            this.panel3.BackColor = Settings1.Default.Color;
-            this.panel8.BackColor = Settings1.Default.Color;
-            this.addbutton.BackColor = Settings1.Default.Color;
-            //this.statisticsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.timetableToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            //this.settingsToolStripMenuItem.ForeColor = Settings1.Default.Color;
-            this.panel2.ForeColor = Settings1.Default.Color;
-            this.PresentMonth.ForeColor = Settings1.Default.Color;
-            Settings1.Default.Save();
         }
 
         private void testEmail_Click(object sender, EventArgs e)
@@ -1559,7 +1515,14 @@ namespace Calender
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-
+            Color c = Color.FromArgb(78, 169, 119);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 3;
         }
 
         private void pnlStatistics_Paint(object sender, PaintEventArgs e)
@@ -1755,6 +1718,231 @@ namespace Calender
         {
             ReloadChartData();
         }
+        private void schedulerControl1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            e.Menu.Items.Clear();
+        }
+        private void theme1PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 1)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(112, 76, 161)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(219, 210, 231)), theme1PB.DisplayRectangle);
+            }
+        }
+        private void theme1PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(112, 76, 161);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 1;
+        }
 
+        private void theme2PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(238, 197, 106);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 2;
+        }
+
+        private void theme4PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(194, 200, 207);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 4;
+        }
+
+        private void lblSave_Click(object sender, EventArgs e)
+        {
+            if (emailTB.ForeColor == SystemColors.ControlText)
+            {
+                Settings1.Default.Email = emailTB.Text;
+            }
+            else
+            {
+                Settings1.Default.Email = "";
+            }
+            Settings1.Default.Save();
+        }
+
+        private void lblSave_MouseDown(object sender, MouseEventArgs e)
+        {
+            lblSave.BackColor = Color.FromArgb(30, 0, 0, 0);
+        }
+
+        private void lblSave_MouseUp(object sender, MouseEventArgs e)
+        {
+            lblSave.BackColor = Color.Transparent;
+        }
+
+        private void lblDefault_Click(object sender, EventArgs e)
+        {
+            // theme
+            Color c = Color.DarkOrange;
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 0;
+
+            // notification
+            alertOff_Click(sender, e);
+            Settings1.Default.Notification = true;
+
+            // email notifacation kind
+            normalChB.Checked = false;
+            mediumChB.Checked = false;
+            highChB.Checked = false;
+
+            Settings1.Default.Save();
+        }
+
+        private void lblDefault_MouseDown(object sender, MouseEventArgs e)
+        {
+            lblDefault.BackColor = Color.FromArgb(30, 0, 0, 0);
+        }
+
+        private void lblDefault_MouseUp(object sender, MouseEventArgs e)
+        {
+            lblDefault.BackColor = Color.Transparent;
+        }
+
+        private void alertOff_Click(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = true;
+            alertOff.Visible = false;
+            alertOn.Visible = true;
+            notificationStatusLB.Text = "On";
+        }
+
+        private void alertOn_Click(object sender, EventArgs e)
+        {
+            Settings1.Default.Notification = false;
+            alertOff.Visible = true;
+            alertOn.Visible = false;
+            notificationStatusLB.Text = "Off";
+        }
+
+        private void emailTB_Enter(object sender, EventArgs e)
+        {
+            if(emailTB.ForeColor != SystemColors.ControlText)
+            {
+                emailTB.Text = "";
+                emailTB.ForeColor = SystemColors.ControlText;
+            }
+        }
+
+        private void emailTB_Leave(object sender, EventArgs e)
+        {
+            if (emailTB.Text == "")
+            {
+                emailTB.Text = "Type email here";
+                this.emailTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            }
+        }
+
+        private void normalChB_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.normalEmailNoti = normalChB.Checked;
+        }
+
+        private void mediumChB_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.mediumEmailNoti = mediumChB.Checked;
+        }
+
+        private void highChB_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings1.Default.highEmailNoti = highChB.Checked;
+        }
+
+        private void theme2PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 2)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 197, 106)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(251, 240, 218)), theme1PB.DisplayRectangle);
+            }
+        }
+
+        private void theme3PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 3)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(78, 169, 119)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(211, 233, 221)), theme1PB.DisplayRectangle);
+            }
+        }
+
+        private void theme4PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 4)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(194, 200, 207)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(240, 241, 243)), theme1PB.DisplayRectangle);
+            }
+        }
+
+        private void theme0PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.DarkOrange;
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 0;
+        }
+
+        private void theme0PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 0)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 140, 0)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 207, 149)), theme1PB.DisplayRectangle);
+            }
+        }
+
+        private void emailTB_TextChanged(object sender, EventArgs e)
+        {
+            emailTB.SelectionStart = emailTB.Text.Length;
+        }
     }
 }

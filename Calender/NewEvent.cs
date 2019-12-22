@@ -37,8 +37,8 @@ namespace Calender
             string sad = startTimeTP.Text;
             this.titleTB.Focus();
             timeSpan = new TimeSpan(1, 0, 0);
-            startTimeTP.Value = DateTime.Now;
-            endTimeTP.Value = DateTime.Now + timeSpan;
+            startTimeTP.Value = focusedDate;
+            endTimeTP.Value = focusedDate + timeSpan;
             highTT.SetToolTip(highLB, "High");
             normalTT.SetToolTip(normalLB, "Normal");
             mediumTT.SetToolTip(MediumLB, "Medium");
