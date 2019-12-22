@@ -1756,6 +1756,18 @@ namespace Calender
             
         }
 
+        private void theme1PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(112, 76, 161);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            this.PresentMonth.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 1;
+        }
+
         private void theme2PB_Click(object sender, EventArgs e)
         {
             Color c = Color.FromArgb(238, 197, 106);
@@ -1886,6 +1898,19 @@ namespace Calender
             Settings1.Default.highEmailNoti = highChB.Checked;
         }
 
+        private void theme1PB_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (Settings1.Default.Theme == 1)
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(112, 76, 161)), theme1PB.DisplayRectangle);
+            }
+            else
+            {
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(219, 210, 231)), theme1PB.DisplayRectangle);
+            }
+        }
+
         private void theme2PB_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -1953,6 +1978,11 @@ namespace Calender
         private void emailTB_TextChanged(object sender, EventArgs e)
         {
             emailTB.SelectionStart = emailTB.Text.Length;
+        }
+
+        private void schedulerControl1_PopupMenuShowing(object sender, EventArgs e)
+        {
+            
         }
     }
 }
