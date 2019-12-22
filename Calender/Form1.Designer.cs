@@ -67,9 +67,6 @@ namespace Calender
             this.TimeTablePanel = new System.Windows.Forms.Panel();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.pnlStatistics = new System.Windows.Forms.Panel();
-            this.cbbMonthly = new System.Windows.Forms.ComboBox();
-            this.lbMonthly = new System.Windows.Forms.Label();
-            this.lbYearly = new System.Windows.Forms.Label();
             this.cbbYearly = new System.Windows.Forms.ComboBox();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.lbReports = new System.Windows.Forms.Label();
