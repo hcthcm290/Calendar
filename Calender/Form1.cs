@@ -1100,7 +1100,7 @@ namespace Calender
             GenerateDaysForDateButtons(Months.iCurrent);
         }
 
-        void GenerateDaysForDateButtons(int month)
+        public void GenerateDaysForDateButtons(int month)
         {
             int maxDay = Year.GetMaxDaysOfMonth(Year.GetCurrentYear(), month);
             DateTime d = new DateTime(Year.GetCurrentYear(), month, 1);
@@ -1153,11 +1153,11 @@ namespace Calender
                         {
                             PriorityColorForDay[count] = Color.Black;
                         }
-                        else if (countEventForToday < 7)
+                        else if (countEventForToday < 6)
                         {
                             PriorityColorForDay[count] = Color.FromArgb(255, 195, 0);
                         }
-                        else if (countEventForToday < 10)
+                        else if (countEventForToday < 8)
                         {
                             PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
                         }
@@ -1168,6 +1168,7 @@ namespace Calender
                         DateButton[i, j].Text = count.ToString();
                         DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 0, 0, 0);
                         DateButton[i, j].Enabled = true;
+                        DateButton[i, j].ForeColor = PriorityColorForDay[count];
                         if (count == DateTime.Now.Day && month == DateTime.Now.Month && Year.GetCurrentYear() == DateTime.Now.Year)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
@@ -1213,7 +1214,7 @@ namespace Calender
             new_Event.ShowDialog();
             LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
             LoadDataToTimeTable();
-            GeneratePriorityColorArray();
+            GenerateDaysForDateButtons(Months.iCurrent);
         }
 
         private void PrevMonth_Click(object sender, EventArgs e)
@@ -1353,6 +1354,16 @@ namespace Calender
                             notifyIcon1.BalloonTipTitle = " ";
                         }
                         notifyIcon1.ShowBalloonTip(3000);
+
+                        if((alertForToday[i].priority == PriorityEnum.normal && Settings1.Default.normalEmailNoti == true) ||
+                           (alertForToday[i].priority == PriorityEnum.medium && Settings1.Default.mediumEmailNoti == true) ||
+                           (alertForToday[i].priority == PriorityEnum.high && Settings1.Default.highEmailNoti == true))
+                        {
+                            SendEmailNotification("You have an upcoming task" + Environment.NewLine +
+                                                  "Name: " + alertForToday[i].title + Environment.NewLine + 
+                                                  "At " + alertForToday[i].location + Environment.NewLine +
+                                                  "Notes: " + alertForToday[i].note);
+                        }
                     }
                 }
                 timer.Interval = 60000;
@@ -1385,7 +1396,6 @@ namespace Calender
             prevmonth.Visible = true;
             this.Refresh();
         }
-
 
         private void StatisticsToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
@@ -1444,7 +1454,7 @@ namespace Calender
 
         }
 
-        private void testEmail_Click(object sender, EventArgs e)
+        private void SendEmailNotification(string body)
         {
             try
             {
@@ -1453,8 +1463,9 @@ namespace Calender
 
                 message.From = new MailAddress("Dragonnica123@gmail.com");
                 message.To.Add(new MailAddress("18520359@gm.uit.edu.vn"));
-                message.Subject = "Test";
-                message.Body = "Content";
+                message.Subject = "Auto Mail Notification";
+                message.Body = body;
+                message.IsBodyHtml = false;
 
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com";
@@ -1522,6 +1533,7 @@ namespace Calender
             this.addbutton.BackColor = c;
             this.panel2.ForeColor = c;
             this.PresentMonth.ForeColor = c;
+            lblSave.ForeColor = c;
             label2.ForeColor = c;
             Settings1.Default.Theme = 3;
         }
@@ -1765,6 +1777,7 @@ namespace Calender
             this.panel2.ForeColor = c;
             this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
+            lblSave.ForeColor = c;
             Settings1.Default.Theme = 1;
         }
 
@@ -1777,6 +1790,7 @@ namespace Calender
             this.panel2.ForeColor = c;
             this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
+            lblSave.ForeColor = c;
             Settings1.Default.Theme = 2;
         }
 
@@ -1789,6 +1803,7 @@ namespace Calender
             this.panel2.ForeColor = c;
             this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
+            lblSave.ForeColor = c;
             Settings1.Default.Theme = 4;
         }
 
@@ -1947,31 +1962,6 @@ namespace Calender
             else
             {
                 e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(240, 241, 243)), theme1PB.DisplayRectangle);
-            }
-        }
-
-        private void theme0PB_Click(object sender, EventArgs e)
-        {
-            Color c = Color.DarkOrange;
-            this.panel3.BackColor = c;
-            this.panel8.BackColor = c;
-            this.addbutton.BackColor = c;
-            this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
-            label2.ForeColor = c;
-            Settings1.Default.Theme = 0;
-        }
-
-        private void theme0PB_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            if (Settings1.Default.Theme == 0)
-            {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 140, 0)), theme1PB.DisplayRectangle);
-            }
-            else
-            {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(255, 207, 149)), theme1PB.DisplayRectangle);
             }
         }
 

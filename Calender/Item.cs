@@ -53,6 +53,7 @@ namespace Calender
             EditEvent edit = new EditEvent(Form1.allPlan, group, item);
             edit.ShowDialog();
             form1.ReloadItemToDayView();
+            form1.GenerateDaysForDateButtons(Months.iCurrent);
         }
 
         private void Item_Paint(object sender, PaintEventArgs e)
