@@ -1080,6 +1080,7 @@ namespace Calender
         private DevExpress.XtraCharts.ChartControl chartControl1;
         public DevExpress.XtraCharts.Series series1;
         public DevExpress.XtraCharts.XYDiagram xyDiagram1;
+        public DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1;
         private System.Windows.Forms.ComboBox cbbYearly;
         private System.Windows.Forms.ComboBox cbbMonthly;
         private System.Windows.Forms.Label lbMonthly;

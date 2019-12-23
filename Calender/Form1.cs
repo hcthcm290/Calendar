@@ -28,6 +28,7 @@ namespace Calender
         DateTime focusedDate;
         Button focusedButton;
         static public Color[] PriorityColorForDay = new Color[32];
+        Color themeColor;
 
         // data for chart & summary
         int[] jobsDoneInEachMonth;
@@ -928,10 +929,11 @@ namespace Calender
 
             // init series for chart control
             series1 = new DevExpress.XtraCharts.Series();
+            sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit(); 
             series1.ArgumentDataMember = "Argument";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series1.Name = "Number of job in each month done";
+            series1.Name = "Number of completed tasks";
             series1.ValueDataMembersSerializable = "Value";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
@@ -986,7 +988,7 @@ namespace Calender
 
             // load setting
             // 1: load color
-            Color themeColor = new Color();
+            themeColor = new Color();
             if(Settings1.Default.Theme == 0)
             {
                 themeColor = Color.DarkOrange;
@@ -1013,6 +1015,10 @@ namespace Calender
             this.panel2.ForeColor = themeColor;
             this.PresentMonth.ForeColor = themeColor;
             label2.ForeColor = themeColor;
+
+            this.lbYearly.ForeColor = themeColor;
+            sideBySideBarSeriesView1.Color = themeColor;
+            series1.View = sideBySideBarSeriesView1;
 
             // 2: load notifacaiton status
             if(Settings1.Default.Notification == true)
@@ -1536,6 +1542,10 @@ namespace Calender
             lblSave.ForeColor = c;
             label2.ForeColor = c;
             Settings1.Default.Theme = 3;
+
+            sideBySideBarSeriesView1.Color = c;
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
         }
 
         private void pnlStatistics_Paint(object sender, PaintEventArgs e)
@@ -1745,25 +1755,25 @@ namespace Calender
         private void lbYearly_Click(object sender, EventArgs e)
         {
             this.lbYearly.Font = new Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
-            this.lbYearly.ForeColor = Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lbYearly.ForeColor = themeColor;
             this.lbMonthly.Font = new Font("Segoe UI Light", 10F);
             this.lbMonthly.ForeColor = Color.Black;
             this.cbbMonthly.Visible = false;
 
             series1.DataSource = JobsDoneInMonth();
-            series1.Name = "Number of job in each month done";
+            //series1.Name = "Number of job in each month done";
         }
 
         private void lbMonthly_Click(object sender, EventArgs e)
         {
             this.lbMonthly.Font = new Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
-            this.lbMonthly.ForeColor = Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lbMonthly.ForeColor = themeColor;
             this.lbYearly.Font = new Font("Segoe UI Light", 10F);
             this.lbYearly.ForeColor = Color.Black;
             this.cbbMonthly.Visible = true;
 
             series1.DataSource = JobsDoneInDay();
-            series1.Name = "Number of job in each day done";
+            //series1.Name = "Number of job in each day done";
 
             
         }
@@ -1779,6 +1789,10 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 1;
+
+            sideBySideBarSeriesView1.Color = c;
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
         }
 
         private void theme2PB_Click(object sender, EventArgs e)
@@ -1792,6 +1806,10 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 2;
+
+            sideBySideBarSeriesView1.Color = c;
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
         }
 
         private void theme4PB_Click(object sender, EventArgs e)
@@ -1805,6 +1823,10 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 4;
+
+            sideBySideBarSeriesView1.Color = c;
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
         }
 
         private void lblSave_Click(object sender, EventArgs e)
@@ -1840,7 +1862,11 @@ namespace Calender
             this.panel2.ForeColor = c;
             this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
+            sideBySideBarSeriesView1.Color = c;
             Settings1.Default.Theme = 0;
+
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
 
             // notification
             alertOff_Click(sender, e);
