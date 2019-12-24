@@ -29,6 +29,7 @@ namespace Calender
         Button focusedButton;
         static public Color[] PriorityColorForDay = new Color[32];
         Color themeColor;
+        Appointment focusedAppointment;
 
         // data for chart & summary
         int[] jobsDoneInEachMonth;
@@ -1235,7 +1236,7 @@ namespace Calender
         }
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            new_Event = new New_Event(allPlan, focusedDate);
+            new_Event = new New_Event(allPlan, new DateTime(focusedDate.Year, focusedDate.Month, focusedDate.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0));
             new_Event.ShowDialog();
             LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
             LoadDataToTimeTable();
@@ -1462,7 +1463,7 @@ namespace Calender
             {
                 SchedulerControl schedulerControl = sender as SchedulerControl;
 
-                New_Event new_Event = new New_Event(allPlan, schedulerControl.DayView.SelectedInterval.Start);
+                New_Event new_Event = new New_Event(allPlan, schedulerControl.DayView.SelectedInterval.Start, schedulerControl.DayView.SelectedInterval.End);
                 new_Event.ShowDialog();
                 LoadDataToTimeTable();
                 e.Handled = true;
@@ -2011,11 +2012,56 @@ namespace Calender
             emailTB.SelectionStart = emailTB.Text.Length;
         }
 
-        private void schedulerControl1_PopupMenuShowing(object sender, EventArgs e)
+        private void schedulerControl1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            
+            if (e.Menu.Id == SchedulerMenuItemId.DefaultMenu)
+            {
+                e.Menu.RemoveMenuItem(SchedulerMenuItemId.NewAllDayEvent);
+                e.Menu.RemoveMenuItem(SchedulerMenuItemId.NewRecurringAppointment);
+                e.Menu.RemoveMenuItem(SchedulerMenuItemId.NewRecurringEvent);
+                e.Menu.Items.Remove(e.Menu.Items[3]);
+            } 
+            else if(e.Menu.Id == SchedulerMenuItemId.AppointmentMenu)
+            {
+                e.Menu.Items.Remove(e.Menu.Items[1]);
+                e.Menu.Items.Remove(e.Menu.Items[1]);
+                e.Menu.Items.Remove(e.Menu.Items[1]);
+                e.Menu.Items.Remove(e.Menu.Items[1]);
+                e.Menu.Items.Remove(e.Menu.Items[1]);
+                e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Delete", DeleteAppointment));
+            }
+            else
+            {
+                e.Menu.Items.Clear();
+            }
         }
 
-        
+        private void DeleteAppointment(object sender, EventArgs e)
+        {
+            EditEvent edit = new EditEvent(allPlan, (GroupPlanItem)focusedAppointment.CustomFields["group"], (PlanItem)focusedAppointment.CustomFields["item"]);
+            
+            edit.deleteLB_Click_WithoutClosing(sender, e);
+            LoadDataToTimeTable();
+            LoadItemToDayView(focusedDate.Year, focusedDate.Month, focusedDate.Day);
+        }
+
+        private void schedulerControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            SchedulerControl scheduler = sender as SchedulerControl;
+            if (scheduler == null) return;
+
+            Point pos = new Point(e.X, e.Y);
+            SchedulerViewInfoBase viewInfo = schedulerControl1.ActiveView.ViewInfo;
+            SchedulerHitInfo hitInfo = viewInfo.CalcHitInfo(pos, false);
+
+            if (hitInfo.HitTest == SchedulerHitTest.AppointmentContent)
+            {
+                focusedAppointment = ((AppointmentViewInfo)hitInfo.ViewInfo).Appointment;
+            }
+            else
+            {
+                focusedAppointment = null;
+            }
+        }
     }
 }

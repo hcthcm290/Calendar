@@ -32,37 +32,20 @@ namespace Calender
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.vScrollBar1 = new DevExpress.XtraEditors.VScrollBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.SettingPanel = new System.Windows.Forms.Panel();
-            this.notificationStatusLB = new System.Windows.Forms.Label();
-            this.theme1PB = new System.Windows.Forms.PictureBox();
-            this.theme2PB = new System.Windows.Forms.PictureBox();
-            this.theme4PB = new System.Windows.Forms.PictureBox();
-            this.theme3PB = new System.Windows.Forms.PictureBox();
-            this.alertOff = new System.Windows.Forms.PictureBox();
-            this.alertOn = new System.Windows.Forms.PictureBox();
-            this.highChB = new System.Windows.Forms.CheckBox();
-            this.mediumChB = new System.Windows.Forms.CheckBox();
-            this.normalChB = new System.Windows.Forms.CheckBox();
-            this.emailTB = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.themeLB = new System.Windows.Forms.Label();
-            this.lblSave = new System.Windows.Forms.Label();
-            this.lblDefault = new System.Windows.Forms.Label();
+            this.TimeTablePanel = new System.Windows.Forms.Panel();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.nextmonth = new System.Windows.Forms.Button();
             this.prevmonth = new System.Windows.Forms.Button();
             this.PresentMonth = new System.Windows.Forms.Label();
@@ -94,8 +77,25 @@ namespace Calender
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lbSummary = new System.Windows.Forms.Label();
-            this.TimeTablePanel = new System.Windows.Forms.Panel();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
+            this.SettingPanel = new System.Windows.Forms.Panel();
+            this.notificationStatusLB = new System.Windows.Forms.Label();
+            this.theme1PB = new System.Windows.Forms.PictureBox();
+            this.theme2PB = new System.Windows.Forms.PictureBox();
+            this.theme4PB = new System.Windows.Forms.PictureBox();
+            this.theme3PB = new System.Windows.Forms.PictureBox();
+            this.alertOff = new System.Windows.Forms.PictureBox();
+            this.alertOn = new System.Windows.Forms.PictureBox();
+            this.highChB = new System.Windows.Forms.CheckBox();
+            this.mediumChB = new System.Windows.Forms.CheckBox();
+            this.normalChB = new System.Windows.Forms.CheckBox();
+            this.emailTB = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.themeLB = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Label();
+            this.lblDefault = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dayView = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -105,13 +105,8 @@ namespace Calender
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.SettingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.theme1PB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme2PB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme4PB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme3PB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).BeginInit();
+            this.TimeTablePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlStatistics.SuspendLayout();
@@ -119,8 +114,13 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
-            this.TimeTablePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
+            this.SettingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1PB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme2PB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme4PB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme3PB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -157,6 +157,7 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
@@ -164,7 +165,6 @@ namespace Calender
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Controls.Add(this.pnlStatistics);
-            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -173,244 +173,49 @@ namespace Calender
             this.panel2.Size = new System.Drawing.Size(707, 688);
             this.panel2.TabIndex = 0;
             // 
-            // SettingPanel
+            // TimeTablePanel
             // 
-            this.SettingPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SettingPanel.Controls.Add(this.notificationStatusLB);
-            this.SettingPanel.Controls.Add(this.theme1PB);
-            this.SettingPanel.Controls.Add(this.theme2PB);
-            this.SettingPanel.Controls.Add(this.theme4PB);
-            this.SettingPanel.Controls.Add(this.theme3PB);
-            this.SettingPanel.Controls.Add(this.alertOff);
-            this.SettingPanel.Controls.Add(this.alertOn);
-            this.SettingPanel.Controls.Add(this.highChB);
-            this.SettingPanel.Controls.Add(this.mediumChB);
-            this.SettingPanel.Controls.Add(this.normalChB);
-            this.SettingPanel.Controls.Add(this.emailTB);
-            this.SettingPanel.Controls.Add(this.label10);
-            this.SettingPanel.Controls.Add(this.label9);
-            this.SettingPanel.Controls.Add(this.label13);
-            this.SettingPanel.Controls.Add(this.label12);
-            this.SettingPanel.Controls.Add(this.themeLB);
-            this.SettingPanel.Controls.Add(this.lblSave);
-            this.SettingPanel.Controls.Add(this.lblDefault);
-            this.SettingPanel.Location = new System.Drawing.Point(0, 43);
-            this.SettingPanel.Name = "SettingPanel";
-            this.SettingPanel.Size = new System.Drawing.Size(702, 634);
-            this.SettingPanel.TabIndex = 4;
-            this.SettingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingPanel_Paint);
+            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
+            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
+            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeTablePanel.Name = "TimeTablePanel";
+            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
+            this.TimeTablePanel.TabIndex = 4;
+            this.TimeTablePanel.Visible = false;
             // 
-            // notificationStatusLB
+            // schedulerControl1
             // 
-            this.notificationStatusLB.AutoSize = true;
-            this.notificationStatusLB.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notificationStatusLB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.notificationStatusLB.Location = new System.Drawing.Point(490, 195);
-            this.notificationStatusLB.Name = "notificationStatusLB";
-            this.notificationStatusLB.Size = new System.Drawing.Size(37, 25);
-            this.notificationStatusLB.TabIndex = 18;
-            this.notificationStatusLB.Text = "On";
-            // 
-            // theme1PB
-            // 
-            this.theme1PB.Location = new System.Drawing.Point(437, 134);
-            this.theme1PB.Name = "theme1PB";
-            this.theme1PB.Size = new System.Drawing.Size(30, 30);
-            this.theme1PB.TabIndex = 17;
-            this.theme1PB.TabStop = false;
-            this.theme1PB.Click += new System.EventHandler(this.theme1PB_Click);
-            this.theme1PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme1PB_Paint);
-            // 
-            // theme2PB
-            // 
-            this.theme2PB.Location = new System.Drawing.Point(477, 134);
-            this.theme2PB.Name = "theme2PB";
-            this.theme2PB.Size = new System.Drawing.Size(30, 30);
-            this.theme2PB.TabIndex = 16;
-            this.theme2PB.TabStop = false;
-            this.theme2PB.Click += new System.EventHandler(this.theme2PB_Click);
-            this.theme2PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme2PB_Paint);
-            // 
-            // theme4PB
-            // 
-            this.theme4PB.Location = new System.Drawing.Point(557, 134);
-            this.theme4PB.Name = "theme4PB";
-            this.theme4PB.Size = new System.Drawing.Size(30, 30);
-            this.theme4PB.TabIndex = 15;
-            this.theme4PB.TabStop = false;
-            this.theme4PB.Click += new System.EventHandler(this.theme4PB_Click);
-            this.theme4PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme4PB_Paint);
-            // 
-            // theme3PB
-            // 
-            this.theme3PB.Location = new System.Drawing.Point(517, 134);
-            this.theme3PB.Name = "theme3PB";
-            this.theme3PB.Size = new System.Drawing.Size(30, 30);
-            this.theme3PB.TabIndex = 14;
-            this.theme3PB.TabStop = false;
-            this.theme3PB.Click += new System.EventHandler(this.theme3PB_Click);
-            this.theme3PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme3PB_Paint);
-            // 
-            // alertOff
-            // 
-            this.alertOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOff.BackgroundImage")));
-            this.alertOff.Location = new System.Drawing.Point(552, 190);
-            this.alertOff.Name = "alertOff";
-            this.alertOff.Size = new System.Drawing.Size(35, 35);
-            this.alertOff.TabIndex = 13;
-            this.alertOff.TabStop = false;
-            this.alertOff.Click += new System.EventHandler(this.alertOff_Click);
-            // 
-            // alertOn
-            // 
-            this.alertOn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOn.BackgroundImage")));
-            this.alertOn.Location = new System.Drawing.Point(552, 190);
-            this.alertOn.Name = "alertOn";
-            this.alertOn.Size = new System.Drawing.Size(35, 35);
-            this.alertOn.TabIndex = 11;
-            this.alertOn.TabStop = false;
-            this.alertOn.Click += new System.EventHandler(this.alertOn_Click);
-            // 
-            // highChB
-            // 
-            this.highChB.AutoSize = true;
-            this.highChB.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.highChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(64)))), ((int)(((byte)(77)))));
-            this.highChB.Location = new System.Drawing.Point(392, 373);
-            this.highChB.Name = "highChB";
-            this.highChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.highChB.Size = new System.Drawing.Size(196, 29);
-            this.highChB.TabIndex = 10;
-            this.highChB.Text = "High priority events";
-            this.highChB.UseVisualStyleBackColor = true;
-            this.highChB.CheckedChanged += new System.EventHandler(this.highChB_CheckedChanged);
-            // 
-            // mediumChB
-            // 
-            this.mediumChB.AutoSize = true;
-            this.mediumChB.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.mediumChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
-            this.mediumChB.Location = new System.Drawing.Point(362, 338);
-            this.mediumChB.Name = "mediumChB";
-            this.mediumChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mediumChB.Size = new System.Drawing.Size(226, 29);
-            this.mediumChB.TabIndex = 9;
-            this.mediumChB.Text = "Medium priority events";
-            this.mediumChB.UseVisualStyleBackColor = true;
-            this.mediumChB.CheckedChanged += new System.EventHandler(this.mediumChB_CheckedChanged);
-            // 
-            // normalChB
-            // 
-            this.normalChB.AutoSize = true;
-            this.normalChB.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.normalChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
-            this.normalChB.Location = new System.Drawing.Point(369, 303);
-            this.normalChB.Name = "normalChB";
-            this.normalChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.normalChB.Size = new System.Drawing.Size(219, 29);
-            this.normalChB.TabIndex = 8;
-            this.normalChB.Text = "Normal priority events";
-            this.normalChB.UseVisualStyleBackColor = true;
-            this.normalChB.CheckedChanged += new System.EventHandler(this.normalChB_CheckedChanged);
-            // 
-            // emailTB
-            // 
-            this.emailTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailTB.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.emailTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.emailTB.Location = new System.Drawing.Point(242, 251);
-            this.emailTB.Name = "emailTB";
-            this.emailTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.emailTB.Size = new System.Drawing.Size(345, 25);
-            this.emailTB.TabIndex = 7;
-            this.emailTB.Text = "Type email here";
-            this.emailTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.emailTB.TextChanged += new System.EventHandler(this.emailTB_TextChanged);
-            this.emailTB.Enter += new System.EventHandler(this.emailTB_Enter);
-            this.emailTB.Leave += new System.EventHandler(this.emailTB_Leave);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(76, 30);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 59);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Settings";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(81, 305);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(167, 25);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Email notification";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(81, 250);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 25);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Email";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(81, 195);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 25);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Notification";
-            // 
-            // themeLB
-            // 
-            this.themeLB.AutoSize = true;
-            this.themeLB.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.themeLB.ForeColor = System.Drawing.Color.Black;
-            this.themeLB.Location = new System.Drawing.Point(81, 140);
-            this.themeLB.Name = "themeLB";
-            this.themeLB.Size = new System.Drawing.Size(71, 25);
-            this.themeLB.TabIndex = 2;
-            this.themeLB.Text = "Theme";
-            // 
-            // lblSave
-            // 
-            this.lblSave.AutoSize = true;
-            this.lblSave.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
-            this.lblSave.Location = new System.Drawing.Point(539, 444);
-            this.lblSave.Name = "lblSave";
-            this.lblSave.Size = new System.Drawing.Size(53, 25);
-            this.lblSave.TabIndex = 1;
-            this.lblSave.Text = "Save";
-            this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
-            this.lblSave.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblSave_MouseDown);
-            this.lblSave.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblSave_MouseUp);
-            // 
-            // lblDefault
-            // 
-            this.lblDefault.AutoSize = true;
-            this.lblDefault.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.lblDefault.ForeColor = System.Drawing.Color.Black;
-            this.lblDefault.Location = new System.Drawing.Point(371, 444);
-            this.lblDefault.Name = "lblDefault";
-            this.lblDefault.Size = new System.Drawing.Size(143, 25);
-            this.lblDefault.TabIndex = 0;
-            this.lblDefault.Text = "Default settings";
-            this.lblDefault.Click += new System.EventHandler(this.lblDefault_Click);
-            this.lblDefault.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDefault_MouseDown);
-            this.lblDefault.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDefault_MouseUp);
+            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.OptionsBehavior.SelectOnRightClick = true;
+            this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
+            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 14, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 0;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.AgendaView.Enabled = false;
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.GanttView.Enabled = false;
+            this.schedulerControl1.Views.TimelineView.Enabled = false;
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
+            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
+            this.schedulerControl1.PopupMenuShowing += new DevExpress.XtraScheduler.PopupMenuShowingEventHandler(this.schedulerControl1_PopupMenuShowing);
+            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
+            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
+            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
+            this.schedulerControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.schedulerControl1_MouseMove);
             // 
             // nextmonth
             // 
@@ -838,48 +643,244 @@ namespace Calender
             this.lbSummary.TabIndex = 0;
             this.lbSummary.Text = "Summary";
             // 
-            // TimeTablePanel
+            // SettingPanel
             // 
-            this.TimeTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TimeTablePanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TimeTablePanel.Controls.Add(this.schedulerControl1);
-            this.TimeTablePanel.Location = new System.Drawing.Point(4, 43);
-            this.TimeTablePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.TimeTablePanel.Name = "TimeTablePanel";
-            this.TimeTablePanel.Size = new System.Drawing.Size(707, 641);
-            this.TimeTablePanel.TabIndex = 4;
-            this.TimeTablePanel.Visible = false;
+            this.SettingPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SettingPanel.Controls.Add(this.notificationStatusLB);
+            this.SettingPanel.Controls.Add(this.theme1PB);
+            this.SettingPanel.Controls.Add(this.theme2PB);
+            this.SettingPanel.Controls.Add(this.theme4PB);
+            this.SettingPanel.Controls.Add(this.theme3PB);
+            this.SettingPanel.Controls.Add(this.alertOff);
+            this.SettingPanel.Controls.Add(this.alertOn);
+            this.SettingPanel.Controls.Add(this.highChB);
+            this.SettingPanel.Controls.Add(this.mediumChB);
+            this.SettingPanel.Controls.Add(this.normalChB);
+            this.SettingPanel.Controls.Add(this.emailTB);
+            this.SettingPanel.Controls.Add(this.label10);
+            this.SettingPanel.Controls.Add(this.label9);
+            this.SettingPanel.Controls.Add(this.label13);
+            this.SettingPanel.Controls.Add(this.label12);
+            this.SettingPanel.Controls.Add(this.themeLB);
+            this.SettingPanel.Controls.Add(this.lblSave);
+            this.SettingPanel.Controls.Add(this.lblDefault);
+            this.SettingPanel.Location = new System.Drawing.Point(0, 43);
+            this.SettingPanel.Name = "SettingPanel";
+            this.SettingPanel.Size = new System.Drawing.Size(702, 634);
+            this.SettingPanel.TabIndex = 4;
+            this.SettingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingPanel_Paint);
             // 
-            // schedulerControl1
+            // notificationStatusLB
             // 
-            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.OptionsBehavior.SelectOnRightClick = true;
-            this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
-            this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 10, 14, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 0;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.AgendaView.Enabled = false;
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.GanttView.Enabled = false;
-            this.schedulerControl1.Views.TimelineView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
-            this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
-            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
-            this.schedulerControl1.PopupMenuShowing += new DevExpress.XtraScheduler.PopupMenuShowingEventHandler(this.schedulerControl1_PopupMenuShowing);
-            this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
-            this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
-            this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
+            this.notificationStatusLB.AutoSize = true;
+            this.notificationStatusLB.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notificationStatusLB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.notificationStatusLB.Location = new System.Drawing.Point(490, 195);
+            this.notificationStatusLB.Name = "notificationStatusLB";
+            this.notificationStatusLB.Size = new System.Drawing.Size(37, 25);
+            this.notificationStatusLB.TabIndex = 18;
+            this.notificationStatusLB.Text = "On";
+            // 
+            // theme1PB
+            // 
+            this.theme1PB.Location = new System.Drawing.Point(437, 134);
+            this.theme1PB.Name = "theme1PB";
+            this.theme1PB.Size = new System.Drawing.Size(30, 30);
+            this.theme1PB.TabIndex = 17;
+            this.theme1PB.TabStop = false;
+            this.theme1PB.Click += new System.EventHandler(this.theme1PB_Click);
+            this.theme1PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme1PB_Paint);
+            // 
+            // theme2PB
+            // 
+            this.theme2PB.Location = new System.Drawing.Point(477, 134);
+            this.theme2PB.Name = "theme2PB";
+            this.theme2PB.Size = new System.Drawing.Size(30, 30);
+            this.theme2PB.TabIndex = 16;
+            this.theme2PB.TabStop = false;
+            this.theme2PB.Click += new System.EventHandler(this.theme2PB_Click);
+            this.theme2PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme2PB_Paint);
+            // 
+            // theme4PB
+            // 
+            this.theme4PB.Location = new System.Drawing.Point(557, 134);
+            this.theme4PB.Name = "theme4PB";
+            this.theme4PB.Size = new System.Drawing.Size(30, 30);
+            this.theme4PB.TabIndex = 15;
+            this.theme4PB.TabStop = false;
+            this.theme4PB.Click += new System.EventHandler(this.theme4PB_Click);
+            this.theme4PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme4PB_Paint);
+            // 
+            // theme3PB
+            // 
+            this.theme3PB.Location = new System.Drawing.Point(517, 134);
+            this.theme3PB.Name = "theme3PB";
+            this.theme3PB.Size = new System.Drawing.Size(30, 30);
+            this.theme3PB.TabIndex = 14;
+            this.theme3PB.TabStop = false;
+            this.theme3PB.Click += new System.EventHandler(this.theme3PB_Click);
+            this.theme3PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme3PB_Paint);
+            // 
+            // alertOff
+            // 
+            this.alertOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOff.BackgroundImage")));
+            this.alertOff.Location = new System.Drawing.Point(552, 190);
+            this.alertOff.Name = "alertOff";
+            this.alertOff.Size = new System.Drawing.Size(35, 35);
+            this.alertOff.TabIndex = 13;
+            this.alertOff.TabStop = false;
+            this.alertOff.Click += new System.EventHandler(this.alertOff_Click);
+            // 
+            // alertOn
+            // 
+            this.alertOn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOn.BackgroundImage")));
+            this.alertOn.Location = new System.Drawing.Point(552, 190);
+            this.alertOn.Name = "alertOn";
+            this.alertOn.Size = new System.Drawing.Size(35, 35);
+            this.alertOn.TabIndex = 11;
+            this.alertOn.TabStop = false;
+            this.alertOn.Click += new System.EventHandler(this.alertOn_Click);
+            // 
+            // highChB
+            // 
+            this.highChB.AutoSize = true;
+            this.highChB.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.highChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(64)))), ((int)(((byte)(77)))));
+            this.highChB.Location = new System.Drawing.Point(392, 373);
+            this.highChB.Name = "highChB";
+            this.highChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.highChB.Size = new System.Drawing.Size(196, 29);
+            this.highChB.TabIndex = 10;
+            this.highChB.Text = "High priority events";
+            this.highChB.UseVisualStyleBackColor = true;
+            this.highChB.CheckedChanged += new System.EventHandler(this.highChB_CheckedChanged);
+            // 
+            // mediumChB
+            // 
+            this.mediumChB.AutoSize = true;
+            this.mediumChB.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.mediumChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
+            this.mediumChB.Location = new System.Drawing.Point(362, 338);
+            this.mediumChB.Name = "mediumChB";
+            this.mediumChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mediumChB.Size = new System.Drawing.Size(226, 29);
+            this.mediumChB.TabIndex = 9;
+            this.mediumChB.Text = "Medium priority events";
+            this.mediumChB.UseVisualStyleBackColor = true;
+            this.mediumChB.CheckedChanged += new System.EventHandler(this.mediumChB_CheckedChanged);
+            // 
+            // normalChB
+            // 
+            this.normalChB.AutoSize = true;
+            this.normalChB.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.normalChB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(75)))), ((int)(((byte)(83)))));
+            this.normalChB.Location = new System.Drawing.Point(369, 303);
+            this.normalChB.Name = "normalChB";
+            this.normalChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.normalChB.Size = new System.Drawing.Size(219, 29);
+            this.normalChB.TabIndex = 8;
+            this.normalChB.Text = "Normal priority events";
+            this.normalChB.UseVisualStyleBackColor = true;
+            this.normalChB.CheckedChanged += new System.EventHandler(this.normalChB_CheckedChanged);
+            // 
+            // emailTB
+            // 
+            this.emailTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailTB.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.emailTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.emailTB.Location = new System.Drawing.Point(242, 251);
+            this.emailTB.Name = "emailTB";
+            this.emailTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.emailTB.Size = new System.Drawing.Size(345, 25);
+            this.emailTB.TabIndex = 7;
+            this.emailTB.Text = "Type email here";
+            this.emailTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.emailTB.TextChanged += new System.EventHandler(this.emailTB_TextChanged);
+            this.emailTB.Enter += new System.EventHandler(this.emailTB_Enter);
+            this.emailTB.Leave += new System.EventHandler(this.emailTB_Leave);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(76, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(190, 59);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Settings";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(81, 305);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(167, 25);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Email notification";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(81, 250);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 25);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Email";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(81, 195);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 25);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Notification";
+            // 
+            // themeLB
+            // 
+            this.themeLB.AutoSize = true;
+            this.themeLB.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.themeLB.ForeColor = System.Drawing.Color.Black;
+            this.themeLB.Location = new System.Drawing.Point(81, 140);
+            this.themeLB.Name = "themeLB";
+            this.themeLB.Size = new System.Drawing.Size(71, 25);
+            this.themeLB.TabIndex = 2;
+            this.themeLB.Text = "Theme";
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
+            this.lblSave.Location = new System.Drawing.Point(539, 444);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(53, 25);
+            this.lblSave.TabIndex = 1;
+            this.lblSave.Text = "Save";
+            this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
+            this.lblSave.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblSave_MouseDown);
+            this.lblSave.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblSave_MouseUp);
+            // 
+            // lblDefault
+            // 
+            this.lblDefault.AutoSize = true;
+            this.lblDefault.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblDefault.ForeColor = System.Drawing.Color.Black;
+            this.lblDefault.Location = new System.Drawing.Point(371, 444);
+            this.lblDefault.Name = "lblDefault";
+            this.lblDefault.Size = new System.Drawing.Size(143, 25);
+            this.lblDefault.TabIndex = 0;
+            this.lblDefault.Text = "Default settings";
+            this.lblDefault.Click += new System.EventHandler(this.lblDefault_Click);
+            this.lblDefault.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDefault_MouseDown);
+            this.lblDefault.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDefault_MouseUp);
             // 
             // panel3
             // 
@@ -987,14 +988,8 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.SettingPanel.ResumeLayout(false);
-            this.SettingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.theme1PB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme2PB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme4PB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theme3PB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).EndInit();
+            this.TimeTablePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1005,8 +1000,14 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
-            this.TimeTablePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
+            this.SettingPanel.ResumeLayout(false);
+            this.SettingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1PB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme2PB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme4PB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme3PB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alertOn)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();

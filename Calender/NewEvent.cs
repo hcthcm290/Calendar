@@ -70,6 +70,50 @@ namespace Calender
             }
             applyLB.ForeColor = themeColor;
         }
+        public New_Event(PlanData planData, DateTime start, DateTime end)
+        {
+            InitializeComponent();
+            Init();
+
+            thisPlan = planData;
+            this.StartPosition = FormStartPosition.CenterParent;
+            startDateDE.DateTime = start;
+            endDateDE.DateTime = end;
+            this.titleTB.Focus();
+            timeSpan = end - start;
+            startTimeTP.Value = start;
+            endTimeTP.Value = end;
+            highTT.SetToolTip(highLB, "High");
+            normalTT.SetToolTip(normalLB, "Normal");
+            mediumTT.SetToolTip(MediumLB, "Medium");
+            repeatEndDE.DateTime = end;
+            priority = PriorityEnum.normal;
+            notification = true;
+            alertOff_Click(new object(), new EventArgs());
+            // generate theme color
+            Color themeColor = new Color();
+            if (Settings1.Default.Theme == 0)
+            {
+                themeColor = Color.DarkOrange;
+            }
+            else if (Settings1.Default.Theme == 1)
+            {
+                themeColor = Color.FromArgb(112, 76, 161);
+            }
+            else if (Settings1.Default.Theme == 2)
+            {
+                themeColor = Color.FromArgb(238, 197, 106);
+            }
+            else if (Settings1.Default.Theme == 3)
+            {
+                themeColor = Color.FromArgb(78, 169, 119);
+            }
+            else if (Settings1.Default.Theme == 4)
+            {
+                themeColor = Color.FromArgb(194, 200, 207);
+            }
+            applyLB.ForeColor = themeColor;
+        }
 
         void Init()
         {

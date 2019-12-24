@@ -350,7 +350,7 @@ namespace Calender
             this.Close();
         }
 
-        private void deleteLB_Click(object sender, EventArgs e)
+        public void deleteLB_Click(object sender, EventArgs e)
         {
             EditOption opt = new EditOption();
             DialogResult result = new DialogResult();
@@ -380,7 +380,39 @@ namespace Calender
             }
             group.Sort();
             Form1.GeneratePriorityColorArray();
+            GC.Collect();
             this.Close();
+        }
+        public void deleteLB_Click_WithoutClosing(object sender, EventArgs e)
+        {
+            EditOption opt = new EditOption();
+            DialogResult result = new DialogResult();
+            result = opt.ShowDialog();
+            // only this item
+            if (result == DialogResult.Yes)
+            {
+                int i = group.data.IndexOf(item);
+                group.data.RemoveRange(i, 1);
+            }
+            // this and following items
+            else if (result == DialogResult.No)
+            {
+                int i = group.data.IndexOf(item);
+                group.data.RemoveRange(i, group.data.Count - i);
+            }
+            // all items
+            else if (result == DialogResult.OK)
+            {
+                int i = 0;
+                group.data.RemoveRange(i, group.data.Count);
+            }
+            // cancel
+            else
+            {
+                return;
+            }
+            group.Sort();
+            Form1.GeneratePriorityColorArray();
         }
     }
     
