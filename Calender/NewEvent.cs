@@ -191,7 +191,7 @@ namespace Calender
             {
                 this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatValueLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Regular | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
                 this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatEndLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
@@ -204,7 +204,7 @@ namespace Calender
             {
                 this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatValueLB.ForeColor = SystemColors.ControlText;
-                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Regular))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.daysLB.ForeColor = SystemColors.ControlText;
                 this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatEndLabel.ForeColor = SystemColors.ControlText;
@@ -221,7 +221,7 @@ namespace Calender
             {
                 this.repeatValueLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatValueLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Regular | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
                 this.repeatEndLabel.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.repeatEndLabel.ForeColor = SystemColors.ControlText;
@@ -448,31 +448,31 @@ namespace Calender
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (priority == PriorityEnum.high)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(304, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(202, 64, 77)), new RectangleF(317, 333, 22, 22));
             }
             else
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(242, 207, 210)), new RectangleF(304, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(242, 207, 210)), new RectangleF(317, 333, 22, 22));
             }
 
             if (priority == PriorityEnum.medium)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(251, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(238, 196, 106)), new RectangleF(264, 333, 22, 22));
             }
             else
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(251, 240, 218)), new RectangleF(251, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(251, 240, 218)), new RectangleF(264, 333, 22, 22));
             }
 
             if (priority == PriorityEnum.normal)
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(198, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(68, 75, 83)), new RectangleF(211, 333, 22, 22));
             }
             else
             {
-                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(208, 210, 212)), new RectangleF(198, 345, 22, 22));
+                e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(208, 210, 212)), new RectangleF(211, 333, 22, 22));
             }
-            e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180, 0, 0, 0)), 5), new Rectangle(0, 0, this.Width, this.Height));
+            //e.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(180, 0, 0, 0)), 5), new Rectangle(0, 0, this.Width, this.Height));
         }
 
         private void Day_End_SelectedIndexChanged(object sender, EventArgs e)

@@ -109,14 +109,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 84);
+            this.panel1.Size = new System.Drawing.Size(384, 70);
             this.panel1.TabIndex = 0;
             // 
             // alertOff
             // 
             this.alertOff.BackColor = System.Drawing.Color.White;
             this.alertOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOff.BackgroundImage")));
-            this.alertOff.Location = new System.Drawing.Point(293, 34);
+            this.alertOff.Location = new System.Drawing.Point(305, 19);
             this.alertOff.Name = "alertOff";
             this.alertOff.Size = new System.Drawing.Size(35, 35);
             this.alertOff.TabIndex = 2;
@@ -127,7 +127,7 @@
             // 
             this.alertOn.BackColor = System.Drawing.Color.White;
             this.alertOn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alertOn.BackgroundImage")));
-            this.alertOn.Location = new System.Drawing.Point(293, 34);
+            this.alertOn.Location = new System.Drawing.Point(305, 19);
             this.alertOn.Name = "alertOn";
             this.alertOn.Size = new System.Drawing.Size(35, 35);
             this.alertOn.TabIndex = 1;
@@ -138,7 +138,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 27);
+            this.label9.Location = new System.Drawing.Point(40, 12);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(179, 45);
             this.label9.TabIndex = 0;
@@ -177,7 +177,7 @@
             this.panel2.Controls.Add(this.repeatLB);
             this.panel2.Controls.Add(this.repeatEndLabel);
             this.panel2.Controls.Add(this.cbbRepeat);
-            this.panel2.Location = new System.Drawing.Point(0, 88);
+            this.panel2.Location = new System.Drawing.Point(13, 76);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 520);
@@ -214,8 +214,10 @@
             this.repeatEndDE.Location = new System.Drawing.Point(164, 357);
             this.repeatEndDE.Name = "repeatEndDE";
             this.repeatEndDE.Properties.AllowFocused = false;
-            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.repeatEndDE.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.repeatEndDE.Properties.Appearance.Options.UseFont = true;
+            this.repeatEndDE.Properties.Appearance.Options.UseForeColor = true;
             this.repeatEndDE.Properties.Appearance.Options.UseTextOptions = true;
             this.repeatEndDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.repeatEndDE.Properties.AutoHeight = false;
@@ -322,8 +324,10 @@
             this.endDateDE.Location = new System.Drawing.Point(164, 175);
             this.endDateDE.Name = "endDateDE";
             this.endDateDE.Properties.AllowFocused = false;
-            this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.endDateDE.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.endDateDE.Properties.Appearance.Options.UseFont = true;
+            this.endDateDE.Properties.Appearance.Options.UseForeColor = true;
             this.endDateDE.Properties.Appearance.Options.UseTextOptions = true;
             this.endDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.endDateDE.Properties.AutoHeight = false;
@@ -454,7 +458,7 @@
             this.daysLB.AutoSize = true;
             this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daysLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.daysLB.Location = new System.Drawing.Point(282, 326);
+            this.daysLB.Location = new System.Drawing.Point(276, 326);
             this.daysLB.Name = "daysLB";
             this.daysLB.Size = new System.Drawing.Size(52, 21);
             this.daysLB.TabIndex = 19;
@@ -653,12 +657,11 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(361, 613);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(384, 613);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

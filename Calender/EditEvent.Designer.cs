@@ -105,7 +105,7 @@
             // endDateDE
             // 
             this.endDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.endDateDE.Properties.Appearance.Options.UseFont = true;
             this.endDateDE.Properties.Appearance.Options.UseTextOptions = true;
             this.endDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -118,7 +118,7 @@
             // repeatEndDE
             // 
             this.repeatEndDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
-            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.repeatEndDE.Properties.Appearance.Options.UseFont = true;
             this.repeatEndDE.Properties.Appearance.Options.UseTextOptions = true;
             this.repeatEndDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(361, 613);
+            this.ClientSize = new System.Drawing.Size(384, 613);
             this.Name = "EditEvent";
             this.Text = "EditEvent";
             this.panel1.ResumeLayout(false);

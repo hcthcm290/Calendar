@@ -1144,7 +1144,7 @@ namespace Calender
                     DateButton[i, j].Text = "";
                     DateButton[i, j].BackColor = Color.Transparent;
                     DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
-                    DateButton[i, j].Font = new Font("Segoe UI SemiLight", 19);
+                    DateButton[i, j].Font = new Font("Segoe UI", 19);
                     DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.Transparent;
                     DateButton[i, j].Enabled = false;
 
@@ -1297,7 +1297,7 @@ namespace Calender
                 return;
             focusedDate = new DateTime(Year.GetCurrentYear(), Months.iCurrent, Convert.ToInt32(b.Text));
             focusedButton.BackColor = Color.Transparent;
-            b.BackColor = Color.FromArgb(194, 200, 207);
+            b.BackColor = Color.FromArgb(229, 229, 229);
             focusedButton = b;
             if (focusedDate.Day == DateTime.Now.Day && focusedDate.Month == DateTime.Now.Month && focusedDate.Month == DateTime.Now.Month)
             {
