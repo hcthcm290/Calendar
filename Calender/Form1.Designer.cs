@@ -157,7 +157,6 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
@@ -166,6 +165,7 @@ namespace Calender
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Controls.Add(this.pnlStatistics);
             this.panel2.Controls.Add(this.TimeTablePanel);
+            this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -248,7 +248,7 @@ namespace Calender
             this.theme3PB.Size = new System.Drawing.Size(30, 30);
             this.theme3PB.TabIndex = 14;
             this.theme3PB.TabStop = false;
-            this.theme3PB.Click += new System.EventHandler(this.pictureBox3_Click_1);
+            this.theme3PB.Click += new System.EventHandler(this.theme3PB_Click);
             this.theme3PB.Paint += new System.Windows.Forms.PaintEventHandler(this.theme3PB_Paint);
             // 
             // alertOff

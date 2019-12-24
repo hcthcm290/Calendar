@@ -989,11 +989,7 @@ namespace Calender
             // load setting
             // 1: load color
             themeColor = new Color();
-            if(Settings1.Default.Theme == 0)
-            {
-                themeColor = Color.DarkOrange;
-            }
-            else if (Settings1.Default.Theme == 1)
+            if (Settings1.Default.Theme == 1)
             {
                 themeColor = Color.FromArgb(112, 76, 161);
             }
@@ -1013,7 +1009,7 @@ namespace Calender
             this.panel8.BackColor = themeColor;
             this.addbutton.BackColor = themeColor;
             this.panel2.ForeColor = themeColor;
-            this.PresentMonth.ForeColor = themeColor;
+            //this.PresentMonth.ForeColor = themeColor;
             label2.ForeColor = themeColor;
 
             this.lbYearly.ForeColor = themeColor;
@@ -1154,16 +1150,40 @@ namespace Calender
                     }
                     if (started && count <= maxDay)
                     {
-                        int countEventForToday = allPlan.ListGroupItemsForToday(new DateTime(Year.GetCurrentYear(), month, count)).Count;
-                        if (countEventForToday < 3)
+                        DateTime day = new DateTime(Year.GetCurrentYear(), Months.iCurrent, count);
+                        List<GroupPlanItem> groupPlanForToday = allPlan.ListGroupItemsForToday(new DateTime(Year.GetCurrentYear(), month, count));
+                        List<PlanItem> allPlanForToday = new List<PlanItem>();
+                        int BusyScore = 0;
+                        foreach(var group in groupPlanForToday)
+                        {
+                            allPlanForToday.AddRange(group.ListItemsForToday(day));
+                        }
+
+                        foreach(var item in allPlanForToday)
+                        {
+                            if(item.priority == PriorityEnum.normal)
+                            {
+                                BusyScore += 1;
+                            }
+                            else if (item.priority == PriorityEnum.medium)
+                            {
+                                BusyScore += 2;
+                            }
+                            else if(item.priority == PriorityEnum.high)
+                            {
+                                BusyScore += 3;
+                            }
+                        }
+
+                        if (BusyScore < 4)
                         {
                             PriorityColorForDay[count] = Color.Black;
                         }
-                        else if (countEventForToday < 6)
+                        else if (BusyScore < 8)
                         {
                             PriorityColorForDay[count] = Color.FromArgb(255, 195, 0);
                         }
-                        else if (countEventForToday < 8)
+                        else if (BusyScore < 11)
                         {
                             PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
                         }
@@ -1172,14 +1192,13 @@ namespace Calender
                             PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
                         }
                         DateButton[i, j].Text = count.ToString();
-                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 0, 0, 0);
+                        DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(229, 229, 229);
                         DateButton[i, j].Enabled = true;
                         DateButton[i, j].ForeColor = PriorityColorForDay[count];
                         if (count == DateTime.Now.Day && month == DateTime.Now.Month && Year.GetCurrentYear() == DateTime.Now.Year)
                         {
                             DateButton[i, j].BackColor = Color.Transparent;
                             DateButton[i, j].Font = new Font("Segoe UI Black", 19);
-                            DateButton[i, j].ForeColor = Color.FromArgb(68, 75, 83);
                         }
                         if (count == focusedDate.Day && month == focusedDate.Month && Year.GetCurrentYear() == focusedDate.Year)
                         {
@@ -1530,24 +1549,6 @@ namespace Calender
         private void SettingPanel_Paint(object sender, PaintEventArgs e)
         {
         }
-
-        private void pictureBox3_Click_1(object sender, EventArgs e)
-        {
-            Color c = Color.FromArgb(78, 169, 119);
-            this.panel3.BackColor = c;
-            this.panel8.BackColor = c;
-            this.addbutton.BackColor = c;
-            this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
-            lblSave.ForeColor = c;
-            label2.ForeColor = c;
-            Settings1.Default.Theme = 3;
-
-            sideBySideBarSeriesView1.Color = c;
-            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
-            else lbYearly.ForeColor = c;
-        }
-
         private void pnlStatistics_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1785,7 +1786,7 @@ namespace Calender
             this.panel8.BackColor = c;
             this.addbutton.BackColor = c;
             this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
+            //this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 1;
@@ -1794,7 +1795,6 @@ namespace Calender
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
             else lbYearly.ForeColor = c;
         }
-
         private void theme2PB_Click(object sender, EventArgs e)
         {
             Color c = Color.FromArgb(238, 197, 106);
@@ -1802,7 +1802,7 @@ namespace Calender
             this.panel8.BackColor = c;
             this.addbutton.BackColor = c;
             this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
+            //this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 2;
@@ -1811,7 +1811,22 @@ namespace Calender
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
             else lbYearly.ForeColor = c;
         }
+        private void theme3PB_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(78, 169, 119);
+            this.panel3.BackColor = c;
+            this.panel8.BackColor = c;
+            this.addbutton.BackColor = c;
+            this.panel2.ForeColor = c;
+            //this.PresentMonth.ForeColor = c;
+            lblSave.ForeColor = c;
+            label2.ForeColor = c;
+            Settings1.Default.Theme = 3;
 
+            sideBySideBarSeriesView1.Color = c;
+            if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
+            else lbYearly.ForeColor = c;
+        }
         private void theme4PB_Click(object sender, EventArgs e)
         {
             Color c = Color.FromArgb(194, 200, 207);
@@ -1819,7 +1834,7 @@ namespace Calender
             this.panel8.BackColor = c;
             this.addbutton.BackColor = c;
             this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
+            //this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 4;
@@ -1855,15 +1870,15 @@ namespace Calender
         private void lblDefault_Click(object sender, EventArgs e)
         {
             // theme
-            Color c = Color.DarkOrange;
+            Color c = Color.FromArgb(78, 169, 119);
             this.panel3.BackColor = c;
             this.panel8.BackColor = c;
             this.addbutton.BackColor = c;
             this.panel2.ForeColor = c;
-            this.PresentMonth.ForeColor = c;
+            //this.PresentMonth.ForeColor = c;
             label2.ForeColor = c;
             sideBySideBarSeriesView1.Color = c;
-            Settings1.Default.Theme = 0;
+            Settings1.Default.Theme = 3;
 
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
             else lbYearly.ForeColor = c;
@@ -2000,5 +2015,7 @@ namespace Calender
         {
             
         }
+
+        
     }
 }
