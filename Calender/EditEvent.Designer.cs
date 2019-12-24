@@ -82,6 +82,12 @@
             this.panel2.Controls.SetChildIndex(this.cancelLB, 0);
             this.panel2.Controls.SetChildIndex(this.deleteLB, 0);
             // 
+            // daysLB
+            // 
+            this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daysLB.Location = new System.Drawing.Point(276, 326);
+            this.daysLB.Size = new System.Drawing.Size(52, 21);
+            // 
             // label9
             // 
             this.label9.Size = new System.Drawing.Size(169, 45);
@@ -106,7 +112,9 @@
             // 
             this.endDateDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
             this.endDateDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.endDateDE.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.endDateDE.Properties.Appearance.Options.UseFont = true;
+            this.endDateDE.Properties.Appearance.Options.UseForeColor = true;
             this.endDateDE.Properties.Appearance.Options.UseTextOptions = true;
             this.endDateDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.endDateDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
@@ -119,7 +127,9 @@
             // 
             this.repeatEndDE.EditValue = new System.DateTime(2019, 12, 17, 16, 42, 43, 0);
             this.repeatEndDE.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.repeatEndDE.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.repeatEndDE.Properties.Appearance.Options.UseFont = true;
+            this.repeatEndDE.Properties.Appearance.Options.UseForeColor = true;
             this.repeatEndDE.Properties.Appearance.Options.UseTextOptions = true;
             this.repeatEndDE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.repeatEndDE.Properties.DisplayFormat.FormatString = "dd MMMM yyyy";
