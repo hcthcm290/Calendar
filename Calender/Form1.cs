@@ -1508,30 +1508,7 @@ namespace Calender
             }
         }
 
-        private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
-        {
-            AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
-            int widthCell = viewInfo.Bounds.Width / 4;
-            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
-            PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
-            if (pi.priority == PriorityEnum.normal)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(68, 75, 83)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
-            }
-            if (pi.priority == PriorityEnum.medium)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(238, 197, 106)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
-            }
-            if (pi.priority == PriorityEnum.high)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(202, 64, 77)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
-            }
-            if (pi.priority == PriorityEnum.urgent)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(199, 0, 57)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
-            }
-            e.Handled = true;
-        }
+        
 
         private void schedulerControl1_AppointmentDrag(object sender, AppointmentDragEventArgs e)
         {
@@ -2105,28 +2082,27 @@ namespace Calender
 
         private void schedulerControl1_CustomDrawAppointment(object sender, CustomDrawObjectEventArgs e)
         {
+        }
+
+        private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
+        {
+            e.DrawDefault();
             AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
             int widthCell = viewInfo.Bounds.Width / 4;
-            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 3, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width + 3, viewInfo.InnerBounds.Height);
+            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
-            e.Cache.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             if (pi.priority == PriorityEnum.normal)
             {
-                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
-                            new SolidBrush(Color.White), mainContentBounds, StringFormat.GenericDefault);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(178, 181, 184)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.medium)
             {
-                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
-                            new SolidBrush(Color.Black), mainContentBounds, StringFormat.GenericDefault);
-
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(248, 231, 194)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.high)
             {
-                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
-                            new SolidBrush(Color.Black), mainContentBounds, StringFormat.GenericDefault);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(233, 176, 182)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
-
             e.Handled = true;
         }
     }

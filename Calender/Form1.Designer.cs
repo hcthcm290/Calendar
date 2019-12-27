@@ -190,6 +190,12 @@ namespace Calender
             // schedulerControl1
             // 
             this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.Appearance.Appointment.BackColor2 = System.Drawing.SystemColors.Control;
+            this.schedulerControl1.Appearance.Appointment.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedulerControl1.Appearance.Appointment.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.schedulerControl1.Appearance.Appointment.ForeColor = System.Drawing.SystemColors.Control;
+            this.schedulerControl1.Appearance.Appointment.Options.UseFont = true;
+            this.schedulerControl1.Appearance.Appointment.Options.UseForeColor = true;
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
