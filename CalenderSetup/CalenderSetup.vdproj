@@ -399,12 +399,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6F6DBB8EF0AF420ABCE890F85F674C45"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_7F1FB53717E773CD2A74D4A331B4A835"
         "OwnerKey" = "8:_AEF7E00988115D77E8B785D1442B457C"
         "MsmSig" = "8:_UNDEFINED"
@@ -1076,6 +1070,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -1497,26 +1499,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F6DBB8EF0AF420ABCE890F85F674C45"
-            {
-            "SourcePath" = "8:..\\Calender\\bin\\Debug\\data.xml"
-            "TargetName" = "8:data.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7F1FB53717E773CD2A74D4A331B4A835"
@@ -2072,7 +2054,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Calender"
         "ProductCode" = "8:{7B13A6BC-D246-456A-9FCE-ADD1FA499873}"
-        "PackageCode" = "8:{E55A3845-6BDF-4D51-B302-2B863A902090}"
+        "PackageCode" = "8:{5D921292-C61C-4542-93C8-4726626B3745}"
         "UpgradeCode" = "8:{856E4CD0-FECC-4175-A77A-0F8DF7508FD6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

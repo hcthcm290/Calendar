@@ -1511,8 +1511,8 @@ namespace Calender
         private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
         {
             AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
-            e.DrawDefault();
             int widthCell = viewInfo.Bounds.Width / 4;
+            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
@@ -2069,9 +2069,11 @@ namespace Calender
         {
             PlanItem pi = (PlanItem)(e.Appointment.CustomFields["item"]);
             Color themeColor = new Color();
+            Color textColor = Color.Black;
             if (pi.priority == PriorityEnum.normal)
             {
                 themeColor = Color.FromArgb(68, 75, 83);
+                textColor = Color.White;
             }
             if (pi.priority == PriorityEnum.medium)
             {
@@ -2083,24 +2085,10 @@ namespace Calender
             }
             e.Cache.FillRectangle(new SolidBrush(themeColor), e.Bounds);
             e.DrawStatusDefault();
-            e.Cache.DrawString(pi.title, new Font("Segoe UI", 12f), Brushes.Black,
+            e.Cache.DrawString(pi.title, new Font("Segoe UI", 12f), new SolidBrush(textColor),
                 new Rectangle(e.Bounds.X + 10, e.Bounds.Y + 10, e.Bounds.Width, e.Bounds.Height),
                 StringFormat.GenericTypographic);
             e.Handled = true;
-        }
-
-        Rectangle GetStatusBounds(AppointmentBandDrawerViewInfoBase viewInfo)
-        {
-            Rectangle bounds = Rectangle.Inflate(viewInfo.Bounds, -1, -1);
-            if (viewInfo.View.Status.Type == AppointmentStatusType.Free)
-            {
-                bounds.Height = 20;
-            }
-            else
-            {
-                bounds.Height = 5;
-            }
-            return bounds;
         }
 
         private void schedulerControl1_CustomizeAppointmentFlyout(object sender, CustomizeAppointmentFlyoutEventArgs e)
@@ -2113,6 +2101,33 @@ namespace Calender
             e.ShowEndDate = true;
             e.ShowStartDate = true;
             e.ShowStatus = true;
+        }
+
+        private void schedulerControl1_CustomDrawAppointment(object sender, CustomDrawObjectEventArgs e)
+        {
+            AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
+            int widthCell = viewInfo.Bounds.Width / 4;
+            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 3, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width + 3, viewInfo.InnerBounds.Height);
+            PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
+            e.Cache.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            if (pi.priority == PriorityEnum.normal)
+            {
+                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
+                            new SolidBrush(Color.White), mainContentBounds, StringFormat.GenericDefault);
+            }
+            if (pi.priority == PriorityEnum.medium)
+            {
+                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
+                            new SolidBrush(Color.Black), mainContentBounds, StringFormat.GenericDefault);
+
+            }
+            if (pi.priority == PriorityEnum.high)
+            {
+                e.Cache.DrawString(viewInfo.DisplayText.Trim(), new Font("Segoe UI", 9f),
+                            new SolidBrush(Color.Black), mainContentBounds, StringFormat.GenericDefault);
+            }
+
+            e.Handled = true;
         }
     }
 }
