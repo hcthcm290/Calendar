@@ -15,6 +15,7 @@ using System.Drawing.Imaging;
 using System.Net.Mail;
 using System.Net;
 using DevExpress.XtraScheduler.Drawing;
+using DevExpress.Utils.Drawing;
 
 namespace Calender
 {
@@ -1515,15 +1516,15 @@ namespace Calender
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 99, 110, 114)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(68, 75, 83)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.medium)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 255, 195, 0)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(238, 197, 106)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.high)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 87, 51)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(202, 64, 77)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.urgent)
             {
@@ -2062,6 +2063,56 @@ namespace Calender
             {
                 focusedAppointment = null;
             }
+        }
+
+        private void schedulerControl1_CustomDrawAppointmentFlyoutSubject(object sender, CustomDrawAppointmentFlyoutSubjectEventArgs e)
+        {
+            PlanItem pi = (PlanItem)(e.Appointment.CustomFields["item"]);
+            Color themeColor = new Color();
+            if (pi.priority == PriorityEnum.normal)
+            {
+                themeColor = Color.FromArgb(68, 75, 83);
+            }
+            if (pi.priority == PriorityEnum.medium)
+            {
+                themeColor = Color.FromArgb(238, 197, 106);
+            }
+            if (pi.priority == PriorityEnum.high)
+            {
+                themeColor = Color.FromArgb(202, 64, 77);
+            }
+            e.Cache.FillRectangle(new SolidBrush(themeColor), e.Bounds);
+            e.DrawStatusDefault();
+            e.Cache.DrawString(pi.title, new Font("Segoe UI", 12f), Brushes.Black,
+                new Rectangle(e.Bounds.X + 10, e.Bounds.Y + 10, e.Bounds.Width, e.Bounds.Height),
+                StringFormat.GenericTypographic);
+            e.Handled = true;
+        }
+
+        Rectangle GetStatusBounds(AppointmentBandDrawerViewInfoBase viewInfo)
+        {
+            Rectangle bounds = Rectangle.Inflate(viewInfo.Bounds, -1, -1);
+            if (viewInfo.View.Status.Type == AppointmentStatusType.Free)
+            {
+                bounds.Height = 20;
+            }
+            else
+            {
+                bounds.Height = 5;
+            }
+            return bounds;
+        }
+
+        private void schedulerControl1_CustomizeAppointmentFlyout(object sender, CustomizeAppointmentFlyoutEventArgs e)
+        {
+            e.ShowSubject = true;
+            e.Subject = String.Format("{0} - {1:f}", e.Subject.Split()[0], e.Start);
+            e.SubjectAppearance.Font = new Font("Segoe UI", 10f);
+            e.ShowReminder = false;
+            e.ShowLocation = true;
+            e.ShowEndDate = true;
+            e.ShowStartDate = true;
+            e.ShowStatus = true;
         }
     }
 }

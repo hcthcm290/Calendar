@@ -82,12 +82,6 @@
             this.panel2.Controls.SetChildIndex(this.cancelLB, 0);
             this.panel2.Controls.SetChildIndex(this.deleteLB, 0);
             // 
-            // daysLB
-            // 
-            this.daysLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.daysLB.Location = new System.Drawing.Point(276, 326);
-            this.daysLB.Size = new System.Drawing.Size(52, 21);
-            // 
             // label9
             // 
             this.label9.Size = new System.Drawing.Size(169, 45);
