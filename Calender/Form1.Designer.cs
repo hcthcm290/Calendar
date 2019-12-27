@@ -191,8 +191,7 @@ namespace Calender
             // 
             this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
             this.schedulerControl1.Appearance.Appointment.BackColor2 = System.Drawing.SystemColors.Control;
-            this.schedulerControl1.Appearance.Appointment.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schedulerControl1.Appearance.Appointment.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.schedulerControl1.Appearance.Appointment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.schedulerControl1.Appearance.Appointment.ForeColor = System.Drawing.SystemColors.Control;
             this.schedulerControl1.Appearance.Appointment.Options.UseFont = true;
             this.schedulerControl1.Appearance.Appointment.Options.UseForeColor = true;
@@ -223,6 +222,7 @@ namespace Calender
             this.schedulerControl1.CustomDrawAppointment += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointment);
             this.schedulerControl1.CustomDrawAppointmentFlyoutSubject += new DevExpress.XtraScheduler.CustomDrawAppointmentFlyoutSubjectEventHandler(this.schedulerControl1_CustomDrawAppointmentFlyoutSubject);
             this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
+            this.schedulerControl1.Click += new System.EventHandler(this.schedulerControl1_Click);
             this.schedulerControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.schedulerControl1_MouseMove);
             // 
             // nextmonth

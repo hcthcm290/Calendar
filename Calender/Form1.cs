@@ -1177,21 +1177,17 @@ namespace Calender
                             }
                         }
 
-                        if (BusyScore < 4)
+                        if (BusyScore < 5)
                         {
-                            PriorityColorForDay[count] = Color.Black;
+                            PriorityColorForDay[count] = Color.FromArgb(68, 75, 83);
                         }
-                        else if (BusyScore < 8)
+                        else if (BusyScore < 10)
                         {
-                            PriorityColorForDay[count] = Color.FromArgb(255, 195, 0);
-                        }
-                        else if (BusyScore < 11)
-                        {
-                            PriorityColorForDay[count] = Color.FromArgb(255, 87, 51);
+                            PriorityColorForDay[count] = Color.FromArgb(231, 168, 54);
                         }
                         else
                         {
-                            PriorityColorForDay[count] = Color.FromArgb(199, 0, 57);
+                            PriorityColorForDay[count] = Color.FromArgb(176, 24, 32);
                         }
                         DateButton[i, j].Text = count.ToString();
                         DateButton[i, j].FlatAppearance.MouseOverBackColor = Color.FromArgb(229, 229, 229);
@@ -2049,16 +2045,18 @@ namespace Calender
             Color textColor = Color.Black;
             if (pi.priority == PriorityEnum.normal)
             {
-                themeColor = Color.FromArgb(68, 75, 83);
-                textColor = Color.White;
+                themeColor = Color.FromArgb(117, 122, 129);
+                textColor = Color.FromArgb(49, 51, 54);
             }
             if (pi.priority == PriorityEnum.medium)
             {
-                themeColor = Color.FromArgb(238, 197, 106);
+                themeColor = Color.FromArgb(248, 221, 148);
+                textColor = Color.FromArgb(152, 135, 91);
             }
             if (pi.priority == PriorityEnum.high)
             {
-                themeColor = Color.FromArgb(202, 64, 77);
+                themeColor = Color.FromArgb(225, 113, 125);
+                textColor = Color.FromArgb(141, 71, 78);
             }
             e.Cache.FillRectangle(new SolidBrush(themeColor), e.Bounds);
             e.DrawStatusDefault();
@@ -2082,28 +2080,73 @@ namespace Calender
 
         private void schedulerControl1_CustomDrawAppointment(object sender, CustomDrawObjectEventArgs e)
         {
+            AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
+
+            Color textColor = new Color();
+            PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
+            if (pi.priority == PriorityEnum.normal)
+            {
+                textColor = Color.FromArgb(49, 51, 54);
+            }
+            if (pi.priority == PriorityEnum.medium)
+            {
+                textColor = Color.FromArgb(152, 135, 91);
+            }
+            if (pi.priority == PriorityEnum.high)
+            {
+                textColor = Color.FromArgb(141, 71, 78);
+            }
+
+            Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 5, viewInfo.InnerBounds.Y,
+                viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
+
+            //int statusDelta = 0;
+            //for (int i = 0; i < viewInfo.StatusItems.Count; i++)
+            //{
+            //    AppointmentViewInfoStatusItem statusItem = viewInfo.StatusItems[i] as AppointmentViewInfoStatusItem;
+            //    // Fill the status bar. 
+            //    e.Cache.FillRectangle(statusItem.BackgroundViewInfo.Brush, statusItem.BackgroundViewInfo.Bounds);
+            //    e.Cache.FillRectangle(statusItem.ForegroundViewInfo.Brush, statusItem.ForegroundViewInfo.Bounds);
+            //    // Draw the status bar rectangle. 
+            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.BackgroundViewInfo.Bounds);
+            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.ForegroundViewInfo.Bounds);
+            //    statusDelta = Math.Max(statusDelta, statusItem.Bounds.Width);
+            //}
+            // Draw the appointment caption text. 
+            e.Cache.DrawString(viewInfo.DisplayText.Trim(), viewInfo.Appearance.Font,
+                new SolidBrush(textColor), mainContentBounds, StringFormat.GenericTypographic);
+            SizeF subjSize = e.Graphics.MeasureString(viewInfo.DisplayText.Trim(), viewInfo.Appearance.Font, mainContentBounds.Width);
+            int lineYposition = (int)subjSize.Height;
+
+            Rectangle descriptionLocation = new Rectangle(mainContentBounds.X, mainContentBounds.Y + lineYposition,
+                mainContentBounds.Width, mainContentBounds.Height - lineYposition);
+            e.Handled = true;
         }
 
         private void schedulerControl1_CustomDrawAppointmentBackground(object sender, CustomDrawObjectEventArgs e)
         {
-            e.DrawDefault();
             AppointmentViewInfo viewInfo = e.ObjectInfo as AppointmentViewInfo;
             int widthCell = viewInfo.Bounds.Width / 4;
             Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X, viewInfo.InnerBounds.Y, viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(178, 181, 184)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(117, 122, 129)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.medium)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(248, 231, 194)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(248, 221, 148)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.high)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(233, 176, 182)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(225, 113, 125)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             e.Handled = true;
+        }
+
+        private void schedulerControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
