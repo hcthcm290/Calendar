@@ -2051,16 +2051,16 @@ namespace Calender
             if (pi.priority == PriorityEnum.medium)
             {
                 themeColor = Color.FromArgb(248, 221, 148);
-                textColor = Color.FromArgb(152, 135, 91);
+                textColor = Color.FromArgb(106, 103, 69);
             }
             if (pi.priority == PriorityEnum.high)
             {
                 themeColor = Color.FromArgb(225, 113, 125);
-                textColor = Color.FromArgb(141, 71, 78);
+                textColor = Color.FromArgb(87, 44, 48);
             }
             e.Cache.FillRectangle(new SolidBrush(themeColor), e.Bounds);
             e.DrawStatusDefault();
-            e.Cache.DrawString(pi.title, new Font("Segoe UI", 12f), new SolidBrush(textColor),
+            e.Cache.DrawString(pi.title, new Font("Segoe UI", 11f, FontStyle.Bold), new SolidBrush(textColor),
                 new Rectangle(e.Bounds.X + 10, e.Bounds.Y + 10, e.Bounds.Width, e.Bounds.Height),
                 StringFormat.GenericTypographic);
             e.Handled = true;
@@ -2090,11 +2090,11 @@ namespace Calender
             }
             if (pi.priority == PriorityEnum.medium)
             {
-                textColor = Color.FromArgb(152, 135, 91);
+                textColor = Color.FromArgb(106, 103, 69);
             }
             if (pi.priority == PriorityEnum.high)
             {
-                textColor = Color.FromArgb(141, 71, 78);
+                textColor = Color.FromArgb(87, 44, 48);
             }
 
             Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 5, viewInfo.InnerBounds.Y,
