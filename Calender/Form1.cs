@@ -737,6 +737,7 @@ namespace Calender
                                 jobsDoneInEachDay[endMonth, endDay]++;
                                 jobsDoneInEachDay[startMonth, 0]++;
                                 jobsDoneInEachDay[endMonth, 0]++;
+                                allDoneJobs++;
                             }
                             else
                             {
@@ -745,6 +746,7 @@ namespace Calender
                                     jobsDoneInEachDay[startMonth, startDay]++;
                                     jobsDoneInEachDay[startMonth, endDay]++;
                                     jobsDoneInEachDay[startMonth, 0] += 2;
+                                    allDoneJobs++;
                                 }
                                 else
                                 {
