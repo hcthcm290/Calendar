@@ -157,7 +157,6 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
@@ -165,6 +164,7 @@ namespace Calender
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Controls.Add(this.pnlStatistics);
+            this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.panel2.Location = new System.Drawing.Point(563, 3);
@@ -190,6 +190,11 @@ namespace Calender
             // schedulerControl1
             // 
             this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.FullWeek;
+            this.schedulerControl1.Appearance.Appointment.BackColor2 = System.Drawing.SystemColors.Control;
+            this.schedulerControl1.Appearance.Appointment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedulerControl1.Appearance.Appointment.ForeColor = System.Drawing.SystemColors.Control;
+            this.schedulerControl1.Appearance.Appointment.Options.UseFont = true;
+            this.schedulerControl1.Appearance.Appointment.Options.UseForeColor = true;
             this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerControl1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
@@ -210,11 +215,14 @@ namespace Calender
             this.schedulerControl1.Views.TimelineView.Enabled = false;
             this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             this.schedulerControl1.AllowAppointmentDrag += new DevExpress.XtraScheduler.AppointmentOperationEventHandler(this.schedulerControl1_AllowAppointmentDrag);
-            this.schedulerControl1.AppointmentDrag += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrag);
             this.schedulerControl1.PopupMenuShowing += new DevExpress.XtraScheduler.PopupMenuShowingEventHandler(this.schedulerControl1_PopupMenuShowing);
+            this.schedulerControl1.CustomizeAppointmentFlyout += new DevExpress.XtraScheduler.CustomizeAppointmentFlyoutEventHandler(this.schedulerControl1_CustomizeAppointmentFlyout);
             this.schedulerControl1.EditAppointmentFormShowing += new DevExpress.XtraScheduler.AppointmentFormEventHandler(this.schedulerControl1_EditAppointmentFormShowing);
             this.schedulerControl1.EditAppointmentDependencyFormShowing += new DevExpress.XtraScheduler.AppointmentDependencyFormEventHandler(this.schedulerControl1_EditAppointmentDependencyFormShowing);
+            this.schedulerControl1.CustomDrawAppointment += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointment);
+            this.schedulerControl1.CustomDrawAppointmentFlyoutSubject += new DevExpress.XtraScheduler.CustomDrawAppointmentFlyoutSubjectEventHandler(this.schedulerControl1_CustomDrawAppointmentFlyoutSubject);
             this.schedulerControl1.CustomDrawAppointmentBackground += new DevExpress.XtraScheduler.CustomDrawObjectEventHandler(this.schedulerControl1_CustomDrawAppointmentBackground);
+            this.schedulerControl1.Click += new System.EventHandler(this.schedulerControl1_Click);
             this.schedulerControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.schedulerControl1_MouseMove);
             // 
             // nextmonth

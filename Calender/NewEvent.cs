@@ -327,6 +327,7 @@ namespace Calender
             if (titleTB.ForeColor != SystemColors.ControlText)
             {
                 errorProvider2.SetError(titleTB, "Title cannnot be blank");
+                errorProvider2.SetIconPadding(titleTB, 7);
                 title = "";
                 return;
             }
@@ -554,6 +555,7 @@ namespace Calender
             if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
             {
                 errorProvider1.SetError(startDateDE, "Start date cannot after end date");
+                errorProvider1.SetIconPadding(startDateDE, 7);
             }
             else
             {
@@ -567,6 +569,7 @@ namespace Calender
             if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
             {
                 errorProvider1.SetError(endDateDE, "End date cannot less than start date");
+                errorProvider1.SetIconPadding(startDateDE, 7);
             }
             else
             {
@@ -656,6 +659,7 @@ namespace Calender
                startTimeTP.Value >= endTimeTP.Value)
             {
                 errorProvider1.SetError(endTimeTP, "End time must after start time");
+                errorProvider1.SetIconPadding(startDateDE, 7);
             }
             else
             {
@@ -707,6 +711,7 @@ namespace Calender
 
         private void applyLB_Click(object sender, EventArgs e)
         {
+            this.panel1.Focus();
             SaveButton_Click(sender, e);
         }
 
