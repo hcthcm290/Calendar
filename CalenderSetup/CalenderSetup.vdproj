@@ -2589,7 +2589,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1D9B4D6E8A0F4062AB58C2275B3981F0"
             {
-            "SourcePath" = "8:..\\Calender\\obj\\Release\\Calender.exe"
+            "SourcePath" = "8:..\\Calender\\obj\\Debug\\Calender.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
