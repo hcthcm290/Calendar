@@ -33,6 +33,7 @@ namespace Calender
         static public Color[] PriorityColorForDay = new Color[32];
         Color themeColor;
         Appointment focusedAppointment;
+        bool canClose;
 
         // data for chart & summary
         int[] jobsDoneInEachMonth;
@@ -173,6 +174,7 @@ namespace Calender
             mediumChB.Checked = Settings1.Default.mediumEmailNoti;
             highChB.Checked = Settings1.Default.highEmailNoti;
 
+            this.canClose = false;
         }
 
         void LoadDataToTimeTable()
@@ -415,6 +417,12 @@ namespace Calender
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeToXML(allPlan, filepath);
+            if (!canClose)
+            {
+                e.Cancel = true;
+                notifyIcon1.Visible = true;
+                Hide();
+            }
         }
 
         public void ReloadItemToDayView()
@@ -1268,6 +1276,18 @@ namespace Calender
         private void schedulerControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Show();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canClose = true;
+            this.Close();
         }
     }
 }
