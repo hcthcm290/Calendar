@@ -1791,6 +1791,7 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 1;
+            themeColor = c;
 
             sideBySideBarSeriesView1.Color = c;
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
@@ -1807,6 +1808,7 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 2;
+            themeColor = c;
 
             sideBySideBarSeriesView1.Color = c;
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
@@ -1823,6 +1825,7 @@ namespace Calender
             lblSave.ForeColor = c;
             label2.ForeColor = c;
             Settings1.Default.Theme = 3;
+            themeColor = c;
 
             sideBySideBarSeriesView1.Color = c;
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
@@ -1839,6 +1842,7 @@ namespace Calender
             label2.ForeColor = c;
             lblSave.ForeColor = c;
             Settings1.Default.Theme = 4;
+            themeColor = c;
 
             sideBySideBarSeriesView1.Color = c;
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
@@ -1880,6 +1884,7 @@ namespace Calender
             label2.ForeColor = c;
             sideBySideBarSeriesView1.Color = c;
             Settings1.Default.Theme = 3;
+            themeColor = c;
 
             if (cbbMonthly.Visible == true) lbMonthly.ForeColor = c;
             else lbYearly.ForeColor = c;
