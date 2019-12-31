@@ -14,6 +14,14 @@ namespace Calender
         }
     }
 
+    public class PairGroupItemComparer: IComparer<Tuple<GroupPlanItem, PlanItem>>
+    {
+        public int Compare(Tuple<GroupPlanItem, PlanItem> x, Tuple<GroupPlanItem, PlanItem> y)
+        {
+            return x.Item2.startTime.CompareTo(y.Item2.startTime);
+        }
+    }
+
     public class GroupPlanItem
     {
         public List<PlanItem> data = new List<PlanItem>();

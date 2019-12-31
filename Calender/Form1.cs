@@ -1294,16 +1294,25 @@ namespace Calender
         private void LoadItemToDayView(int year, int month, int day)
         {
             dayView.Controls.Clear();
-
             DateTime today = new DateTime(year, month, day);
             List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(today);
+            List<Tuple<GroupPlanItem, PlanItem>> pairItems = new List<Tuple<GroupPlanItem, PlanItem>>();
+            
             for (int i = 0; i < groups.Count; i++)
             {
                 List<PlanItem> items = groups[i].ListItemsForToday(today);
                 for (int j = 0; j < items.Count; j++)
                 {
-                    dayView.Controls.Add(new Item(groups[i], items[j], today, this));
+                    pairItems.Add(new Tuple<GroupPlanItem, PlanItem>(groups[i], items[j]));
                 }
+            }
+
+            PairGroupItemComparer pairGroupItemComparer = new PairGroupItemComparer();
+            pairItems.Sort(pairGroupItemComparer);
+
+            for (int i = 0; i < pairItems.Count; i++)
+            {
+                dayView.Controls.Add(new Item(pairItems[i].Item1, pairItems[i].Item2, today, this));
             }
         }
 
