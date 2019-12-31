@@ -1513,13 +1513,6 @@ namespace Calender
             }
         }
 
-        
-
-        private void schedulerControl1_AppointmentDrag(object sender, AppointmentDragEventArgs e)
-        {
-            e.Allow = false;
-        }
-
         private void schedulerControl1_AllowAppointmentDrag(object sender, AppointmentOperationEventArgs e)
         {
             e.Allow = false;
@@ -2109,18 +2102,7 @@ namespace Calender
             Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 5, viewInfo.InnerBounds.Y,
                 viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
 
-            //int statusDelta = 0;
-            //for (int i = 0; i < viewInfo.StatusItems.Count; i++)
-            //{
-            //    AppointmentViewInfoStatusItem statusItem = viewInfo.StatusItems[i] as AppointmentViewInfoStatusItem;
-            //    // Fill the status bar. 
-            //    e.Cache.FillRectangle(statusItem.BackgroundViewInfo.Brush, statusItem.BackgroundViewInfo.Bounds);
-            //    e.Cache.FillRectangle(statusItem.ForegroundViewInfo.Brush, statusItem.ForegroundViewInfo.Bounds);
-            //    // Draw the status bar rectangle. 
-            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.BackgroundViewInfo.Bounds);
-            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.ForegroundViewInfo.Bounds);
-            //    statusDelta = Math.Max(statusDelta, statusItem.Bounds.Width);
-            //}
+            
             // Draw the appointment caption text. 
             e.Cache.DrawString(viewInfo.DisplayText.Trim(), viewInfo.Appearance.Font,
                 new SolidBrush(textColor), mainContentBounds, StringFormat.GenericTypographic);
@@ -2140,7 +2122,7 @@ namespace Calender
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(117, 122, 129)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(151, 155, 160)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.medium)
             {
