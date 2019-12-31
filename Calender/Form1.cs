@@ -424,16 +424,25 @@ namespace Calender
         private void LoadItemToDayView(int year, int month, int day)
         {
             dayView.Controls.Clear();
-
             DateTime today = new DateTime(year, month, day);
             List<GroupPlanItem> groups = allPlan.ListGroupItemsForToday(today);
+            List<Tuple<GroupPlanItem, PlanItem>> pairItems = new List<Tuple<GroupPlanItem, PlanItem>>();
+            
             for (int i = 0; i < groups.Count; i++)
             {
                 List<PlanItem> items = groups[i].ListItemsForToday(today);
                 for (int j = 0; j < items.Count; j++)
                 {
-                    dayView.Controls.Add(new Item(groups[i], items[j], today, this));
+                    pairItems.Add(new Tuple<GroupPlanItem, PlanItem>(groups[i], items[j]));
                 }
+            }
+
+            PairGroupItemComparer pairGroupItemComparer = new PairGroupItemComparer();
+            pairItems.Sort(pairGroupItemComparer);
+
+            for (int i = 0; i < pairItems.Count; i++)
+            {
+                dayView.Controls.Add(new Item(pairItems[i].Item1, pairItems[i].Item2, today, this));
             }
         }
 
@@ -1223,18 +1232,7 @@ namespace Calender
             Rectangle mainContentBounds = new Rectangle(viewInfo.InnerBounds.X - 5, viewInfo.InnerBounds.Y,
                 viewInfo.InnerBounds.Width, viewInfo.InnerBounds.Height);
 
-            //int statusDelta = 0;
-            //for (int i = 0; i < viewInfo.StatusItems.Count; i++)
-            //{
-            //    AppointmentViewInfoStatusItem statusItem = viewInfo.StatusItems[i] as AppointmentViewInfoStatusItem;
-            //    // Fill the status bar. 
-            //    e.Cache.FillRectangle(statusItem.BackgroundViewInfo.Brush, statusItem.BackgroundViewInfo.Bounds);
-            //    e.Cache.FillRectangle(statusItem.ForegroundViewInfo.Brush, statusItem.ForegroundViewInfo.Bounds);
-            //    // Draw the status bar rectangle. 
-            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.BackgroundViewInfo.Bounds);
-            //    e.Cache.DrawRectangle(new Pen(statusItem.ForegroundViewInfo.BorderColor), statusItem.ForegroundViewInfo.Bounds);
-            //    statusDelta = Math.Max(statusDelta, statusItem.Bounds.Width);
-            //}
+            
             // Draw the appointment caption text. 
             e.Cache.DrawString(viewInfo.DisplayText.Trim(), viewInfo.Appearance.Font,
                 new SolidBrush(textColor), mainContentBounds, StringFormat.GenericTypographic);
@@ -1254,7 +1252,7 @@ namespace Calender
             PlanItem pi = (PlanItem)(viewInfo.Appointment.CustomFields["item"]);
             if (pi.priority == PriorityEnum.normal)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(117, 122, 129)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(151, 155, 160)), new Rectangle(viewInfo.Bounds.X, viewInfo.Bounds.Y, viewInfo.Bounds.Width, viewInfo.Bounds.Height));
             }
             if (pi.priority == PriorityEnum.medium)
             {
