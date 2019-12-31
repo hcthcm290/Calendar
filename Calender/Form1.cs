@@ -34,6 +34,7 @@ namespace Calender
         Color themeColor;
         Appointment focusedAppointment;
         bool canClose;
+        bool menuStripCanClose;
 
         // data for chart & summary
         int[] jobsDoneInEachMonth;
@@ -154,12 +155,14 @@ namespace Calender
                 alertOff.Visible = false;
                 alertOn.Visible = true;
                 notificationStatusLB.Text = "On";
+                notifycationToolStripMenuItem.Checked = true;
             }
             else
             {
                 alertOff.Visible = true;
                 alertOn.Visible = false;
                 notificationStatusLB.Text = "Off";
+                notifycationToolStripMenuItem.Checked = false;
             }
 
             // 3: load email address
@@ -174,7 +177,11 @@ namespace Calender
             mediumChB.Checked = Settings1.Default.mediumEmailNoti;
             highChB.Checked = Settings1.Default.highEmailNoti;
 
+            // set can close for the form, form only close when close is click in item in tray bar
             this.canClose = false;
+
+            // Use this for selected certain of MenuStripItem that allow MenuStrip to close
+            menuStripCanClose = false;
         }
 
         void LoadDataToTimeTable()
@@ -422,6 +429,7 @@ namespace Calender
                 e.Cancel = true;
                 notifyIcon1.Visible = true;
                 Hide();
+                menuStripCanClose = false;
             }
         }
 
@@ -1289,12 +1297,35 @@ namespace Calender
         {
             notifyIcon1.Visible = false;
             Show();
+            menuStripCanClose = true;
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             canClose = true;
             this.Close();
+        }
+
+        private void notifycationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            notifycationToolStripMenuItem.Checked = !notifycationToolStripMenuItem.Checked;
+            if(notifycationToolStripMenuItem.Checked)
+            {
+                alertOff_Click(sender, e);
+            }
+            else
+            {
+                alertOn_Click(sender, e);
+            }
+            menuStripCanClose = false;
+        }
+
+        private void notifyIconMenuStrip_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            if(!menuStripCanClose)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
