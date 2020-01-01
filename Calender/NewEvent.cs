@@ -319,7 +319,8 @@ namespace Calender
 
             if (end <= start)
             {
-                ToolTip error = new ToolTip();
+                errorProvider1.SetError(endTimeTP, "End time must after start time");
+                errorProvider1.SetIconPadding(startDateDE, 7);
                 return;
             }
 

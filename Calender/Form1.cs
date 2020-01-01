@@ -19,6 +19,7 @@ using DevExpress.Utils.Drawing;
 using Microsoft.Win32;
 using System.Security.AccessControl;
 using System.Xml;
+using System.Security.Principal;
 
 namespace Calender
 {
@@ -45,7 +46,24 @@ namespace Calender
 
         private static readonly string StartupKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         private static readonly string StartupValue = "Calender";
+        public static void AddDirectorySecurity(string FileName, string Account, FileSystemRights Rights, AccessControlType ControlType)
+        {
+            // Create a new DirectoryInfo object.
+            DirectoryInfo dInfo = new DirectoryInfo(FileName);
 
+            // Get a DirectorySecurity object that represents the 
+            // current security settings.
+            DirectorySecurity dSecurity = dInfo.GetAccessControl();
+
+            // Add the FileSystemAccessRule to the security settings. 
+            dSecurity.AddAccessRule(new FileSystemAccessRule(Account,
+                                                            Rights,
+                                                            ControlType));
+
+            // Set the new access settings.
+            dInfo.SetAccessControl(dSecurity);
+
+        }
 
         public Form1()
         {
@@ -63,7 +81,8 @@ namespace Calender
             {
 
             }
-            //key.SetValue(StartupValue, Application.ExecutablePath.ToString());
+
+            Console.ReadLine();
 
             jobsDoneInEachMonth = new int[13];
             jobsDoneInEachDay = new int[13,32];
@@ -94,7 +113,7 @@ namespace Calender
             this.PresentMonth.Text = Months.ToString();
             try
             {
-                allPlan = (PlanData)DeserializeFromXML(Application.StartupPath + "\\" + filepath);
+                allPlan = (PlanData)DeserializeFromXML(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + filepath);
             }
             catch
             {
@@ -132,6 +151,8 @@ namespace Calender
             // cbbYearly.Text & add year if in new year
             this.cbbYearly.Text = DateTime.Now.Year.ToString();
             AddYearForCombobox();
+
+            YearLabel.Text = Year.GetCurrentYear().ToString();
 
             // load setting
             // 1: load color
@@ -421,7 +442,6 @@ namespace Calender
             }
             catch
             {
-                MessageBox.Show("error open");
                 fs.Close();
                 return null;
             }
@@ -442,7 +462,7 @@ namespace Calender
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeToXML(allPlan,Application.StartupPath + "\\" + filepath);
+            SerializeToXML(allPlan,Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + filepath);
             if (!canClose)
             {
                 e.Cancel = true;
