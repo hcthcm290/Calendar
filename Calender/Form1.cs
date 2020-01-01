@@ -18,6 +18,7 @@ using DevExpress.XtraScheduler.Drawing;
 using DevExpress.Utils.Drawing;
 using Microsoft.Win32;
 using System.Security.AccessControl;
+using System.Xml;
 
 namespace Calender
 {
@@ -48,8 +49,21 @@ namespace Calender
 
         public Form1()
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
-            key.SetValue(StartupValue, Application.ExecutablePath.ToString());
+            RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\Calender");
+
+            RegistryKey regstart = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+
+            string keyvalue = "1";
+            try
+            {
+                regkey.SetValue("Index", keyvalue);
+                regstart.SetValue("Calender", Application.StartupPath + "\\Calender.exe");
+            }
+            catch(System.Exception e)
+            {
+
+            }
+            //key.SetValue(StartupValue, Application.ExecutablePath.ToString());
 
             jobsDoneInEachMonth = new int[13];
             jobsDoneInEachDay = new int[13,32];
@@ -80,7 +94,7 @@ namespace Calender
             this.PresentMonth.Text = Months.ToString();
             try
             {
-                allPlan = (PlanData)DeserializeFromXML(filepath);
+                allPlan = (PlanData)DeserializeFromXML(Application.StartupPath + "\\" + filepath);
             }
             catch
             {
@@ -407,6 +421,7 @@ namespace Calender
             }
             catch
             {
+                MessageBox.Show("error open");
                 fs.Close();
                 return null;
             }
@@ -414,7 +429,11 @@ namespace Calender
 
         private void SerializeToXML(object data, string filepath)
         {
-            File.Delete(filepath);
+            using (StringWriter str = new StringWriter())
+            using (XmlTextWriter xml = new XmlTextWriter(filepath, null))
+            {
+                xml.Flush();
+            }
             FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate, FileAccess.Write);
             XmlSerializer sr = new XmlSerializer(typeof(PlanData));
             sr.Serialize(fs, allPlan);
@@ -423,7 +442,7 @@ namespace Calender
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeToXML(allPlan, filepath);
+            SerializeToXML(allPlan,Application.StartupPath + "\\" + filepath);
             if (!canClose)
             {
                 e.Cancel = true;
