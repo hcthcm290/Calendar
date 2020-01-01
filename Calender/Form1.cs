@@ -44,26 +44,10 @@ namespace Calender
         int allDoneJobs;
         int jobsDoneToday;
 
-        private static readonly string StartupKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
-        private static readonly string StartupValue = "Calender";
-        public static void AddDirectorySecurity(string FileName, string Account, FileSystemRights Rights, AccessControlType ControlType)
-        {
-            // Create a new DirectoryInfo object.
-            DirectoryInfo dInfo = new DirectoryInfo(FileName);
-
-            // Get a DirectorySecurity object that represents the 
-            // current security settings.
-            DirectorySecurity dSecurity = dInfo.GetAccessControl();
-
-            // Add the FileSystemAccessRule to the security settings. 
-            dSecurity.AddAccessRule(new FileSystemAccessRule(Account,
-                                                            Rights,
-                                                            ControlType));
-
-            // Set the new access settings.
-            dInfo.SetAccessControl(dSecurity);
-
-        }
+        ContextMenu cm;
+        MenuItem openMenuItem;
+        MenuItem notificationMenuItem;
+        MenuItem closeMenuItem;
 
         public Form1()
         {
@@ -82,8 +66,6 @@ namespace Calender
 
             }
 
-            Console.ReadLine();
-
             jobsDoneInEachMonth = new int[13];
             jobsDoneInEachDay = new int[13,32];
             allDoneJobs = 0;
@@ -92,6 +74,18 @@ namespace Calender
             Year.SyncYear();
             Months.SyncMonth();
             InitializeComponent();
+
+            // init context menu for notify icon
+            cm = new ContextMenu();
+            openMenuItem = new MenuItem("Open", openToolStripMenuItem_Click);
+            notificationMenuItem = new MenuItem("Notification", notifycationToolStripMenuItem_Click);
+            closeMenuItem = new MenuItem("Close", closeToolStripMenuItem_Click);
+            //cm.Collapse += 
+            cm.MenuItems.Add(openMenuItem);
+            cm.MenuItems.Add(notificationMenuItem);
+            cm.MenuItems.Add("----------");
+            cm.MenuItems.Add(closeMenuItem);
+            notifyIcon1.ContextMenu = cm;
 
             // init series for chart control
             series1 = new DevExpress.XtraCharts.Series();
@@ -190,14 +184,14 @@ namespace Calender
                 alertOff.Visible = false;
                 alertOn.Visible = true;
                 notificationStatusLB.Text = "On";
-                notifycationToolStripMenuItem.Checked = true;
+                notificationMenuItem.Checked = true;
             }
             else
             {
                 alertOff.Visible = true;
                 alertOn.Visible = false;
                 notificationStatusLB.Text = "Off";
-                notifycationToolStripMenuItem.Checked = false;
+                notificationMenuItem.Checked = false;
             }
 
             // 3: load email address
@@ -1347,8 +1341,8 @@ namespace Calender
 
         private void notifycationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            notifycationToolStripMenuItem.Checked = !notifycationToolStripMenuItem.Checked;
-            if(notifycationToolStripMenuItem.Checked)
+            notificationMenuItem.Checked = !notificationMenuItem.Checked;
+            if(notificationMenuItem.Checked)
             {
                 alertOff_Click(sender, e);
             }
@@ -1357,14 +1351,6 @@ namespace Calender
                 alertOn_Click(sender, e);
             }
             menuStripCanClose = false;
-        }
-
-        private void notifyIconMenuStrip_Closing(object sender, ToolStripDropDownClosingEventArgs e)
-        {
-            if(!menuStripCanClose)
-            {
-                e.Cancel = true;
-            }
         }
     }
 }
