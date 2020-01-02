@@ -679,7 +679,7 @@ namespace Calender
                 SmtpClient smtp = new SmtpClient("Calender");
 
                 message.From = new MailAddress("Dragonnica123@gmail.com");
-                message.To.Add(new MailAddress("18520359@gm.uit.edu.vn"));
+                message.To.Add(new MailAddress(Settings1.Default.Email));
                 message.Subject = "Auto Mail Notification";
                 message.Body = body;
                 message.IsBodyHtml = false;
@@ -688,7 +688,7 @@ namespace Calender
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("Dragonnica123@gmail.com", "boibgvjhajhklevo");
+                smtp.Credentials = new NetworkCredential("calender.auto.notification@gmail.com", "ewxhttwaandlzvcd");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
             }
