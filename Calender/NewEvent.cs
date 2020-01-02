@@ -328,7 +328,7 @@ namespace Calender
             if (titleTB.ForeColor != SystemColors.ControlText)
             {
                 errorProvider2.SetError(titleTB, "Title cannnot be blank");
-                errorProvider2.SetIconPadding(titleTB, 7);
+                errorProvider2.SetIconPadding(titleTB, 14);
                 title = "";
                 return;
             }

@@ -235,9 +235,12 @@
     <None Include="Resources\noti.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\calender-iocn.ico" />
     <Content Include="Resources\check.png" />
     <Content Include="Resources\ClockPicker.dll" />
     <Content Include="Resources\error.ico" />
+    <Content Include="Resources\final error tick.ico" />
+    <Content Include="Resources\final error tick.png" />
     <Content Include="Resources\ok-icon.ico" />
     <None Include="Resources\tick.png" />
   </ItemGroup>
