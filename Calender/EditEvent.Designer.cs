@@ -177,7 +177,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(384, 613);
             this.Name = "EditEvent";
-            this.Text = "EditEvent";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

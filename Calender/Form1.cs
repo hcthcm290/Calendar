@@ -576,10 +576,12 @@ namespace Calender
                            (alertForToday[i].priority == PriorityEnum.medium && Settings1.Default.mediumEmailNoti == true) ||
                            (alertForToday[i].priority == PriorityEnum.high && Settings1.Default.highEmailNoti == true))
                         {
-                            SendEmailNotification("You have an upcoming task" + Environment.NewLine +
-                                                  "Name: " + alertForToday[i].title + Environment.NewLine + 
-                                                  "At " + alertForToday[i].location + Environment.NewLine +
-                                                  "Notes: " + alertForToday[i].note);
+                            SendEmailNotification("YOU HAVE AN UPCOMING EVENT" + Environment.NewLine + Environment.NewLine + 
+                                                  "Name:        " + alertForToday[i].title + Environment.NewLine +
+                                                  "Location:    " + alertForToday[i].location + Environment.NewLine +
+                                                  "Start at:    " + alertForToday[i].startTime.ToString() + Environment.NewLine +
+                                                  "End at:      " + alertForToday[i].endTime.ToString() + Environment.NewLine +
+                                                  "Notes:       " + alertForToday[i].note);
                         }
                     }
                 }
@@ -674,13 +676,13 @@ namespace Calender
         private void SendEmailNotification(string body)
         {
             try
-            {
+           {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient("Calender");
 
-                message.From = new MailAddress("Dragonnica123@gmail.com");
+                message.From = new MailAddress("calender.auto.notification@gmail.com");
                 message.To.Add(new MailAddress(Settings1.Default.Email));
-                message.Subject = "Auto Mail Notification";
+                message.Subject = "Calender Notification - You have an upcoming event";
                 message.Body = body;
                 message.IsBodyHtml = false;
 
