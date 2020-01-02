@@ -157,13 +157,13 @@ namespace Calender
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pnlStatistics);
             this.panel2.Controls.Add(this.nextmonth);
             this.panel2.Controls.Add(this.prevmonth);
             this.panel2.Controls.Add(this.PresentMonth);
             this.panel2.Controls.Add(this.YearLabel);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.menuStrip1);
-            this.panel2.Controls.Add(this.pnlStatistics);
             this.panel2.Controls.Add(this.TimeTablePanel);
             this.panel2.Controls.Add(this.SettingPanel);
             this.panel2.ForeColor = System.Drawing.Color.DarkOrange;
@@ -224,7 +224,7 @@ namespace Calender
             this.YearLabel.Font = new System.Drawing.Font("Segoe UI Black", 96F, System.Drawing.FontStyle.Bold);
             this.YearLabel.Location = new System.Drawing.Point(292, 57);
             this.YearLabel.Name = "YearLabel";
-            this.YearLabel.Size = new System.Drawing.Size(545, 254);
+            this.YearLabel.Size = new System.Drawing.Size(365, 170);
             this.YearLabel.TabIndex = 6;
             this.YearLabel.Text = "2019";
             this.YearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -257,7 +257,7 @@ namespace Calender
             this.label8.Location = new System.Drawing.Point(486, 27);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 48);
+            this.label8.Size = new System.Drawing.Size(62, 32);
             this.label8.TabIndex = 6;
             this.label8.Text = "SAT";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -271,7 +271,7 @@ namespace Calender
             this.label7.Location = new System.Drawing.Point(427, 27);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 48);
+            this.label7.Size = new System.Drawing.Size(52, 32);
             this.label7.TabIndex = 5;
             this.label7.Text = "FRI";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,7 +285,7 @@ namespace Calender
             this.label6.Location = new System.Drawing.Point(353, 27);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 48);
+            this.label6.Size = new System.Drawing.Size(67, 32);
             this.label6.TabIndex = 4;
             this.label6.Text = "THU";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,7 +299,7 @@ namespace Calender
             this.label5.Location = new System.Drawing.Point(275, 27);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 48);
+            this.label5.Size = new System.Drawing.Size(71, 32);
             this.label5.TabIndex = 3;
             this.label5.Text = "WED";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -313,7 +313,7 @@ namespace Calender
             this.label4.Location = new System.Drawing.Point(201, 27);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 48);
+            this.label4.Size = new System.Drawing.Size(61, 32);
             this.label4.TabIndex = 2;
             this.label4.Text = "TUE";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -327,7 +327,7 @@ namespace Calender
             this.label3.Location = new System.Drawing.Point(115, 27);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 48);
+            this.label3.Size = new System.Drawing.Size(76, 32);
             this.label3.TabIndex = 1;
             this.label3.Text = "MON";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,7 +341,7 @@ namespace Calender
             this.label2.Location = new System.Drawing.Point(39, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 48);
+            this.label2.Size = new System.Drawing.Size(66, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "SUN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,7 +351,6 @@ namespace Calender
             this.menuStrip1.AllowMerge = false;
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calendarToolStripMenuItem,
@@ -360,7 +359,7 @@ namespace Calender
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(707, 46);
+            this.menuStrip1.Size = new System.Drawing.Size(707, 33);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -370,7 +369,7 @@ namespace Calender
             this.calendarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.calendarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
-            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(142, 42);
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
             this.calendarToolStripMenuItem.Text = "Calendar";
             this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
             // 
@@ -380,7 +379,7 @@ namespace Calender
             this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.timetableToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
-            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(155, 42);
+            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
             this.timetableToolStripMenuItem.Text = "Timetable";
             this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
             // 
@@ -390,7 +389,7 @@ namespace Calender
             this.statisticsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.statisticsToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.statisticsToolStripMenuItem1.Name = "statisticsToolStripMenuItem1";
-            this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(139, 42);
+            this.statisticsToolStripMenuItem1.Size = new System.Drawing.Size(96, 29);
             this.statisticsToolStripMenuItem1.Text = "Statistics";
             this.statisticsToolStripMenuItem1.Click += new System.EventHandler(this.StatisticsToolStripMenuItem1_Click);
             // 
@@ -400,7 +399,7 @@ namespace Calender
             this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(132, 42);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -447,7 +446,7 @@ namespace Calender
             "12"});
             this.cbbMonthly.Location = new System.Drawing.Point(535, 180);
             this.cbbMonthly.Name = "cbbMonthly";
-            this.cbbMonthly.Size = new System.Drawing.Size(43, 40);
+            this.cbbMonthly.Size = new System.Drawing.Size(43, 29);
             this.cbbMonthly.TabIndex = 15;
             this.cbbMonthly.Text = "12";
             this.cbbMonthly.Visible = false;
@@ -460,7 +459,7 @@ namespace Calender
             this.lbMonthly.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lbMonthly.Location = new System.Drawing.Point(193, 189);
             this.lbMonthly.Name = "lbMonthly";
-            this.lbMonthly.Size = new System.Drawing.Size(81, 28);
+            this.lbMonthly.Size = new System.Drawing.Size(56, 19);
             this.lbMonthly.TabIndex = 14;
             this.lbMonthly.Text = "Monthly";
             this.lbMonthly.Click += new System.EventHandler(this.lbMonthly_Click);
@@ -473,7 +472,7 @@ namespace Calender
             this.lbYearly.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.lbYearly.Location = new System.Drawing.Point(193, 172);
             this.lbYearly.Name = "lbYearly";
-            this.lbYearly.Size = new System.Drawing.Size(73, 28);
+            this.lbYearly.Size = new System.Drawing.Size(52, 19);
             this.lbYearly.TabIndex = 13;
             this.lbYearly.Text = "Yearly";
             this.lbYearly.Click += new System.EventHandler(this.lbYearly_Click);
@@ -490,7 +489,7 @@ namespace Calender
             "2016"});
             this.cbbYearly.Location = new System.Drawing.Point(584, 180);
             this.cbbYearly.Name = "cbbYearly";
-            this.cbbYearly.Size = new System.Drawing.Size(63, 40);
+            this.cbbYearly.Size = new System.Drawing.Size(63, 29);
             this.cbbYearly.TabIndex = 12;
             this.cbbYearly.Text = "2019";
             this.cbbYearly.TextChanged += new System.EventHandler(this.cbbYearly_TextChanged);
@@ -525,7 +524,7 @@ namespace Calender
             this.lbReports.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReports.Location = new System.Drawing.Point(30, 163);
             this.lbReports.Name = "lbReports";
-            this.lbReports.Size = new System.Drawing.Size(238, 74);
+            this.lbReports.Size = new System.Drawing.Size(157, 50);
             this.lbReports.TabIndex = 8;
             this.lbReports.Text = "Reports";
             // 
@@ -535,7 +534,7 @@ namespace Calender
             this.sumday.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.sumday.Location = new System.Drawing.Point(454, 110);
             this.sumday.Name = "sumday";
-            this.sumday.Size = new System.Drawing.Size(49, 38);
+            this.sumday.Size = new System.Drawing.Size(34, 25);
             this.sumday.TabIndex = 6;
             this.sumday.Text = "20";
             // 
@@ -545,7 +544,7 @@ namespace Calender
             this.summonth.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.summonth.Location = new System.Drawing.Point(215, 110);
             this.summonth.Name = "summonth";
-            this.summonth.Size = new System.Drawing.Size(49, 38);
+            this.summonth.Size = new System.Drawing.Size(34, 25);
             this.summonth.TabIndex = 5;
             this.summonth.Text = "20";
             // 
@@ -555,7 +554,7 @@ namespace Calender
             this.sumall.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.sumall.Location = new System.Drawing.Point(34, 110);
             this.sumall.Name = "sumall";
-            this.sumall.Size = new System.Drawing.Size(49, 38);
+            this.sumall.Size = new System.Drawing.Size(34, 25);
             this.sumall.TabIndex = 4;
             this.sumall.Text = "20";
             // 
@@ -565,7 +564,7 @@ namespace Calender
             this.label17.Font = new System.Drawing.Font("Segoe UI Light", 14F);
             this.label17.Location = new System.Drawing.Point(454, 85);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(282, 38);
+            this.label17.Size = new System.Drawing.Size(193, 25);
             this.label17.TabIndex = 3;
             this.label17.Text = "Tasks completed today";
             // 
@@ -575,7 +574,7 @@ namespace Calender
             this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14F);
             this.label16.Location = new System.Drawing.Point(34, 85);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(244, 38);
+            this.label16.Size = new System.Drawing.Size(166, 25);
             this.label16.TabIndex = 2;
             this.label16.Text = "All completed tasks";
             // 
@@ -585,7 +584,7 @@ namespace Calender
             this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14F);
             this.label15.Location = new System.Drawing.Point(213, 85);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(340, 38);
+            this.label15.Size = new System.Drawing.Size(232, 25);
             this.label15.TabIndex = 1;
             this.label15.Text = "Tasks completed this month";
             this.label15.Click += new System.EventHandler(this.label15_Click);
@@ -596,7 +595,7 @@ namespace Calender
             this.lbSummary.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSummary.Location = new System.Drawing.Point(30, 20);
             this.lbSummary.Name = "lbSummary";
-            this.lbSummary.Size = new System.Drawing.Size(283, 74);
+            this.lbSummary.Size = new System.Drawing.Size(189, 50);
             this.lbSummary.TabIndex = 0;
             this.lbSummary.Text = "Summary";
             // 
@@ -631,7 +630,7 @@ namespace Calender
             this.schedulerControl1.OptionsBehavior.SelectOnRightClick = true;
             this.schedulerControl1.OptionsCustomization.AllowAppointmentDrag = DevExpress.XtraScheduler.UsedAppointmentType.None;
             this.schedulerControl1.Size = new System.Drawing.Size(707, 641);
-            this.schedulerControl1.Start = new System.DateTime(2019, 10, 13, 0, 0, 0, 0);
+            this.schedulerControl1.Start = new System.DateTime(2019, 10, 7, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.AgendaView.Enabled = false;
@@ -686,7 +685,7 @@ namespace Calender
             this.notificationStatusLB.ForeColor = System.Drawing.SystemColors.ControlText;
             this.notificationStatusLB.Location = new System.Drawing.Point(490, 195);
             this.notificationStatusLB.Name = "notificationStatusLB";
-            this.notificationStatusLB.Size = new System.Drawing.Size(55, 40);
+            this.notificationStatusLB.Size = new System.Drawing.Size(37, 25);
             this.notificationStatusLB.TabIndex = 18;
             this.notificationStatusLB.Text = "On";
             // 
@@ -758,7 +757,7 @@ namespace Calender
             this.highChB.Location = new System.Drawing.Point(392, 373);
             this.highChB.Name = "highChB";
             this.highChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.highChB.Size = new System.Drawing.Size(287, 42);
+            this.highChB.Size = new System.Drawing.Size(196, 29);
             this.highChB.TabIndex = 10;
             this.highChB.Text = "High priority events";
             this.highChB.UseVisualStyleBackColor = true;
@@ -772,7 +771,7 @@ namespace Calender
             this.mediumChB.Location = new System.Drawing.Point(362, 338);
             this.mediumChB.Name = "mediumChB";
             this.mediumChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mediumChB.Size = new System.Drawing.Size(331, 42);
+            this.mediumChB.Size = new System.Drawing.Size(226, 29);
             this.mediumChB.TabIndex = 9;
             this.mediumChB.Text = "Medium priority events";
             this.mediumChB.UseVisualStyleBackColor = true;
@@ -786,7 +785,7 @@ namespace Calender
             this.normalChB.Location = new System.Drawing.Point(369, 303);
             this.normalChB.Name = "normalChB";
             this.normalChB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.normalChB.Size = new System.Drawing.Size(320, 42);
+            this.normalChB.Size = new System.Drawing.Size(219, 29);
             this.normalChB.TabIndex = 8;
             this.normalChB.Text = "Normal priority events";
             this.normalChB.UseVisualStyleBackColor = true;
@@ -800,7 +799,7 @@ namespace Calender
             this.emailTB.Location = new System.Drawing.Point(242, 251);
             this.emailTB.Name = "emailTB";
             this.emailTB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.emailTB.Size = new System.Drawing.Size(345, 38);
+            this.emailTB.Size = new System.Drawing.Size(345, 25);
             this.emailTB.TabIndex = 7;
             this.emailTB.Text = "Type email here";
             this.emailTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -815,7 +814,7 @@ namespace Calender
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(76, 30);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(283, 86);
+            this.label10.Size = new System.Drawing.Size(190, 59);
             this.label10.TabIndex = 6;
             this.label10.Text = "Settings";
             // 
@@ -826,7 +825,7 @@ namespace Calender
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(81, 305);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(250, 38);
+            this.label9.Size = new System.Drawing.Size(167, 25);
             this.label9.TabIndex = 5;
             this.label9.Text = "Email notification";
             // 
@@ -837,7 +836,7 @@ namespace Calender
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(81, 250);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 38);
+            this.label13.Size = new System.Drawing.Size(59, 25);
             this.label13.TabIndex = 4;
             this.label13.Text = "Email";
             // 
@@ -848,7 +847,7 @@ namespace Calender
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(81, 195);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(175, 38);
+            this.label12.Size = new System.Drawing.Size(118, 25);
             this.label12.TabIndex = 3;
             this.label12.Text = "Notification";
             // 
@@ -859,7 +858,7 @@ namespace Calender
             this.themeLB.ForeColor = System.Drawing.Color.Black;
             this.themeLB.Location = new System.Drawing.Point(81, 140);
             this.themeLB.Name = "themeLB";
-            this.themeLB.Size = new System.Drawing.Size(106, 38);
+            this.themeLB.Size = new System.Drawing.Size(71, 25);
             this.themeLB.TabIndex = 2;
             this.themeLB.Text = "Theme";
             // 
@@ -870,7 +869,7 @@ namespace Calender
             this.lblSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.lblSave.Location = new System.Drawing.Point(539, 444);
             this.lblSave.Name = "lblSave";
-            this.lblSave.Size = new System.Drawing.Size(78, 38);
+            this.lblSave.Size = new System.Drawing.Size(53, 25);
             this.lblSave.TabIndex = 1;
             this.lblSave.Text = "Save";
             this.lblSave.Click += new System.EventHandler(this.lblSave_Click);
@@ -884,7 +883,7 @@ namespace Calender
             this.lblDefault.ForeColor = System.Drawing.Color.Black;
             this.lblDefault.Location = new System.Drawing.Point(371, 444);
             this.lblDefault.Name = "lblDefault";
-            this.lblDefault.Size = new System.Drawing.Size(211, 38);
+            this.lblDefault.Size = new System.Drawing.Size(143, 25);
             this.lblDefault.TabIndex = 0;
             this.lblDefault.Text = "Default settings";
             this.lblDefault.Click += new System.EventHandler(this.lblDefault_Click);
@@ -952,7 +951,7 @@ namespace Calender
             this.label1.Location = new System.Drawing.Point(19, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 96);
+            this.label1.Size = new System.Drawing.Size(163, 65);
             this.label1.TabIndex = 0;
             this.label1.Text = "Today";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -977,7 +976,7 @@ namespace Calender
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(169)))), ((int)(((byte)(119)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
@@ -990,7 +989,7 @@ namespace Calender
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1278, 678);
             this.Name = "Form1";
-            this.Text = "Calender";
+            this.Text = "Calender - More than just a Calendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);

@@ -100,6 +100,8 @@ namespace Calender
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             //xyDiagram1.AxisX.WholeRange.SetMinMaxValues(1, 31);
 
+            cbbMonthly.Text = DateTime.Now.Month.ToString();
+
             dayView.AutoScroll = true;
             if (dayView.VerticalScroll.Visible == true)
                 dayView.BackColor = Color.Black;
@@ -151,6 +153,10 @@ namespace Calender
             // load setting
             // 1: load color
             themeColor = Color.FromArgb(238, 197, 106);
+            if(Settings1.Default.Theme != 1 && Settings1.Default.Theme != 2 && Settings1.Default.Theme != 3 && Settings1.Default.Theme != 4)
+            {
+                Settings1.Default.Theme = 3;
+            }
             if (Settings1.Default.Theme == 1)
             {
                 themeColor = Color.FromArgb(112, 76, 161);
@@ -670,7 +676,7 @@ namespace Calender
             try
             {
                 MailMessage message = new MailMessage();
-                SmtpClient smtp = new SmtpClient();
+                SmtpClient smtp = new SmtpClient("Calender");
 
                 message.From = new MailAddress("Dragonnica123@gmail.com");
                 message.To.Add(new MailAddress("18520359@gm.uit.edu.vn"));
@@ -682,7 +688,7 @@ namespace Calender
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("Dragonnica123@gmail.com", "0964495600");
+                smtp.Credentials = new NetworkCredential("Dragonnica123@gmail.com", "boibgvjhajhklevo");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
             }
