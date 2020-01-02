@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.deleteLB = new System.Windows.Forms.Label();
             this.highTT = new System.Windows.Forms.ToolTip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties.CalendarTimeProperties)).BeginInit();
@@ -41,6 +43,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,6 +52,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.deleteLB);
             this.panel2.Controls.SetChildIndex(this.alertCB, 0);
             this.panel2.Controls.SetChildIndex(this.startDateDE, 0);
@@ -81,6 +86,8 @@
             this.panel2.Controls.SetChildIndex(this.applyLB, 0);
             this.panel2.Controls.SetChildIndex(this.cancelLB, 0);
             this.panel2.Controls.SetChildIndex(this.deleteLB, 0);
+            this.panel2.Controls.SetChildIndex(this.label4, 0);
+            this.panel2.Controls.SetChildIndex(this.label5, 0);
             // 
             // label9
             // 
@@ -149,6 +156,20 @@
             this.highTT.AutomaticDelay = 100;
             this.highTT.ShowAlways = true;
             // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(326, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 29);
+            this.label4.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(325, 214);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 29);
+            this.label5.TabIndex = 34;
+            // 
             // EditEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -169,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repeatEndDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,5 +199,7 @@
 
         private System.Windows.Forms.Label deleteLB;
         private System.Windows.Forms.ToolTip highTT;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
