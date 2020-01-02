@@ -87,6 +87,7 @@
             this.mediumTT = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertOn)).BeginInit();
@@ -99,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -671,6 +673,11 @@
             this.errorProvider2.ContainerControl = this;
             this.errorProvider2.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider2.Icon")));
             // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            this.errorProvider3.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider3.Icon")));
+            // 
             // New_Event
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -703,6 +710,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.startDateDE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -751,5 +759,6 @@
         protected System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }

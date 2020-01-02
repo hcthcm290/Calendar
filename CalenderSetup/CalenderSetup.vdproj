@@ -63,12 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1711C27AD4C947DEB293ED78A7420004"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1D9B4D6E8A0F4062AB58C2275B3981F0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -429,6 +423,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8C901C93151F4FC8A22259D60096E5BF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9329B9CD4248BEADD8AFCA9532103448"
         "OwnerKey" = "8:_FBC621F467226F677A38215FEB3CEE63"
         "MsmSig" = "8:_UNDEFINED"
@@ -615,6 +615,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A9AF56F9B35E5BCD0C384A84612ACD31"
+        "OwnerKey" = "8:_1D9B4D6E8A0F4062AB58C2275B3981F0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AEF7E00988115D77E8B785D1442B457C"
         "OwnerKey" = "8:_458E34C7900BCCBD2861D4A219B3394D"
         "MsmSig" = "8:_UNDEFINED"
@@ -795,12 +801,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D74713BA970ADEDB761824802C8918C2"
-        "OwnerKey" = "8:_1D9B4D6E8A0F4062AB58C2275B3981F0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_DD4E3D062BE54312920A2032210FBD1D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -892,7 +892,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D74713BA970ADEDB761824802C8918C2"
+        "OwnerKey" = "8:_A9AF56F9B35E5BCD0C384A84612ACD31"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1175,26 +1175,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1711C27AD4C947DEB293ED78A7420004"
-            {
-            "SourcePath" = "8:..\\Calender\\Resources\\ok-icon.ico"
-            "TargetName" = "8:ok-icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2271913A5DCB80F9877AADBF2C94567E"
@@ -1569,6 +1549,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C901C93151F4FC8A22259D60096E5BF"
+            {
+            "SourcePath" = "8:..\\Calender\\Resources\\calender-iocn.ico"
+            "TargetName" = "8:calender-iocn.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9329B9CD4248BEADD8AFCA9532103448"
             {
             "AssemblyRegister" = "3:1"
@@ -1645,6 +1645,37 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.Sparkline.v19.1.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A9AF56F9B35E5BCD0C384A84612ACD31"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ClockPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A9AF56F9B35E5BCD0C384A84612ACD31"
+                    {
+                    "Name" = "8:ClockPicker.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ClockPicker.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
@@ -1800,37 +1831,6 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.XtraBars.v19.1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D74713BA970ADEDB761824802C8918C2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ClockPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D74713BA970ADEDB761824802C8918C2"
-                    {
-                    "Name" = "8:ClockPicker.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ClockPicker.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
@@ -2091,7 +2091,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Calender"
         "ProductCode" = "8:{7B13A6BC-D246-456A-9FCE-ADD1FA499873}"
-        "PackageCode" = "8:{91F648F4-4EAB-418F-9C12-0CA924F66449}"
+        "PackageCode" = "8:{6BD5951B-ECBA-4DDD-8CB6-6A10D76FBFCE}"
         "UpgradeCode" = "8:{856E4CD0-FECC-4175-A77A-0F8DF7508FD6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -2211,7 +2211,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1D07A0893CCA4CB3834E3AA1A3B38AF1"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_805421223BCE4BB4BBB456378C564321"
             {
             "Name" = "8:Calender"
             "Arguments" = "8:"
@@ -2222,7 +2222,7 @@
             "Target" = "8:_1D9B4D6E8A0F4062AB58C2275B3981F0"
             "Folder" = "8:_58C959116B3540C8A959D90532AE8FA4"
             "WorkingFolder" = "8:_2ECC03ADB2A14E1A887166AE0C2CC647"
-            "Icon" = "8:_1711C27AD4C947DEB293ED78A7420004"
+            "Icon" = "8:_8C901C93151F4FC8A22259D60096E5BF"
             "Feature" = "8:"
             }
         }

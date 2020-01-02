@@ -320,7 +320,7 @@ namespace Calender
             if (end <= start)
             {
                 errorProvider1.SetError(endTimeTP, "End time must after start time");
-                errorProvider1.SetIconPadding(startDateDE, 7);
+                errorProvider1.SetIconPadding(startDateDE, 10);
                 return;
             }
 
@@ -361,7 +361,8 @@ namespace Calender
 
             if (repeatEnd < end)
             {
-                MessageBox.Show("The end for Repeat end must after the end of event");
+                errorProvider3.SetError(repeatEndDE, "Repeat End cannot before the start date");
+                errorProvider3.SetIconPadding(startDateDE, 14);
                 return;
             }
 
@@ -556,7 +557,7 @@ namespace Calender
             if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
             {
                 errorProvider1.SetError(startDateDE, "Start date cannot after end date");
-                errorProvider1.SetIconPadding(startDateDE, 7);
+                errorProvider1.SetIconPadding(startDateDE, 14);
             }
             else
             {
@@ -570,7 +571,7 @@ namespace Calender
             if (startDateDE.DateTime.Date > endDateDE.DateTime.Date)
             {
                 errorProvider1.SetError(endDateDE, "End date cannot less than start date");
-                errorProvider1.SetIconPadding(startDateDE, 7);
+                errorProvider1.SetIconPadding(startDateDE, 14);
             }
             else
             {
@@ -676,6 +677,18 @@ namespace Calender
 
         private void repeatEndDE_EditValueChanged(object sender, EventArgs e)
         {
+            if(repeatEndDE.Visible == true)
+            {
+                if(repeatEndDE.DateTime.Date < endDateDE.DateTime.Date)
+                {
+                    errorProvider3.SetError(repeatEndDE, "Repeat End cannot before the start date");
+                    errorProvider3.SetIconPadding(repeatEndDE, 14);
+                }
+                else
+                {
+                    errorProvider3.Clear();
+                }
+            }
             priorityLB.Focus();
         }
 
